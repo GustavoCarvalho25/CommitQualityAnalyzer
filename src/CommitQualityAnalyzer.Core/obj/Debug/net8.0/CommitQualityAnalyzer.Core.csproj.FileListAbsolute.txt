@@ -1,0 +1,12 @@
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\bin\Debug\net8.0\CommitQualityAnalyzer.Core.deps.json
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\bin\Debug\net8.0\CommitQualityAnalyzer.Core.dll
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\bin\Debug\net8.0\CommitQualityAnalyzer.Core.pdb
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.AssemblyInfoInputs.cache
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.AssemblyInfo.cs
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.csproj.CoreCompileInputs.cache
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.dll
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\refint\CommitQualityAnalyzer.Core.dll
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.pdb
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\ref\CommitQualityAnalyzer.Core.dll
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.csproj.AssemblyReference.cache
