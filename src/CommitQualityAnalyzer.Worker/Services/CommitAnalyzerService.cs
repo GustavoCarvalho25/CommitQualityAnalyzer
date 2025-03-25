@@ -5,6 +5,7 @@ using CommitQualityAnalyzer.Core.Repositories;
 using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace CommitQualityAnalyzer.Worker.Services
 {
@@ -13,15 +14,18 @@ namespace CommitQualityAnalyzer.Worker.Services
         private readonly string _repoPath;
         private readonly ILogger<CommitAnalyzerService> _logger;
         private readonly ICodeAnalysisRepository _repository;
+        private readonly IConfiguration _configuration;
 
         public CommitAnalyzerService(
             string repoPath, 
             ILogger<CommitAnalyzerService> logger,
-            ICodeAnalysisRepository repository)
+            ICodeAnalysisRepository repository,
+            IConfiguration configuration)
         {
             _repoPath = repoPath;
             _logger = logger;
             _repository = repository;
+            _configuration = configuration;
         }
 
         public async Task AnalyzeLastDayCommits()
@@ -164,10 +168,14 @@ Responda APENAS com o JSON, sem texto adicional antes ou depois. Seja bem criter
             {
                 _logger.LogInformation("Iniciando análise com CodeLlama");
                 
+                var containerName = _configuration.GetValue<string>("Ollama:DockerContainerName") ?? "ollama";
+                var modelName = _configuration.GetValue<string>("Ollama:ModelName") ?? "codellama";
+                var timeoutMinutes = _configuration.GetValue<int>("Ollama:TimeoutMinutes", 2);
+                
                 var startInfo = new ProcessStartInfo
                 {
                     FileName = "docker",
-                    Arguments = $"exec ollama ollama run codellama \"{input.Replace("\"", "\\\"")}\"",
+                    Arguments = $"exec {containerName} ollama run {modelName} \"{input.Replace("\"", "\\\"")}\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,
@@ -181,7 +189,7 @@ Responda APENAS com o JSON, sem texto adicional antes ou depois. Seja bem criter
                     return string.Empty;
                 }
 
-                using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2));
+                using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(timeoutMinutes));
                 
                 try
                 {
@@ -189,9 +197,9 @@ Responda APENAS com o JSON, sem texto adicional antes ou depois. Seja bem criter
                     var errorTask = process.StandardError.ReadToEndAsync();
                     
                     var processExitTask = Task.Run(() => process.WaitForExit());
-                    if (await Task.WhenAny(processExitTask, Task.Delay(TimeSpan.FromMinutes(2))) != processExitTask)
+                    if (await Task.WhenAny(processExitTask, Task.Delay(TimeSpan.FromMinutes(timeoutMinutes))) != processExitTask)
                     {
-                        _logger.LogError("Timeout ao executar CodeLlama (2 minutos)");
+                        _logger.LogError($"Timeout ao executar CodeLlama ({timeoutMinutes} minutos)");
                         try { process.Kill(); } catch { }
                         return string.Empty;
                     }

@@ -13,25 +13,15 @@ namespace CommitQualityAnalyzer.Worker
         {
             var builder = Host.CreateApplicationBuilder(args);
 
-            // Configurar o caminho do repositório
-            var repoPath = "D:\\Estudos\\Projects\\DevFreela";
-
-            // Configurar a conexão com o MongoDB
-            var configuration = new ConfigurationBuilder()
-                .AddInMemoryCollection(new Dictionary<string, string?>
-                {
-                    {"ConnectionStrings:MongoDB", "mongodb://admin:admin123@localhost:27017"}
-                })
-                .Build();
-
-            builder.Services.AddSingleton<IConfiguration>(configuration);
-
+            // Configurações são carregadas automaticamente do appsettings.json pelo CreateApplicationBuilder
+            
             // Registrar serviços
             builder.Services.AddSingleton<ICodeAnalysisRepository, MongoCodeAnalysisRepository>();
             builder.Services.AddSingleton(sp => new CommitAnalyzerService(
-                repoPath,
+                sp.GetRequiredService<IConfiguration>().GetValue<string>("GitRepository:Path"),
                 sp.GetRequiredService<ILogger<CommitAnalyzerService>>(),
-                sp.GetRequiredService<ICodeAnalysisRepository>()
+                sp.GetRequiredService<ICodeAnalysisRepository>(),
+                sp.GetRequiredService<IConfiguration>()
             ));
 
             var host = builder.Build();
