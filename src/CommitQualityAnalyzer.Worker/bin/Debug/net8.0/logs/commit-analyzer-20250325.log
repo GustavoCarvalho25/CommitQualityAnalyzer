@@ -1,0 +1,515 @@
+2025-03-25 17:33:07.836 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 17:33:08.081 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 17:33:08.125 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T17:33:08.0895224-03:00"
+2025-03-25 17:33:08.129 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 17:33:08.145 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 17:33:08.152 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:33:08.154 -03:00 [INF] Iniciando análise de código para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:33:08.156 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:35:29.660 -03:00 [ERR] Erro ao executar CodeLlama: ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ 
+2025-03-25 17:36:09.373 -03:00 [INF] CodeLlama retornou análise: ```json
+{
+  "id": ObjectId("5e068bf71396a2babd4ecae"),
+  "name": "John Doe",
+  "email": "johndoe@gmail.com",
+  "notes": [
+    {
+      "note": "Hello World!",
+      "dateCreated": ISODate("2019-01-01T00:00:00Z"),
+      "creator": ObjectId("5e068bf71396a2babd4ecae")
+    },
+    {
+      "note": "Hello World!",
+      "dateCreated": ISODate("2019-01-02T00:00:00Z"),
+      "creator": ObjectId("5e068bf71396a2babd4ecae")
+    },
+    {
+      "note": "Hello World!",
+      "dateCreated": ISODate("2019-01-03T00:00:00Z"),
+      "creator": ObjectId("5e068bf71396a2babd4ecae")
+    }
+  ]
+}
+```
+Este é um exemplo de uma nota escrita pelo mesmo usuário e que pode ser armazenada no MongoDB. Observe que a propriedade "id" é um ObjectId gerado automaticamente pelo MongoDB, a propriedade "name" é o nome do usuário, a propriedade "email" é o email do usuário, a propriedade "notes" é uma lista de notas escritas pelo usuário e cada nota contém a data em que foi criada (dataCreated), o conteúdo da nota (note) e o ObjectId do usuário que criou a nota (creator).
+
+
+2025-03-25 17:36:09.395 -03:00 [ERR] Erro ao deserializar análise para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs: {
+  "id": ObjectId("5e068bf71396a2babd4ecae"),
+  "name": "John Doe",
+  "email": "johndoe@gmail.com",
+  "notes": [
+    {
+      "note": "Hello World!",
+      "dateCreated": ISODate("2019-01-01T00:00:00Z"),
+      "creator": ObjectId("5e068bf71396a2babd4ecae")
+    },
+    {
+      "note": "Hello World!",
+      "dateCreated": ISODate("2019-01-02T00:00:00Z"),
+      "creator": ObjectId("5e068bf71396a2babd4ecae")
+    },
+    {
+      "note": "Hello World!",
+      "dateCreated": ISODate("2019-01-03T00:00:00Z"),
+      "creator": ObjectId("5e068bf71396a2babd4ecae")
+    }
+  ]
+}
+System.Text.Json.JsonException: 'O' is an invalid start of a value. Path: $.id | LineNumber: 1 | BytePositionInLine: 8.
+ ---> System.Text.Json.JsonReaderException: 'O' is an invalid start of a value. LineNumber: 1 | BytePositionInLine: 8.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeValue(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCode(String code, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 217
+2025-03-25 17:36:09.417 -03:00 [INF] Gerando propostas de refatoração para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:36:09.418 -03:00 [INF] Enviando código para análise de refatoração: src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:36:09.418 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:38:53.210 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 17:38:53.405 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 17:38:53.453 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T17:38:53.4135778-03:00"
+2025-03-25 17:38:53.457 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 17:38:53.472 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 17:38:53.480 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:38:53.482 -03:00 [INF] Iniciando análise de código para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:38:53.484 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:41:08.189 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠴ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ 
+2025-03-25 17:41:08.191 -03:00 [INF] CodeLlama retornou análise: ```json
+{
+  "metadata": {
+    "modelName": "entry",
+    "modelVersion": 1
+  },
+  "data": [
+    {
+      "entryId": 1,
+      "entryNumber": 10,
+      "entryDate": "2022-03-25T14:48:00.000Z",
+      "itemNumber": 1,
+      "entryType": "OPE",
+      "entityId": 1,
+      "userName": "administrador",
+      "notes": "",
+      "status": "A"
+    }
+  ]
+}
+```
+Essa é a resposta esperada para o endpoint /api/entrys. O objeto metadata contém informações sobre o modelo de dados e sua versão, enquanto o objeto data é uma matriz que contém um objeto por cada entrada, com as seguintes propriedades:
+
+* entryId: identificador único da entrada (int)
+* entryNumber: número da entrada (int)
+* entryDate: data da entrada no formato ISO8601 (datetime)
+* itemNumber: número do item (int)
+* entryType: tipo de entrada (string)
+* entityId: identificador único da entidade (int)
+* userName: nome do usuário que criou a entrada (string)
+* notes: observações da entrada (string)
+* status: status da entrada (string)
+
+Tenha cuidado ao trabalhar com strings e datas no formato ISO8601, pois pode ser importante garantir que as datas estejam no formato correto para evitar problemas de parsing.
+
+
+2025-03-25 17:41:08.224 -03:00 [ERR] Erro ao deserializar análise para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs: {
+  "metadata": {
+    "modelName": "entry",
+    "modelVersion": 1
+  },
+  "data": [
+    {
+      "entryId": 1,
+      "entryNumber": 10,
+      "entryDate": "2022-03-25T14:48:00.000Z",
+      "itemNumber": 1,
+      "entryType": "OPE",
+      "entityId": 1,
+      "userName": "administrador",
+      "notes": "",
+      "status": "A"
+    }
+  ]
+}
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCode(String code, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 217
+2025-03-25 17:41:08.241 -03:00 [INF] Gerando propostas de refatoração para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:41:08.242 -03:00 [INF] Enviando código para análise de refatoração: src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:41:08.248 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:42:39.607 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠇ ⠇ ⠋ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ 
+2025-03-25 17:42:39.611 -03:00 [INF] CodeLlama retornou análise: 
+{
+    "title": "Refatoração do código para melhorar a segurança e a performance",
+    "description": "A refatoração consistiu em melhorar a segurança do código adicionando uma camada de criptografia para as credenciais e também otimizando o desempenho da aplicação.",
+    "impact": "Alto",
+    "suggestions": [
+        {
+            "title": "Adição de camada de criptografia para as credenciais",
+            "description": "A adição de uma camada de criptografia para as credenciais foi realizada para garantir a segurança da aplicação, evitando que as credenciais sejam expostas em formato texto puro."
+        },
+        {
+            "title": "Otimização do desempenho da aplicação",
+            "description": "A otimização do desempenho da aplicação foi realizada, removendo a necessidade de serializar e desserializar dados que não eram necessários, melhorando o desempenho da aplicação em geral."
+        }
+    ]
+}
+
+
+2025-03-25 17:42:39.620 -03:00 [ERR] Erro ao deserializar proposta de refatoração para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs: {
+    "title": "Refatoração do código para melhorar a segurança e a performance",
+    "description": "A refatoração consistiu em melhorar a segurança do código adicionando uma camada de criptografia para as credenciais e também otimizando o desempenho da aplicação.",
+    "impact": "Alto",
+    "suggestions": [
+        {
+            "title": "Adição de camada de criptografia para as credenciais",
+            "description": "A adição de uma camada de criptografia para as credenciais foi realizada para garantir a segurança da aplicação, evitando que as credenciais sejam expostas em formato texto puro."
+        },
+        {
+            "title": "Otimização do desempenho da aplicação",
+            "description": "A otimização do desempenho da aplicação foi realizada, removendo a necessidade de serializar e desserializar dados que não eram necessários, melhorando o desempenho da aplicação em geral."
+        }
+    ]
+}
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.RefactoringProposal' was missing required properties, including the following: Description; OriginalCodeSnippet; RefactoredCodeSnippet
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.GenerateRefactoringProposals(String originalCode, String modifiedCode, String filePath) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 125
+2025-03-25 17:42:39.682 -03:00 [INF] Análise salva para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:42:39.683 -03:00 [INF] Analisando commit 4f37c498916aabd05e8edf2e79ee4ba2dab31f1c - jao
+2025-03-25 17:42:39.686 -03:00 [INF] Commit 4f37c498916aabd05e8edf2e79ee4ba2dab31f1c contém 1 alterações
+2025-03-25 17:42:39.686 -03:00 [INF] Analisando arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:42:39.687 -03:00 [INF] Iniciando análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:42:39.688 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:45:16.367 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 17:45:16.615 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 17:45:16.660 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T17:45:16.6233021-03:00"
+2025-03-25 17:45:16.664 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 17:45:16.680 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 17:45:16.688 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:45:16.690 -03:00 [INF] Iniciando análise de código para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:45:16.692 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:47:56.709 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠙ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ 
+2025-03-25 17:47:56.710 -03:00 [INF] CodeLlama retornou análise: ```
+{
+"_id": ObjectId("60a45789b21fed3d8c34e872"),
+"name": "Cristiano Ronaldo",
+"age": 36,
+"nationality": "Portuguese",
+"height": "1.85 m",
+"weight": "79 kg",
+"jerseyNumber": 7,
+"position": "Forward",
+"preferredFoot": "Right",
+"internationalAppearances": 200,
+"goalsScored": 650,
+"assistsGiven": 483,
+"awardsWon": [
+{
+"name": "UEFA Best Player in Europe",
+"year": 2017
+},
+{
+"name": "Ballon d'Or",
+"year": 2016
+}
+],
+"nationalTeamAppearances": 95,
+"squadNumber": 3,
+"preferredPosition": "Forward",
+"formerClubs": [
+{
+"name": "New York City FC",
+"fromYear": 2014,
+"toYear": 2016
+}
+],
+"currentClub": {
+"name": "Real Madrid CF",
+"sinceYear": 2017
+},
+"formerManagers": [
+{
+"name": "José Mourinho",
+"fromYear": 2015,
+"toYear": 2018
+}
+],
+"currentManager": {
+"name": "Zinedine Zidane",
+"sinceYear": 2019
+},
+"formerCoaches": [
+{
+"name": "Pep Guardiola",
+"fromYear": 2015,
+"toYear": 2016
+}
+],
+"currentCoach": {
+"name": "José Mourinho",
+"sinceYear": 2018
+},
+"formerPlayers": [
+{
+"name": "Lionel Messi",
+"fromYear": 2015,
+"toYear": 2016
+}
+],
+"currentPlayers": [
+{
+"name": "Cristiano Ronaldo",
+"sinceYear": 2017
+},
+{
+"name": "Robert Lewandowski",
+"sinceYear": 2018
+}
+]
+}
+```
+
+
+2025-03-25 17:47:56.737 -03:00 [WRN] JSON retornado não corresponde à estrutura esperada. Criando um JSON válido no formato esperado.
+2025-03-25 17:47:56.757 -03:00 [INF] Análise gerada com sucesso para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:47:56.758 -03:00 [INF] Gerando propostas de refatoração para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:47:56.760 -03:00 [INF] Enviando código para análise de refatoração: src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:47:56.760 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:49:14.783 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 17:49:15.146 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 17:49:15.234 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T17:49:15.1607459-03:00"
+2025-03-25 17:49:15.241 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 17:49:15.271 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 17:49:15.281 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:49:15.285 -03:00 [INF] Iniciando análise de código para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:49:15.290 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:51:49.282 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ 
+2025-03-25 17:51:49.290 -03:00 [INF] CodeLlama retornou análise: ```
+{
+  "entry": {
+    "code": 200,
+    "referenceId": "123456789",
+    "observation": "Teste de entrada",
+    "event": "EVENT_TESTE",
+    "status": "IN_PROGRESS",
+    "createdByUserId": 1,
+    "modifiedByUserId": null,
+    "createdAt": "2022-03-07T15:34:18.944Z",
+    "modifiedAt": null
+  },
+  "items": [
+    {
+      "code": "ITEM_TESTE",
+      "referenceId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "observation": "Teste de item",
+      "createdByUserId": 1,
+      "modifiedByUserId": null,
+      "createdAt": "2022-03-07T15:34:18.944Z",
+      "modifiedAt": null,
+      "value": {
+        "name": "item_teste"
+      }
+    }
+  ]
+}
+```
+
+
+2025-03-25 17:51:49.300 -03:00 [WRN] JSON retornado não corresponde à estrutura esperada. Criando um JSON válido no formato esperado.
+2025-03-25 17:51:49.346 -03:00 [INF] Análise gerada com sucesso para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:51:49.348 -03:00 [INF] Gerando propostas de refatoração para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:51:49.352 -03:00 [INF] Enviando código para análise de refatoração: src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:51:49.354 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:54:15.471 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ 
+2025-03-25 17:54:15.478 -03:00 [INF] CodeLlama retornou análise: 
+{
+"title": "Refatoração de código C#",
+"description": "Principais melhorias e refatorações realizadas no código original para torná-lo mais simples, limpo e fácil de entender.",
+"impact": "Alto",
+"suggestions": [
+{
+"title": "Reescrever classes e métodos obsoletos",
+"description": "As classes e métodos utilizados no código original foram reescritos para torná-los mais simples, limpos e fáceis de entender."
+},
+{
+"title": "Remover uso de APIs desnecessárias",
+"description": "As APIs desnecessárias utilizadas no código original foram removidas para minimizar o custo de manutenção e melhorar a performance."
+},
+{
+"title": "Adicionar anotações de documentação",
+"description": "Anotações de documentação foram adicionadas aos métodos e classes para torná-las mais fáceis de entender e usar."
+},
+{
+"title": "Implementar padrões de design",
+"description": "Padrões de design foram implementados no código original para torná-lo mais escalável, reutilizável e fácil de manter."
+},
+{
+"title": "Adicionar validações e verificações",
+"description": "Validações e verificações foram adicionadas aos métodos e classes para garantir a integridade dos dados e melhorar a segurança do sistema."
+}
+]
+}
+
+
+2025-03-25 17:54:15.490 -03:00 [WRN] JSON retornado não corresponde à estrutura esperada. Criando um JSON válido no formato esperado.
+2025-03-25 17:54:15.505 -03:00 [ERR] Erro ao deserializar proposta de refatoração para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs: {
+                                    "analiseGeral": {
+                                        "cleanCode": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "solidPrinciples": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "designPatterns": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "testability": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "security": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." }
+                                    },
+                                    "notaFinal": 5,
+                                    "comentarioGeral": "Análise gerada automaticamente devido a formato de resposta incorreto."
+                                }
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.RefactoringProposal' was missing required properties, including the following: Description; OriginalCodeSnippet; RefactoredCodeSnippet
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.GenerateRefactoringProposals(String originalCode, String modifiedCode, String filePath) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 125
+2025-03-25 17:54:15.643 -03:00 [INF] Análise salva para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 17:54:15.645 -03:00 [INF] Analisando commit 4f37c498916aabd05e8edf2e79ee4ba2dab31f1c - jao
+2025-03-25 17:54:15.649 -03:00 [INF] Commit 4f37c498916aabd05e8edf2e79ee4ba2dab31f1c contém 1 alterações
+2025-03-25 17:54:15.650 -03:00 [INF] Analisando arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:54:15.652 -03:00 [INF] Iniciando análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:54:15.654 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 17:56:09.872 -03:00 [ERR] Erro ao executar CodeLlama: ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠦ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠸ ⠸ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠏ 
+2025-03-25 17:56:09.880 -03:00 [INF] CodeLlama retornou análise: 
+{
+"Id": 1,
+"Name": "Amazon",
+"Tag": "amazon",
+"IsFavorite": true
+}
+
+
+2025-03-25 17:56:09.886 -03:00 [WRN] JSON retornado não corresponde à estrutura esperada. Criando um JSON válido no formato esperado.
+2025-03-25 17:56:09.888 -03:00 [INF] Análise gerada com sucesso para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:56:09.889 -03:00 [INF] Gerando propostas de refatoração para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:56:09.891 -03:00 [INF] Enviando código para análise de refatoração: src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 17:56:09.895 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 18:04:36.634 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 18:04:37.036 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 18:04:37.129 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T18:04:37.0530374-03:00"
+2025-03-25 18:04:37.136 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 18:04:37.166 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 18:04:37.176 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:04:37.179 -03:00 [INF] Iniciando análise de código para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:04:37.184 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 18:06:53.240 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ 
+2025-03-25 18:06:53.247 -03:00 [INF] CodeLlama retornou análise: 
+```json
+[
+  {
+    "id": 1,
+    "nome": "Ana",
+    "idade": 25
+  },
+  {
+    "id": 2,
+    "nome": "Bruna",
+    "idade": 30
+  }
+]
+```
+
+Como você pode ver, o JSON acima representa uma lista de objetos com três propriedades: `id`, `nome` e `idade`. Cada objeto na lista é um registro de um usuário. O valor de `id` é um número único para cada usuário, enquanto `nome` e `idade` são os valores correspondentes para esses usuários.
+
+
+2025-03-25 18:06:53.255 -03:00 [WRN] JSON retornado não corresponde à estrutura esperada. Criando um JSON válido no formato esperado.
+2025-03-25 18:06:53.293 -03:00 [INF] Análise gerada com sucesso para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:06:53.394 -03:00 [INF] Análise salva para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:06:53.396 -03:00 [INF] Analisando commit 4f37c498916aabd05e8edf2e79ee4ba2dab31f1c - jao
+2025-03-25 18:06:53.401 -03:00 [INF] Commit 4f37c498916aabd05e8edf2e79ee4ba2dab31f1c contém 1 alterações
+2025-03-25 18:06:53.402 -03:00 [INF] Analisando arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 18:06:53.404 -03:00 [INF] Iniciando análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 18:06:53.405 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 18:09:35.044 -03:00 [ERR] Erro ao executar CodeLlama: ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠦ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠏ ⠙ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠧ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠸ ⠴ ⠴ ⠦ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠹ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠏ ⠙ ⠹ ⠹ ⠸ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠙ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠋ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠸ ⠴ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠙ ⠸ ⠼ ⠼ ⠴ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠙ ⠹ ⠸ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠧ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠸ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠦ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠴ ⠧ ⠧ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠧ ⠧ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠸ ⠴ ⠦ ⠧ ⠧ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠴ ⠧ ⠇ ⠇ ⠋ ⠙ ⠹ ⠸ ⠸ ⠼ ⠦ ⠧ ⠇ ⠇ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠸ ⠸ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠼ ⠴ ⠦ ⠇ ⠏ ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠋ ⠙ ⠹ ⠹ ⠼ ⠴ ⠦ ⠧ ⠇ ⠇ ⠋ ⠙ ⠙ ⠹ ⠼ ⠼ ⠴ ⠦ ⠇ ⠇ ⠏ ⠙ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠴ ⠦ ⠇ ⠇ ⠏ ⠋ ⠙ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ ⠏ ⠋ ⠙ ⠸ ⠸ ⠼ ⠦ ⠦ ⠧ ⠏ ⠋ ⠋ ⠙ ⠹ ⠼ ⠴ ⠦ ⠦ ⠇ ⠏ ⠏ ⠙ ⠹ ⠹ ⠼ ⠴ ⠴ ⠧ ⠧ ⠇ ⠋ ⠋ ⠙ ⠸ ⠼ ⠼ ⠦ ⠧ ⠧ ⠇ ⠏ ⠋ ⠹ ⠹ ⠼ ⠼ ⠴ ⠧ ⠇ ⠏ ⠋ ⠋ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏ 
+2025-03-25 18:09:35.049 -03:00 [INF] CodeLlama retornou análise: 
+Essa é uma resposta para um problema de uma API RESTful que retorna um erro de validação quando um cliente envia uma requisição com um objeto JSON inválido.
+
+A resposta deve ser um JSON válido, com o status HTTP 400 (Bad Request) e a seguinte estrutura:
+```json
+{
+    "error": {
+        "code": "INVALID_REQUEST",
+        "message": "The request is invalid."
+    }
+}
+```
+O objeto JSON retornado terá uma chave "error" com um objeto dentro que contém o código do erro ("INVALID_REQUEST") e a mensagem de erro ("The request is invalid").
+
+Essa resposta é válida porque inclui tanto o status HTTP correto quanto as informações necessárias para identificar o erro. O cliente pode então processar essa resposta e fazer alguma ação para corrigir o problema com a requisição antes de enviar uma nova solicitação.
+
+
+2025-03-25 18:09:35.054 -03:00 [WRN] JSON retornado não corresponde à estrutura esperada. Criando um JSON válido no formato esperado.
+2025-03-25 18:09:35.065 -03:00 [ERR] Erro ao deserializar análise para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs: {
+                                    "analiseGeral": {
+                                        "cleanCode": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "solidPrinciples": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "designPatterns": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "testability": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." },
+                                        "security": { "nota": 5, "comentario": "Análise automática: não foi possível avaliar adequadamente." }
+                                    },
+                                    "notaFinal": 5,
+                                    "comentarioGeral": "O objeto JSON retornado terá uma chave \"error\" com um objeto dentro que contém o código do erro (\"INVALID_REQUEST\") e a mensagem de erro (\"The request is invalid\").
+
+Essa resposta é válida porque inclui tanto o status HTTP correto quanto as informações necessárias para identificar o erro. O cliente pode então processar essa resposta e fazer alguma ação para corrigir o problema com a requisição antes de enviar uma nova solicitação."
+                                }
+System.Text.Json.JsonException: '0x0A' is invalid within a JSON string. The string should be correctly escaped. Path: $.comentarioGeral | LineNumber: 9 | BytePositionInLine: 229.
+ ---> System.Text.Json.JsonReaderException: '0x0A' is invalid within a JSON string. The string should be correctly escaped. LineNumber: 9 | BytePositionInLine: 229.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeStringAndValidate(ReadOnlySpan`1 data, Int32 idx)
+   at System.Text.Json.Utf8JsonReader.ConsumeString()
+   at System.Text.Json.Utf8JsonReader.ConsumeValue(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, JsonReaderException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCode(String code, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 127
+2025-03-25 18:09:35.121 -03:00 [INF] Análise salva para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-03-25 18:09:35.123 -03:00 [INF] Análise de commits concluída
+2025-03-25 18:12:33.673 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 18:12:34.063 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 18:12:34.147 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T18:12:34.0798570-03:00"
+2025-03-25 18:12:34.155 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 18:12:34.181 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 18:12:34.191 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:12:34.195 -03:00 [INF] Iniciando análise de código para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:12:34.199 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 18:12:34.201 -03:00 [WRN] Prompt excede o tamanho máximo de 1500 caracteres. Tamanho atual: 18019. Dividindo o prompt.
+2025-03-25 18:12:34.215 -03:00 [INF] Prompt dividido em 2 partes
+2025-03-25 18:12:34.223 -03:00 [INF] Enviando parte do prompt com 9248 caracteres
+2025-03-25 18:12:34.883 -03:00 [INF] Enviando parte do prompt com 9169 caracteres

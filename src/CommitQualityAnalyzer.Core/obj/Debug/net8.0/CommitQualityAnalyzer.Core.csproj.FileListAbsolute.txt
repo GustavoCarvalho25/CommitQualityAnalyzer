@@ -10,3 +10,4 @@ D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Deb
 D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.pdb
 D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\ref\CommitQualityAnalyzer.Core.dll
 D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.csproj.AssemblyReference.cache
+D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\obj\Debug\net8.0\CommitQualityAnalyzer.Core.sourcelink.json
