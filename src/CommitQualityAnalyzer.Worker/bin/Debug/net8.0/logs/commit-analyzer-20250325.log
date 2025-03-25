@@ -513,3 +513,17 @@ System.Text.Json.JsonException: '0x0A' is invalid within a JSON string. The stri
 2025-03-25 18:12:34.215 -03:00 [INF] Prompt dividido em 2 partes
 2025-03-25 18:12:34.223 -03:00 [INF] Enviando parte do prompt com 9248 caracteres
 2025-03-25 18:12:34.883 -03:00 [INF] Enviando parte do prompt com 9169 caracteres
+2025-03-25 18:30:23.708 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 18:31:29.041 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 18:31:29.255 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 18:31:29.310 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T18:31:29.2747034-03:00"
+2025-03-25 18:31:29.314 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 18:31:29.329 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 18:31:29.336 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:31:29.338 -03:00 [INF] Analisando diferenças para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:31:29.339 -03:00 [INF] Analisando diferenças para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:31:29.341 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 18:31:29.342 -03:00 [WRN] Prompt excede o tamanho máximo de 1500 caracteres. Tamanho atual: 2436. Dividindo o prompt.
+2025-03-25 18:31:29.353 -03:00 [INF] Prompt dividido em 2 partes
+2025-03-25 18:31:29.357 -03:00 [INF] Enviando parte do prompt com 1724 caracteres
+2025-03-25 18:31:29.859 -03:00 [INF] Enviando parte do prompt com 822 caracteres
