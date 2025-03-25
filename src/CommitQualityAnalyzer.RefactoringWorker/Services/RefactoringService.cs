@@ -112,10 +112,26 @@ namespace CommitQualityAnalyzer.RefactoringWorker.Services
                     return;
                 }
                 
-                var proposal = await GenerateRefactoringProposal(originalCode, modifiedCode, change.Path);
+                // Obter as diferenças entre a versão original e a modificada
+                var diffText = GetCodeDiff(originalCode, modifiedCode);
+                Log.Information("Diferenças identificadas para {FilePath}: {DiffLength} caracteres", change.Path, diffText?.Length ?? 0);
+                
+                // Se temos diferenças significativas, incluí-las na proposta de refatoração
+                RefactoringProposal proposal;
+                if (!string.IsNullOrEmpty(diffText))
+                {
+                    proposal = await GenerateRefactoringProposalWithDiff(originalCode, modifiedCode, diffText, change.Path);
+                }
+                else
+                {
+                    // Fallback para o método original se não conseguirmos obter diferenças
+                    proposal = await GenerateRefactoringProposal(originalCode, modifiedCode, change.Path);
+                }
+                
                 if (proposal != null)
                 {
                     // Atualizar a análise existente com a proposta de refatoração
+                    existingAnalysis.RefactoringProposals ??= new List<RefactoringProposal>();
                     existingAnalysis.RefactoringProposals.Add(proposal);
                     
                     // Como não temos um método de atualização, vamos salvar novamente
@@ -128,6 +144,194 @@ namespace CommitQualityAnalyzer.RefactoringWorker.Services
             {
                 Log.Error(ex, "Erro ao processar arquivo C# {FilePath}", change.Path);
             }
+        }
+
+        private string GetCodeDiff(string originalCode, string modifiedCode)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(originalCode) || string.IsNullOrEmpty(modifiedCode))
+                {
+                    return string.Empty;
+                }
+                
+                // Gerar texto de diferença simplificado
+                var diffBuilder = new StringBuilder();
+                var originalLines = originalCode.Split('\n');
+                var modifiedLines = modifiedCode.Split('\n');
+                
+                // Usar um algoritmo simples de diferença para identificar linhas alteradas
+                var diff = new List<string>();
+                
+                // Limite o tamanho para evitar processamento excessivo
+                var maxLines = Math.Min(1000, Math.Max(originalLines.Length, modifiedLines.Length));
+                originalLines = originalLines.Take(maxLines).ToArray();
+                modifiedLines = modifiedLines.Take(maxLines).ToArray();
+                
+                // Encontrar linhas adicionadas, removidas ou modificadas
+                int i = 0, j = 0;
+                while (i < originalLines.Length || j < modifiedLines.Length)
+                {
+                    // Ambas as linhas existem
+                    if (i < originalLines.Length && j < modifiedLines.Length)
+                    {
+                        if (originalLines[i] == modifiedLines[j])
+                        {
+                            // Linhas iguais - manter contexto limitado
+                            if (diff.Count > 0 && diff.Count < 5)
+                            {
+                                diff.Add("  " + modifiedLines[j]);
+                            }
+                            i++;
+                            j++;
+                        }
+                        else
+                        {
+                            // Verificar se é uma modificação, adição ou remoção
+                            var foundMatch = false;
+                            
+                            // Procurar por linhas removidas (presentes no original, ausentes no modificado)
+                            for (int k = i + 1; k < Math.Min(i + 5, originalLines.Length); k++)
+                            {
+                                if (j < modifiedLines.Length && originalLines[k] == modifiedLines[j])
+                                {
+                                    // Linhas removidas
+                                    for (int m = i; m < k; m++)
+                                    {
+                                        diff.Add("- " + originalLines[m]);
+                                    }
+                                    i = k;
+                                    foundMatch = true;
+                                    break;
+                                }
+                            }
+                            
+                            if (!foundMatch)
+                            {
+                                // Procurar por linhas adicionadas (ausentes no original, presentes no modificado)
+                                for (int k = j + 1; k < Math.Min(j + 5, modifiedLines.Length); k++)
+                                {
+                                    if (i < originalLines.Length && modifiedLines[k] == originalLines[i])
+                                    {
+                                        // Linhas adicionadas
+                                        for (int m = j; m < k; m++)
+                                        {
+                                            diff.Add("+ " + modifiedLines[m]);
+                                        }
+                                        j = k;
+                                        foundMatch = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (!foundMatch)
+                            {
+                                // Modificação de linha
+                                diff.Add("- " + originalLines[i]);
+                                diff.Add("+ " + modifiedLines[j]);
+                                i++;
+                                j++;
+                            }
+                        }
+                    }
+                    // Apenas linhas originais restantes (removidas)
+                    else if (i < originalLines.Length)
+                    {
+                        diff.Add("- " + originalLines[i]);
+                        i++;
+                    }
+                    // Apenas linhas modificadas restantes (adicionadas)
+                    else if (j < modifiedLines.Length)
+                    {
+                        diff.Add("+ " + modifiedLines[j]);
+                        j++;
+                    }
+                }
+                
+                // Limitar o tamanho do diff para evitar prompts muito grandes
+                var diffText = string.Join("\n", diff.Take(500));
+                
+                return diffText;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Erro ao gerar diferenças entre versões de código");
+                return string.Empty;
+            }
+        }
+        
+        private async Task<RefactoringProposal> GenerateRefactoringProposalWithDiff(string originalCode, string modifiedCode, string diffText, string filePath)
+        {
+            try
+            {
+                Log.Information("Gerando proposta de refatoração com diferenças para {FilePath}", filePath);
+                
+                // Truncar o código se for muito longo
+                var truncatedOriginalCode = TruncateCodeForPrompt(originalCode);
+                var truncatedModifiedCode = TruncateCodeForPrompt(modifiedCode);
+                
+                // Construir o prompt com as diferenças
+                var prompt = BuildRefactoringPromptWithDiff(truncatedOriginalCode, truncatedModifiedCode, diffText);
+                
+                // Executar a análise com o CodeLlama
+                var result = await RunCodeLlama(prompt);
+                
+                if (string.IsNullOrEmpty(result))
+                {
+                    Log.Warning("CodeLlama não retornou resultado para {FilePath}", filePath);
+                    return null;
+                }
+                
+                // Criar a proposta de refatoração
+                return new RefactoringProposal
+                {
+                    FilePath = filePath,
+                    GeneratedDate = DateTime.Now,
+                    Proposal = result,
+                    Status = "Pending"
+                };
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Erro ao gerar proposta de refatoração com diferenças para {FilePath}", filePath);
+                return null;
+            }
+        }
+        
+        private string BuildRefactoringPromptWithDiff(string originalCode, string modifiedCode, string diffText)
+        {
+            return @$"Você é um especialista em refatoração de código C#. Analise as diferenças entre a versão original e a versão modificada do código abaixo e forneça sugestões detalhadas de refatoração para melhorar ainda mais o código.
+
+Código Original:
+```csharp
+{originalCode}
+```
+
+Código Modificado:
+```csharp
+{modifiedCode}
+```
+
+Diferenças entre as versões:
+```diff
+{diffText}
+```
+
+Forneça uma análise detalhada das mudanças realizadas e sugira melhorias adicionais que poderiam ser aplicadas para:
+1. Melhorar a legibilidade e manutenibilidade
+2. Seguir os princípios SOLID
+3. Aplicar padrões de design apropriados
+4. Aumentar a testabilidade
+5. Melhorar a segurança e robustez
+
+Sua resposta deve incluir:
+- Análise das alterações já realizadas
+- Sugestões específicas de refatoração adicional
+- Exemplos de código para implementar as sugestões
+- Justificativa para cada sugestão
+
+Seja específico e forneça exemplos concretos de código quando possível.";
         }
 
         private async Task<RefactoringProposal> GenerateRefactoringProposal(string originalCode, string modifiedCode, string filePath)
@@ -215,6 +419,15 @@ namespace CommitQualityAnalyzer.RefactoringWorker.Services
                 originalCode.Length, truncatedOriginal.Length, modifiedCode.Length, truncatedModified.Length);
             
             return (truncatedOriginal, truncatedModified);
+        }
+
+        private string TruncateCodeForPrompt(string code)
+        {
+            if (code.Length <= _maxPromptLength)
+            {
+                return code;
+            }
+            return code.Substring(0, _maxPromptLength) + "\n// ... código truncado ...\n";
         }
 
         private string BuildRefactoringPrompt(string originalCode, string modifiedCode)
@@ -422,6 +635,9 @@ namespace CommitQualityAnalyzer.RefactoringWorker.Services
         {
             var parts = new List<string>();
             
+            // Definir o tamanho máximo absoluto para cada parte
+            var absoluteMaxLength = 2000; // Abaixo do limite de 2048
+            
             // Encontrar o início do código original no prompt
             var originalCodeStartIndex = input.IndexOf("Código Original:");
             var originalCodeBlockStartIndex = input.IndexOf("```csharp", originalCodeStartIndex);
@@ -435,72 +651,116 @@ namespace CommitQualityAnalyzer.RefactoringWorker.Services
             if (originalCodeBlockStartIndex == -1 || originalCodeBlockEndIndex == -1 || 
                 modifiedCodeBlockStartIndex == -1 || modifiedCodeBlockEndIndex == -1)
             {
-                // Se não encontrar os marcadores de código, dividir pela metade
-                var halfLength = input.Length / 2;
-                parts.Add(input.Substring(0, halfLength));
-                parts.Add(input.Substring(halfLength));
+                // Se não encontrar os marcadores de código, dividir de forma inteligente
+                int codeStartIndex = input.Length / 2;
+                
+                // Tentar encontrar um ponto de quebra natural
+                int breakPoint = input.LastIndexOf("\n\n", codeStartIndex, Math.Min(codeStartIndex, 200));
+                if (breakPoint > 0)
+                {
+                    codeStartIndex = breakPoint + 2; // +2 para incluir o \n\n
+                }
+                
+                // Dividir em partes de tamanho adequado
+                DivideAndAddParts(parts, input.Substring(0, codeStartIndex), absoluteMaxLength, "Instruções");
+                DivideAndAddParts(parts, input.Substring(codeStartIndex), absoluteMaxLength, "Código");
+                
                 return parts;
             }
             
-            // Primeira parte: instruções e contexto
-            var instructionPart = "Você é um especialista em refatoração de código C#. Vou te enviar um código em partes. " +
-                                 "Após receber todas as partes, analise o código completo e forneça sugestões de refatoração " +
-                                 "detalhadas. Aqui está a primeira parte:\n\n" +
-                                 input.Substring(0, originalCodeBlockStartIndex);
+            // Dividir o prompt em três partes principais
+            
+            // Primeira parte: instruções e contexto até o início do código original
+            var instructionPart = input.Substring(0, originalCodeBlockStartIndex);
+            DivideAndAddParts(parts, instructionPart, absoluteMaxLength, "Instruções");
             
             // Segunda parte: código original
             var originalCodePart = input.Substring(originalCodeBlockStartIndex, originalCodeBlockEndIndex - originalCodeBlockStartIndex + 3);
+            DivideAndAddParts(parts, originalCodePart, absoluteMaxLength, "Código Original");
             
             // Terceira parte: código modificado e instruções finais
             var modifiedCodePart = input.Substring(modifiedCodeStartIndex);
+            DivideAndAddParts(parts, modifiedCodePart, absoluteMaxLength, "Código Modificado");
             
-            // Verificar se cada parte está dentro do limite
-            if (instructionPart.Length <= maxLength && 
-                originalCodePart.Length <= maxLength && 
-                modifiedCodePart.Length <= maxLength)
+            // Adicionar instruções finais na última parte
+            if (parts.Count > 0)
             {
-                parts.Add(instructionPart);
-                parts.Add(originalCodePart);
-                parts.Add(modifiedCodePart);
+                var lastPart = parts[parts.Count - 1];
+                if (!lastPart.Contains("Agora que você tem o código completo"))
+                {
+                    parts[parts.Count - 1] = lastPart + "\n\nAgora que você tem o código completo, forneça suas sugestões de refatoração conforme solicitado anteriormente.";
+                }
             }
-            else
+            
+            // Verificar se todas as partes estão dentro do limite
+            for (int i = 0; i < parts.Count; i++)
             {
-                // Se alguma parte ainda for muito grande, dividir em partes menores
-                if (instructionPart.Length > maxLength)
+                if (parts[i].Length > absoluteMaxLength)
                 {
-                    var halfLength = instructionPart.Length / 2;
-                    parts.Add(instructionPart.Substring(0, halfLength));
-                    parts.Add(instructionPart.Substring(halfLength));
-                }
-                else
-                {
-                    parts.Add(instructionPart);
-                }
-                
-                if (originalCodePart.Length > maxLength)
-                {
-                    var halfLength = originalCodePart.Length / 2;
-                    parts.Add(originalCodePart.Substring(0, halfLength));
-                    parts.Add(originalCodePart.Substring(halfLength));
-                }
-                else
-                {
-                    parts.Add(originalCodePart);
-                }
-                
-                if (modifiedCodePart.Length > maxLength)
-                {
-                    var halfLength = modifiedCodePart.Length / 2;
-                    parts.Add(modifiedCodePart.Substring(0, halfLength));
-                    parts.Add(modifiedCodePart.Substring(halfLength));
-                }
-                else
-                {
-                    parts.Add(modifiedCodePart);
+                    Log.Warning("Parte {Index} do prompt ainda excede o tamanho máximo: {Length} caracteres", i, parts[i].Length);
+                    // Truncar a parte se ainda estiver muito grande
+                    parts[i] = parts[i].Substring(0, absoluteMaxLength);
                 }
             }
             
             return parts;
+        }
+        
+        private void DivideAndAddParts(List<string> parts, string content, int maxLength, string sectionName)
+        {
+            // Se o conteúdo for menor que o tamanho máximo, adicionar diretamente
+            if (content.Length <= maxLength)
+            {
+                parts.Add(content);
+                return;
+            }
+            
+            // Dividir o conteúdo em partes menores
+            int startIndex = 0;
+            while (startIndex < content.Length)
+            {
+                // Calcular o tamanho da próxima parte
+                int partLength = Math.Min(maxLength, content.Length - startIndex);
+                
+                // Se não estamos no início ou no final, tentar encontrar um ponto de quebra natural
+                if (startIndex > 0 && startIndex + partLength < content.Length)
+                {
+                    // Procurar por quebras de linha ou pontuação para dividir de forma mais natural
+                    int breakPoint = content.LastIndexOf("\n\n", startIndex + partLength - 1, Math.Min(partLength, 200));
+                    if (breakPoint > startIndex)
+                    {
+                        partLength = breakPoint - startIndex + 2; // +2 para incluir o \n\n
+                    }
+                    else
+                    {
+                        breakPoint = content.LastIndexOf(". ", startIndex + partLength - 1, Math.Min(partLength, 100));
+                        if (breakPoint > startIndex)
+                        {
+                            partLength = breakPoint - startIndex + 2; // +2 para incluir o ". "
+                        }
+                    }
+                }
+                
+                // Extrair a parte
+                string part = content.Substring(startIndex, partLength);
+                
+                // Adicionar cabeçalho para partes subsequentes
+                if (startIndex > 0)
+                {
+                    part = $"Continuação da seção {sectionName}:\n\n" + part;
+                }
+                else if (parts.Count > 0)
+                {
+                    // Se não é a primeira parte do conteúdo, mas é a primeira parte desta seção
+                    part = $"Seção {sectionName}:\n\n" + part;
+                }
+                
+                // Adicionar à lista de partes
+                parts.Add(part);
+                
+                // Avançar para a próxima parte
+                startIndex += partLength;
+            }
         }
 
         private string CleanAnsiEscapeCodes(string input)
