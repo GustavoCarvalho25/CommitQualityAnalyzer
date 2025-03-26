@@ -527,3 +527,16 @@ System.Text.Json.JsonException: '0x0A' is invalid within a JSON string. The stri
 2025-03-25 18:31:29.353 -03:00 [INF] Prompt dividido em 2 partes
 2025-03-25 18:31:29.357 -03:00 [INF] Enviando parte do prompt com 1724 caracteres
 2025-03-25 18:31:29.859 -03:00 [INF] Enviando parte do prompt com 822 caracteres
+2025-03-25 18:36:55.471 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-03-25 18:36:55.667 -03:00 [INF] Iniciando análise de commits do último dia
+2025-03-25 18:36:55.713 -03:00 [INF] Encontrados 2 commits desde "2025-03-24T18:36:55.6762811-03:00"
+2025-03-25 18:36:55.717 -03:00 [INF] Analisando commit a3a17782def7b2a628942c2cc8cd95849b626072 - fix: converter anexo simples para Base64
+2025-03-25 18:36:55.731 -03:00 [INF] Commit a3a17782def7b2a628942c2cc8cd95849b626072 contém 1 alterações
+2025-03-25 18:36:55.739 -03:00 [INF] Analisando arquivo src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:36:55.740 -03:00 [INF] Analisando diferenças para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:36:55.742 -03:00 [INF] Analisando diferenças para src/Checklist/Edata.Vision.Application.Checklist/Services/EntryService.cs
+2025-03-25 18:36:55.744 -03:00 [INF] Iniciando análise com CodeLlama
+2025-03-25 18:36:55.745 -03:00 [WRN] Prompt excede o tamanho máximo de 1500 caracteres. Tamanho atual: 2436. Dividindo o prompt.
+2025-03-25 18:36:55.756 -03:00 [INF] Prompt dividido em 2 partes
+2025-03-25 18:36:55.760 -03:00 [INF] Enviando parte do prompt com 1724 caracteres
+2025-03-25 18:36:56.262 -03:00 [INF] Enviando parte do prompt com 822 caracteres
