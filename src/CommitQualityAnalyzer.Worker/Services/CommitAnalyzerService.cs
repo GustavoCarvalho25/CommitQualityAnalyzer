@@ -155,8 +155,7 @@ namespace CommitQualityAnalyzer.Worker.Services
                             AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
                             NotaFinal = 0,
                             ComentarioGeral = "Não foi possível analisar: arquivo vazio."
-                        },
-                        RefactoringProposals = new List<RefactoringProposal>()
+                        }
                     };
                 }
                 
@@ -255,8 +254,7 @@ namespace CommitQualityAnalyzer.Worker.Services
                     AuthorName = commit.Author.Name,
                     CommitDate = commit.Author.When.DateTime,
                     AnalysisDate = DateTime.Now,
-                    Analysis = analysisResult,
-                    RefactoringProposals = new List<RefactoringProposal>()
+                    Analysis = analysisResult
                 };
                 
                 return codeAnalysis;
@@ -277,8 +275,7 @@ namespace CommitQualityAnalyzer.Worker.Services
                         AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
                         NotaFinal = 0,
                         ComentarioGeral = $"Erro durante análise: {ex.Message}"
-                    },
-                    RefactoringProposals = new List<RefactoringProposal>()
+                    }
                 };
             }
         }
@@ -313,8 +310,7 @@ namespace CommitQualityAnalyzer.Worker.Services
                             AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
                             NotaFinal = 0,
                             ComentarioGeral = "Não foi possível analisar: arquivos vazios."
-                        },
-                        RefactoringProposals = new List<RefactoringProposal>()
+                        }
                     };
                 }
                 
@@ -337,8 +333,7 @@ namespace CommitQualityAnalyzer.Worker.Services
                             AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
                             NotaFinal = 0,
                             ComentarioGeral = "Não foi possível analisar: não foram detectadas diferenças significativas."
-                        },
-                        RefactoringProposals = new List<RefactoringProposal>()
+                        }
                     };
                 }
                 
@@ -481,11 +476,14 @@ namespace CommitQualityAnalyzer.Worker.Services
                     AuthorName = commit.Author.Name,
                     CommitDate = commit.Author.When.DateTime,
                     AnalysisDate = DateTime.Now,
-                    Analysis = analysisResult,
-                    RefactoringProposals = refactoringProposal != null 
-                        ? new List<RefactoringProposal> { refactoringProposal } 
-                        : new List<RefactoringProposal>()
+                    Analysis = analysisResult
                 };
+                
+                // Atualizar a proposta de refatoração se disponível
+                if (refactoringProposal != null)
+                {
+                    codeAnalysis.Analysis.PropostaRefatoracao = refactoringProposal;
+                }
                 
                 return codeAnalysis;
             }
@@ -504,9 +502,9 @@ namespace CommitQualityAnalyzer.Worker.Services
                     {
                         AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
                         NotaFinal = 0,
-                        ComentarioGeral = $"Erro durante análise de diferenças: {ex.Message}"
-                    },
-                    RefactoringProposals = new List<RefactoringProposal>()
+                        ComentarioGeral = $"Erro durante análise de diferenças: {ex.Message}",
+                        PropostaRefatoracao = new RefactoringProposal()
+                    }
                 };
             }
         }
@@ -638,13 +636,13 @@ namespace CommitQualityAnalyzer.Worker.Services
             {
                 AnaliseGeral = new Dictionary<string, CriteriaAnalysis>
                 {
-                    ["CleanCode"] = new CriteriaAnalysis { Nota = 0, Comentario = "Não foi possível analisar" },
-                    ["SOLID"] = new CriteriaAnalysis { Nota = 0, Comentario = "Não foi possível analisar" },
-                    ["DesignPatterns"] = new CriteriaAnalysis { Nota = 0, Comentario = "Não foi possível analisar" },
-                    ["Testabilidade"] = new CriteriaAnalysis { Nota = 0, Comentario = "Não foi possível analisar" },
-                    ["Seguranca"] = new CriteriaAnalysis { Nota = 0, Comentario = "Não foi possível analisar" }
+                    ["CleanCode"] = new CriteriaAnalysis { Nota = 50, Comentario = "Não foi possível analisar" },
+                    ["SOLID"] = new CriteriaAnalysis { Nota = 50, Comentario = "Não foi possível analisar" },
+                    ["DesignPatterns"] = new CriteriaAnalysis { Nota = 50, Comentario = "Não foi possível analisar" },
+                    ["Testabilidade"] = new CriteriaAnalysis { Nota = 50, Comentario = "Não foi possível analisar" },
+                    ["Seguranca"] = new CriteriaAnalysis { Nota = 50, Comentario = "Não foi possível analisar" }
                 },
-                NotaFinal = 0,
+                NotaFinal = 50,
                 ComentarioGeral = "Não foi possível obter análise: erro na comunicação com o modelo."
             };
             
@@ -815,13 +813,246 @@ namespace CommitQualityAnalyzer.Worker.Services
             
             try
             {
-                // Analisar a resposta em formato de texto
+                // Primeiro, tentar extrair JSON diretamente da resposta
+                var jsonMatch = Regex.Match(textResponse, @"```json\s*({[\s\S]*?})\s*```", RegexOptions.Singleline);
+                if (jsonMatch.Success && jsonMatch.Groups.Count > 1)
+                {
+                    string jsonContent = jsonMatch.Groups[1].Value.Trim();
+                    try
+                    {
+                        // Tentar deserializar o JSON para validar
+                        var jsonDoc = JsonDocument.Parse(jsonContent);
+                        
+                        // Verificar se o JSON contém as propriedades esperadas
+                        var root = jsonDoc.RootElement;
+                        
+                        // Criar um objeto AnalysisResult a partir do JSON
+                        var jsonAnalysisResult = new AnalysisResult
+                        {
+                            AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
+                            NotaFinal = 0,
+                            ComentarioGeral = "",
+                            PropostaRefatoracao = new RefactoringProposal()
+                        };
+                        
+                        // Inicializar todos os critérios com valores padrão
+                        InitializeDefaultCriteria(jsonAnalysisResult);
+                        
+                        // Extrair análises de critérios
+                        if (root.TryGetProperty("AnaliseGeral", out var analiseGeral) || 
+                            root.TryGetProperty("analise", out analiseGeral))
+                        {
+                            foreach (var property in analiseGeral.EnumerateObject())
+                            {
+                                string criterioKey = property.Name;
+                                // Normalizar nomes de critérios
+                                switch (criterioKey.ToLower())
+                                {
+                                    case "cleancode":
+                                    case "clean_code":
+                                    case "clean code":
+                                        criterioKey = "CleanCode";
+                                        break;
+                                    case "solid":
+                                    case "solid_principles":
+                                    case "solidprinciples":
+                                        criterioKey = "SOLID";
+                                        break;
+                                    case "designpatterns":
+                                    case "design_patterns":
+                                    case "design patterns":
+                                        criterioKey = "DesignPatterns";
+                                        break;
+                                    case "testability":
+                                    case "testabilidade":
+                                    case "testes":
+                                        criterioKey = "Testabilidade";
+                                        break;
+                                    case "security":
+                                    case "seguranca":
+                                    case "segurança":
+                                        criterioKey = "Seguranca";
+                                        break;
+                                }
+                                
+                                int nota = 50; // Valor padrão
+                                string comentario = "";
+                                
+                                if (property.Value.TryGetProperty("Nota", out var notaElement) || 
+                                    property.Value.TryGetProperty("nota", out notaElement))
+                                {
+                                    if (notaElement.TryGetInt32(out int notaValue))
+                                    {
+                                        nota = notaValue;
+                                    }
+                                    else if (notaElement.TryGetDouble(out double notaDouble))
+                                    {
+                                        nota = (int)Math.Round(NormalizeScore(notaDouble));
+                                    }
+                                }
+                                
+                                if (property.Value.TryGetProperty("Comentario", out var comentarioElement) || 
+                                    property.Value.TryGetProperty("comentario", out comentarioElement))
+                                {
+                                    comentario = comentarioElement.GetString() ?? "";
+                                }
+                                
+                                jsonAnalysisResult.AnaliseGeral[criterioKey] = new CriteriaAnalysis
+                                {
+                                    Nota = nota,
+                                    Comentario = comentario
+                                };
+                            }
+                        }
+                        
+                        // Extrair comentário geral
+                        if (root.TryGetProperty("ComentarioGeral", out var comentarioGeralElement) || 
+                            root.TryGetProperty("comentarioGeral", out comentarioGeralElement))
+                        {
+                            jsonAnalysisResult.ComentarioGeral = comentarioGeralElement.GetString() ?? "";
+                        }
+                        
+                        // Extrair nota final
+                        if (root.TryGetProperty("NotaFinal", out var notaFinalElement) || 
+                            root.TryGetProperty("notaFinal", out notaFinalElement))
+                        {
+                            if (notaFinalElement.TryGetInt32(out int notaValue))
+                            {
+                                jsonAnalysisResult.NotaFinal = notaValue;
+                            }
+                            else if (notaFinalElement.TryGetDouble(out double notaDouble))
+                            {
+                                jsonAnalysisResult.NotaFinal = NormalizeScore(notaDouble);
+                            }
+                        }
+                        
+                        // Extrair proposta de refatoração
+                        if (root.TryGetProperty("PropostaRefatoracao", out var propostaElement) || 
+                            root.TryGetProperty("propostaRefatoracao", out propostaElement))
+                        {
+                            var proposta = new RefactoringProposal();
+                            
+                            if (propostaElement.TryGetProperty("Titulo", out var tituloElement) || 
+                                propostaElement.TryGetProperty("titulo", out tituloElement))
+                            {
+                                proposta.Titulo = tituloElement.GetString() ?? "";
+                            }
+                            
+                            if (propostaElement.TryGetProperty("Descricao", out var descricaoElement) || 
+                                propostaElement.TryGetProperty("descricao", out descricaoElement))
+                            {
+                                proposta.Descricao = descricaoElement.GetString() ?? "";
+                            }
+                            
+                            if (propostaElement.TryGetProperty("CodigoOriginal", out var originalElement) || 
+                                propostaElement.TryGetProperty("codigoOriginal", out originalElement))
+                            {
+                                proposta.CodigoOriginal = originalElement.GetString() ?? "";
+                            }
+                            
+                            if (propostaElement.TryGetProperty("CodigoRefatorado", out var refatoradoElement) || 
+                                propostaElement.TryGetProperty("codigoRefatorado", out refatoradoElement))
+                            {
+                                proposta.CodigoRefatorado = refatoradoElement.GetString() ?? "";
+                            }
+                            
+                            jsonAnalysisResult.PropostaRefatoracao = proposta;
+                        }
+                        else if (root.TryGetProperty("RefactoringProposal", out var refactoringElement) && 
+                                 refactoringElement.ValueKind == JsonValueKind.String)
+                        {
+                            // Formato antigo com string simples
+                            jsonAnalysisResult.PropostaRefatoracao = new RefactoringProposal
+                            {
+                                Descricao = refactoringElement.GetString() ?? ""
+                            };
+                        }
+                        
+                        // Verificar se temos valores válidos
+                        if (jsonAnalysisResult.NotaFinal == 0)
+                        {
+                            // Garantir que todas as notas estejam na escala 0-100
+                            foreach (var criteria in jsonAnalysisResult.AnaliseGeral.Values)
+                            {
+                                criteria.Nota = (int)Math.Round(NormalizeScore(criteria.Nota));
+                            }
+                            
+                            // Calcular a média apenas dos critérios que têm nota > 0
+                            var validCriteria = jsonAnalysisResult.AnaliseGeral.Values.Where(a => a.Nota > 0).ToList();
+                            
+                            if (validCriteria.Count > 0)
+                            {
+                                jsonAnalysisResult.NotaFinal = Math.Round(validCriteria.Average(a => a.Nota));
+                            }
+                            else
+                            {
+                                jsonAnalysisResult.NotaFinal = 50; // Valor neutro na escala de 0-100
+                            }
+                        }
+                        
+                        // Verificar se há uma nota mencionada no comentário geral
+                        if (!string.IsNullOrEmpty(jsonAnalysisResult.ComentarioGeral))
+                        {
+                            var commentScoreMatch = Regex.Match(jsonAnalysisResult.ComentarioGeral, @"Nota\s*:\s*(\d+)\s*\/\s*100", RegexOptions.IgnoreCase);
+                            if (commentScoreMatch.Success && commentScoreMatch.Groups.Count > 1)
+                            {
+                                if (int.TryParse(commentScoreMatch.Groups[1].Value, out int commentScore))
+                                {
+                                    // Se a nota do comentário for válida, usar ela em vez da calculada
+                                    if (commentScore >= 0 && commentScore <= 100)
+                                    {
+                                        _logger.LogInformation("Substituindo nota calculada {CalculatedScore} pela nota mencionada no comentário: {CommentScore}", 
+                                            jsonAnalysisResult.NotaFinal, commentScore);
+                                        jsonAnalysisResult.NotaFinal = commentScore;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                // Tentar outro padrão de nota no comentário
+                                commentScoreMatch = Regex.Match(jsonAnalysisResult.ComentarioGeral, @"(\d+)\s*\/\s*100", RegexOptions.IgnoreCase);
+                                if (commentScoreMatch.Success && commentScoreMatch.Groups.Count > 1)
+                                {
+                                    if (int.TryParse(commentScoreMatch.Groups[1].Value, out int commentScore))
+                                    {
+                                        if (commentScore >= 0 && commentScore <= 100)
+                                        {
+                                            _logger.LogInformation("Substituindo nota calculada {CalculatedScore} pela nota mencionada no comentário: {CommentScore}", 
+                                                jsonAnalysisResult.NotaFinal, commentScore);
+                                            jsonAnalysisResult.NotaFinal = commentScore;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // Garantir que a nota final está dentro dos limites
+                        jsonAnalysisResult.NotaFinal = Math.Max(0, Math.Min(100, jsonAnalysisResult.NotaFinal));
+                        
+                        // Serializar o resultado para JSON
+                        var parsedJsonResult = JsonSerializer.Serialize(jsonAnalysisResult);
+                        _logger.LogInformation("Resposta em JSON extraída e processada com sucesso: {Length} caracteres", parsedJsonResult.Length);
+                        
+                        return parsedJsonResult;
+                    }
+                    catch (JsonException ex)
+                    {
+                        _logger.LogWarning(ex, "Erro ao processar JSON extraído diretamente: {ErrorMessage}. Tentando método alternativo.", ex.Message);
+                        // Continuar com o método alternativo abaixo
+                    }
+                }
+                
+                // Método alternativo: analisar a resposta em formato de texto
                 var analysisResult = new AnalysisResult
                 {
                     AnaliseGeral = new Dictionary<string, CriteriaAnalysis>(),
                     NotaFinal = 0,
-                    ComentarioGeral = ""
+                    ComentarioGeral = "",
+                    PropostaRefatoracao = new RefactoringProposal()
                 };
+                
+                // Inicializar todos os critérios com valores padrão
+                InitializeDefaultCriteria(analysisResult);
                 
                 // Remover marcações de código e outros caracteres especiais
                 textResponse = Regex.Replace(textResponse, @"```[^`]*```", "", RegexOptions.Singleline);
@@ -849,9 +1080,56 @@ namespace CommitQualityAnalyzer.Worker.Services
                 {
                     if (double.TryParse(finalScoreMatch.Groups[1].Value, out double finalScore))
                     {
-                        analysisResult.NotaFinal = finalScore;
+                        // Normalizar para escala 0-100
+                        analysisResult.NotaFinal = Math.Round(NormalizeScore(finalScore));
+                        
+                        // Verificar se a nota está dentro dos limites esperados
+                        if (analysisResult.NotaFinal < 0 || analysisResult.NotaFinal > 100)
+                        {
+                            _logger.LogWarning("Nota final extraída fora dos limites (0-100): {NotaFinal}. Ajustando para o intervalo válido.", analysisResult.NotaFinal);
+                            analysisResult.NotaFinal = Math.Max(0, Math.Min(100, analysisResult.NotaFinal));
+                        }
                     }
                 }
+                
+                // Verificar também no comentário geral por menções à nota
+                if (!string.IsNullOrEmpty(analysisResult.ComentarioGeral))
+                {
+                    var commentScoreMatch = Regex.Match(analysisResult.ComentarioGeral, @"Nota\s*:\s*(\d+)\s*\/\s*100", RegexOptions.IgnoreCase);
+                    if (commentScoreMatch.Success && commentScoreMatch.Groups.Count > 1)
+                    {
+                        if (int.TryParse(commentScoreMatch.Groups[1].Value, out int commentScore))
+                        {
+                            // Se a nota do comentário for válida, usar ela em vez da calculada
+                            if (commentScore >= 0 && commentScore <= 100)
+                            {
+                                _logger.LogInformation("Substituindo nota calculada {CalculatedScore} pela nota mencionada no comentário: {CommentScore}", 
+                                    analysisResult.NotaFinal, commentScore);
+                                analysisResult.NotaFinal = commentScore;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Tentar outro padrão de nota no comentário
+                        commentScoreMatch = Regex.Match(analysisResult.ComentarioGeral, @"(\d+)\s*\/\s*100", RegexOptions.IgnoreCase);
+                        if (commentScoreMatch.Success && commentScoreMatch.Groups.Count > 1)
+                        {
+                            if (int.TryParse(commentScoreMatch.Groups[1].Value, out int commentScore))
+                            {
+                                if (commentScore >= 0 && commentScore <= 100)
+                                {
+                                    _logger.LogInformation("Substituindo nota calculada {CalculatedScore} pela nota mencionada no comentário: {CommentScore}", 
+                                        analysisResult.NotaFinal, commentScore);
+                                    analysisResult.NotaFinal = commentScore;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // Extrair proposta de refatoração
+                ExtractRefactoringProposal(textResponse, analysisResult);
                 
                 // Extrair análises de critérios
                 ExtractCriteriaAnalysis(textResponse, "Clean Code", analysisResult);
@@ -860,16 +1138,55 @@ namespace CommitQualityAnalyzer.Worker.Services
                 ExtractCriteriaAnalysis(textResponse, "Testabilidade", analysisResult);
                 ExtractCriteriaAnalysis(textResponse, "Segurança", analysisResult);
                 
+                // Tentar extrações alternativas para critérios não encontrados
+                if (!analysisResult.AnaliseGeral.ContainsKey("CleanCode") || analysisResult.AnaliseGeral["CleanCode"].Nota == 0)
+                {
+                    ExtractCriteriaAnalysis(textResponse, "Código Limpo", analysisResult, "CleanCode");
+                }
+                
+                if (!analysisResult.AnaliseGeral.ContainsKey("DesignPatterns") || analysisResult.AnaliseGeral["DesignPatterns"].Nota == 0)
+                {
+                    ExtractCriteriaAnalysis(textResponse, "Padrões de Projeto", analysisResult, "DesignPatterns");
+                }
+                
+                if (!analysisResult.AnaliseGeral.ContainsKey("Testabilidade") || analysisResult.AnaliseGeral["Testabilidade"].Nota == 0)
+                {
+                    ExtractCriteriaAnalysis(textResponse, "Testes", analysisResult, "Testabilidade");
+                }
+                
+                if (!analysisResult.AnaliseGeral.ContainsKey("Seguranca") || analysisResult.AnaliseGeral["Seguranca"].Nota == 0)
+                {
+                    ExtractCriteriaAnalysis(textResponse, "Segurança", analysisResult, "Seguranca");
+                }
+                
+                // Extrair proposta de refatoração
+                var refactoringMatch = Regex.Match(textResponse, @"Proposta\s*de\s*Refatoração\s*:([^\n]*(?:\n(?!\*)[^\n]*)*)", RegexOptions.IgnoreCase);
+                if (refactoringMatch.Success && refactoringMatch.Groups.Count > 1)
+                {
+                    analysisResult.PropostaRefatoracao.Descricao = refactoringMatch.Groups[1].Value.Trim();
+                }
+                
                 // Se não conseguiu extrair nenhuma análise, usar o texto completo como comentário geral
-                if (analysisResult.AnaliseGeral.Count == 0 && string.IsNullOrEmpty(analysisResult.ComentarioGeral))
+                if (string.IsNullOrEmpty(analysisResult.ComentarioGeral))
                 {
                     analysisResult.ComentarioGeral = textResponse.Length > 500 ? textResponse.Substring(0, 500) + "..." : textResponse;
                 }
                 
                 // Calcular nota final se não foi encontrada
-                if (analysisResult.NotaFinal == 0 && analysisResult.AnaliseGeral.Count > 0)
+                if (analysisResult.NotaFinal == 0)
                 {
-                    analysisResult.NotaFinal = analysisResult.AnaliseGeral.Values.Average(a => a.Nota);
+                    // Calcular a média apenas dos critérios que têm nota > 0
+                    var validCriteria = analysisResult.AnaliseGeral.Values.Where(a => a.Nota > 0).ToList();
+                    
+                    if (validCriteria.Count > 0)
+                    {
+                        analysisResult.NotaFinal = validCriteria.Average(a => a.Nota);
+                    }
+                    else
+                    {
+                        // Se não temos nenhum critério com nota, definir um valor padrão
+                        analysisResult.NotaFinal = 50; // Valor neutro na escala de 0-100
+                    }
                 }
                 
                 // Serializar o resultado para JSON
@@ -885,32 +1202,327 @@ namespace CommitQualityAnalyzer.Worker.Services
             }
         }
         
-        private void ExtractCriteriaAnalysis(string textResponse, string criteriaName, AnalysisResult analysisResult)
+        private void ExtractRefactoringProposal(string textResponse, AnalysisResult analysisResult)
         {
             try
             {
-                // Padrão para capturar algo como "Clean Code: 8/10 - Comentário" ou "* Clean Code: 8/10 - Comentário"
-                var pattern = $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*:\s*)(\d+(?:\.\d+)?)(?:/\d+)?(?:\s*[-:]\s*|\s+)([^\n]*(?:\n(?!\*)[^\n]*)*)";
-                var match = Regex.Match(textResponse, pattern, RegexOptions.IgnoreCase);
-                
-                if (match.Success && match.Groups.Count > 2)
+                // Padrões para capturar propostas de refatoração
+                var patterns = new[]
                 {
-                    var scoreStr = match.Groups[1].Value.Trim();
-                    var comment = match.Groups[2].Value.Trim();
+                    // Padrão 1: "Proposta de Refatoração:" seguido por texto
+                    @"Proposta\s*de\s*Refatoração\s*:([^#]*?)(?:##|$)",
                     
-                    if (double.TryParse(scoreStr, out double scoreDouble))
+                    // Padrão 2: "Sugestão de Refatoração:" seguido por texto
+                    @"Sugestão\s*de\s*Refatoração\s*:([^#]*?)(?:##|$)",
+                    
+                    // Padrão 3: "Refatoração Sugerida:" seguido por texto
+                    @"Refatoração\s*Sugerida\s*:([^#]*?)(?:##|$)"
+                };
+                
+                foreach (var pattern in patterns)
+                {
+                    var match = Regex.Match(textResponse, pattern, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                    
+                    if (match.Success && match.Groups.Count > 1)
                     {
-                        // Converter para int, já que a propriedade Nota é int
-                        int score = (int)Math.Round(scoreDouble);
+                        string proposalText = match.Groups[1].Value.Trim();
                         
-                        var criteriaKey = criteriaName.Replace(" ", "");
+                        if (!string.IsNullOrEmpty(proposalText))
+                        {
+                            // Tentar extrair o título da proposta
+                            string title = "Proposta de Refatoração";
+                            var titleMatch = Regex.Match(proposalText, @"^\s*#*\s*([^\n]+)", RegexOptions.Multiline);
+                            if (titleMatch.Success)
+                            {
+                                title = titleMatch.Groups[1].Value.Trim();
+                                // Remover o título do texto da proposta
+                                proposalText = Regex.Replace(proposalText, @"^\s*#*\s*([^\n]+)\n", "", RegexOptions.Multiline);
+                            }
+                            
+                            // Extrair código original e refatorado
+                            string originalCode = "";
+                            string refactoredCode = "";
+                            
+                            // Tentar extrair código original
+                            var originalCodeMatch = Regex.Match(proposalText, @"Código\s*Original\s*:\s*```[^`]*```|Original\s*:\s*```[^`]*```|Antes\s*:\s*```[^`]*```", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                            if (originalCodeMatch.Success)
+                            {
+                                originalCode = ExtractCodeFromMarkdown(originalCodeMatch.Value);
+                            }
+                            
+                            // Tentar extrair código refatorado
+                            var refactoredCodeMatch = Regex.Match(proposalText, @"Código\s*Refatorado\s*:\s*```[^`]*```|Refatorado\s*:\s*```[^`]*```|Depois\s*:\s*```[^`]*```", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                            if (refactoredCodeMatch.Success)
+                            {
+                                refactoredCode = ExtractCodeFromMarkdown(refactoredCodeMatch.Value);
+                            }
+                            
+                            // Se não encontrou código específico, tentar extrair qualquer bloco de código
+                            if (string.IsNullOrEmpty(originalCode) && string.IsNullOrEmpty(refactoredCode))
+                            {
+                                var codeBlocks = Regex.Matches(proposalText, @"```[^`]*```", RegexOptions.Singleline);
+                                if (codeBlocks.Count >= 1)
+                                {
+                                    refactoredCode = ExtractCodeFromMarkdown(codeBlocks[0].Value);
+                                }
+                                if (codeBlocks.Count >= 2)
+                                {
+                                    originalCode = refactoredCode;
+                                    refactoredCode = ExtractCodeFromMarkdown(codeBlocks[1].Value);
+                                }
+                            }
+                            
+                            // Remover blocos de código do texto da proposta para obter apenas a descrição
+                            string description = Regex.Replace(proposalText, @"```[^`]*```", "", RegexOptions.Singleline);
+                            description = Regex.Replace(description, @"Código\s*Original\s*:|Original\s*:|Antes\s*:|Código\s*Refatorado\s*:|Refatorado\s*:|Depois\s*:", "", RegexOptions.IgnoreCase);
+                            description = description.Trim();
+                            
+                            // Atualizar a proposta de refatoração
+                            analysisResult.PropostaRefatoracao = new RefactoringProposal
+                            {
+                                Titulo = title,
+                                Descricao = description,
+                                CodigoOriginal = originalCode,
+                                CodigoRefatorado = refactoredCode,
+                                ProposalDate = DateTime.Now
+                            };
+                            
+                            _logger.LogInformation("Proposta de refatoração extraída com sucesso: {Title}", title);
+                            return;
+                        }
+                    }
+                }
+                
+                _logger.LogInformation("Não foi possível extrair uma proposta de refatoração válida do texto da resposta.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao extrair proposta de refatoração: {ErrorMessage}", ex.Message);
+            }
+        }
+        
+        private string ExtractCodeFromMarkdown(string markdownCode)
+        {
+            // Remove ```language e ``` do código markdown
+            return Regex.Replace(markdownCode, @"```(?:[^\n]*)?\n?(.*?)```", "$1", RegexOptions.Singleline).Trim();
+        }
+        
+        private void InitializeDefaultCriteria(AnalysisResult analysisResult)
+        {
+            // Inicializar todos os critérios com valores padrão
+            var defaultCriteria = new[] { "CleanCode", "SOLID", "DesignPatterns", "Testabilidade", "Seguranca" };
+            
+            // Remover critérios duplicados (com acentos diferentes)
+            var keysToRemove = new List<string>();
+            var keysToNormalize = new Dictionary<string, string>();
+            
+            foreach (var key in analysisResult.AnaliseGeral.Keys)
+            {
+                string normalizedKey = key;
+                
+                // Normalizar nomes de critérios
+                switch (key.ToLower())
+                {
+                    case "segurança":
+                        normalizedKey = "Seguranca";
+                        keysToNormalize[key] = normalizedKey;
+                        break;
+                    case "código limpo":
+                    case "código-limpo":
+                    case "clean-code":
+                        normalizedKey = "CleanCode";
+                        keysToNormalize[key] = normalizedKey;
+                        break;
+                    case "design-patterns":
+                    case "padrões de design":
+                    case "padrões de projeto":
+                        normalizedKey = "DesignPatterns";
+                        keysToNormalize[key] = normalizedKey;
+                        break;
+                    case "testabilidade":
+                    case "testability":
+                        normalizedKey = "Testabilidade";
+                        keysToNormalize[key] = normalizedKey;
+                        break;
+                }
+            }
+            
+            // Transferir valores dos critérios com nomes alternativos
+            foreach (var keyPair in keysToNormalize)
+            {
+                if (!analysisResult.AnaliseGeral.ContainsKey(keyPair.Value))
+                {
+                    analysisResult.AnaliseGeral[keyPair.Value] = analysisResult.AnaliseGeral[keyPair.Key];
+                }
+                else if (analysisResult.AnaliseGeral[keyPair.Key].Nota != 50) // Se o valor não for o padrão
+                {
+                    // Usar o valor do critério alternativo se ele não for o valor padrão
+                    analysisResult.AnaliseGeral[keyPair.Value] = analysisResult.AnaliseGeral[keyPair.Key];
+                }
+                
+                keysToRemove.Add(keyPair.Key);
+            }
+            
+            // Remover as chaves duplicadas
+            foreach (var key in keysToRemove)
+            {
+                analysisResult.AnaliseGeral.Remove(key);
+            }
+            
+            // Adicionar critérios padrão ausentes
+            foreach (var criteria in defaultCriteria)
+            {
+                if (!analysisResult.AnaliseGeral.ContainsKey(criteria))
+                {
+                    analysisResult.AnaliseGeral[criteria] = new CriteriaAnalysis
+                    {
+                        Nota = 50,
+                        Comentario = "Não foi possível extrair informações para este critério"
+                    };
+                }
+            }
+        }
+        
+        private double NormalizeScore(double score)
+        {
+            // Verificar se a nota já está na escala 0-100
+            if (score > 0 && score <= 10)
+            {
+                // Converter de escala 0-10 para 0-100
+                return score * 10;
+            }
+            else if (score > 0 && score <= 100)
+            {
+                // Já está na escala correta
+                return score;
+            }
+            else if (score > 100)
+            {
+                // Limitar ao máximo de 100
+                return 100;
+            }
+            else
+            {
+                // Valor inválido, retornar 0
+                return 0;
+            }
+        }
+        
+        private void ExtractCriteriaAnalysis(string textResponse, string criteriaName, AnalysisResult analysisResult, string criteriaKey = null)
+        {
+            try
+            {
+                criteriaKey = criteriaKey ?? criteriaName.Replace(" ", "");
+                
+                // Padrões para capturar notas em diferentes formatos
+                var patterns = new[]
+                {
+                    // Padrão 1: "Clean Code: 8/10 - Comentário"
+                    $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*:\s*)(\d+(?:\.\d+)?)(?:/\d+)?(?:\s*[-:]\s*|\s+)([^\n]*(?:\n(?!\*)[^\n]*)*)",
+                    
+                    // Padrão 2: "Clean Code (8/10): Comentário"
+                    $@"(?:\*\s*)?{Regex.Escape(criteriaName)}\s*\((\d+(?:\.\d+)?)(?:/\d+)?\)(?:\s*[-:]\s*|\s+)([^\n]*(?:\n(?!\*)[^\n]*)*)",
+                    
+                    // Padrão 3: "* Clean Code: Comentário (8/10)"
+                    $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*:\s*)([^\n]*(?:\n(?!\*)[^\n]*)*)(?:\s*\((\d+(?:\.\d+)?)(?:/\d+)?\))"
+                };
+                
+                foreach (var pattern in patterns)
+                {
+                    var match = Regex.Match(textResponse, pattern, RegexOptions.IgnoreCase);
+                    
+                    if (match.Success && match.Groups.Count > 2)
+                    {
+                        string scoreStr;
+                        string comment;
+                        
+                        if (pattern == patterns[2]) // Padrão 3 tem grupos diferentes
+                        {
+                            scoreStr = match.Groups[2].Value.Trim();
+                            comment = match.Groups[1].Value.Trim();
+                        }
+                        else // Padrão 1 e 2
+                        {
+                            scoreStr = match.Groups[1].Value.Trim();
+                            comment = match.Groups[2].Value.Trim();
+                        }
+                        
+                        if (double.TryParse(scoreStr, out double scoreDouble))
+                        {
+                            // Normalizar para escala 0-100
+                            double normalizedScore = NormalizeScore(scoreDouble);
+                            
+                            // Converter para int, já que a propriedade Nota é int
+                            int score = (int)Math.Round(normalizedScore);
+                            
+                            analysisResult.AnaliseGeral[criteriaKey] = new CriteriaAnalysis
+                            {
+                                Nota = score,
+                                Comentario = comment
+                            };
+                            
+                            _logger.LogDebug("Extraído critério {CriteriaName}: Nota={Score}, Comentário={Comment}", 
+                                criteriaName, score, comment);
+                            
+                            return; // Encontrou uma correspondência, não precisa continuar
+                        }
+                    }
+                }
+                
+                // Se chegou aqui, não encontrou o critério com os padrões específicos
+                // Tentar um padrão mais genérico para extrair apenas o comentário
+                var genericPattern = $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*:\s*)([^\n]*(?:\n(?!\*)[^\n]*)*)";
+                var genericMatch = Regex.Match(textResponse, genericPattern, RegexOptions.IgnoreCase);
+                
+                if (genericMatch.Success && genericMatch.Groups.Count > 1)
+                {
+                    var comment = genericMatch.Groups[1].Value.Trim();
+                    
+                    if (!string.IsNullOrEmpty(comment))
+                    {
+                        // Tentar extrair um número do comentário
+                        var numberMatch = Regex.Match(comment, @"(\d+(?:\.\d+)?)");
+                        int score = 0;
+                        
+                        if (numberMatch.Success)
+                        {
+                            if (double.TryParse(numberMatch.Groups[1].Value, out double scoreDouble))
+                            {
+                                score = (int)Math.Round(NormalizeScore(scoreDouble));
+                            }
+                        }
+                        
+                        // Se não encontrou um número ou o score é 0, usar um valor padrão baseado no sentimento do comentário
+                        if (score == 0)
+                        {
+                            // Análise de sentimento simplificada
+                            var positiveWords = new[] { "bom", "ótimo", "excelente", "adequado", "correto", "bem", "positivo" };
+                            var negativeWords = new[] { "ruim", "inadequado", "problema", "falha", "erro", "mal", "negativo", "pobre" };
+                            
+                            int positiveCount = positiveWords.Count(word => comment.ToLower().Contains(word));
+                            int negativeCount = negativeWords.Count(word => comment.ToLower().Contains(word));
+                            
+                            if (positiveCount > negativeCount)
+                            {
+                                score = 70; // Valor positivo padrão
+                            }
+                            else if (negativeCount > positiveCount)
+                            {
+                                score = 30; // Valor negativo padrão
+                            }
+                            else
+                            {
+                                score = 50; // Valor neutro padrão
+                            }
+                        }
+                        
                         analysisResult.AnaliseGeral[criteriaKey] = new CriteriaAnalysis
                         {
                             Nota = score,
                             Comentario = comment
                         };
                         
-                        _logger.LogDebug("Extraído critério {CriteriaName}: Nota={Score}, Comentário={Comment}", 
+                        _logger.LogDebug("Extraído critério {CriteriaName} (apenas comentário): Nota={Score}, Comentário={Comment}", 
                             criteriaName, score, comment);
                     }
                 }
@@ -1142,7 +1754,7 @@ namespace CommitQualityAnalyzer.Worker.Services
             promptBuilder.AppendLine("4. Testabilidade: Avalie se o código é fácil de testar.");
             promptBuilder.AppendLine("5. Segurança: Verifique se existem problemas de segurança no código.");
             promptBuilder.AppendLine();
-            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0 a 10 e forneça um comentário explicativo.");
+            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0 a 100 e forneça um comentário explicativo.");
             promptBuilder.AppendLine();
             
             // Informações sobre o arquivo
@@ -1157,20 +1769,34 @@ namespace CommitQualityAnalyzer.Worker.Services
             promptBuilder.AppendLine();
             
             // Instruções para o formato da resposta
-            promptBuilder.AppendLine("Forneça sua análise no seguinte formato JSON:");
+            promptBuilder.AppendLine("## TEMPLATE DE RESPOSTA");
+            promptBuilder.AppendLine("Por favor, siga exatamente este formato para sua resposta:");
+            promptBuilder.AppendLine();
             promptBuilder.AppendLine("```json");
             promptBuilder.AppendLine("{");
             promptBuilder.AppendLine("  \"AnaliseGeral\": {");
-            promptBuilder.AppendLine("    \"cleanCode\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"solidPrinciples\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"designPatterns\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"testability\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"security\": { \"Nota\": 0, \"Comentario\": \"\" }");
+            promptBuilder.AppendLine("    \"CleanCode\": { \"Nota\": 85, \"Comentario\": \"O código segue boas práticas como nomes descritivos nas variáveis 'fileContent' e métodos como 'BuildCodeAnalysisPrompt'...\" },");
+            promptBuilder.AppendLine("    \"SOLID\": { \"Nota\": 70, \"Comentario\": \"O princípio de Responsabilidade Única é respeitado na classe CommitAnalyzerService, mas...\" },");
+            promptBuilder.AppendLine("    \"DesignPatterns\": { \"Nota\": 60, \"Comentario\": \"O código utiliza o padrão Repository na interface ICodeAnalysisRepository...\" },");
+            promptBuilder.AppendLine("    \"Testabilidade\": { \"Nota\": 75, \"Comentario\": \"A injeção de dependências do ILogger e ICodeAnalysisRepository facilita o teste, porém...\" },");
+            promptBuilder.AppendLine("    \"Seguranca\": { \"Nota\": 80, \"Comentario\": \"O código valida entradas adequadamente com verificações como 'string.IsNullOrEmpty(textResponse)', mas...\" }");
             promptBuilder.AppendLine("  },");
-            promptBuilder.AppendLine("  \"NotaFinal\": 0,");
-            promptBuilder.AppendLine("  \"ComentarioGeral\": \"\"");
+            promptBuilder.AppendLine("  \"ComentarioGeral\": \"Este código apresenta boa estrutura geral, mas poderia melhorar em...\",");
+            promptBuilder.AppendLine("  \"NotaFinal\": 74,");
+            promptBuilder.AppendLine("  \"PropostaRefatoracao\": {");
+            promptBuilder.AppendLine("    \"Titulo\": \"Refatoração para melhorar a testabilidade do método BuildCodeAnalysisPrompt\",");
+            promptBuilder.AppendLine("    \"Descricao\": \"Sugiro extrair a lógica de construção do prompt para uma classe separada que implemente uma interface IPromptBuilder...\",");
+            promptBuilder.AppendLine("    \"CodigoOriginal\": \"private string BuildCodeAnalysisPrompt(string filePath, string fileContent) { /* código atual */ }\",");
+            promptBuilder.AppendLine("    \"CodigoRefatorado\": \"private string BuildCodeAnalysisPrompt(string filePath, string fileContent) { return _promptBuilder.BuildCodeAnalysisPrompt(filePath, fileContent); }\",");
+            promptBuilder.AppendLine("  }");
             promptBuilder.AppendLine("}");
             promptBuilder.AppendLine("```");
+            promptBuilder.AppendLine();
+            promptBuilder.AppendLine("Observações importantes:");
+            promptBuilder.AppendLine("1. Todas as notas devem ser valores inteiros entre 0 e 100.");
+            promptBuilder.AppendLine("2. Forneça comentários detalhados para cada critério, citando trechos específicos do código.");
+            promptBuilder.AppendLine("3. A proposta de refatoração deve incluir um exemplo concreto de código do arquivo analisado.");
+            promptBuilder.AppendLine("4. Mantenha o formato JSON exato conforme o template acima.");
             
             var prompt = promptBuilder.ToString();
             _logger.LogDebug("Prompt construído com {PromptLength} caracteres", prompt.Length);
@@ -1240,7 +1866,7 @@ namespace CommitQualityAnalyzer.Worker.Services
             promptBuilder.AppendLine("4. Testabilidade: Avalie se as alterações facilitam ou dificultam o teste do código.");
             promptBuilder.AppendLine("5. Segurança: Verifique se as alterações introduzem ou corrigem problemas de segurança.");
             promptBuilder.AppendLine();
-            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0 a 10 e forneça um comentário explicativo.");
+            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0 a 100 e forneça um comentário explicativo.");
             promptBuilder.AppendLine();
             
             // Informações sobre o arquivo
@@ -1262,21 +1888,34 @@ namespace CommitQualityAnalyzer.Worker.Services
             promptBuilder.AppendLine();
             
             // Instruções para o formato da resposta
-            promptBuilder.AppendLine("Forneça sua análise no seguinte formato JSON:");
+            promptBuilder.AppendLine("## TEMPLATE DE RESPOSTA");
+            promptBuilder.AppendLine("Por favor, siga exatamente este formato para sua resposta:");
+            promptBuilder.AppendLine();
             promptBuilder.AppendLine("```json");
             promptBuilder.AppendLine("{");
             promptBuilder.AppendLine("  \"AnaliseGeral\": {");
-            promptBuilder.AppendLine("    \"cleanCode\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"solidPrinciples\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"designPatterns\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"testability\": { \"Nota\": 0, \"Comentario\": \"\" },");
-            promptBuilder.AppendLine("    \"security\": { \"Nota\": 0, \"Comentario\": \"\" }");
+            promptBuilder.AppendLine("    \"CleanCode\": { \"Nota\": 85, \"Comentario\": \"As alterações melhoraram a legibilidade ao extrair o método GenerateDiffText...\" },");
+            promptBuilder.AppendLine("    \"SOLID\": { \"Nota\": 70, \"Comentario\": \"As mudanças melhoraram a aderência ao princípio de Responsabilidade Única ao separar...\" },");
+            promptBuilder.AppendLine("    \"DesignPatterns\": { \"Nota\": 60, \"Comentario\": \"As alterações aplicaram o padrão Strategy ao extrair a lógica de...\" },");
+            promptBuilder.AppendLine("    \"Testabilidade\": { \"Nota\": 75, \"Comentario\": \"A extração do método GetCommitChangesWithDiff facilita o teste isolado...\" },");
+            promptBuilder.AppendLine("    \"Seguranca\": { \"Nota\": 80, \"Comentario\": \"As alterações adicionaram validações importantes como a verificação null em diffText...\" }");
             promptBuilder.AppendLine("  },");
-            promptBuilder.AppendLine("  \"NotaFinal\": 0,");
-            promptBuilder.AppendLine("  \"ComentarioGeral\": \"\",");
-            promptBuilder.AppendLine("  \"RefactoringProposal\": \"\"");
+            promptBuilder.AppendLine("  \"ComentarioGeral\": \"As alterações realizadas melhoraram significativamente a estrutura do código...\",");
+            promptBuilder.AppendLine("  \"NotaFinal\": 74,");
+            promptBuilder.AppendLine("  \"PropostaRefatoracao\": {");
+            promptBuilder.AppendLine("    \"Titulo\": \"Refatoração para melhorar o processamento de diffs\",");
+            promptBuilder.AppendLine("    \"Descricao\": \"Sugiro extrair a lógica de processamento de diff para uma classe dedicada DiffProcessor...\",");
+            promptBuilder.AppendLine("    \"CodigoOriginal\": \"private string GenerateDiffText(string originalContent, string modifiedContent) { /* código atual */ }\",");
+            promptBuilder.AppendLine("    \"CodigoRefatorado\": \"private string GenerateDiffText(string originalContent, string modifiedContent) { return _diffProcessor.Generate(originalContent, modifiedContent); }\",");
+            promptBuilder.AppendLine("  }");
             promptBuilder.AppendLine("}");
             promptBuilder.AppendLine("```");
+            promptBuilder.AppendLine();
+            promptBuilder.AppendLine("Observações importantes:");
+            promptBuilder.AppendLine("1. Todas as notas devem ser valores inteiros entre 0 e 100.");
+            promptBuilder.AppendLine("2. Forneça comentários detalhados para cada critério, citando trechos específicos das alterações.");
+            promptBuilder.AppendLine("3. A proposta de refatoração deve incluir um exemplo concreto de código do arquivo analisado.");
+            promptBuilder.AppendLine("4. Mantenha o formato JSON exato conforme o template acima.");
             
             var prompt = promptBuilder.ToString();
             _logger.LogDebug("Prompt construído com {PromptLength} caracteres", prompt.Length);

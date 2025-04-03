@@ -502,3 +502,766 @@ Análise geral:
 2025-04-02 21:07:21.570 -03:00 [INF] Processando prompt completo para análise de diferenças
 2025-04-02 21:07:21.571 -03:00 [INF] Processando parte do prompt com 6944 caracteres usando modelo codellama:latest
 2025-04-02 21:07:21.572 -03:00 [INF] Processando parte do prompt com 6944 caracteres usando modelo codellama:latest
+2025-04-02 21:14:03.324 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:14:03.512 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-02 21:14:03.517 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:14:03.518 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:14:03.565 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:14:03.567 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:14:03.568 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:14:03.570 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:14:03.572 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:14:03.573 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:14:03.589 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:14:03.590 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:14:03.597 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:14:03.598 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:14:03.599 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:14:03.602 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:14:03.605 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:14:03.606 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:14:03.608 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:14:03.608 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:14:03.610 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:14:03.611 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:14:03.614 -03:00 [INF] Processando parte do prompt com 2300 caracteres usando modelo codellama:latest
+2025-04-02 21:14:03.615 -03:00 [INF] Processando parte do prompt com 2300 caracteres usando modelo codellama:latest
+2025-04-02 21:15:47.106 -03:00 [WRN] Não foi possível encontrar o início do JSON na resposta
+2025-04-02 21:15:47.106 -03:00 [WRN] Não foi possível encontrar o início do JSON na resposta
+2025-04-02 21:15:47.107 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:15:47.108 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:15:47.121 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 3360 caracteres
+2025-04-02 21:15:47.121 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 3360 caracteres
+2025-04-02 21:15:47.122 -03:00 [INF] Processamento concluído em 103.5062246 segundos
+2025-04-02 21:15:47.123 -03:00 [INF] Processamento concluído em 103.5062246 segundos
+2025-04-02 21:15:47.125 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:15:47.126 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:15:47.128 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 103.5209593 segundos. Pontuação final: 82
+2025-04-02 21:15:47.129 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 103.5209593 segundos. Pontuação final: 82
+2025-04-02 21:15:47.178 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:15:47.179 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:15:47.180 -03:00 [INF] Análise do commit 83362ba9 concluída em 103.6090148 segundos
+2025-04-02 21:15:47.181 -03:00 [INF] Análise do commit 83362ba9 concluída em 103.6090148 segundos
+2025-04-02 21:15:47.182 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 21:15:47.183 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 21:15:47.184 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 21:15:47.185 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 21:15:47.188 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 21:15:47.189 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 21:15:47.190 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:15:47.191 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:15:47.192 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 21:15:47.193 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 21:15:47.194 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:15:47.194 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:15:47.195 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:15:47.196 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:15:47.199 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:15:47.200 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:15:47.201 -03:00 [INF] Processando parte do prompt com 2649 caracteres usando modelo codellama:latest
+2025-04-02 21:15:47.202 -03:00 [INF] Processando parte do prompt com 2649 caracteres usando modelo codellama:latest
+2025-04-02 21:17:18.871 -03:00 [WRN] Não foi possível encontrar o início do JSON na resposta
+2025-04-02 21:17:18.872 -03:00 [WRN] Não foi possível encontrar o início do JSON na resposta
+2025-04-02 21:17:18.872 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:17:18.873 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:17:18.877 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 2909 caracteres
+2025-04-02 21:17:18.877 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 2909 caracteres
+2025-04-02 21:17:18.878 -03:00 [INF] Processamento concluído em 91.6751728 segundos
+2025-04-02 21:17:18.878 -03:00 [INF] Processamento concluído em 91.6751728 segundos
+2025-04-02 21:17:18.879 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:17:18.881 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:17:18.881 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs em 91.6860188 segundos. Pontuação final: 87
+2025-04-02 21:17:18.882 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs em 91.6860188 segundos. Pontuação final: 87
+2025-04-02 21:17:18.890 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:17:18.891 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:17:18.892 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:17:18.892 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:17:18.893 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs (629 caracteres)
+2025-04-02 21:17:18.894 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs (629 caracteres)
+2025-04-02 21:17:18.895 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:17:18.896 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:17:18.897 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:17:18.897 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:17:18.899 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:17:18.900 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:17:18.901 -03:00 [INF] Processando parte do prompt com 2129 caracteres usando modelo codellama:latest
+2025-04-02 21:17:18.901 -03:00 [INF] Processando parte do prompt com 2129 caracteres usando modelo codellama:latest
+2025-04-02 21:31:04.485 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:31:34.645 -03:00 [FTL] Aplicação encerrada inesperadamente
+System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = WritableServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/localhost:27017" }", EndPoint: "Unspecified/localhost:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Sockets.SocketException (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. [::1]:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2025-04-03T00:31:31.1580626Z", LastUpdateTimestamp: "2025-04-03T00:31:31.1580634Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.IClusterExtensions.SelectServerAndPinIfNeeded(ICluster cluster, ICoreSessionHandle session, IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Bindings.WritableServerBinding.GetWriteChannelSource(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Bindings.ReadWriteBindingHandle.GetWriteChannelSource(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.CreateIndexesOperation.Execute(IWriteBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.ExecuteWriteOperation[TResult](IWriteBinding binding, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteWriteOperation[TResult](IClientSessionHandle session, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.MongoIndexManager.CreateMany(IClientSessionHandle session, IEnumerable`1 models, CreateManyIndexesOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.MongoIndexManager.<>c__DisplayClass9_0.<CreateMany>b__0(IClientSessionHandle session)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.MongoIndexManager.CreateMany(IEnumerable`1 models, CreateManyIndexesOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoIndexManagerBase`1.CreateOne(CreateIndexModel`1 model, CreateOneIndexOptions options, CancellationToken cancellationToken)
+   at CommitQualityAnalyzer.Core.Repositories.MongoCodeAnalysisRepository.CreateIndexes() in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\Repositories\MongoCodeAnalysisRepository.cs:line 28
+   at CommitQualityAnalyzer.Core.Repositories.MongoCodeAnalysisRepository..ctor(IConfiguration configuration) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\Repositories\MongoCodeAnalysisRepository.cs:line 18
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at CommitQualityAnalyzer.Worker.Program.<>c.<Main>b__0_1(IServiceProvider sp) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Program.cs:line 38
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at CommitQualityAnalyzer.Worker.Program.Main(String[] args) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Program.cs:line 51
+2025-04-02 21:32:07.718 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:32:37.875 -03:00 [FTL] Aplicação encerrada inesperadamente
+System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = WritableServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/localhost:27017" }", EndPoint: "Unspecified/localhost:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Sockets.SocketException (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. [::1]:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2025-04-03T00:32:34.3897066Z", LastUpdateTimestamp: "2025-04-03T00:32:34.3897073Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.IClusterExtensions.SelectServerAndPinIfNeeded(ICluster cluster, ICoreSessionHandle session, IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Bindings.WritableServerBinding.GetWriteChannelSource(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Bindings.ReadWriteBindingHandle.GetWriteChannelSource(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.CreateIndexesOperation.Execute(IWriteBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.ExecuteWriteOperation[TResult](IWriteBinding binding, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteWriteOperation[TResult](IClientSessionHandle session, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.MongoIndexManager.CreateMany(IClientSessionHandle session, IEnumerable`1 models, CreateManyIndexesOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.MongoIndexManager.<>c__DisplayClass9_0.<CreateMany>b__0(IClientSessionHandle session)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.MongoIndexManager.CreateMany(IEnumerable`1 models, CreateManyIndexesOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoIndexManagerBase`1.CreateOne(CreateIndexModel`1 model, CreateOneIndexOptions options, CancellationToken cancellationToken)
+   at CommitQualityAnalyzer.Core.Repositories.MongoCodeAnalysisRepository.CreateIndexes() in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\Repositories\MongoCodeAnalysisRepository.cs:line 28
+   at CommitQualityAnalyzer.Core.Repositories.MongoCodeAnalysisRepository..ctor(IConfiguration configuration) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Core\Repositories\MongoCodeAnalysisRepository.cs:line 18
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at CommitQualityAnalyzer.Worker.Program.<>c.<Main>b__0_1(IServiceProvider sp) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Program.cs:line 38
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at CommitQualityAnalyzer.Worker.Program.Main(String[] args) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Program.cs:line 51
+2025-04-02 21:33:04.010 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:33:31.770 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:33:31.960 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-02 21:33:31.965 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:33:31.966 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:33:32.012 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:33:32.014 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:33:32.015 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:33:32.017 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:33:32.019 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:33:32.019 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:33:32.034 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:33:32.035 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:33:32.042 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:33:32.046 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:33:32.048 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:33:32.049 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:33:32.051 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:33:32.052 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:33:32.053 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:33:32.054 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:33:32.056 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:33:32.057 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:33:32.059 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 21:33:32.060 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 21:36:46.931 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 21:36:46.945 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 21:36:46.950 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 21:36:46.955 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 21:36:46.963 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:36:46.964 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:36:46.976 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1782 caracteres
+2025-04-02 21:36:46.977 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1782 caracteres
+2025-04-02 21:36:46.978 -03:00 [INF] Processamento concluído em 194.9173487 segundos
+2025-04-02 21:36:46.980 -03:00 [INF] Processamento concluído em 194.9173487 segundos
+2025-04-02 21:36:46.981 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:36:46.982 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:36:46.988 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 194.935126 segundos. Pontuação final: 46.666666666666664
+2025-04-02 21:36:46.990 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 194.935126 segundos. Pontuação final: 46.666666666666664
+2025-04-02 21:36:47.044 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:36:47.045 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:36:47.046 -03:00 [INF] Análise do commit 83362ba9 concluída em 195.0282855 segundos
+2025-04-02 21:36:47.047 -03:00 [INF] Análise do commit 83362ba9 concluída em 195.0282855 segundos
+2025-04-02 21:36:47.048 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 21:36:47.049 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 21:36:47.050 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 21:36:47.051 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 21:36:47.054 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 21:36:47.055 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 21:36:47.056 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:36:47.057 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:36:47.058 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 21:36:47.059 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 21:36:47.060 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:36:47.060 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:36:47.061 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:36:47.062 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:36:47.063 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:36:47.064 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:36:47.065 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
+2025-04-02 21:36:47.068 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
+2025-04-02 21:44:00.597 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:44:00.794 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-02 21:44:00.799 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:44:00.800 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:44:00.846 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:44:00.848 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:44:00.849 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:44:00.850 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:44:00.852 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:44:00.852 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:44:00.867 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:44:00.868 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:44:00.875 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:44:00.876 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:44:00.877 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:44:00.878 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:44:00.881 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:44:00.882 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:44:00.883 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:44:00.884 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:44:00.885 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:44:00.886 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:44:00.889 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 21:44:00.890 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 21:52:39.391 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 21:52:39.588 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-02 21:52:39.593 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:52:39.595 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 21:52:39.645 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:52:39.647 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 21:52:39.648 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:52:39.649 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 21:52:39.651 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:52:39.651 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 21:52:39.666 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:52:39.666 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 21:52:39.674 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:52:39.674 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:52:39.676 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:52:39.677 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 21:52:39.679 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:52:39.680 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:52:39.681 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:52:39.682 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:52:39.683 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:52:39.683 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:52:39.687 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 21:52:39.688 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 21:55:01.941 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 21:55:01.949 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 21:55:01.957 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 21:55:01.965 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 21:55:01.977 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:55:01.977 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:55:01.994 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1051 caracteres
+2025-04-02 21:55:01.994 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1051 caracteres
+2025-04-02 21:55:01.995 -03:00 [INF] Processamento concluído em 142.3067171 segundos
+2025-04-02 21:55:01.997 -03:00 [INF] Processamento concluído em 142.3067171 segundos
+2025-04-02 21:55:01.998 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:55:01.998 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:55:02.002 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 142.3207122 segundos. Pontuação final: 70
+2025-04-02 21:55:02.003 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 142.3207122 segundos. Pontuação final: 70
+2025-04-02 21:55:02.058 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:55:02.059 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 21:55:02.060 -03:00 [INF] Análise do commit 83362ba9 concluída em 142.4098223 segundos
+2025-04-02 21:55:02.061 -03:00 [INF] Análise do commit 83362ba9 concluída em 142.4098223 segundos
+2025-04-02 21:55:02.062 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 21:55:02.063 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 21:55:02.064 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 21:55:02.065 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 21:55:02.068 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 21:55:02.069 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 21:55:02.071 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:55:02.072 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:55:02.072 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 21:55:02.073 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 21:55:02.074 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:55:02.075 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:55:02.076 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:55:02.077 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:55:02.079 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:55:02.080 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:55:02.081 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
+2025-04-02 21:55:02.082 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
+2025-04-02 21:57:00.324 -03:00 [INF] Processamento concluído em 118.240755 segundos
+2025-04-02 21:57:00.328 -03:00 [INF] Processamento concluído em 118.240755 segundos
+2025-04-02 21:57:00.330 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:57:00.331 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:57:00.332 -03:00 [ERR] Erro ao deserializar resposta JSON para análise de diferenças do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCodeDiff(String originalContent, String modifiedContent, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 443
+2025-04-02 21:57:00.340 -03:00 [ERR] Erro ao deserializar resposta JSON para análise de diferenças do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCodeDiff(String originalContent, String modifiedContent, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 443
+2025-04-02 21:57:00.358 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:57:00.358 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 21:57:00.359 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:57:00.360 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:57:00.361 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs (629 caracteres)
+2025-04-02 21:57:00.362 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs (629 caracteres)
+2025-04-02 21:57:00.363 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:57:00.364 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:57:00.366 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:57:00.367 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:57:00.368 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:57:00.368 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:57:00.372 -03:00 [INF] Processando parte do prompt com 3476 caracteres usando modelo codellama:latest
+2025-04-02 21:57:00.373 -03:00 [INF] Processando parte do prompt com 3476 caracteres usando modelo codellama:latest
+2025-04-02 21:59:16.602 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 21:59:16.608 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 21:59:16.616 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 21:59:16.623 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 21:59:16.630 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:59:16.631 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 21:59:16.637 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 9878 caracteres
+2025-04-02 21:59:16.638 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 9878 caracteres
+2025-04-02 21:59:16.639 -03:00 [INF] Processamento concluído em 136.2653521 segundos
+2025-04-02 21:59:16.640 -03:00 [INF] Processamento concluído em 136.2653521 segundos
+2025-04-02 21:59:16.642 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:59:16.643 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:59:16.644 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs em 136.2782986 segundos. Pontuação final: 69.16666666666667
+2025-04-02 21:59:16.645 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs em 136.2782986 segundos. Pontuação final: 69.16666666666667
+2025-04-02 21:59:16.648 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:59:16.652 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 21:59:16.653 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 21:59:16.654 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 21:59:16.655 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (4467 caracteres)
+2025-04-02 21:59:16.656 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (4467 caracteres)
+2025-04-02 21:59:16.657 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 21:59:16.658 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 21:59:16.658 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 21:59:16.659 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 21:59:16.660 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:59:16.662 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 21:59:16.663 -03:00 [INF] Processando parte do prompt com 7307 caracteres usando modelo codellama:latest
+2025-04-02 21:59:16.664 -03:00 [INF] Processando parte do prompt com 7307 caracteres usando modelo codellama:latest
+2025-04-02 22:01:54.685 -03:00 [INF] Processamento concluído em 158.020304 segundos
+2025-04-02 22:01:54.686 -03:00 [INF] Processamento concluído em 158.020304 segundos
+2025-04-02 22:01:54.687 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:01:54.688 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:01:54.689 -03:00 [ERR] Erro ao deserializar resposta JSON para análise de diferenças do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCodeDiff(String originalContent, String modifiedContent, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 443
+2025-04-02 22:01:54.697 -03:00 [ERR] Erro ao deserializar resposta JSON para análise de diferenças do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCodeDiff(String originalContent, String modifiedContent, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 443
+2025-04-02 22:01:54.705 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:01:54.706 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:01:54.707 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:01:54.708 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:01:54.708 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (715 caracteres)
+2025-04-02 22:01:54.709 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (715 caracteres)
+2025-04-02 22:01:54.710 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:01:54.711 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:01:54.712 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:01:54.714 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:01:54.715 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:01:54.716 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:01:54.717 -03:00 [INF] Processando parte do prompt com 3584 caracteres usando modelo codellama:latest
+2025-04-02 22:01:54.721 -03:00 [INF] Processando parte do prompt com 3584 caracteres usando modelo codellama:latest
+2025-04-02 22:07:09.389 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 22:07:09.399 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 749
+2025-04-02 22:07:09.410 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 22:07:09.416 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 786
+2025-04-02 22:07:09.428 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:07:09.429 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:07:09.438 -03:00 [INF] Substituindo nota calculada 80 pela nota mencionada no comentário: 80
+2025-04-02 22:07:09.439 -03:00 [INF] Substituindo nota calculada 80 pela nota mencionada no comentário: 80
+2025-04-02 22:07:09.440 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 36158 caracteres
+2025-04-02 22:07:09.441 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 36158 caracteres
+2025-04-02 22:07:09.442 -03:00 [INF] Processamento concluído em 314.7202682 segundos
+2025-04-02 22:07:09.445 -03:00 [INF] Processamento concluído em 314.7202682 segundos
+2025-04-02 22:07:09.446 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:07:09.447 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:07:09.449 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 314.7365504 segundos. Pontuação final: 80
+2025-04-02 22:07:09.453 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 314.7365504 segundos. Pontuação final: 80
+2025-04-02 22:07:09.456 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:07:09.457 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:07:09.459 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:07:09.461 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:07:09.461 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs (5456 caracteres)
+2025-04-02 22:07:09.462 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs (5456 caracteres)
+2025-04-02 22:07:09.467 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:07:09.468 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:07:09.469 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:07:09.470 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:07:09.472 -03:00 [WRN] Prompt excede o tamanho máximo (8292 > 8000). Truncando diff...
+2025-04-02 22:07:09.473 -03:00 [WRN] Prompt excede o tamanho máximo (8292 > 8000). Truncando diff...
+2025-04-02 22:07:09.474 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:07:09.475 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:07:09.476 -03:00 [INF] Processando parte do prompt com 7954 caracteres usando modelo codellama:latest
+2025-04-02 22:07:09.480 -03:00 [INF] Processando parte do prompt com 7954 caracteres usando modelo codellama:latest
+2025-04-02 22:10:05.297 -03:00 [INF] Processamento concluído em 175.816915 segundos
+2025-04-02 22:10:05.298 -03:00 [INF] Processamento concluído em 175.816915 segundos
+2025-04-02 22:10:05.299 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:10:05.300 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:10:05.301 -03:00 [ERR] Erro ao deserializar resposta JSON para análise de diferenças do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCodeDiff(String originalContent, String modifiedContent, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 443
+2025-04-02 22:10:05.308 -03:00 [ERR] Erro ao deserializar resposta JSON para análise de diferenças do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+System.Text.Json.JsonException: JSON deserialization for type 'CommitQualityAnalyzer.Core.Models.AnalysisResult' was missing required properties, including the following: analiseGeral; comentarioGeral
+   at System.Text.Json.ThrowHelper.ThrowJsonException_JsonRequiredPropertyMissing(JsonTypeInfo parent, BitArray requiredPropertiesSet)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.AnalyzeCodeDiff(String originalContent, String modifiedContent, String filePath, Commit commit) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 443
+2025-04-02 22:10:05.314 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:10:05.315 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoController..cs
+2025-04-02 22:10:05.316 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs
+2025-04-02 22:10:05.317 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs
+2025-04-02 22:10:05.318 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs (832 caracteres)
+2025-04-02 22:10:05.319 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs (832 caracteres)
+2025-04-02 22:10:05.320 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs
+2025-04-02 22:10:05.321 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs
+2025-04-02 22:10:05.322 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs
+2025-04-02 22:10:05.323 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/CargoListQuery.cs
+2025-04-02 22:10:05.323 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:10:05.324 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:10:05.325 -03:00 [INF] Processando parte do prompt com 3676 caracteres usando modelo codellama:latest
+2025-04-02 22:10:05.327 -03:00 [INF] Processando parte do prompt com 3676 caracteres usando modelo codellama:latest
+2025-04-02 22:11:35.957 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-02 22:11:36.155 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-02 22:11:36.160 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 22:11:36.162 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-02 22:11:36.208 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 22:11:36.210 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-02 22:11:36.211 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 22:11:36.213 -03:00 [INF] Iniciando análise do commit: 83362ba9 de Israel Silva em "2025-04-02T15:02:57.0000000"
+2025-04-02 22:11:36.214 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 22:11:36.215 -03:00 [INF] Obtendo mudanças para o commit 83362ba9
+2025-04-02 22:11:36.229 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 22:11:36.230 -03:00 [INF] Obtidas 1 alterações para o commit 83362ba9
+2025-04-02 22:11:36.237 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:11:36.237 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:11:36.238 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 22:11:36.239 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (778 caracteres)
+2025-04-02 22:11:36.242 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:11:36.243 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:11:36.245 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:11:36.246 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:11:36.247 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:11:36.249 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:11:36.251 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 22:11:36.252 -03:00 [INF] Processando parte do prompt com 3647 caracteres usando modelo codellama:latest
+2025-04-02 22:14:36.106 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:14:36.115 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:14:36.121 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:14:36.129 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:14:36.141 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:14:36.141 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:14:36.148 -03:00 [INF] Substituindo nota calculada 74 pela nota mencionada no comentário: 100
+2025-04-02 22:14:36.149 -03:00 [INF] Substituindo nota calculada 74 pela nota mencionada no comentário: 100
+2025-04-02 22:14:36.150 -03:00 [INF] Não foi possível extrair uma proposta de refatoração válida do texto da resposta.
+2025-04-02 22:14:36.150 -03:00 [INF] Não foi possível extrair uma proposta de refatoração válida do texto da resposta.
+2025-04-02 22:14:36.160 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1636 caracteres
+2025-04-02 22:14:36.161 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1636 caracteres
+2025-04-02 22:14:36.163 -03:00 [INF] Processamento concluído em 179.9107298 segundos
+2025-04-02 22:14:36.164 -03:00 [INF] Processamento concluído em 179.9107298 segundos
+2025-04-02 22:14:36.165 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:14:36.166 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:14:36.170 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 179.9251831 segundos. Pontuação final: 100
+2025-04-02 22:14:36.171 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs em 179.9251831 segundos. Pontuação final: 100
+2025-04-02 22:14:36.223 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:14:36.224 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:14:36.225 -03:00 [INF] Análise do commit 83362ba9 concluída em 180.0120112 segundos
+2025-04-02 22:14:36.226 -03:00 [INF] Análise do commit 83362ba9 concluída em 180.0120112 segundos
+2025-04-02 22:14:36.227 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 22:14:36.228 -03:00 [INF] Iniciando análise do commit: 1165f347 de Israel Silva em "2025-04-02T14:24:30.0000000"
+2025-04-02 22:14:36.229 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 22:14:36.230 -03:00 [INF] Obtendo mudanças para o commit 1165f347
+2025-04-02 22:14:36.233 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 22:14:36.234 -03:00 [INF] Obtidas 10 alterações para o commit 1165f347
+2025-04-02 22:14:36.235 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:14:36.236 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:14:36.236 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 22:14:36.238 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (1153 caracteres)
+2025-04-02 22:14:36.239 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:14:36.240 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:14:36.241 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:14:36.244 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:14:36.245 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:14:36.245 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:14:36.246 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
+2025-04-02 22:14:36.247 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
