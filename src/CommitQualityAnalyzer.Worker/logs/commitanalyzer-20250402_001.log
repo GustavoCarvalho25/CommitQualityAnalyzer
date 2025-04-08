@@ -1265,3 +1265,219 @@ System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name
 2025-04-02 22:14:36.245 -03:00 [INF] Processando prompt completo para análise de diferenças
 2025-04-02 22:14:36.246 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
 2025-04-02 22:14:36.247 -03:00 [INF] Processando parte do prompt com 3996 caracteres usando modelo codellama:latest
+2025-04-02 22:16:43.737 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:16:43.744 -03:00 [WRN] JSON extraído não é válido: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:16:43.754 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:16:43.761 -03:00 [WRN] Não foi possível corrigir o JSON: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: 'p' is an invalid start of a property name. Expected a '"'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:16:43.769 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:16:43.770 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:16:43.772 -03:00 [INF] Proposta de refatoração extraída com sucesso: Sugiro extrair a lógica de processamento de diff para uma classe dedicada `DiffProcessor`, como mostrado abaixo:
+2025-04-02 22:16:43.773 -03:00 [INF] Proposta de refatoração extraída com sucesso: Sugiro extrair a lógica de processamento de diff para uma classe dedicada `DiffProcessor`, como mostrado abaixo:
+2025-04-02 22:16:43.774 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 8169 caracteres
+2025-04-02 22:16:43.775 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 8169 caracteres
+2025-04-02 22:16:43.776 -03:00 [INF] Processamento concluído em 127.5285501 segundos
+2025-04-02 22:16:43.777 -03:00 [INF] Processamento concluído em 127.5285501 segundos
+2025-04-02 22:16:43.778 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:16:43.779 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:16:43.780 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs em 127.5389026 segundos. Pontuação final: 74
+2025-04-02 22:16:43.781 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs em 127.5389026 segundos. Pontuação final: 74
+2025-04-02 22:16:43.792 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:16:43.794 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-02 22:16:43.795 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:16:43.795 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:16:43.796 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs (629 caracteres)
+2025-04-02 22:16:43.797 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs (629 caracteres)
+2025-04-02 22:16:43.799 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:16:43.800 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:16:43.801 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:16:43.802 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:16:43.807 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:16:43.808 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:16:43.809 -03:00 [INF] Processando parte do prompt com 3476 caracteres usando modelo codellama:latest
+2025-04-02 22:16:43.809 -03:00 [INF] Processando parte do prompt com 3476 caracteres usando modelo codellama:latest
+2025-04-02 22:18:43.534 -03:00 [WRN] JSON extraído não é válido: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:18:43.540 -03:00 [WRN] JSON extraído não é válido: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:18:43.548 -03:00 [WRN] Não foi possível corrigir o JSON: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:18:43.555 -03:00 [WRN] Não foi possível corrigir o JSON: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 1 | BytePositionInLine: 4.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:18:43.563 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:18:43.563 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:18:43.564 -03:00 [INF] Substituindo nota calculada 74 pela nota mencionada no comentário: 74
+2025-04-02 22:18:43.565 -03:00 [INF] Substituindo nota calculada 74 pela nota mencionada no comentário: 74
+2025-04-02 22:18:43.565 -03:00 [INF] Não foi possível extrair uma proposta de refatoração válida do texto da resposta.
+2025-04-02 22:18:43.566 -03:00 [INF] Não foi possível extrair uma proposta de refatoração válida do texto da resposta.
+2025-04-02 22:18:43.567 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1822 caracteres
+2025-04-02 22:18:43.568 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 1822 caracteres
+2025-04-02 22:18:43.568 -03:00 [INF] Processamento concluído em 119.7582959 segundos
+2025-04-02 22:18:43.569 -03:00 [INF] Processamento concluído em 119.7582959 segundos
+2025-04-02 22:18:43.571 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:18:43.572 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:18:43.573 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs em 119.7724274 segundos. Pontuação final: 74
+2025-04-02 22:18:43.574 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs em 119.7724274 segundos. Pontuação final: 74
+2025-04-02 22:18:43.577 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:18:43.578 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Mappers/CargoListQueryMapper.cs
+2025-04-02 22:18:43.580 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:18:43.580 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:18:43.581 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (4467 caracteres)
+2025-04-02 22:18:43.582 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (4467 caracteres)
+2025-04-02 22:18:43.584 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:18:43.585 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:18:43.586 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:18:43.587 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:18:43.588 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:18:43.589 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:18:43.590 -03:00 [INF] Processando parte do prompt com 7307 caracteres usando modelo codellama:latest
+2025-04-02 22:18:43.591 -03:00 [INF] Processando parte do prompt com 7307 caracteres usando modelo codellama:latest
+2025-04-02 22:21:28.983 -03:00 [WRN] JSON extraído não é válido: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:21:28.989 -03:00 [WRN] JSON extraído não é válido: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 747
+2025-04-02 22:21:28.997 -03:00 [WRN] Não foi possível corrigir o JSON: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:21:29.005 -03:00 [WRN] Não foi possível corrigir o JSON: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 0 | BytePositionInLine: 2.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalyzerService.ExtractJsonFromResponse(String response) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalyzerService.cs:line 784
+2025-04-02 22:21:29.012 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:21:29.013 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-02 22:21:29.014 -03:00 [INF] Proposta de refatoração extraída com sucesso: Titulo: Refatoração para melhorar o processamento de diffs
+2025-04-02 22:21:29.014 -03:00 [INF] Proposta de refatoração extraída com sucesso: Titulo: Refatoração para melhorar o processamento de diffs
+2025-04-02 22:21:29.017 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 9706 caracteres
+2025-04-02 22:21:29.017 -03:00 [INF] Resposta em texto convertida para JSON com sucesso: 9706 caracteres
+2025-04-02 22:21:29.018 -03:00 [INF] Processamento concluído em 165.426326 segundos
+2025-04-02 22:21:29.019 -03:00 [INF] Processamento concluído em 165.426326 segundos
+2025-04-02 22:21:29.020 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:21:29.021 -03:00 [INF] Nenhuma proposta de refatoração encontrada para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:21:29.023 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs em 165.4368249 segundos. Pontuação final: 70
+2025-04-02 22:21:29.024 -03:00 [INF] Análise de diferenças concluída para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs em 165.4368249 segundos. Pontuação final: 70
+2025-04-02 22:21:29.027 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:21:29.027 -03:00 [INF] Análise salva com sucesso para o arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-02 22:21:29.028 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:21:29.030 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:21:29.032 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (715 caracteres)
+2025-04-02 22:21:29.033 -03:00 [INF] Analisando diferenças para src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs (715 caracteres)
+2025-04-02 22:21:29.034 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:21:29.035 -03:00 [INF] Iniciando análise de diferenças para arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:21:29.036 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:21:29.037 -03:00 [INF] Construindo prompt para análise de diferenças para arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/ViewModels/CargoViewModels/CargoListQueryViewModel.cs
+2025-04-02 22:21:29.039 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:21:29.040 -03:00 [INF] Processando prompt completo para análise de diferenças
+2025-04-02 22:21:29.041 -03:00 [INF] Processando parte do prompt com 3584 caracteres usando modelo codellama:latest
+2025-04-02 22:21:29.041 -03:00 [INF] Processando parte do prompt com 3584 caracteres usando modelo codellama:latest

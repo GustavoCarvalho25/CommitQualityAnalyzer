@@ -818,6 +818,15 @@ namespace CommitQualityAnalyzer.Worker.Services
                 if (jsonMatch.Success && jsonMatch.Groups.Count > 1)
                 {
                     string jsonContent = jsonMatch.Groups[1].Value.Trim();
+                    _logger.LogDebug("JSON extraído: {JsonLength} caracteres", jsonContent.Length);
+                    
+                    // Verificar se o JSON contém o critério Seguranca antes de deserializar
+                    var segurancaMatch = Regex.Match(jsonContent, @"""Seguranca""\s*:\s*\{\s*""Nota""\s*:\s*(\d+(?:\.\d+)?)", RegexOptions.IgnoreCase);
+                    if (segurancaMatch.Success)
+                    {
+                        _logger.LogDebug("Encontrado critério Seguranca no JSON com nota {Nota}", segurancaMatch.Groups[1].Value);
+                    }
+                    
                     try
                     {
                         // Tentar deserializar o JSON para validar
@@ -871,7 +880,22 @@ namespace CommitQualityAnalyzer.Worker.Services
                                     case "security":
                                     case "seguranca":
                                     case "segurança":
+                                    case "seguranca":
+                                    case "segurança":
+                                    case "segurança":
+                                    case "security":
+                                    case "securite":
+                                    case "seguridad":
                                         criterioKey = "Seguranca";
+                                        _logger.LogDebug("Encontrado critério de segurança com chave {Key}", property.Name);
+                                        break;
+                                    default:
+                                        // Verificar se a chave contém "segur" ou "secur" para capturar variações de "segurança" e "security"
+                                        if (property.Name.ToLower().Contains("segur") || property.Name.ToLower().Contains("secur"))
+                                        {
+                                            criterioKey = "Seguranca";
+                                            _logger.LogDebug("Encontrado critério de segurança com chave parcial {Key}", property.Name);
+                                        }
                                         break;
                                 }
                                 
@@ -883,11 +907,13 @@ namespace CommitQualityAnalyzer.Worker.Services
                                 {
                                     if (notaElement.TryGetInt32(out int notaValue))
                                     {
-                                        nota = notaValue;
+                                        // Se a nota estiver na escala 0-10, converter para 0-100
+                                        nota = (int)NormalizeScore(notaValue);
                                     }
                                     else if (notaElement.TryGetDouble(out double notaDouble))
                                     {
-                                        nota = (int)Math.Round(NormalizeScore(notaDouble));
+                                        // Se a nota estiver na escala 0-10, converter para 0-100
+                                        nota = (int)NormalizeScore(notaDouble);
                                     }
                                 }
                                 
@@ -918,10 +944,12 @@ namespace CommitQualityAnalyzer.Worker.Services
                         {
                             if (notaFinalElement.TryGetInt32(out int notaValue))
                             {
-                                jsonAnalysisResult.NotaFinal = notaValue;
+                                // Se a nota estiver na escala 0-10, converter para 0-100
+                                jsonAnalysisResult.NotaFinal = NormalizeScore(notaValue);
                             }
                             else if (notaFinalElement.TryGetDouble(out double notaDouble))
                             {
+                                // Se a nota estiver na escala 0-10, converter para 0-100
                                 jsonAnalysisResult.NotaFinal = NormalizeScore(notaDouble);
                             }
                         }
@@ -1136,7 +1164,7 @@ namespace CommitQualityAnalyzer.Worker.Services
                 ExtractCriteriaAnalysis(textResponse, "SOLID", analysisResult);
                 ExtractCriteriaAnalysis(textResponse, "Design Patterns", analysisResult);
                 ExtractCriteriaAnalysis(textResponse, "Testabilidade", analysisResult);
-                ExtractCriteriaAnalysis(textResponse, "Segurança", analysisResult);
+                ExtractCriteriaAnalysis(textResponse, "Seguranca", analysisResult);
                 
                 // Tentar extrações alternativas para critérios não encontrados
                 if (!analysisResult.AnaliseGeral.ContainsKey("CleanCode") || analysisResult.AnaliseGeral["CleanCode"].Nota == 0)
@@ -1156,7 +1184,42 @@ namespace CommitQualityAnalyzer.Worker.Services
                 
                 if (!analysisResult.AnaliseGeral.ContainsKey("Seguranca") || analysisResult.AnaliseGeral["Seguranca"].Nota == 0)
                 {
-                    ExtractCriteriaAnalysis(textResponse, "Segurança", analysisResult, "Seguranca");
+                    _logger.LogDebug("Tentando extrair critério Seguranca com variações alternativas");
+                    
+                    // Tentar extrair diretamente do JSON
+                    var jsonMatch = Regex.Match(textResponse, @"""Seguranca""\s*:\s*\{\s*""Nota""\s*:\s*(\d+(?:\.\d+)?)\s*,\s*""Comentario""\s*:\s*""([^""]*)""\s*\}", RegexOptions.IgnoreCase);
+                    if (jsonMatch.Success)
+                    {
+                        _logger.LogDebug("Encontrado critério Seguranca diretamente no JSON");
+                        if (double.TryParse(jsonMatch.Groups[1].Value, out double scoreDouble))
+                        {
+                            double normalizedScore = NormalizeScore(scoreDouble);
+                            int score = (int)Math.Round(normalizedScore);
+                            
+                            analysisResult.AnaliseGeral["Seguranca"] = new CriteriaAnalysis
+                            {
+                                Nota = score,
+                                Comentario = jsonMatch.Groups[2].Value.Trim()
+                            };
+                        }
+                    }
+                    else
+                    {
+                        // Tentar variações do termo
+                        ExtractCriteriaAnalysis(textResponse, "Segurança", analysisResult, "Seguranca");
+                        
+                        // Tentar outras variações do termo seguranca
+                        if (!analysisResult.AnaliseGeral.ContainsKey("Seguranca") || analysisResult.AnaliseGeral["Seguranca"].Nota == 0)
+                        {
+                            ExtractCriteriaAnalysis(textResponse, "Security", analysisResult, "Seguranca");
+                        }
+                        
+                        // Tentar com termo "Seguranca" exato
+                        if (!analysisResult.AnaliseGeral.ContainsKey("Seguranca") || analysisResult.AnaliseGeral["Seguranca"].Nota == 0)
+                        {
+                            ExtractCriteriaAnalysis(textResponse, "Seguranca", analysisResult, "Seguranca");
+                        }
+                    }
                 }
                 
                 // Extrair proposta de refatoração
@@ -1307,6 +1370,30 @@ namespace CommitQualityAnalyzer.Worker.Services
             return Regex.Replace(markdownCode, @"```(?:[^\n]*)?\n?(.*?)```", "$1", RegexOptions.Singleline).Trim();
         }
         
+        /// <summary>
+        /// Converte uma nota da escala 0-10 para a escala 0-100
+        /// </summary>
+        private double NormalizeScoreToScale100(double score)
+        {
+            // Garantir que a nota está dentro dos limites 0-10
+            score = Math.Max(0, Math.Min(10, score));
+            
+            // Converter para escala 0-100
+            return Math.Round(score * 10, 0);
+        }
+        
+        /// <summary>
+        /// Converte uma nota da escala 0-100 para a escala 0-10
+        /// </summary>
+        private double NormalizeScoreToScale10(double score)
+        {
+            // Garantir que a nota está dentro dos limites 0-100
+            score = Math.Max(0, Math.Min(100, score));
+            
+            // Converter para escala 0-10
+            return Math.Round(score / 10.0, 1);
+        }
+        
         private void InitializeDefaultCriteria(AnalysisResult analysisResult)
         {
             // Inicializar todos os critérios com valores padrão
@@ -1389,12 +1476,12 @@ namespace CommitQualityAnalyzer.Worker.Services
             if (score > 0 && score <= 10)
             {
                 // Converter de escala 0-10 para 0-100
-                return score * 10;
+                return Math.Round(score * 10, 0);
             }
             else if (score > 0 && score <= 100)
             {
                 // Já está na escala correta
-                return score;
+                return Math.Round(score, 0);
             }
             else if (score > 100)
             {
@@ -1424,7 +1511,16 @@ namespace CommitQualityAnalyzer.Worker.Services
                     $@"(?:\*\s*)?{Regex.Escape(criteriaName)}\s*\((\d+(?:\.\d+)?)(?:/\d+)?\)(?:\s*[-:]\s*|\s+)([^\n]*(?:\n(?!\*)[^\n]*)*)",
                     
                     // Padrão 3: "* Clean Code: Comentário (8/10)"
-                    $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*:\s*)([^\n]*(?:\n(?!\*)[^\n]*)*)(?:\s*\((\d+(?:\.\d+)?)(?:/\d+)?\))"
+                    $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*:\s*)([^\n]*(?:\n(?!\*)[^\n]*)*)(?:\s*\((\d+(?:\.\d+)?)(?:/\d+)?\))",
+                    
+                    // Padrão 4: "Clean Code - Nota: 8.5 - Comentário"
+                    $@"(?:\*\s*)?{Regex.Escape(criteriaName)}(?:\s*|\s*[-:]\s*)(?:[^\n]*?Nota\s*:\s*|\s*)(\d+(?:\.\d+)?)(?:\s*[-:]\s*|\s+)([^\n]*(?:\n(?!\*)[^\n]*)*)",
+                    
+                    // Padrão 5: JSON-like format "CleanCode": { "Nota": 8.5, "Comentario": "..."
+                    $@"\"{Regex.Escape(criteriaName)}\"\s*:\s*\{{\s*\"Nota\"\s*:\s*(\d+(?:\.\d+)?)\s*,\s*\"Comentario\"\s*:\s*\"([^\"]*)\"",
+                    
+                    // Padrão 6: Formato JSON sem aspas "CleanCode": { Nota: 8.5, Comentario: "..."
+                    $@"\"{Regex.Escape(criteriaName)}\"\s*:\s*\{{\s*Nota\s*:\s*(\d+(?:\.\d+)?)\s*,\s*Comentario\s*:\s*\"([^\"]*)\""
                 };
                 
                 foreach (var pattern in patterns)
@@ -1436,16 +1532,20 @@ namespace CommitQualityAnalyzer.Worker.Services
                         string scoreStr;
                         string comment;
                         
-                        if (pattern == patterns[2]) // Padrão 3 tem grupos diferentes
+                        // Verificar qual padrão está sendo usado e extrair os grupos corretamente
+                        if (pattern == patterns[2]) // Padrão 3 tem grupos invertidos
                         {
                             scoreStr = match.Groups[2].Value.Trim();
                             comment = match.Groups[1].Value.Trim();
                         }
-                        else // Padrão 1 e 2
+                        else // Padrões 0, 1, 3, 4, 5 têm o mesmo formato de grupos
                         {
                             scoreStr = match.Groups[1].Value.Trim();
                             comment = match.Groups[2].Value.Trim();
                         }
+                        
+                        _logger.LogDebug("Critério {CriteriaName} encontrado com padrão {PatternIndex}: Score={Score}, Comentário={Comment}", 
+                            criteriaName, Array.IndexOf(patterns, pattern), scoreStr, comment);
                         
                         if (double.TryParse(scoreStr, out double scoreDouble))
                         {
@@ -1864,9 +1964,9 @@ namespace CommitQualityAnalyzer.Worker.Services
             promptBuilder.AppendLine("2. Princípios SOLID: Verifique se as alterações seguem ou melhoram a aderência aos princípios SOLID.");
             promptBuilder.AppendLine("3. Design Patterns: Identifique se padrões de design foram aplicados ou melhorados.");
             promptBuilder.AppendLine("4. Testabilidade: Avalie se as alterações facilitam ou dificultam o teste do código.");
-            promptBuilder.AppendLine("5. Segurança: Verifique se as alterações introduzem ou corrigem problemas de segurança.");
+            promptBuilder.AppendLine("5. Seguranca: Verifique se as alterações introduzem ou corrigem problemas de segurança.");
             promptBuilder.AppendLine();
-            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0 a 100 e forneça um comentário explicativo.");
+            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0.0 a 10.0 (use ponto como separador decimal) e forneça um comentário explicativo.");
             promptBuilder.AppendLine();
             
             // Informações sobre o arquivo
@@ -1888,33 +1988,27 @@ namespace CommitQualityAnalyzer.Worker.Services
             promptBuilder.AppendLine();
             
             // Instruções para o formato da resposta
-            promptBuilder.AppendLine("## TEMPLATE DE RESPOSTA");
-            promptBuilder.AppendLine("Por favor, siga exatamente este formato para sua resposta:");
+            promptBuilder.AppendLine("## FORMATO DA RESPOSTA");
+            promptBuilder.AppendLine("Por favor, retorne sua análise no seguinte formato JSON:");
             promptBuilder.AppendLine();
             promptBuilder.AppendLine("```json");
             promptBuilder.AppendLine("{");
             promptBuilder.AppendLine("  \"AnaliseGeral\": {");
-            promptBuilder.AppendLine("    \"CleanCode\": { \"Nota\": 85, \"Comentario\": \"As alterações melhoraram a legibilidade ao extrair o método GenerateDiffText...\" },");
-            promptBuilder.AppendLine("    \"SOLID\": { \"Nota\": 70, \"Comentario\": \"As mudanças melhoraram a aderência ao princípio de Responsabilidade Única ao separar...\" },");
-            promptBuilder.AppendLine("    \"DesignPatterns\": { \"Nota\": 60, \"Comentario\": \"As alterações aplicaram o padrão Strategy ao extrair a lógica de...\" },");
-            promptBuilder.AppendLine("    \"Testabilidade\": { \"Nota\": 75, \"Comentario\": \"A extração do método GetCommitChangesWithDiff facilita o teste isolado...\" },");
-            promptBuilder.AppendLine("    \"Seguranca\": { \"Nota\": 80, \"Comentario\": \"As alterações adicionaram validações importantes como a verificação null em diffText...\" }");
+            promptBuilder.AppendLine("    \"CleanCode\": { \"Nota\": 8.5, \"Comentario\": \"[Seu comentário sobre como o código impacta o clean code. Não precisa mencionar a nota novamente.]\" },");
+            promptBuilder.AppendLine("    \"SOLID\": { \"Nota\": 7.0, \"Comentario\": \"[Seu comentário sobre como o código impacta o SOLID. Não precisa mencionar a nota novamente.]\" },");
+            promptBuilder.AppendLine("    \"DesignPatterns\": { \"Nota\": 6.0, \"Comentario\": \"[Seu comentário sobre como o código impacta o design patterns. Não precisa mencionar a nota novamente.]\" },");
+            promptBuilder.AppendLine("    \"Testabilidade\": { \"Nota\": 7.5, \"Comentario\": \"[Seu comentário sobre como o código impacta a testabilidade. Não precisa mencionar a nota novamente.]\" },");
+            promptBuilder.AppendLine("    \"Seguranca\": { \"Nota\": 8.0, \"Comentario\": \"[Seu comentário sobre como o código impacta a seguranca. Não precisa mencionar a nota novamente.]\" }");
             promptBuilder.AppendLine("  },");
-            promptBuilder.AppendLine("  \"ComentarioGeral\": \"As alterações realizadas melhoraram significativamente a estrutura do código...\",");
-            promptBuilder.AppendLine("  \"NotaFinal\": 74,");
-            promptBuilder.AppendLine("  \"PropostaRefatoracao\": {");
-            promptBuilder.AppendLine("    \"Titulo\": \"Refatoração para melhorar o processamento de diffs\",");
-            promptBuilder.AppendLine("    \"Descricao\": \"Sugiro extrair a lógica de processamento de diff para uma classe dedicada DiffProcessor...\",");
-            promptBuilder.AppendLine("    \"CodigoOriginal\": \"private string GenerateDiffText(string originalContent, string modifiedContent) { /* código atual */ }\",");
-            promptBuilder.AppendLine("    \"CodigoRefatorado\": \"private string GenerateDiffText(string originalContent, string modifiedContent) { return _diffProcessor.Generate(originalContent, modifiedContent); }\",");
-            promptBuilder.AppendLine("  }");
+            promptBuilder.AppendLine("  \"ComentarioGeral\": \"[Seu comentário geral sobre as alterações feitas, um resumo. Não precisa mencionar a nota novamente.]\",");
+            promptBuilder.AppendLine("  \"NotaFinal\": 7.4");
             promptBuilder.AppendLine("}");
             promptBuilder.AppendLine("```");
             promptBuilder.AppendLine();
-            promptBuilder.AppendLine("Observações importantes:");
-            promptBuilder.AppendLine("1. Todas as notas devem ser valores inteiros entre 0 e 100.");
+            promptBuilder.AppendLine("Diretrizes para sua análise:");
+            promptBuilder.AppendLine("1. Atribua notas de 0.0 a 10.0 para cada critério (use ponto como separador decimal).");
             promptBuilder.AppendLine("2. Forneça comentários detalhados para cada critério, citando trechos específicos das alterações.");
-            promptBuilder.AppendLine("3. A proposta de refatoração deve incluir um exemplo concreto de código do arquivo analisado.");
+            promptBuilder.AppendLine("3. Calcule a nota final como a média das notas dos critérios.");
             promptBuilder.AppendLine("4. Mantenha o formato JSON exato conforme o template acima.");
             
             var prompt = promptBuilder.ToString();
