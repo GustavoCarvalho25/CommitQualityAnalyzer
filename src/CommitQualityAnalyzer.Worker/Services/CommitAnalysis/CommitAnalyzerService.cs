@@ -95,6 +95,44 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         }
         
         /// <summary>
+        /// Verifica se um arquivo deve ser ignorado na análise de qualidade de código
+        /// </summary>
+        private bool ShouldIgnoreFile(string filePath)
+        {
+            // Ignorar arquivos gerados automaticamente
+            if (filePath.Contains("AssemblyInfo.cs") || 
+                filePath.Contains(".g.cs") || 
+                filePath.Contains(".generated.cs") ||
+                filePath.Contains(".designer.cs"))
+            {
+                _logger.LogInformation("Ignorando arquivo gerado automaticamente: {FilePath}", filePath);
+                return true;
+            }
+            
+            // Ignorar arquivos em diretórios de build e obj
+            if (filePath.Contains("/obj/") || 
+                filePath.Contains("\\obj\\") || 
+                filePath.Contains("/bin/") || 
+                filePath.Contains("\\bin\\"))
+            {
+                _logger.LogInformation("Ignorando arquivo em diretório de build: {FilePath}", filePath);
+                return true;
+            }
+            
+            // Ignorar arquivos de teste
+            if (filePath.Contains(".Test") || 
+                filePath.Contains(".Tests") || 
+                filePath.Contains("Test.cs") || 
+                filePath.Contains("Tests.cs"))
+            {
+                _logger.LogInformation("Ignorando arquivo de teste: {FilePath}", filePath);
+                return true;
+            }
+            
+            return false;
+        }
+
+        /// <summary>
         /// Processa os arquivos modificados em um commit
         /// </summary>
         private async Task ProcessCommitFiles(CommitInfo commit)
@@ -107,12 +145,12 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 _logger.LogInformation("Encontradas {ChangeCount} alterações no commit {CommitId}", 
                     changes.Count, commit.Sha.Substring(0, Math.Min(8, commit.Sha.Length)));
                 
-                // Filtrar apenas arquivos C#
+                // Filtrar apenas arquivos C# e ignorar arquivos que devem ser ignorados
                 var csharpFiles = changes
-                    .Where(c => Path.GetExtension(c.FilePath).ToLower() == ".cs")
+                    .Where(c => Path.GetExtension(c.FilePath).ToLower() == ".cs" && !ShouldIgnoreFile(c.FilePath))
                     .ToList();
                 
-                _logger.LogInformation("Encontrados {FileCount} arquivos C# para analisar", csharpFiles.Count);
+                _logger.LogInformation("Encontrados {FileCount} arquivos C# relevantes para analisar", csharpFiles.Count);
                 
                 // Processar cada arquivo modificado sequencialmente
                 foreach (var change in csharpFiles)
