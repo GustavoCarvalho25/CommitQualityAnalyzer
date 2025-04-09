@@ -10,26 +10,31 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis.Models
         /// <summary>
         /// Caminho do arquivo
         /// </summary>
-        public string Path { get; set; }
+        public string FilePath { get; set; } = "";
         
         /// <summary>
-        /// Status da mudança (Adicionado, Modificado, Removido, etc.)
+        /// Status da mudança (Added, Modified, Deleted, etc.)
         /// </summary>
-        public string Status { get; set; }
+        public string ChangeType { get; set; } = "";
         
         /// <summary>
         /// Conteúdo original do arquivo (antes da mudança)
         /// </summary>
-        public string OriginalContent { get; set; }
+        public string OriginalContent { get; set; } = "";
         
         /// <summary>
         /// Conteúdo modificado do arquivo (após a mudança)
         /// </summary>
-        public string ModifiedContent { get; set; }
+        public string ModifiedContent { get; set; } = "";
         
         /// <summary>
         /// Texto de diferença entre as versões
         /// </summary>
-        public string DiffText { get; set; }
+        public string DiffText { get; set; } = "";
+        
+        /// <summary>
+        /// Tamanho do arquivo em bytes
+        /// </summary>
+        public long FileSize { get; set; }
     }
 }

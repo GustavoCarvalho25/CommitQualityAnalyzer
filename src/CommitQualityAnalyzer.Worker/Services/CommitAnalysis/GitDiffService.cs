@@ -192,8 +192,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
 
                         changes.Add(new CommitChangeInfo
                         {
-                            Path = change.Path,
-                            Status = change.Status.ToString(),
+                            FilePath = change.Path,
+                            ChangeType = change.Status.ToString(),
                             OriginalContent = originalContent ?? "",
                             ModifiedContent = modifiedContent ?? "",
                             DiffText = diffText ?? ""

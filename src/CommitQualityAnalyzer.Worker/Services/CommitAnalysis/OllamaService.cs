@@ -30,7 +30,15 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             _logger = logger;
             _configuration = configuration;
             _httpClient = httpClient;
-            _maxPromptLength = _configuration.GetValue<int>("Ollama:MaxPromptLength", 16000);
+            
+            // Configurar timeout mais longo para o HttpClient
+            int timeoutMinutes = _configuration.GetValue<int>("Ollama:TimeoutMinutes", 10);
+            _httpClient.Timeout = TimeSpan.FromMinutes(timeoutMinutes);
+            
+            _maxPromptLength = _configuration.GetValue<int>("Ollama:MaxPromptLength", 8000);
+            
+            _logger.LogInformation("OllamaService inicializado com timeout de {TimeoutMinutes} minutos e tamanho máximo de prompt de {MaxPromptLength} caracteres",
+                timeoutMinutes, _maxPromptLength);
         }
 
         /// <summary>
@@ -52,6 +60,18 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 var baseUrl = _configuration.GetValue<string>("Ollama:BaseUrl", "http://localhost:11434");
                 var apiUrl = $"{baseUrl}/api/generate";
 
+                // Configurar opções do modelo com base no tamanho do prompt
+                double temperature = 0.1;
+                double top_p = 0.9;
+                int top_k = 40;
+                
+                // Para prompts maiores, usar configurações mais conservadoras
+                if (promptPart.Length > 1000)
+                {
+                    temperature = 0.05; // Menor temperatura para respostas mais determinísticas
+                    top_p = 0.95; // Maior top_p para considerar mais tokens
+                }
+                
                 var requestData = new
                 {
                     model = modelName,
@@ -59,52 +79,79 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     stream = false,
                     options = new
                     {
-                        temperature = 0.1,
-                        top_p = 0.9,
-                        top_k = 40
+                        temperature,
+                        top_p,
+                        top_k
                     }
                 };
 
-                var response = await _httpClient.PostAsJsonAsync(apiUrl, requestData, cancellationToken);
+                // Criar um novo token de cancelação com timeout específico para esta requisição
+                int timeoutSeconds = _configuration.GetValue<int>("Ollama:RequestTimeoutSeconds", 300); // 5 minutos por padrão
+                using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(timeoutSeconds));
+                using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(timeoutCts.Token, cancellationToken);
                 
-                if (!response.IsSuccessStatusCode)
-                {
-                    _logger.LogError("Erro ao chamar API Ollama: {StatusCode} - {ReasonPhrase}", 
-                        response.StatusCode, response.ReasonPhrase);
-                    return string.Empty;
-                }
-
-                var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
-                
-                if (string.IsNullOrEmpty(responseContent))
-                {
-                    _logger.LogError("Resposta vazia da API Ollama");
-                    return string.Empty;
-                }
-
                 try
                 {
-                    var jsonResponse = JsonDocument.Parse(responseContent);
-                    var responseText = jsonResponse.RootElement.GetProperty("response").GetString();
+                    _logger.LogInformation("Enviando requisição para Ollama com timeout de {TimeoutSeconds} segundos", timeoutSeconds);
+                    var response = await _httpClient.PostAsJsonAsync(apiUrl, requestData, linkedCts.Token);
                     
-                    if (string.IsNullOrEmpty(responseText))
+                    if (!response.IsSuccessStatusCode)
                     {
-                        _logger.LogError("Texto de resposta vazio no JSON retornado pela API Ollama");
+                        _logger.LogError("Erro ao chamar API Ollama: {StatusCode} - {ReasonPhrase}", 
+                            response.StatusCode, response.ReasonPhrase);
                         return string.Empty;
                     }
 
-                    // Limpar códigos ANSI que podem estar presentes na resposta
-                    responseText = CleanAnsiCodes(responseText);
+                    var responseContent = await response.Content.ReadAsStringAsync(linkedCts.Token);
                     
-                    _logger.LogDebug("Resposta processada com sucesso: {ResponseLength} caracteres", 
-                        responseText.Length);
-                    
-                    return responseText;
+                    if (string.IsNullOrEmpty(responseContent))
+                    {
+                        _logger.LogError("Resposta vazia da API Ollama");
+                        return string.Empty;
+                    }
+
+                    try
+                    {
+                        var jsonResponse = JsonDocument.Parse(responseContent);
+                        var responseText = jsonResponse.RootElement.GetProperty("response").GetString();
+                        
+                        if (string.IsNullOrEmpty(responseText))
+                        {
+                            _logger.LogError("Texto de resposta vazio no JSON retornado pela API Ollama");
+                            return string.Empty;
+                        }
+
+                        // Limpar códigos ANSI que podem estar presentes na resposta
+                        responseText = CleanAnsiCodes(responseText);
+                        
+                        _logger.LogDebug("Resposta processada com sucesso: {ResponseLength} caracteres", 
+                            responseText.Length);
+                        
+                        return responseText;
+                    }
+                    catch (JsonException jsonEx)
+                    {
+                        _logger.LogError(jsonEx, "Erro ao processar JSON da resposta: {ErrorMessage}", jsonEx.Message);
+                        return string.Empty;
+                    }
                 }
-                catch (JsonException jsonEx)
+                catch (OperationCanceledException)
                 {
-                    _logger.LogError(jsonEx, "Erro ao processar JSON da resposta: {ErrorMessage}", jsonEx.Message);
-                    return string.Empty;
+                    if (timeoutCts.IsCancellationRequested)
+                    {
+                        _logger.LogError("Timeout ao processar prompt após {TimeoutSeconds} segundos", timeoutSeconds);
+                        return "[TIMEOUT] A operação excedeu o tempo limite.";
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Operação cancelada pelo usuário");
+                        throw; // Propagar o cancelamento do usuário
+                    }
+                }
+                catch (HttpRequestException httpEx)
+                {
+                    _logger.LogError(httpEx, "Erro de conexão com a API Ollama: {ErrorMessage}", httpEx.Message);
+                    return "[ERRO DE CONEXÃO] Não foi possível conectar ao servidor Ollama.";
                 }
             }
             catch (Exception ex)
@@ -130,7 +177,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 _logger.LogInformation("Processando prompt completo de {PromptLength} caracteres", prompt.Length);
                 
                 // Verificar se o prompt precisa ser dividido
-                if (prompt.Length <= _maxPromptLength)
+                if (prompt.Length <= 500000)
                 {
                     // Processar o prompt diretamente
                     return await ProcessPromptPart(prompt, modelName, cancellationToken);
@@ -141,17 +188,44 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     var promptParts = SplitPromptIntoParts(prompt);
                     _logger.LogInformation("Prompt dividido em {PartCount} partes", promptParts.Count);
                     
-                    var responseBuilder = new StringBuilder();
+                    var results = new List<string>();
                     
                     // Processar cada parte sequencialmente
                     for (int i = 0; i < promptParts.Count; i++)
                     {
-                        _logger.LogInformation("Processando parte {CurrentPart}/{TotalParts}", i + 1, promptParts.Count);
-                        var partResponse = await ProcessPromptPart(promptParts[i], modelName, cancellationToken);
-                        responseBuilder.AppendLine(partResponse);
+                        try
+                        {
+                            _logger.LogInformation("Processando parte {CurrentPart}/{TotalParts}", i + 1, promptParts.Count);
+                            var partResponse = await ProcessPromptPart(promptParts[i], modelName, cancellationToken);
+                            
+                            if (!string.IsNullOrEmpty(partResponse))
+                            {
+                                results.Add(partResponse);
+                            }
+                            
+                            // Aguardar um pouco entre as chamadas para não sobrecarregar o servidor
+                            if (i < promptParts.Count - 1)
+                            {
+                                await Task.Delay(500, cancellationToken);
+                            }
+                        }
+                        catch (Exception partEx)
+                        {
+                            _logger.LogError(partEx, "Erro ao processar parte {CurrentPart}/{TotalParts}: {ErrorMessage}", 
+                                i + 1, promptParts.Count, partEx.Message);
+                            // Continuar com as próximas partes mesmo se uma falhar
+                        }
                     }
                     
-                    return responseBuilder.ToString();
+                    // Se não conseguiu processar nenhuma parte, retornar vazio
+                    if (results.Count == 0)
+                    {
+                        _logger.LogError("Não foi possível processar nenhuma parte do prompt");
+                        return string.Empty;
+                    }
+                    
+                    // Combinar os resultados
+                    return CombineResults(results);
                 }
             }
             catch (Exception ex)
@@ -202,19 +276,23 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         /// <summary>
         /// Divide um prompt em partes menores para processamento
         /// </summary>
-        public List<string> SplitPromptIntoParts(string prompt)
+        private List<string> SplitPromptIntoParts(string prompt)
         {
             if (string.IsNullOrEmpty(prompt))
                 return new List<string>();
 
-            if (prompt.Length <= _maxPromptLength)
+            // Tamanho máximo para cada parte (2000 caracteres é um bom limite para modelos como o Ollama)
+            int maxPartLength = 2000;
+            
+            if (prompt.Length <= maxPartLength)
                 return new List<string> { prompt };
 
             var parts = new List<string>();
-            int maxPartLength = Math.Min(_maxPromptLength, 2000); // Garantir que não exceda 2000 caracteres
+            int totalParts = (int)Math.Ceiling((double)prompt.Length / maxPartLength);
             
             // Dividir o prompt em partes lógicas (parágrafos, frases, etc.)
             int startIndex = 0;
+            int partNumber = 1;
             
             while (startIndex < prompt.Length)
             {
@@ -274,20 +352,18 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 // Extrair a parte atual
                 string part = prompt.Substring(startIndex, partLength);
                 
-                // Adicionar cabeçalho informativo se não for a primeira parte
-                if (startIndex > 0)
+                // Adicionar cabeçalho informativo com número da parte e total
+                string header = $"[Parte {partNumber} de {totalParts}]\n";
+                
+                // Para prompts de análise de código, adicionar contexto adicional
+                if (partNumber > 1 && prompt.Contains("```diff"))
                 {
-                    part = $"[Continuação da parte {parts.Count}]\n\n" + part;
+                    header += "[Continuação da análise de código]\n";
                 }
                 
-                // Adicionar rodapé informativo se não for a última parte
-                if (startIndex + partLength < prompt.Length)
-                {
-                    part += $"\n\n[Continua na parte {parts.Count + 2}]";
-                }
-                
-                parts.Add(part);
+                parts.Add(header + part);
                 startIndex += partLength;
+                partNumber++;
             }
             
             // Verificação final para garantir que nenhuma parte exceda o limite

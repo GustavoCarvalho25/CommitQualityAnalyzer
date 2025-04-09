@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CommitQualityAnalyzer.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29948bf83bf787dd4fe55a7848a80a619b42f247")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+073fa2c625d5ae0396d964c0fa9630738d9e01cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("CommitQualityAnalyzer.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CommitQualityAnalyzer.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

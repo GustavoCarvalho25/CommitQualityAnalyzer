@@ -47,5 +47,15 @@ namespace CommitQualityAnalyzer.Core.Repositories
 
             return await _collection.Find(filter).ToListAsync();
         }
+        
+        public async Task<CodeAnalysis> GetAnalysisByCommitAndFileAsync(string commitId, string filePath)
+        {
+            var filter = Builders<CodeAnalysis>.Filter.And(
+                Builders<CodeAnalysis>.Filter.Eq(x => x.CommitId, commitId),
+                Builders<CodeAnalysis>.Filter.Eq(x => x.FilePath, filePath)
+            );
+
+            return await _collection.Find(filter).FirstOrDefaultAsync();
+        }
     }
 }

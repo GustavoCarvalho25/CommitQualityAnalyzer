@@ -101,33 +101,77 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         {
             try
             {
-                // Obter as mudanças do commit usando o serviço modificado
-                var changes = _gitDiffService.GetCommitChangesWithDiff(commit.Sha);
+                // Obter as mudanças do commit usando o wrapper do repositório Git
+                var changes = _gitRepositoryWrapper.GetCommitChangesWithDiff(commit.Sha);
+                
+                _logger.LogInformation("Encontradas {ChangeCount} alterações no commit {CommitId}", 
+                    changes.Count, commit.Sha.Substring(0, Math.Min(8, commit.Sha.Length)));
+                
+                // Filtrar apenas arquivos C#
+                var csharpFiles = changes
+                    .Where(c => Path.GetExtension(c.FilePath).ToLower() == ".cs")
+                    .ToList();
+                
+                _logger.LogInformation("Encontrados {FileCount} arquivos C# para analisar", csharpFiles.Count);
                 
                 // Processar cada arquivo modificado sequencialmente
-                foreach (var change in changes)
+                foreach (var change in csharpFiles)
                 {
-                    if (Path.GetExtension(change.Path).ToLower() == ".cs")
+                    // Verificar se o arquivo já foi analisado para este commit
+                    var existingAnalysis = await _repository.GetAnalysisByCommitAndFileAsync(commit.Sha, change.FilePath);
+                    if (existingAnalysis != null)
                     {
-                        _logger.LogInformation("Analisando arquivo: {FilePath}", change.Path);
+                        _logger.LogInformation("Arquivo {FilePath} já foi analisado anteriormente para o commit {CommitId}", 
+                            change.FilePath, commit.Sha.Substring(0, Math.Min(8, commit.Sha.Length)));
+                        continue;
+                    }
+                    
+                    _logger.LogInformation("Analisando arquivo: {FilePath}", change.FilePath);
+                    
+                    try
+                    {
+                        // Verificar se o arquivo é muito grande (tamanho em bytes ou conteúdo)
+                        int maxFileSizeBytes = _configuration.GetValue<int>("Analysis:MaxFileSizeBytes", 500000); // 500KB por padrão
+                        int maxContentLength = _configuration.GetValue<int>("Analysis:MaxContentLength", 50000); // 50K caracteres por padrão
                         
-                        try
+                        if (change.FileSize > maxFileSizeBytes)
                         {
-                            // Analisar as diferenças do arquivo
-                            var analysis = await AnalyzeCodeDiff(change, commit);
-                            
-                            // Mapear e salvar a análise no repositório
-                            var codeAnalysis = _analysisMapperService.MapToCodeAnalysis(analysis, commit, change.Path);
-                            await _repository.SaveAnalysisAsync(codeAnalysis);
-                            
-                            _logger.LogInformation("Análise salva com sucesso para {FilePath} no commit {CommitId}", 
-                                change.Path, commit.Sha.Substring(0, Math.Min(8, commit.Sha.Length)));
+                            _logger.LogWarning("Arquivo {FilePath} muito grande para análise. Tamanho: {Size} bytes (limite: {MaxSize} bytes)", 
+                                change.FilePath, change.FileSize, maxFileSizeBytes);
+                            continue;
                         }
-                        catch (Exception ex)
+                        
+                        if (change.ModifiedContent.Length > maxContentLength || change.OriginalContent.Length > maxContentLength)
                         {
-                            _logger.LogError(ex, "Erro ao analisar arquivo {FilePath}: {ErrorMessage}", 
-                                change.Path, ex.Message);
+                            _logger.LogWarning("Conteúdo do arquivo {FilePath} muito grande para análise. Tamanho: {Size} caracteres (limite: {MaxSize} caracteres)", 
+                                change.FilePath, Math.Max(change.ModifiedContent.Length, change.OriginalContent.Length), maxContentLength);
+                            continue;
                         }
+                        
+                        // Verificar se há conteúdo para analisar
+                        if (string.IsNullOrWhiteSpace(change.DiffText))
+                        {
+                            _logger.LogInformation("Arquivo {FilePath} não possui diferenças significativas para análise", change.FilePath);
+                            continue;
+                        }
+                        
+                        // Analisar as diferenças do arquivo
+                        var analysis = await AnalyzeCodeDiff(change, commit);
+                        
+                        // Mapear e salvar a análise no repositório
+                        var codeAnalysis = _analysisMapperService.MapToCodeAnalysis(analysis, commit, change.FilePath);
+                        await _repository.SaveAnalysisAsync(codeAnalysis);
+                        
+                        _logger.LogInformation("Análise salva com sucesso para {FilePath} no commit {CommitId}", 
+                            change.FilePath, commit.Sha.Substring(0, Math.Min(8, commit.Sha.Length)));
+                        
+                        // Aguardar um pouco antes de processar o próximo arquivo para evitar sobrecarga
+                        await Task.Delay(1000);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Erro ao analisar arquivo {FilePath}: {ErrorMessage}", 
+                            change.FilePath, ex.Message);
                     }
                 }
             }
@@ -143,19 +187,23 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         /// </summary>
         private async Task<CommitAnalysisResult> AnalyzeCodeDiff(CommitChangeInfo change, CommitInfo commit)
         {
-            _logger.LogInformation("Analisando diferenças para {FilePath}", change.Path);
+            _logger.LogInformation("Analisando diferenças para {FilePath}", change.FilePath);
             
             try
             {
                 // Verificar se temos diferenças para analisar
                 if (string.IsNullOrEmpty(change.DiffText))
                 {
-                    _logger.LogWarning("Sem diferenças significativas para analisar em {FilePath}", change.Path);
+                    _logger.LogWarning("Sem diferenças significativas para analisar em {FilePath}", change.FilePath);
                     return _responseAnalysisService.CreateFallbackAnalysisResult();
                 }
                 
+                // Registrar informações detalhadas para debug
+                _logger.LogDebug("Analisando arquivo {FilePath} com {ChangeType}, tamanho: {FileSize} bytes, conteúdo modificado: {ContentLength} caracteres", 
+                    change.FilePath, change.ChangeType, change.FileSize, change.ModifiedContent.Length);
+                
                 // Construir o prompt para análise
-                var prompt = _promptBuilderService.BuildDiffAnalysisPrompt(change.Path, change.DiffText, commit);
+                var prompt = _promptBuilderService.BuildDiffAnalysisPrompt(change.FilePath, change.DiffText, commit);
                 
                 // Testar conexão com o modelo
                 var modelName = _configuration.GetValue<string>("Ollama:ModelName", "codellama");
@@ -179,14 +227,14 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 // Converter a resposta em um objeto estruturado
                 var analysisResult = _responseAnalysisService.ConvertTextResponseToJson(response);
                 
-                _logger.LogInformation("Análise concluída com sucesso para {FilePath}", change.Path);
+                _logger.LogInformation("Análise concluída com sucesso para {FilePath}", change.FilePath);
                 
                 return analysisResult;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao analisar diferenças para {FilePath}: {ErrorMessage}", 
-                    change.Path, ex.Message);
+                    change.FilePath, ex.Message);
                 return _responseAnalysisService.CreateFallbackAnalysisResult();
             }
         }
