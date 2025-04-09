@@ -72,6 +72,9 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     top_p = 0.95; // Maior top_p para considerar mais tokens
                 }
                 
+                // Obter o tamanho do contexto da configuração
+                int contextLength = _configuration.GetValue<int>("Ollama:ContextLength", 8192);
+                
                 var requestData = new
                 {
                     model = modelName,
@@ -81,9 +84,12 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     {
                         temperature,
                         top_p,
-                        top_k
+                        top_k,
+                        context_length = contextLength
                     }
                 };
+                
+                _logger.LogInformation("Usando context_length = {ContextLength} para o modelo {ModelName}", contextLength, modelName);
 
                 // Criar um novo token de cancelação com timeout específico para esta requisição
                 int timeoutSeconds = _configuration.GetValue<int>("Ollama:RequestTimeoutSeconds", 300); // 5 minutos por padrão
@@ -247,11 +253,18 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 var baseUrl = _configuration.GetValue<string>("Ollama:BaseUrl", "http://localhost:11434");
                 var apiUrl = $"{baseUrl}/api/generate";
 
+                // Obter o tamanho do contexto da configuração
+                int contextLength = _configuration.GetValue<int>("Ollama:ContextLength", 8192);
+                
                 var requestData = new
                 {
                     model = modelName,
                     prompt = "Teste de conexão. Responda apenas com 'OK'.",
-                    stream = false
+                    stream = false,
+                    options = new
+                    {
+                        context_length = contextLength
+                    }
                 };
 
                 var response = await _httpClient.PostAsJsonAsync(apiUrl, requestData);
