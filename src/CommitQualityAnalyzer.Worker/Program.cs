@@ -1,4 +1,5 @@
 using CommitQualityAnalyzer.Worker.Services;
+using CommitQualityAnalyzer.Worker.Services.CommitAnalysis;
 using CommitQualityAnalyzer.Core.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,12 +36,50 @@ namespace CommitQualityAnalyzer.Worker
 
                 // Registrar serviços
                 builder.Services.AddSingleton<ICodeAnalysisRepository, MongoCodeAnalysisRepository>();
-                builder.Services.AddSingleton(sp => new CommitAnalyzerService(
-                    sp.GetRequiredService<IConfiguration>().GetValue<string>("GitRepository:Path"),
-                    sp.GetRequiredService<ILogger<CommitAnalyzerService>>(),
-                    sp.GetRequiredService<ICodeAnalysisRepository>(),
-                    sp.GetRequiredService<IConfiguration>()
-                ));
+                builder.Services.AddHttpClient();
+                
+                // Usar o caminho correto para o arquivo de configuração
+                var appSettingsPath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+                if (!File.Exists(appSettingsPath))
+                {
+                    // Tentar encontrar o arquivo no diretório do projeto
+                    appSettingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json");
+                    if (!File.Exists(appSettingsPath))
+                    {
+                        // Tentar encontrar o arquivo no diretório do projeto Worker
+                        var workerDir = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+                        appSettingsPath = Path.Combine(workerDir, "appsettings.json");
+                    }
+                }
+                
+                Log.Information("Usando arquivo de configuração: {ConfigPath}", appSettingsPath);
+                
+                if (File.Exists(appSettingsPath))
+                {
+                    builder.Configuration.AddJsonFile(appSettingsPath, optional: false, reloadOnChange: true);
+                }
+                else
+                {
+                    Log.Warning("Arquivo de configuração não encontrado. Usando valores padrão.");
+                }
+                
+                // Depurar configuração
+                foreach (var configItem in builder.Configuration.AsEnumerable())
+                {
+                    Log.Information("Config: {Key} = {Value}", configItem.Key, configItem.Value);
+                }
+                
+                // Registrar serviços de análise de commits
+                var repoPath = builder.Configuration.GetValue<string>("GitRepository:Path");
+                Log.Information("Caminho do repositório: {RepoPath}", repoPath);
+                
+                if (string.IsNullOrEmpty(repoPath))
+                {
+                    // Usar um caminho padrão se não estiver configurado
+                    repoPath = Directory.GetCurrentDirectory();
+                    Log.Warning("Caminho do repositório não configurado. Usando o diretório atual: {RepoPath}", repoPath);
+                }
+                builder.Services.AddCommitAnalysisServices(repoPath);
 
                 // Em .NET 8, a configuração do Serilog é feita diretamente nos serviços
                 builder.Logging.AddSerilog(dispose: true);
