@@ -222,11 +222,20 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                             // Converter para int, já que a propriedade Nota é int
                             int score = (int)Math.Round(normalizedScore);
                             
-                            analysisResult.AnaliseGeral[criteriaKey] = new CriteriaAnalysis
+                            // Criar o critério com suporte a subcritérios
+                            var criteriaAnalysis = new CriteriaAnalysis
                             {
                                 Nota = score,
                                 Comentario = comment
                             };
+                            
+                            // Se for o critério CleanCode, tentar extrair subcritérios
+                            if (criteriaKey == "CleanCode")
+                            {
+                                ExtractCleanCodeSubcriteria(textResponse, criteriaAnalysis);
+                            }
+                            
+                            analysisResult.AnaliseGeral[criteriaKey] = criteriaAnalysis;
                             
                             _logger.LogDebug("Extraído critério {CriteriaName}: Nota={Score}, Comentário={Comment}", 
                                 criteriaName, score, comment);
@@ -301,6 +310,75 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             }
         }
 
+        /// <summary>
+        /// Extrai subcritérios de Clean Code do texto (nomenclaturaVariaveis, nomenclaturaMetodos, etc.)
+        /// </summary>
+        private void ExtractCleanCodeSubcriteria(string textResponse, CriteriaAnalysis cleanCodeCriteria)
+        {
+            try
+            {
+                // Extrair nota e comentários sobre nomenclatura de variáveis
+                var nomenclaturaVariaveisMatch = Regex.Match(textResponse, @"nomenclatura\s+das\s+variáveis[^\d]+(\d+)[^\d]+([^\n]+)", RegexOptions.IgnoreCase);
+                
+                // Extrair nota e comentários sobre nomenclatura de métodos
+                var nomenclaturaMetodosMatch = Regex.Match(textResponse, @"nomenclatura\s+dos\s+métodos[^\d]+(\d+)[^\d]+([^\n]+)", RegexOptions.IgnoreCase);
+                
+                // Extrair nota e comentários sobre tamanho de funções
+                var tamanhoFuncoesMatch = Regex.Match(textResponse, @"tamanho\s+das\s+funções[^\d]+(\d+)[^\d]+([^\n]+)", RegexOptions.IgnoreCase);
+                
+                // Extrair nota e comentários sobre comentários
+                var comentariosMatch = Regex.Match(textResponse, @"comentários[^\d]+(\d+)[^\d]+([^\n]+)", RegexOptions.IgnoreCase);
+                
+                // Extrair nota e comentários sobre duplicação de código
+                var duplicacaoCodigoMatch = Regex.Match(textResponse, @"duplicação\s+de\s+código[^\d]+(\d+)[^\d]+([^\n]+)", RegexOptions.IgnoreCase);
+                
+                // Adicionar subcritérios se encontrados
+                if (nomenclaturaVariaveisMatch.Success)
+                {
+                    int nota = int.TryParse(nomenclaturaVariaveisMatch.Groups[1].Value, out int n) ? n : 5;
+                    string comentario = nomenclaturaVariaveisMatch.Groups[2].Value.Trim();
+                    cleanCodeCriteria.Subcriteria["nomenclaturaVariaveis"] = new SubcriteriaAnalysis { Nota = nota, Comentario = comentario };
+                    _logger.LogDebug("Extraído subcritério nomenclaturaVariaveis: Nota={Nota}, Comentário={Comentario}", nota, comentario);
+                }
+                
+                if (nomenclaturaMetodosMatch.Success)
+                {
+                    int nota = int.TryParse(nomenclaturaMetodosMatch.Groups[1].Value, out int n) ? n : 5;
+                    string comentario = nomenclaturaMetodosMatch.Groups[2].Value.Trim();
+                    cleanCodeCriteria.Subcriteria["nomenclaturaMetodos"] = new SubcriteriaAnalysis { Nota = nota, Comentario = comentario };
+                    _logger.LogDebug("Extraído subcritério nomenclaturaMetodos: Nota={Nota}, Comentário={Comentario}", nota, comentario);
+                }
+                
+                if (tamanhoFuncoesMatch.Success)
+                {
+                    int nota = int.TryParse(tamanhoFuncoesMatch.Groups[1].Value, out int n) ? n : 5;
+                    string comentario = tamanhoFuncoesMatch.Groups[2].Value.Trim();
+                    cleanCodeCriteria.Subcriteria["tamanhoFuncoes"] = new SubcriteriaAnalysis { Nota = nota, Comentario = comentario };
+                    _logger.LogDebug("Extraído subcritério tamanhoFuncoes: Nota={Nota}, Comentário={Comentario}", nota, comentario);
+                }
+                
+                if (comentariosMatch.Success)
+                {
+                    int nota = int.TryParse(comentariosMatch.Groups[1].Value, out int n) ? n : 5;
+                    string comentario = comentariosMatch.Groups[2].Value.Trim();
+                    cleanCodeCriteria.Subcriteria["comentarios"] = new SubcriteriaAnalysis { Nota = nota, Comentario = comentario };
+                    _logger.LogDebug("Extraído subcritério comentarios: Nota={Nota}, Comentário={Comentario}", nota, comentario);
+                }
+                
+                if (duplicacaoCodigoMatch.Success)
+                {
+                    int nota = int.TryParse(duplicacaoCodigoMatch.Groups[1].Value, out int n) ? n : 5;
+                    string comentario = duplicacaoCodigoMatch.Groups[2].Value.Trim();
+                    cleanCodeCriteria.Subcriteria["duplicacaoCodigo"] = new SubcriteriaAnalysis { Nota = nota, Comentario = comentario };
+                    _logger.LogDebug("Extraído subcritério duplicacaoCodigo: Nota={Nota}, Comentário={Comentario}", nota, comentario);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Erro ao extrair subcritérios de Clean Code: {ErrorMessage}", ex.Message);
+            }
+        }
+        
         /// <summary>
         /// Extrai informações de proposta de refatoração do texto
         /// </summary>

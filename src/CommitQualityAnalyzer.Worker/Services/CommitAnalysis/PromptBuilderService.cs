@@ -22,89 +22,89 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         /// </summary>
         public string BuildDiffAnalysisPrompt(string filePath, string diffText, CommitInfo commit)
         {
-            _logger.LogInformation("Construindo prompt para análise de diferenças em {FilePath}", filePath);
-            
-            var promptBuilder = new StringBuilder();
-            
-            // Adicionar informações do commit
-            promptBuilder.AppendLine("# Análise de Qualidade de Código");
-            promptBuilder.AppendLine();
-            promptBuilder.AppendLine($"## Informações do Commit");
-            promptBuilder.AppendLine($"- **ID do Commit**: {commit.Sha}");
-            promptBuilder.AppendLine($"- **Autor**: {commit.AuthorName}");
-            promptBuilder.AppendLine($"- **Data**: {commit.AuthorDate}");
-            promptBuilder.AppendLine($"- **Mensagem**: {commit.Message}");
-            promptBuilder.AppendLine($"- **Arquivo**: {filePath}");
-            promptBuilder.AppendLine();
-            
-            // Adicionar as diferenças de código
-            promptBuilder.AppendLine("## Diferenças de Código");
-            promptBuilder.AppendLine("```diff");
-            promptBuilder.AppendLine(diffText);
-            promptBuilder.AppendLine("```");
-            promptBuilder.AppendLine();
-            
-            // Adicionar instruções para análise
-            promptBuilder.AppendLine("## Instruções");
-            promptBuilder.AppendLine("Analise as diferenças de código acima e avalie a qualidade do código em relação aos seguintes critérios:");
-            promptBuilder.AppendLine("1. **Clean Code**: Legibilidade, nomes significativos, funções pequenas, etc.");
-            promptBuilder.AppendLine("2. **SOLID**: Princípios de design orientado a objetos (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion).");
-            promptBuilder.AppendLine("3. **Design Patterns**: Uso adequado de padrões de design.");
-            promptBuilder.AppendLine("4. **Testabilidade**: Facilidade para escrever testes unitários.");
-            promptBuilder.AppendLine("5. **Segurança**: Práticas de segurança no código.");
-            promptBuilder.AppendLine();
-            promptBuilder.AppendLine("Para cada critério, atribua uma nota de 0 a 100 e forneça um comentário justificando a nota.");
-            promptBuilder.AppendLine("Além disso, forneça um comentário geral sobre a qualidade do código e calcule uma nota final (média das notas dos critérios).");
-            promptBuilder.AppendLine();
-            promptBuilder.AppendLine("Se houver oportunidades de melhoria, forneça uma proposta de refatoração com o código original e o código refatorado.");
-            promptBuilder.AppendLine();
-            
-            // Adicionar formato de saída esperado
-            promptBuilder.AppendLine("## Formato de Saída");
-            promptBuilder.AppendLine("Forneça sua análise no formato JSON a seguir:");
-            promptBuilder.AppendLine("```json");
-            promptBuilder.AppendLine("{");
-            promptBuilder.AppendLine("  \"analiseGeral\": {");
-            promptBuilder.AppendLine("    \"CleanCode\": {");
-            promptBuilder.AppendLine("      \"nota\": 0,");
-            promptBuilder.AppendLine("      \"comentario\": \"\"");
-            promptBuilder.AppendLine("    },");
-            promptBuilder.AppendLine("    \"SOLID\": {");
-            promptBuilder.AppendLine("      \"nota\": 0,");
-            promptBuilder.AppendLine("      \"comentario\": \"\"");
-            promptBuilder.AppendLine("    },");
-            promptBuilder.AppendLine("    \"DesignPatterns\": {");
-            promptBuilder.AppendLine("      \"nota\": 0,");
-            promptBuilder.AppendLine("      \"comentario\": \"\"");
-            promptBuilder.AppendLine("    },");
-            promptBuilder.AppendLine("    \"Testabilidade\": {");
-            promptBuilder.AppendLine("      \"nota\": 0,");
-            promptBuilder.AppendLine("      \"comentario\": \"\"");
-            promptBuilder.AppendLine("    },");
-            promptBuilder.AppendLine("    \"Seguranca\": {");
-            promptBuilder.AppendLine("      \"nota\": 0,");
-            promptBuilder.AppendLine("      \"comentario\": \"\"");
-            promptBuilder.AppendLine("    }");
-            promptBuilder.AppendLine("  },");
-            promptBuilder.AppendLine("  \"notaFinal\": 0,");
-            promptBuilder.AppendLine("  \"comentarioGeral\": \"\",");
-            promptBuilder.AppendLine("  \"propostaRefatoracao\": {");
-            promptBuilder.AppendLine("    \"titulo\": \"\",");
-            promptBuilder.AppendLine("    \"descricao\": \"\",");
-            promptBuilder.AppendLine("    \"codigoOriginal\": \"\",");
-            promptBuilder.AppendLine("    \"codigoRefatorado\": \"\"");
-            promptBuilder.AppendLine("  }");
-            promptBuilder.AppendLine("}");
-            promptBuilder.AppendLine("```");
-            promptBuilder.AppendLine();
-            promptBuilder.AppendLine("REGRAS OBRIGATÓRIAS:");
-            promptBuilder.AppendLine("1. Use EXATAMENTE os nomes de campos mostrados acima: \"AnaliseGeral\", \"CleanCode\", \"SOLID\", \"DesignPatterns\", \"Testabilidade\", \"Seguranca\", \"Nota\", \"Comentario\", \"ComentarioGeral\".");
-            promptBuilder.AppendLine("2. As notas devem ser números decimais entre 0.0 e 100.0 (use ponto como separador decimal).");
-            promptBuilder.AppendLine("3. A nota final deve ser a média aritmética das notas dos critérios.");
-            promptBuilder.AppendLine("4. Coloque sua resposta dentro do bloco ```json``` para que possa ser processada corretamente.");
-            promptBuilder.AppendLine("5. Não adicione explicações fora do bloco JSON.");
-            
-            return promptBuilder.ToString();
+            _logger.LogInformation("Construindo prompt Clean Code para {FilePath}", filePath);
+
+            var sb = new StringBuilder();
+
+            // Contexto do commit
+            sb.AppendLine($"Arquivo: {filePath}  (commit {commit.Sha.Substring(0, 8)})");
+            sb.AppendLine();
+
+            // Diferenças de código
+            sb.AppendLine("### Diferenças de código");
+            sb.AppendLine("```diff");
+            sb.AppendLine(diffText);
+            sb.AppendLine("```");
+            sb.AppendLine();
+
+            // Instruções
+            sb.AppendLine("Você é um especialista em Clean Code em C#. Avalie o trecho acima APENAS sob a ótica de Clean Code.");
+            sb.AppendLine("Dê uma nota inteira de 0 a 10 e um breve comentário para os aspectos listados.");
+            sb.AppendLine();
+            sb.AppendLine("Responda SOMENTE com o JSON no formato abaixo (sem texto extra):");
+            sb.AppendLine("```json");
+            sb.AppendLine("{");
+            sb.AppendLine("  \"analiseGeral\": {");
+            sb.AppendLine("    \"nomenclaturaVariaveis\": { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"nomenclaturaMetodos\":  { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"tamanhoFuncoes\":       { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"comentarios\":          { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"duplicacaoCodigo\":     { \"nota\": 0-10, \"comentario\": \"...\" }");
+            sb.AppendLine("  },");
+            sb.AppendLine("  \"comentarioGeral\": \"resumo geral da qualidade de Clean Code no arquivo\",");
+            sb.AppendLine("  \"SugestaoRefatoracao\": \"...\"");
+            sb.AppendLine("}");
+            sb.AppendLine("```");
+
+            sb.AppendLine();
+            sb.AppendLine("Cada *nota* deve ser um número inteiro.");
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Constrói o prompt para análise de trechos de código
+        /// </summary>
+        public string BuildCodeAnalysisPrompt(string filePath, string codeContent, CommitInfo commit, int partIndex = 0)
+        {
+            _logger.LogInformation("Construindo prompt para análise de código para {FilePath} (parte {PartIndex})", filePath, partIndex);
+
+            var sb = new StringBuilder();
+
+            // Contexto do commit e parte
+            sb.AppendLine($"Arquivo: {filePath}  (commit {commit.Sha.Substring(0, 8)}, parte {partIndex})");
+            sb.AppendLine();
+
+            // Código para análise
+            sb.AppendLine("### Código para análise");
+            sb.AppendLine("```csharp");
+            sb.AppendLine(codeContent);
+            sb.AppendLine("```");
+            sb.AppendLine();
+
+            // Instruções
+            sb.AppendLine("Você é um especialista em Clean Code em C#. Avalie o trecho acima APENAS sob a ótica de Clean Code.");
+            sb.AppendLine("Dê uma nota inteira de 0 a 10 e um breve comentário para os aspectos listados.");
+            sb.AppendLine();
+            sb.AppendLine("Responda SOMENTE com o JSON no formato abaixo (sem texto extra):");
+            sb.AppendLine("```json");
+            sb.AppendLine("{");
+            sb.AppendLine("  \"analiseGeral\": {");
+            sb.AppendLine("    \"nomenclaturaVariaveis\": { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"nomenclaturaMetodos\":  { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"tamanhoFuncoes\":       { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"comentarios\":          { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"duplicacaoCodigo\":     { \"nota\": 0-10, \"comentario\": \"...\" }");
+            sb.AppendLine("  },");
+            sb.AppendLine("  \"comentarioGeral\": \"resumo geral da qualidade de Clean Code no arquivo\",");
+            sb.AppendLine("  \"SugestaoRefatoracao\": \"...\"");
+            sb.AppendLine("}");
+            sb.AppendLine("```");
+
+            sb.AppendLine();
+            sb.AppendLine("Cada *nota* deve ser um número inteiro.");
+
+            return sb.ToString();
         }
     }
 }

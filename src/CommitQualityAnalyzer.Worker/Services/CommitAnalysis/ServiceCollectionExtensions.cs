@@ -30,11 +30,13 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             services.AddSingleton<OllamaService>();
             services.AddSingleton<ResponseAnalysisService>();
             services.AddSingleton<PromptBuilderService>();
+            services.AddSingleton<CodeChunkerService>();
             services.AddSingleton<AnalysisMapperService>();
             services.AddSingleton(sp => new CommitSchedulerService(
                 repoPath,
                 sp.GetRequiredService<ILogger<CommitSchedulerService>>(),
-                sp.GetRequiredService<GitRepositoryWrapper>()
+                sp.GetRequiredService<GitRepositoryWrapper>(),
+                sp.GetRequiredService<CodeChunkerService>()
             ));
             services.AddSingleton(sp => new CommitAnalyzerService(
                 repoPath,
@@ -48,7 +50,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 sp.GetRequiredService<ILogger<PromptBuilderService>>(),
                 sp.GetRequiredService<ILogger<AnalysisMapperService>>(),
                 sp.GetRequiredService<ILogger<CommitSchedulerService>>(),
-                sp.GetRequiredService<ILogger<GitRepositoryWrapper>>()
+                sp.GetRequiredService<ILogger<GitRepositoryWrapper>>(),
+                sp.GetRequiredService<CodeChunkerService>()
             ));
             
             return services;

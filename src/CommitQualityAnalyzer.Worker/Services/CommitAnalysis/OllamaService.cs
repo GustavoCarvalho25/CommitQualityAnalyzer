@@ -73,7 +73,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 }
                 
                 // Obter o tamanho do contexto da configuração
-                int contextLength = _configuration.GetValue<int>("Ollama:ContextLength", 8192);
+                int contextLength = _configuration.GetValue<int>("Ollama:ContextLength", 4096);
                 
                 var requestData = new
                 {
@@ -85,11 +85,11 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                         temperature,
                         top_p,
                         top_k,
-                        context_length = contextLength
+                        num_ctx = contextLength
                     }
                 };
                 
-                _logger.LogInformation("Usando context_length = {ContextLength} para o modelo {ModelName}", contextLength, modelName);
+                _logger.LogInformation("Usando num_ctx = {ContextLength} para o modelo {ModelName}", contextLength, modelName);
 
                 // Criar um novo token de cancelação com timeout específico para esta requisição
                 int timeoutSeconds = _configuration.GetValue<int>("Ollama:RequestTimeoutSeconds", 300); // 5 minutos por padrão
@@ -183,56 +183,57 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 _logger.LogInformation("Processando prompt completo de {PromptLength} caracteres", prompt.Length);
                 
                 // Verificar se o prompt precisa ser dividido
-                if (prompt.Length <= 500000)
+                if (prompt.Length > 500000)
                 {
-                    // Processar o prompt diretamente
+                    _logger.LogError("Prompt muito grande ({PromptLength} caracteres). Limite máximo: 500000 caracteres", prompt.Length);
+                    return "[ERRO] Prompt excede o tamanho máximo permitido de 500000 caracteres.";
+                }
+                
+                // Para prompts pequenos, processar diretamente
+                if (prompt.Length <= _maxPromptLength)
+                {
+                    _logger.LogInformation("Processando prompt completo diretamente");
                     return await ProcessPromptPart(prompt, modelName, cancellationToken);
                 }
-                else
+                
+                // Para prompts maiores, dividir em partes
+                _logger.LogInformation("Dividindo prompt em partes para processamento");
+                var promptParts = SplitPromptIntoParts(prompt);
+                _logger.LogInformation("Prompt dividido em {PartCount} partes", promptParts.Count);
+                
+                var results = new List<string>();
+                
+                for (int i = 0; i < promptParts.Count; i++)
                 {
-                    // Dividir o prompt em partes
-                    var promptParts = SplitPromptIntoParts(prompt);
-                    _logger.LogInformation("Prompt dividido em {PartCount} partes", promptParts.Count);
-                    
-                    var results = new List<string>();
-                    
-                    // Processar cada parte sequencialmente
-                    for (int i = 0; i < promptParts.Count; i++)
+                    if (cancellationToken.IsCancellationRequested)
                     {
-                        try
-                        {
-                            _logger.LogInformation("Processando parte {CurrentPart}/{TotalParts}", i + 1, promptParts.Count);
-                            var partResponse = await ProcessPromptPart(promptParts[i], modelName, cancellationToken);
-                            
-                            if (!string.IsNullOrEmpty(partResponse))
-                            {
-                                results.Add(partResponse);
-                            }
-                            
-                            // Aguardar um pouco entre as chamadas para não sobrecarregar o servidor
-                            if (i < promptParts.Count - 1)
-                            {
-                                await Task.Delay(500, cancellationToken);
-                            }
-                        }
-                        catch (Exception partEx)
-                        {
-                            _logger.LogError(partEx, "Erro ao processar parte {CurrentPart}/{TotalParts}: {ErrorMessage}", 
-                                i + 1, promptParts.Count, partEx.Message);
-                            // Continuar com as próximas partes mesmo se uma falhar
-                        }
+                        _logger.LogWarning("Processamento cancelado pelo usuário após {ProcessedParts} partes", i);
+                        break;
                     }
                     
-                    // Se não conseguiu processar nenhuma parte, retornar vazio
-                    if (results.Count == 0)
-                    {
-                        _logger.LogError("Não foi possível processar nenhuma parte do prompt");
-                        return string.Empty;
-                    }
+                    _logger.LogInformation("Processando parte {PartNumber} de {TotalParts}", i + 1, promptParts.Count);
+                    var result = await ProcessPromptPart(promptParts[i], modelName, cancellationToken);
                     
-                    // Combinar os resultados
-                    return CombineResults(results);
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        results.Add(result);
+                        _logger.LogInformation("Parte {PartNumber} processada com sucesso", i + 1);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Falha ao processar parte {PartNumber}", i + 1);
+                    }
                 }
+                
+                // Se não conseguiu processar nenhuma parte, retornar vazio
+                if (results.Count == 0)
+                {
+                    _logger.LogError("Não foi possível processar nenhuma parte do prompt");
+                    return string.Empty;
+                }
+                
+                // Combinar os resultados
+                return CombineResults(results);
             }
             catch (Exception ex)
             {
@@ -254,7 +255,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 var apiUrl = $"{baseUrl}/api/generate";
 
                 // Obter o tamanho do contexto da configuração
-                int contextLength = _configuration.GetValue<int>("Ollama:ContextLength", 8192);
+                int contextLength = _configuration.GetValue<int>("Ollama:ContextLength", 4096);
                 
                 var requestData = new
                 {
@@ -263,7 +264,10 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     stream = false,
                     options = new
                     {
-                        context_length = contextLength
+                        temperature = 0.1,
+                        top_p = 0.9,
+                        top_k = 40,
+                        num_ctx = contextLength
                     }
                 };
 
@@ -295,7 +299,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 return new List<string>();
 
             // Tamanho máximo para cada parte (2000 caracteres é um bom limite para modelos como o Ollama)
-            int maxPartLength = 2000;
+            int maxPartLength = _configuration.GetValue<int>("Ollama:MaxPartLength", 2000);
             
             if (prompt.Length <= maxPartLength)
                 return new List<string> { prompt };
@@ -303,75 +307,64 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             var parts = new List<string>();
             int totalParts = (int)Math.Ceiling((double)prompt.Length / maxPartLength);
             
-            // Dividir o prompt em partes lógicas (parágrafos, frases, etc.)
+            _logger.LogInformation("Dividindo prompt de {PromptLength} caracteres em aproximadamente {TotalParts} partes", 
+                prompt.Length, totalParts);
+            
             int startIndex = 0;
             int partNumber = 1;
             
             while (startIndex < prompt.Length)
             {
-                // Determinar o tamanho máximo para esta parte
+                // Calcular o tamanho desta parte
                 int remainingLength = prompt.Length - startIndex;
-                int partLength = Math.Min(remainingLength, maxPartLength);
+                int partLength = Math.Min(maxPartLength, remainingLength);
                 
-                // Se não estamos no final do prompt, tentar encontrar um ponto de quebra natural
+                // Tentar encontrar um ponto natural para quebrar (parágrafo, ponto final, vírgula)
                 if (partLength < remainingLength)
                 {
-                    // Procurar por quebras de parágrafo
-                    int paragraphBreak = prompt.LastIndexOf("\n\n", startIndex + partLength - 1, Math.Min(partLength, prompt.Length - startIndex));
+                    int breakIndex = -1;
                     
-                    if (paragraphBreak > startIndex && paragraphBreak - startIndex >= maxPartLength / 2)
+                    // Procurar por quebra de parágrafo
+                    int paragraphBreak = prompt.IndexOf("\n\n", startIndex + partLength - 100, Math.Min(200, remainingLength));
+                    if (paragraphBreak >= 0 && paragraphBreak < startIndex + partLength)
                     {
-                        partLength = paragraphBreak - startIndex + 2; // +2 para incluir a quebra de parágrafo
+                        breakIndex = paragraphBreak + 2; // +2 para incluir a quebra de parágrafo
                     }
-                    else
+                    
+                    // Se não encontrou quebra de parágrafo, procurar por ponto final
+                    if (breakIndex < 0)
                     {
-                        // Procurar por quebras de linha
-                        int lineBreak = prompt.LastIndexOf('\n', startIndex + partLength - 1, Math.Min(partLength, prompt.Length - startIndex));
-                        
-                        if (lineBreak > startIndex && lineBreak - startIndex >= maxPartLength / 2)
+                        int sentenceBreak = prompt.LastIndexOf(". ", startIndex + partLength - 100, Math.Min(200, remainingLength));
+                        if (sentenceBreak >= 0 && sentenceBreak < startIndex + partLength)
                         {
-                            partLength = lineBreak - startIndex + 1; // +1 para incluir a quebra de linha
+                            breakIndex = sentenceBreak + 2; // +2 para incluir o ponto e o espaço
                         }
-                        else
+                    }
+                    
+                    // Se não encontrou ponto final, procurar por vírgula
+                    if (breakIndex < 0)
+                    {
+                        int commaBreak = prompt.LastIndexOf(", ", startIndex + partLength - 50, Math.Min(100, remainingLength));
+                        if (commaBreak >= 0 && commaBreak < startIndex + partLength)
                         {
-                            // Procurar por pontuação (ponto final, interrogação, exclamação)
-                            int punctuation = Math.Max(
-                                prompt.LastIndexOf(". ", startIndex + partLength - 1, Math.Min(partLength, prompt.Length - startIndex)),
-                                Math.Max(
-                                    prompt.LastIndexOf("? ", startIndex + partLength - 1, Math.Min(partLength, prompt.Length - startIndex)),
-                                    prompt.LastIndexOf("! ", startIndex + partLength - 1, Math.Min(partLength, prompt.Length - startIndex))
-                                )
-                            );
-                            
-                            if (punctuation > startIndex && punctuation - startIndex >= maxPartLength / 2)
-                            {
-                                partLength = punctuation - startIndex + 2; // +2 para incluir a pontuação e o espaço
-                            }
-                            else
-                            {
-                                // Procurar por espaços
-                                int space = prompt.LastIndexOf(' ', startIndex + partLength - 1, Math.Min(partLength, prompt.Length - startIndex));
-                                
-                                if (space > startIndex && space - startIndex >= maxPartLength / 2)
-                                {
-                                    partLength = space - startIndex + 1; // +1 para incluir o espaço
-                                }
-                                // Se não encontrar nenhum ponto de quebra natural, usar o tamanho máximo
-                            }
+                            breakIndex = commaBreak + 2; // +2 para incluir a vírgula e o espaço
                         }
+                    }
+                    
+                    // Se encontrou um ponto de quebra, ajustar o tamanho da parte
+                    if (breakIndex > 0)
+                    {
+                        partLength = breakIndex - startIndex;
                     }
                 }
                 
-                // Extrair a parte atual
                 string part = prompt.Substring(startIndex, partLength);
                 
-                // Adicionar cabeçalho informativo com número da parte e total
-                string header = $"[Parte {partNumber} de {totalParts}]\n";
-                
-                // Para prompts de análise de código, adicionar contexto adicional
-                if (partNumber > 1 && prompt.Contains("```diff"))
+                // Adicionar cabeçalho informativo para cada parte
+                string header = $"[PARTE {partNumber} DE ~{totalParts}] ";
+                if (partNumber > 1)
                 {
-                    header += "[Continuação da análise de código]\n";
+                    header += "Continuação da análise. ";
                 }
                 
                 parts.Add(header + part);

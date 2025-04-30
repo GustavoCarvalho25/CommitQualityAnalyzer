@@ -19,7 +19,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         public CommitSchedulerService(
             string repoPath,
             ILogger<CommitSchedulerService> logger,
-            GitRepositoryWrapper gitRepositoryWrapper)
+            GitRepositoryWrapper gitRepositoryWrapper,
+            CodeChunkerService chunkerService = null)
         {
             _repoPath = repoPath;
             _logger = logger;

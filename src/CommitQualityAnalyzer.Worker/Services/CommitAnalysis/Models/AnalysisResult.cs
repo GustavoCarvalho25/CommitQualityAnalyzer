@@ -40,6 +40,11 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis.Models
     /// </summary>
     public class CriteriaAnalysis
     {
+        public CriteriaAnalysis()
+        {
+            Subcriteria = new Dictionary<string, SubcriteriaAnalysis>();
+        }
+
         /// <summary>
         /// Nota atribuída ao critério (0-100)
         /// </summary>
@@ -47,6 +52,27 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis.Models
         
         /// <summary>
         /// Comentário sobre o critério
+        /// </summary>
+        public string Comentario { get; set; }
+
+        /// <summary>
+        /// Subcritérios específicos (nomenclaturaVariaveis, nomenclaturaMetodos, etc.)
+        /// </summary>
+        public Dictionary<string, SubcriteriaAnalysis> Subcriteria { get; set; }
+    }
+
+    /// <summary>
+    /// Representa a análise de um subcritério específico
+    /// </summary>
+    public class SubcriteriaAnalysis
+    {
+        /// <summary>
+        /// Nota atribuída ao subcritério (0-10)
+        /// </summary>
+        public int Nota { get; set; }
+        
+        /// <summary>
+        /// Comentário sobre o subcritério
         /// </summary>
         public string Comentario { get; set; }
     }

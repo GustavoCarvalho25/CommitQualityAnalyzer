@@ -8,6 +8,19 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
+      - ./Modelfile:/Modelfile
+      - ./DeepseekModelfile:/DeepseekModelfile
+    environment:
+      - OLLAMA_MODELS=/root/.ollama/models
+      - OLLAMA_KEEP_ALIVE=5m
+      - OLLAMA_NUM_PARALLEL=1
+      - OLLAMA_CONTEXT_LENGTH=1024
+    deploy:
+      resources:
+        limits:
+          memory: 12G
+        reservations:
+          memory: 8G
     restart: unless-stopped
 
   mongodb:

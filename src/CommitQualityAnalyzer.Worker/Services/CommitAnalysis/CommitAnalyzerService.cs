@@ -6,7 +6,9 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
@@ -27,6 +29,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         private readonly AnalysisMapperService _analysisMapperService;
         private readonly CommitSchedulerService _commitSchedulerService;
         private readonly GitRepositoryWrapper _gitRepositoryWrapper;
+        private readonly CodeChunkerService _chunkerService;
         private readonly string _defaultModelName;
 
         public CommitAnalyzerService(
@@ -41,7 +44,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             ILogger<PromptBuilderService> promptBuilderLogger,
             ILogger<AnalysisMapperService> analysisMapperLogger,
             ILogger<CommitSchedulerService> commitSchedulerLogger,
-            ILogger<GitRepositoryWrapper> gitRepositoryWrapperLogger)
+            ILogger<GitRepositoryWrapper> gitRepositoryWrapperLogger,
+            CodeChunkerService chunkerService)
         {
             _repoPath = repoPath;
             _logger = logger;
@@ -56,7 +60,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             _responseAnalysisService = new ResponseAnalysisService(responseAnalysisLogger);
             _promptBuilderService = new PromptBuilderService(promptBuilderLogger);
             _analysisMapperService = new AnalysisMapperService(analysisMapperLogger);
-            _commitSchedulerService = new CommitSchedulerService(repoPath, commitSchedulerLogger, _gitRepositoryWrapper);
+            _commitSchedulerService = new CommitSchedulerService(repoPath, commitSchedulerLogger, _gitRepositoryWrapper, chunkerService);
+            _chunkerService = chunkerService;
         }
 
         /// <summary>
@@ -193,8 +198,60 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                             continue;
                         }
                         
-                        // Analisar as diferenças do arquivo
-                        var analysis = await AnalyzeCodeDiff(change, commit);
+                        // Se o diff ou conteúdo é grande, dividir em partes coerentes usando CodeChunkerService
+                        var analyses = new List<CommitAnalysisResult>();
+                        var codeParts = _chunkerService.Split(change.ModifiedContent).ToList();
+                        
+                        _logger.LogInformation("Arquivo {FilePath} dividido em {PartCount} partes para análise", 
+                            change.FilePath, codeParts.Count);
+                            
+                        int partIndex = 0;
+                        foreach (var part in codeParts)
+                        {
+                            _logger.LogInformation("Analisando parte {PartIndex} de {TotalParts} do arquivo {FilePath}", 
+                                partIndex + 1, codeParts.Count, change.FilePath);
+                                
+                            try
+                            {
+                                // Gerar prompt para análise de código (não de diff)
+                                var prompt = _promptBuilderService.BuildCodeAnalysisPrompt(
+                                    change.FilePath, part, commit, partIndex);
+                                    
+                                // Obter o modelo a ser usado da configuração
+                                var model = _configuration.GetValue<string>("Ollama:ModelName", "deepseek-extended");
+                                
+                                // Processar o prompt usando o serviço Ollama
+                                var response = await _ollamaService.ProcessPrompt(prompt, model);
+                                
+                                if (string.IsNullOrEmpty(response))
+                                {
+                                    _logger.LogWarning("Resposta vazia para a parte {PartIndex} do arquivo {FilePath}", 
+                                        partIndex, change.FilePath);
+                                    continue;
+                                }
+                                
+                                // Converter a resposta em um objeto estruturado
+                                var analysisResult = _responseAnalysisService.ConvertTextResponseToJson(response);
+                                analyses.Add(analysisResult);
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogError(ex, "Erro ao analisar parte {PartIndex} do arquivo {FilePath}: {ErrorMessage}", 
+                                    partIndex, change.FilePath, ex.Message);
+                            }
+                            
+                            partIndex++;
+                        }
+
+                        // Se não conseguiu analisar nenhuma parte, usar fallback
+                        if (analyses.Count == 0)
+                        {
+                            _logger.LogWarning("Nenhuma parte do arquivo {FilePath} pôde ser analisada. Usando fallback.", change.FilePath);
+                            analyses.Add(_responseAnalysisService.CreateFallbackAnalysisResult());
+                        }
+                        
+                        // Por enquanto, usar apenas o primeiro resultado (futuramente combinar)
+                        var analysis = analyses.FirstOrDefault();
                         
                         // Mapear e salvar a análise no repositório
                         var codeAnalysis = _analysisMapperService.MapToCodeAnalysis(analysis, commit, change.FilePath);
@@ -241,7 +298,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     change.FilePath, change.ChangeType, change.FileSize, change.ModifiedContent.Length);
                 
                 // Construir o prompt para análise
-                var prompt = _promptBuilderService.BuildDiffAnalysisPrompt(change.FilePath, change.DiffText, commit);
+                var prompt = BuildAnalysisPrompt(change.DiffText);
                 
                 // Testar conexão com o modelo
                 var modelName = _configuration.GetValue<string>("Ollama:ModelName", "codellama");
@@ -275,6 +332,42 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     change.FilePath, ex.Message);
                 return _responseAnalysisService.CreateFallbackAnalysisResult();
             }
+        }
+
+        private string BuildAnalysisPrompt(string code)
+        {
+            var sb = new StringBuilder();
+            
+            sb.AppendLine("Você é um especialista em Clean Code em C#. Analise o trecho de código abaixo exclusivamente sob a ótica de Clean Code.");
+            sb.AppendLine("Avalie, de 0 a 10, cada um dos aspectos listados, justificando em uma frase ou duas. Em seguida, forneça um resumo geral.");
+            sb.AppendLine();
+            sb.AppendLine("Responda SOMENTE com o JSON no formato abaixo (sem texto extra):");
+            sb.AppendLine("```json");
+            sb.AppendLine("{");
+            sb.AppendLine("  \"analiseGeral\": {");
+            sb.AppendLine("    \"nomenclaturaVariaveis\": { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"nomenclaturaMetodos\":  { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"tamanhoFuncoes\":       { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"comentarios\":          { \"nota\": 0-10, \"comentario\": \"...\" },");
+            sb.AppendLine("    \"duplicacaoCodigo\":     { \"nota\": 0-10, \"comentario\": \"...\" }");
+            sb.AppendLine("  },");
+            sb.AppendLine("  \"comentarioGeral\": \"resumo geral da qualidade de Clean Code no arquivo\",");
+            sb.AppendLine("  \"propostaRefatoracao\": {");
+            sb.AppendLine("    \"titulo\": \"título curto da proposta\",");
+            sb.AppendLine("    \"descricao\": \"descrição do que deve ser melhorado e por quê\",");
+            sb.AppendLine("    \"codigoOriginal\": \"trecho relevante original (pode ser resumido)\",");
+            sb.AppendLine("    \"codigoRefatorado\": \"exemplo de como ficaria após aplicar Clean Code\"");
+            sb.AppendLine("  }");
+            sb.AppendLine("}");
+            sb.AppendLine("```");
+            sb.AppendLine();
+            sb.AppendLine("Cada *nota* deve ser um número inteiro.");
+            sb.AppendLine();
+            sb.AppendLine("Código para análise:");
+            sb.AppendLine();
+            sb.AppendLine(code);
+            
+            return sb.ToString();
         }
     }
 }
