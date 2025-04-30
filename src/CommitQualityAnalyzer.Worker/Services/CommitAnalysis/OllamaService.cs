@@ -185,8 +185,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 // Verificar se o prompt precisa ser dividido
                 if (prompt.Length > 500000)
                 {
-                    _logger.LogError("Prompt muito grande ({PromptLength} caracteres). Limite máximo: 500000 caracteres", prompt.Length);
-                    return "[ERRO] Prompt excede o tamanho máximo permitido de 500000 caracteres.";
+                    _logger.LogError("Prompt muito grande: {PromptLength} caracteres. Máximo permitido: 500000", prompt.Length);
+                    return "[ERRO] Prompt muito grande. Por favor, reduza o tamanho do prompt para no máximo 500000 caracteres.";
                 }
                 
                 // Para prompts pequenos, processar diretamente
@@ -299,7 +299,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 return new List<string>();
 
             // Tamanho máximo para cada parte (2000 caracteres é um bom limite para modelos como o Ollama)
-            int maxPartLength = _configuration.GetValue<int>("Ollama:MaxPartLength", 2000);
+            int maxPartLength = 2000;
             
             if (prompt.Length <= maxPartLength)
                 return new List<string> { prompt };
