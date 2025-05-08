@@ -24,7 +24,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
         private readonly IConfiguration _configuration;
         private readonly GitDiffService _gitDiffService;
         private readonly OllamaService _ollamaService;
-        private readonly ResponseAnalysisService _responseAnalysisService;
+        private readonly SimpleResponseAnalysisService _responseAnalysisService;
         private readonly PromptBuilderService _promptBuilderService;
         private readonly AnalysisMapperService _analysisMapperService;
         private readonly CommitSchedulerService _commitSchedulerService;
@@ -40,7 +40,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             IHttpClientFactory httpClientFactory,
             ILogger<GitDiffService> gitDiffLogger,
             ILogger<OllamaService> ollamaLogger,
-            ILogger<ResponseAnalysisService> responseAnalysisLogger,
+            ILogger<SimpleResponseAnalysisService> responseAnalysisLogger,
             ILogger<PromptBuilderService> promptBuilderLogger,
             ILogger<AnalysisMapperService> analysisMapperLogger,
             ILogger<CommitSchedulerService> commitSchedulerLogger,
@@ -57,7 +57,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             _gitRepositoryWrapper = new GitRepositoryWrapper(gitRepositoryWrapperLogger, repoPath);
             _gitDiffService = new GitDiffService(gitDiffLogger, _gitRepositoryWrapper, repoPath);
             _ollamaService = new OllamaService(ollamaLogger, configuration, httpClientFactory.CreateClient());
-            _responseAnalysisService = new ResponseAnalysisService(responseAnalysisLogger);
+            _responseAnalysisService = new SimpleResponseAnalysisService(responseAnalysisLogger);
             _promptBuilderService = new PromptBuilderService(promptBuilderLogger);
             _analysisMapperService = new AnalysisMapperService(analysisMapperLogger);
             _commitSchedulerService = new CommitSchedulerService(repoPath, commitSchedulerLogger, _gitRepositoryWrapper, chunkerService);
@@ -230,8 +230,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                                     continue;
                                 }
                                 
-                                // Converter a resposta em um objeto estruturado
-                                var analysisResult = _responseAnalysisService.ConvertTextResponseToJson(response);
+                                // Processar a resposta e convertê-la em um objeto estruturado
+                                var analysisResult = _responseAnalysisService.ProcessResponse(response);
                                 analyses.Add(analysisResult);
                             }
                             catch (Exception ex)
@@ -319,8 +319,8 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                     return _responseAnalysisService.CreateFallbackAnalysisResult();
                 }
                 
-                // Converter a resposta em um objeto estruturado
-                var analysisResult = _responseAnalysisService.ConvertTextResponseToJson(response);
+                // Processar a resposta e convertê-la em um objeto estruturado
+                var analysisResult = _responseAnalysisService.ProcessResponse(response);
                 
                 _logger.LogInformation("Análise concluída com sucesso para {FilePath}", change.FilePath);
                 

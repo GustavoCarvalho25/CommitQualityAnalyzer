@@ -41,6 +41,18 @@ namespace CommitQualityAnalyzer.Core.Models
 
         [JsonPropertyName("comentario")]
         public required string Comentario { get; set; }
+        
+        [JsonPropertyName("subcriteria")]
+        public Dictionary<string, SubcriteriaAnalysis> Subcriteria { get; set; } = new Dictionary<string, SubcriteriaAnalysis>();
+    }
+    
+    public class SubcriteriaAnalysis
+    {
+        [JsonPropertyName("nota")]
+        public int Nota { get; set; }
+
+        [JsonPropertyName("comentario")]
+        public string Comentario { get; set; } = "";
     }
 
     public class RefactoringProposal

@@ -28,7 +28,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 repoPath
             ));
             services.AddSingleton<OllamaService>();
-            services.AddSingleton<ResponseAnalysisService>();
+            services.AddSingleton<SimpleResponseAnalysisService>();
             services.AddSingleton<PromptBuilderService>();
             services.AddSingleton<CodeChunkerService>();
             services.AddSingleton<AnalysisMapperService>();
@@ -46,7 +46,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 sp.GetRequiredService<IHttpClientFactory>(),
                 sp.GetRequiredService<ILogger<GitDiffService>>(),
                 sp.GetRequiredService<ILogger<OllamaService>>(),
-                sp.GetRequiredService<ILogger<ResponseAnalysisService>>(),
+                sp.GetRequiredService<ILogger<SimpleResponseAnalysisService>>(),
                 sp.GetRequiredService<ILogger<PromptBuilderService>>(),
                 sp.GetRequiredService<ILogger<AnalysisMapperService>>(),
                 sp.GetRequiredService<ILogger<CommitSchedulerService>>(),

@@ -47,11 +47,29 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
                 // Converter as análises de critérios
                 foreach (var criterio in analysisResult.AnaliseGeral)
                 {
-                    codeAnalysis.Analysis.AnaliseGeral[criterio.Key] = new Core.Models.CriteriaAnalysis
+                    var criteriaMapeado = new Core.Models.CriteriaAnalysis
                     {
                         Nota = criterio.Value.Nota,
                         Comentario = criterio.Value.Comentario
                     };
+                    
+                    // Mapear subcritérios se existirem
+                    if (criterio.Value.Subcriteria != null && criterio.Value.Subcriteria.Count > 0)
+                    {
+                        foreach (var subcriteria in criterio.Value.Subcriteria)
+                        {
+                            criteriaMapeado.Subcriteria[subcriteria.Key] = new Core.Models.SubcriteriaAnalysis
+                            {
+                                Nota = subcriteria.Value.Nota,
+                                Comentario = subcriteria.Value.Comentario
+                            };
+                        }
+                        
+                        _logger.LogInformation("Mapeados {Count} subcritérios para o critério {Criterio}", 
+                            criterio.Value.Subcriteria.Count, criterio.Key);
+                    }
+                    
+                    codeAnalysis.Analysis.AnaliseGeral[criterio.Key] = criteriaMapeado;
                 }
                 
                 return codeAnalysis;

@@ -280,7 +280,7 @@ namespace CommitQualityAnalyzer.Worker.Services.CommitAnalysis
             {
                 try
                 {
-                    var yesterday = DateTime.Now.AddDays(-1);
+                    var yesterday = DateTime.Now.AddDays(-3);
                     _logger.LogInformation("Obtendo commits do último dia no repositório: {RepoPath}", _repoPath);
                     
                     // Usar uma abordagem mais segura para obter commits
