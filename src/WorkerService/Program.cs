@@ -13,7 +13,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Iniciando RefactorScore Worker Service");
+    Log.Information("Starting RefactorScore Worker Service");
 
     // Configurar logging com Serilog
     builder.Services.AddLogging(loggingBuilder =>
@@ -43,7 +43,7 @@ try
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "O RefactorScore Worker Service falhou ao iniciar");
+    Log.Fatal(ex, "The RefactorScore Worker Service failed to start");
     return 1;
 }
 finally

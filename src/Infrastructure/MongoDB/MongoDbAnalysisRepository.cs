@@ -29,11 +29,11 @@ namespace RefactorScore.Infrastructure.MongoDB
                 
                 CreateIndexes();
                 
-                _logger.LogInformation("Repositório MongoDB inicializado com sucesso");
+                _logger.LogInformation("Repositório MongoDB initialized successfully");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao inicializar repositório MongoDB");
+                _logger.LogError(ex, "Error initializing MongoDB repository");
                 throw;
             }
         }
@@ -68,7 +68,7 @@ namespace RefactorScore.Infrastructure.MongoDB
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao criar índices no MongoDB");
+                _logger.LogError(ex, "Error creating indexes in MongoDB");
                 // Não lançamos a exceção para não interromper a inicialização
             }
         }
@@ -78,18 +78,18 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Salvando análise para o commit {CommitId}, arquivo {FilePath}", 
+                _logger.LogInformation("Saving analysis for commit {CommitId}, file {FilePath}", 
                     analysis.CommitId, analysis.FilePath);
                 
                 await _analyses.InsertOneAsync(analysis);
                 
-                _logger.LogInformation("Análise salva com sucesso, ID: {Id}", analysis.Id);
+                _logger.LogInformation("Analysis saved successfully, ID: {Id}", analysis.Id);
                 
                 return analysis.Id;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao salvar análise");
+                _logger.LogError(ex, "Error saving analysis");
                 throw;
             }
         }
@@ -99,21 +99,21 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Buscando análise por ID: {Id}", id);
+                _logger.LogInformation("Searching analysis by ID: {Id}", id);
                 
                 var filter = Builders<CodeAnalysis>.Filter.Eq(a => a.Id, id);
                 var analysis = await _analyses.Find(filter).FirstOrDefaultAsync();
                 
                 if (analysis == null)
                 {
-                    _logger.LogWarning("Análise não encontrada para o ID: {Id}", id);
+                    _logger.LogWarning("Analysis not found for ID: {Id}", id);
                 }
                 
                 return analysis;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar análise por ID: {Id}", id);
+                _logger.LogError(ex, "Error searching analysis by ID: {Id}", id);
                 throw;
             }
         }
@@ -123,19 +123,19 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Buscando análises para o commit: {CommitId}", commitId);
+                _logger.LogInformation("Searching analyses for commit: {CommitId}", commitId);
                 
                 var filter = Builders<CodeAnalysis>.Filter.Eq(a => a.CommitId, commitId);
                 var analyses = await _analyses.Find(filter).ToListAsync();
                 
-                _logger.LogInformation("Encontradas {Count} análises para o commit {CommitId}", 
+                _logger.LogInformation("Found {Count} analyses for commit {CommitId}", 
                     analyses.Count, commitId);
                 
                 return analyses;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar análises por commit: {CommitId}", commitId);
+                _logger.LogError(ex, "Error searching analyses by commit: {CommitId}", commitId);
                 throw;
             }
         }
@@ -145,7 +145,7 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Buscando análise para o commit {CommitId} e arquivo {FilePath}", 
+                _logger.LogInformation("Searching analysis for commit {CommitId} and file {FilePath}", 
                     commitId, filePath);
                 
                 var filter = Builders<CodeAnalysis>.Filter.And(
@@ -157,7 +157,7 @@ namespace RefactorScore.Infrastructure.MongoDB
                 
                 if (analysis == null)
                 {
-                    _logger.LogWarning("Análise não encontrada para o commit {CommitId} e arquivo {FilePath}", 
+                    _logger.LogWarning("Analysis not found for commit {CommitId} and file {FilePath}", 
                         commitId, filePath);
                 }
                 
@@ -165,7 +165,7 @@ namespace RefactorScore.Infrastructure.MongoDB
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar análise por commit e arquivo");
+                _logger.LogError(ex, "Error searching analysis by commit and file");
                 throw;
             }
         }
@@ -175,7 +175,7 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Buscando análises no período de {StartDate} a {EndDate}", 
+                _logger.LogInformation("Searching analyses in the period from {StartDate} to {EndDate}", 
                     startDate, endDate);
                 
                 var filter = Builders<CodeAnalysis>.Filter.And(
@@ -187,13 +187,13 @@ namespace RefactorScore.Infrastructure.MongoDB
                     .Sort(Builders<CodeAnalysis>.Sort.Descending(a => a.CommitDate))
                     .ToListAsync();
                 
-                _logger.LogInformation("Encontradas {Count} análises no período especificado", analyses.Count);
+                _logger.LogInformation("Found {Count} analyses in the specified period", analyses.Count);
                 
                 return analyses;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar análises por período");
+                _logger.LogError(ex, "Error searching analyses by period");
                 throw;
             }
         }
@@ -203,7 +203,7 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Buscando análises com nota menor que {ScoreThreshold}, limite: {Limit}", 
+                _logger.LogInformation("Searching analyses with score less than {ScoreThreshold}, limit: {Limit}", 
                     scoreThreshold, limit);
                 
                 var filter = Builders<CodeAnalysis>.Filter.Lt(a => a.OverallScore, scoreThreshold);
@@ -213,14 +213,14 @@ namespace RefactorScore.Infrastructure.MongoDB
                     .Limit(limit)
                     .ToListAsync();
                 
-                _logger.LogInformation("Encontradas {Count} análises com nota menor que {ScoreThreshold}", 
+                _logger.LogInformation("Found {Count} analyses with score less than {ScoreThreshold}", 
                     analyses.Count, scoreThreshold);
                 
                 return analyses;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar análises por nota");
+                _logger.LogError(ex, "Error searching analyses by score");
                 throw;
             }
         }
@@ -230,20 +230,20 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Buscando as {Limit} análises mais recentes", limit);
+                _logger.LogInformation("Searching the {Limit} most recent analyses", limit);
                 
                 var analyses = await _analyses.Find(_ => true)
                     .Sort(Builders<CodeAnalysis>.Sort.Descending(a => a.AnalysisDate))
                     .Limit(limit)
                     .ToListAsync();
                 
-                _logger.LogInformation("Encontradas {Count} análises recentes", analyses.Count);
+                _logger.LogInformation("Found {Count} recent analyses", analyses.Count);
                 
                 return analyses;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao buscar análises recentes");
+                _logger.LogError(ex, "Error searching recent analyses");
                 throw;
             }
         }
@@ -253,20 +253,20 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Atualizando análise com ID: {Id}", analysis.Id);
+                _logger.LogInformation("Updating analysis with ID: {Id}", analysis.Id);
                 
                 var filter = Builders<CodeAnalysis>.Filter.Eq(a => a.Id, analysis.Id);
                 var result = await _analyses.ReplaceOneAsync(filter, analysis);
                 
                 var success = result.ModifiedCount > 0;
                 
-                _logger.LogInformation("Análise atualizada: {Success}, ID: {Id}", success, analysis.Id);
+                _logger.LogInformation("Analysis updated: {Success}, ID: {Id}", success, analysis.Id);
                 
                 return success;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao atualizar análise, ID: {Id}", analysis.Id);
+                _logger.LogError(ex, "Error updating analysis, ID: {Id}", analysis.Id);
                 throw;
             }
         }
@@ -276,20 +276,20 @@ namespace RefactorScore.Infrastructure.MongoDB
         {
             try
             {
-                _logger.LogInformation("Excluindo análise com ID: {Id}", id);
+                _logger.LogInformation("Deleting analysis with ID: {Id}", id);
                 
                 var filter = Builders<CodeAnalysis>.Filter.Eq(a => a.Id, id);
                 var result = await _analyses.DeleteOneAsync(filter);
                 
                 var success = result.DeletedCount > 0;
                 
-                _logger.LogInformation("Análise excluída: {Success}, ID: {Id}", success, id);
+                _logger.LogInformation("Analysis deleted: {Success}, ID: {Id}", success, id);
                 
                 return success;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao excluir análise, ID: {Id}", id);
+                _logger.LogError(ex, "Error deleting analysis, ID: {Id}", id);
                 throw;
             }
         }

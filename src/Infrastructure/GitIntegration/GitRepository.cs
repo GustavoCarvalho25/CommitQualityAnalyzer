@@ -29,12 +29,12 @@ namespace RefactorScore.Infrastructure.GitIntegration
             
             if (!Directory.Exists(_repositoryPath))
             {
-                throw new DirectoryNotFoundException($"O diretório do repositório Git não foi encontrado: {_repositoryPath}");
+                throw new DirectoryNotFoundException($"Git repository directory not found: {_repositoryPath}");
             }
 
             if (!Repository.IsValid(_repositoryPath))
             {
-                throw new InvalidOperationException($"O diretório não é um repositório Git válido: {_repositoryPath}");
+                throw new InvalidOperationException($"The directory is not a valid Git repository: {_repositoryPath}");
             }
         }
 
@@ -43,7 +43,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
         {
             try
             {
-                _logger.LogInformation("Obtendo commits das últimas 24 horas do repositório: {RepositoryPath}", _repositoryPath);
+                _logger.LogInformation("Getting commits from the last 24 hours from repository: {RepositoryPath}", _repositoryPath);
                 
                 using var repo = new Repository(_repositoryPath);
                 var yesterday = DateTimeOffset.Now.AddDays(-1);
@@ -53,13 +53,13 @@ namespace RefactorScore.Infrastructure.GitIntegration
                     .Select(MapToCommitInfo)
                     .ToList();
                 
-                _logger.LogInformation("Encontrados {CommitCount} commits nas últimas 24 horas", commits.Count);
+                _logger.LogInformation("Found {CommitCount} commits in the last 24 hours", commits.Count);
                 
                 return Task.FromResult<IEnumerable<CommitInfo>>(commits);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter commits das últimas 24 horas");
+                _logger.LogError(ex, "Error getting commits from the last 24 hours");
                 throw;
             }
         }
@@ -69,14 +69,14 @@ namespace RefactorScore.Infrastructure.GitIntegration
         {
             try
             {
-                _logger.LogInformation("Obtendo commit com ID: {CommitId}", commitId);
+                _logger.LogInformation("Getting commit with ID: {CommitId}", commitId);
                 
                 using var repo = new Repository(_repositoryPath);
                 var commit = repo.Lookup<Commit>(commitId);
                 
                 if (commit == null)
                 {
-                    _logger.LogWarning("Commit não encontrado: {CommitId}", commitId);
+                    _logger.LogWarning("Commit not found: {CommitId}", commitId);
                     return Task.FromResult<CommitInfo>(null);
                 }
                 
@@ -86,7 +86,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter commit por ID: {CommitId}", commitId);
+                _logger.LogError(ex, "Error getting commit by ID: {CommitId}", commitId);
                 throw;
             }
         }
@@ -96,14 +96,14 @@ namespace RefactorScore.Infrastructure.GitIntegration
         {
             try
             {
-                _logger.LogInformation("Obtendo alterações do commit: {CommitId}", commitId);
+                _logger.LogInformation("Getting changes for commit: {CommitId}", commitId);
                 
                 using var repo = new Repository(_repositoryPath);
                 var commit = repo.Lookup<Commit>(commitId);
                 
                 if (commit == null)
                 {
-                    _logger.LogWarning("Commit não encontrado: {CommitId}", commitId);
+                    _logger.LogWarning("Commit not found: {CommitId}", commitId);
                     return Task.FromResult<IEnumerable<CommitFileChange>>(new List<CommitFileChange>());
                 }
                 
@@ -122,14 +122,14 @@ namespace RefactorScore.Infrastructure.GitIntegration
                     changes = MapTreeChangesToFileChanges(repo, treeChanges, commit, parentCommit);
                 }
                 
-                _logger.LogInformation("Encontradas {ChangeCount} alterações no commit {CommitId}", 
+                _logger.LogInformation("Found {ChangeCount} changes in commit {CommitId}", 
                     changes.Count, commitId.Substring(0, Math.Min(8, commitId.Length)));
                 
                 return Task.FromResult<IEnumerable<CommitFileChange>>(changes);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter alterações do commit: {CommitId}", commitId);
+                _logger.LogError(ex, "Error getting changes for commit: {CommitId}", commitId);
                 throw;
             }
         }
@@ -139,14 +139,14 @@ namespace RefactorScore.Infrastructure.GitIntegration
         {
             try
             {
-                _logger.LogInformation("Obtendo conteúdo do arquivo {FilePath} na revisão {CommitId}", filePath, commitId);
+                _logger.LogInformation("Getting content of file {FilePath} at revision {CommitId}", filePath, commitId);
                 
                 using var repo = new Repository(_repositoryPath);
                 var commit = repo.Lookup<Commit>(commitId);
                 
                 if (commit == null)
                 {
-                    _logger.LogWarning("Commit não encontrado: {CommitId}", commitId);
+                    _logger.LogWarning("Commit not found: {CommitId}", commitId);
                     return Task.FromResult(string.Empty);
                 }
                 
@@ -154,15 +154,15 @@ namespace RefactorScore.Infrastructure.GitIntegration
                 
                 if (blob == null)
                 {
-                    _logger.LogWarning("Arquivo não encontrado na revisão: {FilePath} em {CommitId}", filePath, commitId);
+                    _logger.LogWarning("File not found at revision: {FilePath} in {CommitId}", filePath, commitId);
                     return Task.FromResult(string.Empty);
                 }
                 
                 // Detecta se o arquivo é binário
                 if (blob.IsBinary)
                 {
-                    _logger.LogInformation("Arquivo binário ignorado: {FilePath}", filePath);
-                    return Task.FromResult("[ARQUIVO BINÁRIO]");
+                    _logger.LogInformation("Binary file ignored: {FilePath}", filePath);
+                    return Task.FromResult("[BINARY FILE]");
                 }
                 
                 using var contentStream = blob.GetContentStream();
@@ -171,7 +171,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter conteúdo do arquivo {FilePath} na revisão {CommitId}", filePath, commitId);
+                _logger.LogError(ex, "Error getting file content {FilePath} at revision {CommitId}", filePath, commitId);
                 throw;
             }
         }
@@ -181,14 +181,14 @@ namespace RefactorScore.Infrastructure.GitIntegration
         {
             try
             {
-                _logger.LogInformation("Obtendo diff do arquivo {FilePath} no commit {CommitId}", filePath, commitId);
+                _logger.LogInformation("Getting diff for file {FilePath} in commit {CommitId}", filePath, commitId);
                 
                 using var repo = new Repository(_repositoryPath);
                 var commit = repo.Lookup<Commit>(commitId);
                 
                 if (commit == null)
                 {
-                    _logger.LogWarning("Commit não encontrado: {CommitId}", commitId);
+                    _logger.LogWarning("Commit not found: {CommitId}", commitId);
                     return Task.FromResult(string.Empty);
                 }
                 
@@ -214,7 +214,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter diff do arquivo {FilePath} no commit {CommitId}", filePath, commitId);
+                _logger.LogError(ex, "Error getting diff for file {FilePath} in commit {CommitId}", filePath, commitId);
                 return Task.FromResult(string.Empty);
             }
         }
@@ -246,7 +246,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
                 // Filtrar apenas arquivos relevantes (ignorar arquivos binários, etc.)
                 if (ShouldIgnoreFile(change.Path))
                 {
-                    _logger.LogDebug("Ignorando arquivo: {FilePath}", change.Path);
+                    _logger.LogDebug("Ignoring file: {FilePath}", change.Path);
                     continue;
                 }
                 
@@ -318,7 +318,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Erro ao processar alteração do arquivo {FilePath}", change.Path);
+                    _logger.LogError(ex, "Error processing file change: {FilePath}", change.Path);
                 }
             }
             
@@ -340,7 +340,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
         private static string GetBlobContent(Blob blob)
         {
             if (blob == null) return string.Empty;
-            if (blob.IsBinary) return "[ARQUIVO BINÁRIO]";
+            if (blob.IsBinary) return "[BINARY FILE]";
             
             using var contentStream = blob.GetContentStream();
             using var reader = new StreamReader(contentStream, Encoding.UTF8);

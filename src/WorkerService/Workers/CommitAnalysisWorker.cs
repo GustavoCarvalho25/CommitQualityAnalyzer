@@ -36,12 +36,12 @@ namespace RefactorScore.WorkerService.Workers
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Iniciando CommitAnalysisWorker");
+            _logger.LogInformation("Starting CommitAnalysisWorker");
 
             // Verificar se o LLM está disponível
             if (!await IsLLMAvailable())
             {
-                _logger.LogWarning("Serviço LLM não está disponível, CommitAnalysisWorker não será iniciado");
+                _logger.LogWarning("LLM service is not available, CommitAnalysisWorker will not start");
                 return;
             }
 
@@ -49,7 +49,7 @@ namespace RefactorScore.WorkerService.Workers
             {
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    _logger.LogInformation("Executando ciclo de análise de commits (intervalo: {IntervalMinutes} minutos)",
+                    _logger.LogInformation("Running commit analysis cycle (interval: {IntervalMinutes} minutes)",
                         _options.ScanIntervalMinutes);
 
                     await ProcessCommitsAsync(stoppingToken);
@@ -60,11 +60,11 @@ namespace RefactorScore.WorkerService.Workers
             }
             catch (OperationCanceledException)
             {
-                _logger.LogInformation("Operação cancelada");
+                _logger.LogInformation("Operation canceled");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro não tratado no CommitAnalysisWorker");
+                _logger.LogError(ex, "Unhandled error in CommitAnalysisWorker");
             }
         }
 
@@ -72,23 +72,23 @@ namespace RefactorScore.WorkerService.Workers
         {
             try
             {
-                _logger.LogInformation("Verificando disponibilidade do serviço LLM...");
+                _logger.LogInformation("Checking LLM service availability...");
                 var isAvailable = await _llmService.IsAvailableAsync();
                 
                 if (isAvailable)
                 {
-                    _logger.LogInformation("Serviço LLM está disponível");
+                    _logger.LogInformation("LLM service is available");
                     return true;
                 }
                 else
                 {
-                    _logger.LogWarning("Serviço LLM não está disponível");
+                    _logger.LogWarning("LLM service is not available");
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao verificar disponibilidade do serviço LLM");
+                _logger.LogError(ex, "Error checking LLM service availability");
                 return false;
             }
         }
@@ -104,7 +104,7 @@ namespace RefactorScore.WorkerService.Workers
                 {
                     foreach (var error in commitsResult.Errors)
                     {
-                        _logger.LogError("Erro ao obter commits recentes: {ErrorMessage}", error);
+                        _logger.LogError("Error getting recent commits: {ErrorMessage}", error);
                     }
                     return;
                 }
@@ -113,11 +113,11 @@ namespace RefactorScore.WorkerService.Workers
                 
                 if (commits.Count == 0)
                 {
-                    _logger.LogInformation("Nenhum commit recente encontrado para análise");
+                    _logger.LogInformation("No recent commits found for analysis");
                     return;
                 }
 
-                _logger.LogInformation("Encontrados {CommitCount} commits para análise", commits.Count);
+                _logger.LogInformation("Found {CommitCount} commits for analysis", commits.Count);
 
                 // Usar processamento paralelo com um limite de concorrência
                 var options = new ParallelOptions
@@ -137,13 +137,13 @@ namespace RefactorScore.WorkerService.Workers
                 // Registrar resultados
                 foreach (var result in analysisResults)
                 {
-                    _logger.LogInformation("Commit {CommitId}: {AnalysisCount} arquivos analisados", 
+                    _logger.LogInformation("Commit {CommitId}: {AnalysisCount} files analyzed", 
                         result.Key.Substring(0, Math.Min(8, result.Key.Length)), result.Value);
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao processar commits");
+                _logger.LogError(ex, "Error processing commits");
             }
         }
 
@@ -154,7 +154,7 @@ namespace RefactorScore.WorkerService.Workers
         {
             try
             {
-                _logger.LogInformation("Processando commit: {CommitId} por {Author} - {Message}", 
+                _logger.LogInformation("Processing commit: {CommitId} by {Author} - {Message}", 
                     commit.Id.Substring(0, Math.Min(8, commit.Id.Length)), 
                     commit.Author, 
                     commit.Message);
@@ -166,7 +166,7 @@ namespace RefactorScore.WorkerService.Workers
                 {
                     foreach (var error in changesResult.Errors)
                     {
-                        _logger.LogError("Erro ao obter alterações do commit {CommitId}: {ErrorMessage}", 
+                        _logger.LogError("Error getting changes for commit {CommitId}: {ErrorMessage}", 
                             commit.Id, error);
                     }
                     return;
@@ -179,12 +179,12 @@ namespace RefactorScore.WorkerService.Workers
 
                 if (filesToAnalyze.Count == 0)
                 {
-                    _logger.LogInformation("Commit {CommitId} não contém arquivos para análise", commit.Id);
+                    _logger.LogInformation("Commit {CommitId} does not contain any files for analysis", commit.Id);
                     analysisResults.TryAdd(commit.Id, 0);
                     return;
                 }
 
-                _logger.LogInformation("Commit {CommitId} contém {FileCount} arquivos para análise", 
+                _logger.LogInformation("Commit {CommitId} contains {FileCount} files for analysis", 
                     commit.Id.Substring(0, Math.Min(8, commit.Id.Length)), filesToAnalyze.Count);
 
                 int analysisCount = 0;
@@ -207,21 +207,21 @@ namespace RefactorScore.WorkerService.Workers
                         {
                             analysisCount++;
                             
-                            _logger.LogInformation("Arquivo {FilePath} analisado com sucesso. Nota: {Score}/10", 
+                            _logger.LogInformation("File {FilePath} successfully analyzed. Score: {Score}/10", 
                                 filePath, analysisResult.Data.OverallScore);
                         }
                         else
                         {
                             foreach (var error in analysisResult.Errors)
                             {
-                                _logger.LogWarning("Não foi possível analisar {FilePath}: {ErrorMessage}", 
+                                _logger.LogWarning("Could not analyze {FilePath}: {ErrorMessage}", 
                                     filePath, error);
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex, "Erro ao analisar arquivo {FilePath}", filePath);
+                        _logger.LogError(ex, "Error analyzing file {FilePath}", filePath);
                     }
                 }
 
@@ -229,7 +229,7 @@ namespace RefactorScore.WorkerService.Workers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao processar commit {CommitId}", commit.Id);
+                _logger.LogError(ex, "Error processing commit {CommitId}", commit.Id);
             }
         }
 

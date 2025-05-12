@@ -52,7 +52,7 @@ namespace RefactorScore.Application.Services
         {
             try
             {
-                _logger.LogInformation("Obtendo commits recentes");
+                _logger.LogInformation("Getting recent commits");
                 
                 var commits = await _gitRepository.GetLastDayCommitsAsync();
                 
@@ -60,7 +60,7 @@ namespace RefactorScore.Application.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter commits recentes");
+                _logger.LogError(ex, "Error getting recent commits");
                 return Result<IEnumerable<CommitInfo>>.Fail(ex);
             }
         }
@@ -70,7 +70,7 @@ namespace RefactorScore.Application.Services
         {
             try
             {
-                _logger.LogInformation("Obtendo alterações do commit {CommitId}", commitId);
+                _logger.LogInformation("Getting changes for commit {CommitId}", commitId);
                 
                 // Verificar no cache primeiro
                 var cacheKey = $"commit:changes:{commitId}";
@@ -78,7 +78,7 @@ namespace RefactorScore.Application.Services
                 
                 if (cachedChanges != null)
                 {
-                    _logger.LogInformation("Alterações do commit {CommitId} encontradas no cache", commitId);
+                    _logger.LogInformation("Changes for commit {CommitId} found in cache", commitId);
                     return Result<IEnumerable<CommitFileChange>>.Success(cachedChanges);
                 }
                 
@@ -91,7 +91,7 @@ namespace RefactorScore.Application.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao obter alterações do commit {CommitId}", commitId);
+                _logger.LogError(ex, "Error getting changes for commit {CommitId}", commitId);
                 return Result<IEnumerable<CommitFileChange>>.Fail(ex);
             }
         }
