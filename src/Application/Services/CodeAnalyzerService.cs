@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using RefactorScore.Core.Entities;
 using RefactorScore.Core.Interfaces;
 using RefactorScore.Core.Specifications;
+using RefactorScore.Application.Services.LlmResponses;
 
 namespace RefactorScore.Application.Services
 {
@@ -557,68 +558,5 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 return string.Empty;
             }
         }
-    }
-
-    /// <summary>
-    /// Opções de configuração para o serviço de análise de código
-    /// </summary>
-    public class CodeAnalyzerOptions
-    {
-        /// <summary>
-        /// Nome do modelo de LLM a ser usado
-        /// </summary>
-        public string ModelName { get; set; } = "refactorscore";
-        
-        /// <summary>
-        /// Tamanho máximo de código para análise (em caracteres)
-        /// </summary>
-        public int MaxCodeLength { get; set; } = 30000;
-        
-        /// <summary>
-        /// Tamanho máximo de diff para análise (em caracteres)
-        /// </summary>
-        public int MaxDiffLength { get; set; } = 10000;
-    }
-
-    /// <summary>
-    /// Modelo para a resposta do LLM
-    /// </summary>
-    internal class LlmAnalysisResponse
-    {
-        [JsonPropertyName("commit_id")]
-        public string CommitId { get; set; } = string.Empty;
-        
-        [JsonPropertyName("autor")]
-        public string Autor { get; set; } = string.Empty;
-        
-        [JsonPropertyName("analise_clean_code")]
-        public LlmCleanCodeAnalysis AnaliseCleanCode { get; set; } = new LlmCleanCodeAnalysis();
-        
-        [JsonPropertyName("nota_geral")]
-        public double NotaGeral { get; set; }
-        
-        [JsonPropertyName("justificativa")]
-        public string Justificativa { get; set; } = string.Empty;
-    }
-
-    /// <summary>
-    /// Modelo para a análise de Clean Code do LLM
-    /// </summary>
-    internal class LlmCleanCodeAnalysis
-    {
-        [JsonPropertyName("nomeclatura_variaveis")]
-        public double NomeclaturaVariaveis { get; set; }
-        
-        [JsonPropertyName("tamanho_funcoes")]
-        public double TamanhoFuncoes { get; set; }
-        
-        [JsonPropertyName("uso_de_comentarios_relevantes")]
-        public double UsoDeComentariosRelevantes { get; set; }
-        
-        [JsonPropertyName("cohesao_dos_metodos")]
-        public double CohesaoDosMetodos { get; set; }
-        
-        [JsonPropertyName("evitacao_de_codigo_morto")]
-        public double EvitacaoDeCodigoMorto { get; set; }
     }
 } 

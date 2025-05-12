@@ -198,7 +198,7 @@ namespace RefactorScore.Infrastructure.GitIntegration
                 if (parentCommit == null)
                 {
                     var patch = repo.Diff.Compare<Patch>(null, commit.Tree, new List<string> { filePath });
-                    return Task.FromResult(patch);
+                    return Task.FromResult(patch.Content);
                 }
                 
                 var options = new CompareOptions
@@ -206,17 +206,16 @@ namespace RefactorScore.Infrastructure.GitIntegration
                     Similarity = SimilarityOptions.None,
                     IncludeUnmodified = false,
                     ContextLines = 3,
-                    InterhunkLines = 0,
-                    PathFilter = filePath
+                    InterhunkLines = 0
                 };
                 
-                var diff = repo.Diff.Compare<Patch>(parentCommit.Tree, commit.Tree, options);
-                return Task.FromResult(diff);
+                var diff = repo.Diff.Compare<Patch>(parentCommit.Tree, commit.Tree, new List<string> { filePath }, options);
+                return Task.FromResult(diff.Content);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao obter diff do arquivo {FilePath} no commit {CommitId}", filePath, commitId);
-                throw;
+                return Task.FromResult(string.Empty);
             }
         }
 
@@ -293,23 +292,25 @@ namespace RefactorScore.Infrastructure.GitIntegration
                     {
                         Similarity = SimilarityOptions.None,
                         ContextLines = 3,
-                        InterhunkLines = 0,
-                        PathFilter = change.Path
+                        InterhunkLines = 0
                     };
 
                     var patch = string.Empty;
                     
                     if (change.Status == LibGit2Sharp.ChangeKind.Added)
                     {
-                        patch = repo.Diff.Compare<Patch>(null, commit.Tree, new List<string> { change.Path });
+                        var patchObj = repo.Diff.Compare<Patch>(null, commit.Tree, new List<string> { change.Path });
+                        patch = patchObj.Content;
                     }
                     else if (change.Status == LibGit2Sharp.ChangeKind.Deleted)
                     {
-                        patch = repo.Diff.Compare<Patch>(parentCommit.Tree, null, new List<string> { change.Path });
+                        var patchObj = repo.Diff.Compare<Patch>(parentCommit.Tree, null, new List<string> { change.Path });
+                        patch = patchObj.Content;
                     }
                     else
                     {
-                        patch = repo.Diff.Compare<Patch>(parentCommit?.Tree, commit.Tree, patchOptions);
+                        var patchObj = repo.Diff.Compare<Patch>(parentCommit?.Tree, commit.Tree, new List<string> { change.Path }, patchOptions);
+                        patch = patchObj.Content;
                     }
                     
                     fileChange.DiffText = patch;

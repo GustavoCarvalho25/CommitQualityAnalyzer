@@ -104,7 +104,7 @@ namespace RefactorScore.WorkerService.Workers
                 {
                     foreach (var error in commitsResult.Errors)
                     {
-                        _logger.LogError("Erro ao obter commits recentes: {ErrorMessage}", error.Message);
+                        _logger.LogError("Erro ao obter commits recentes: {ErrorMessage}", error);
                     }
                     return;
                 }
@@ -167,14 +167,14 @@ namespace RefactorScore.WorkerService.Workers
                     foreach (var error in changesResult.Errors)
                     {
                         _logger.LogError("Erro ao obter alterações do commit {CommitId}: {ErrorMessage}", 
-                            commit.Id, error.Message);
+                            commit.Id, error);
                     }
                     return;
                 }
 
                 // Analisar apenas arquivos que foram adicionados ou modificados (não deletados)
                 var filesToAnalyze = changesResult.Data
-                    .Where(f => f.Status != FileChangeType.Deleted && IsCodeFile(f.Path))
+                    .Where(f => f.Status != FileChangeType.Deleted && IsCodeFile(f.Path != null && !string.IsNullOrEmpty(f.Path) ? f.Path : f.FilePath))
                     .ToList();
 
                 if (filesToAnalyze.Count == 0)
@@ -197,29 +197,31 @@ namespace RefactorScore.WorkerService.Workers
                         break;
                     }
 
+                    string filePath = file.Path != null && !string.IsNullOrEmpty(file.Path) ? file.Path : file.FilePath;
+                    
                     try
                     {
-                        var analysisResult = await _codeAnalyzerService.AnalyzeCommitFileAsync(commit.Id, file.Path);
+                        var analysisResult = await _codeAnalyzerService.AnalyzeCommitFileAsync(commit.Id, filePath);
                         
                         if (analysisResult.IsSuccess)
                         {
                             analysisCount++;
                             
                             _logger.LogInformation("Arquivo {FilePath} analisado com sucesso. Nota: {Score}/10", 
-                                file.Path, analysisResult.Data.OverallScore);
+                                filePath, analysisResult.Data.OverallScore);
                         }
                         else
                         {
                             foreach (var error in analysisResult.Errors)
                             {
                                 _logger.LogWarning("Não foi possível analisar {FilePath}: {ErrorMessage}", 
-                                    file.Path, error.Message);
+                                    filePath, error);
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex, "Erro ao analisar arquivo {FilePath}", file.Path);
+                        _logger.LogError(ex, "Erro ao analisar arquivo {FilePath}", filePath);
                     }
                 }
 

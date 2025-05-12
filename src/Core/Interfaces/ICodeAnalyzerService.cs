@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using RefactorScore.Core.Entities;
+using RefactorScore.Core.Specifications;
 
 namespace RefactorScore.Core.Interfaces
 {
@@ -9,6 +10,34 @@ namespace RefactorScore.Core.Interfaces
     /// </summary>
     public interface ICodeAnalyzerService
     {
+        /// <summary>
+        /// Obtém os commits mais recentes do repositório
+        /// </summary>
+        /// <returns>Lista de commits recentes</returns>
+        Task<Result<IEnumerable<CommitInfo>>> GetRecentCommitsAsync();
+        
+        /// <summary>
+        /// Obtém as alterações de um commit específico
+        /// </summary>
+        /// <param name="commitId">ID do commit</param>
+        /// <returns>Lista de alterações em arquivos do commit</returns>
+        Task<Result<IEnumerable<CommitFileChange>>> GetCommitChangesAsync(string commitId);
+        
+        /// <summary>
+        /// Analisa um arquivo específico dentro de um commit
+        /// </summary>
+        /// <param name="commitId">ID do commit</param>
+        /// <param name="filePath">Caminho do arquivo</param>
+        /// <returns>Resultado da análise do arquivo</returns>
+        Task<Result<CodeAnalysis>> AnalyzeCommitFileAsync(string commitId, string filePath);
+        
+        /// <summary>
+        /// Obtém análises existentes para um commit específico
+        /// </summary>
+        /// <param name="commitId">ID do commit</param>
+        /// <returns>Lista de análises para o commit</returns>
+        Task<Result<IEnumerable<CodeAnalysis>>> GetAnalysesForCommitAsync(string commitId);
+        
         /// <summary>
         /// Analisa um commit específico
         /// </summary>

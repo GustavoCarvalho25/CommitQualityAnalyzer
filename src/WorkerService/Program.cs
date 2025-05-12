@@ -29,8 +29,8 @@ try
 
     // Registrar as camadas de aplicação e infraestrutura
     builder.Services
-        .AddApplication(builder.Configuration)
-        .AddInfrastructure(builder.Configuration);
+        .AddApplicationServices(builder.Configuration)
+        .AddInfrastructureServices(builder.Configuration);
 
     // Registrar o Worker
     builder.Services.AddHostedService<CommitAnalysisWorker>();
