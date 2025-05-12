@@ -1,101 +1,89 @@
-# CommitQualityAnalyzer
+# RefactorScore
 
-Um sistema que analisa commits de código para avaliar sua qualidade usando modelos de linguagem (Ollama).
+Sistema de avaliação automatizada de commits com modelos de linguagem natural locais (LLM).
 
 ## Sobre o Projeto
 
-O CommitQualityAnalyzer analisa commits de código e fornece métricas de qualidade baseadas em:
-- Clean Code
-- Princípios SOLID
-- Design Patterns
-- Testabilidade
-- Segurança
+O RefactorScore analisa automaticamente commits de código realizados nas últimas 24 horas em um repositório Git local, avaliando sua qualidade com base em boas práticas de Clean Code. O sistema utiliza um modelo de linguagem natural local (LLM) executado via Ollama, e armazena os resultados estruturados no MongoDB.
 
-O sistema extrai as diferenças (diffs) entre versões de código em um commit e envia para um modelo de linguagem avaliar, processando a resposta para extrair métricas de qualidade em formato JSON padronizado.
+A arquitetura do sistema é escalável e segmentada para lidar com limitações de memória e restrições de tamanho de prompt, possibilitando avaliações fracionadas, armazenadas temporariamente no Redis, e agregadas para compor uma análise final estruturada e persistente.
 
-## Configuração
+## Arquitetura do Sistema
 
-### Pré-requisitos
+O sistema segue uma arquitetura Clean Architecture com as seguintes camadas:
+
+- **Core**: Entidades de domínio e interfaces base
+- **Application**: Casos de uso e lógica de aplicação
+- **Infrastructure**: Implementações concretas de repositórios e serviços
+- **WebApi**: API REST para interação com o sistema
+- **WorkerService**: Serviço de processamento em background
+
+## Pré-requisitos
 
 - Docker e Docker Compose
 - .NET 8.0 SDK
-- Git
+- Git instalado no sistema
 
-### Instalação
+## Configuração e Execução
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/CommitQualityAnalyzer.git
-   cd CommitQualityAnalyzer
+   git clone https://github.com/seu-usuario/RefactorScore.git
+   cd RefactorScore
    ```
 
-2. Inicie os containers Docker:
+2. Inicie os serviços Docker:
    ```bash
    docker-compose up -d
    ```
 
-3. Crie os modelos personalizados com contexto maior:
+3. Crie o modelo personalizado para análise:
    ```bash
-   # Aguarde alguns segundos para o Ollama inicializar
-   docker exec ollama ollama create codellama-extended -f /Modelfile
-   docker exec ollama ollama create deepseek-extended -f /DeepseekModelfile
+   # Aguarde o Ollama inicializar
+   docker exec refactorscore-ollama ollama create refactorscore -f /ModelFiles/Modelfile
    ```
 
-4. Configure o repositório Git a ser analisado no arquivo `appsettings.json`:
-   ```json
-   "GitRepository": {
-     "Path": "caminho/para/seu/repositorio"
-   }
-   ```
-
-5. Execute o analisador:
+4. Execute o serviço Worker:
    ```bash
-   dotnet run --project src/CommitQualityAnalyzer.Worker
+   dotnet run --project src/WorkerService/RefactorScore.WorkerService.csproj
    ```
 
-### Configuração dos Modelos
+## Componentes do Sistema
 
-O projeto inclui dois modelos personalizados:
+### Docker Compose
 
-1. **codellama-extended**: Modelo CodeLlama com contexto de 8192 tokens
-2. **deepseek-extended**: Modelo DeepSeek Coder com contexto de 16384 tokens
+O arquivo `docker-compose.yml` orquestra os seguintes serviços:
 
-Para alternar entre os modelos, edite o arquivo `appsettings.json`:
+- **Ollama**: Para execução do modelo de linguagem local
+- **MongoDB**: Para armazenamento persistente das análises
+- **Redis**: Para armazenamento temporário e contexto de processamento
+- **Mongo Express**: Interface web para visualização dos dados no MongoDB
+- **Redis Commander**: Interface web para visualização dos dados no Redis
 
-```json
-"Ollama": {
-  "ModelName": "deepseek-extended",  // ou "codellama-extended"
-  "ContextLength": 16384,  // ou 8192 para CodeLlama
-}
-```
+### Modelo LLM
 
-## Arquivos de Configuração
+O sistema utiliza modelos de linguagem locais via Ollama, com configurações personalizadas para análise de código (ver `ModelFiles/Modelfile`).
 
-Os arquivos de configuração dos modelos estão incluídos no projeto:
+### Armazenamento de Dados
 
-- **Modelfile**: Configuração para o modelo CodeLlama
-- **DeepseekModelfile**: Configuração para o modelo DeepSeek Coder
+- **Redis**: Armazena análises parciais temporárias
+- **MongoDB**: Armazena os resultados finais das análises
 
-Você pode personalizar esses arquivos para ajustar parâmetros como temperatura, contexto, etc.
+## Análise de Clean Code
 
-## Persistência de Dados
+O sistema avalia os seguintes aspectos de Clean Code (com notas de 0 a 10):
 
-Os dados dos modelos e do MongoDB são persistidos em volumes Docker:
-- `ollama_data`: Armazena os modelos e configurações do Ollama
-- `mongodb_data`: Armazena os resultados das análises
-
-Isso garante que suas configurações e dados sejam preservados mesmo após reiniciar os containers.
-
-## Tratamento de Prompts Longos
-
-O sistema implementa estratégias para lidar com prompts longos:
-- Divisão inteligente de prompts em partes menores
-- Análise apenas das diferenças relevantes entre versões
-- Cabeçalhos informativos para cada parte do prompt
+- Nomenclatura de variáveis
+- Tamanho das funções
+- Uso de comentários relevantes
+- Coesão entre métodos
+- Evitação de código morto ou redundante
 
 ## Visualização dos Resultados
 
-Os resultados das análises podem ser visualizados através do MongoDB Express:
-- URL: http://localhost:8081
-- Banco de dados: commitanalyzer
-- Coleção: codeanalyses
+- **MongoDB Express**: http://localhost:8081
+- **Redis Commander**: http://localhost:8082
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes. 

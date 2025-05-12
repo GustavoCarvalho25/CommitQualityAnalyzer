@@ -1,31 +1,30 @@
 version: '3.8'
 
 services:
+  # Serviço para a execução do modelo de linguagem local (Ollama)
   ollama:
     image: ollama/ollama:latest
-    container_name: ollama
+    container_name: refactorscore-ollama
     ports:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
-      - ./Modelfile:/Modelfile
-      - ./DeepseekModelfile:/DeepseekModelfile
+      - ./ModelFiles:/ModelFiles
     environment:
       - OLLAMA_MODELS=/root/.ollama/models
       - OLLAMA_KEEP_ALIVE=5m
-      - OLLAMA_NUM_PARALLEL=1
-      - OLLAMA_CONTEXT_LENGTH=1024
     deploy:
       resources:
         limits:
-          memory: 12G
+          memory: 10G
         reservations:
           memory: 8G
     restart: unless-stopped
 
+  # Serviço para o banco de dados MongoDB
   mongodb:
     image: mongo:latest
-    container_name: mongodb
+    container_name: refactorscore-mongodb
     ports:
       - "27017:27017"
     volumes:
@@ -35,9 +34,10 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=admin123
     restart: unless-stopped
 
+  # Interface web para gerenciamento do MongoDB
   mongo-express:
     image: mongo-express:latest
-    container_name: mongo-express
+    container_name: refactorscore-mongo-express
     ports:
       - "8081:8081"
     environment:
@@ -48,6 +48,29 @@ services:
       - mongodb
     restart: unless-stopped
 
+  # Serviço Redis para armazenamento temporário
+  redis:
+    image: redis:latest
+    container_name: refactorscore-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # Interface web para gerenciamento do Redis
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: refactorscore-redis-commander
+    ports:
+      - "8082:8081"
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    depends_on:
+      - redis
+    restart: unless-stopped
+
 volumes:
   ollama_data:
   mongodb_data:
+  redis_data: 
