@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RefactorScore.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6c33c1c6bdf786499ad9f22a092a88b3e8268f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("RefactorScore.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RefactorScore.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

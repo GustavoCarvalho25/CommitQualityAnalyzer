@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RefactorScore.WorkerService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6c33c1c6bdf786499ad9f22a092a88b3e8268f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("RefactorScore.WorkerService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RefactorScore.WorkerService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
