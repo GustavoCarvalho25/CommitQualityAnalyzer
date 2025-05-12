@@ -5,216 +5,145 @@ using System.Linq;
 namespace RefactorScore.Core.Specifications
 {
     /// <summary>
-    /// Representa o resultado de uma operação, com suporte a notificações de erro
+    /// Classe que encapsula o resultado de uma operação, podendo conter
+    /// um valor de retorno e/ou erros ocorridos durante a execução
     /// </summary>
-    /// <typeparam name="T">Tipo do dado retornado pela operação</typeparam>
+    /// <typeparam name="T">Tipo do valor de retorno</typeparam>
     public class Result<T>
     {
         /// <summary>
-        /// Dados retornados pela operação
+        /// Valor de retorno
         /// </summary>
-        public T Data { get; private set; }
+        public T? Data { get; private set; }
         
         /// <summary>
         /// Indica se a operação foi bem-sucedida
         /// </summary>
-        public bool IsSuccess => !Errors.Any();
+        public bool IsSuccess { get; private set; }
         
         /// <summary>
-        /// Lista de erros ocorridos durante a operação
+        /// Lista de erros ocorridos durante a execução
         /// </summary>
-        public List<Error> Errors { get; } = new List<Error>();
-        
+        public List<string> Errors { get; private set; } = new List<string>();
+
         /// <summary>
-        /// Adiciona um erro à lista de erros
+        /// Cria um resultado bem-sucedido com o valor especificado
         /// </summary>
-        /// <param name="message">Mensagem de erro</param>
-        /// <param name="code">Código de erro (opcional)</param>
-        public void AddError(string message, string code = null)
-        {
-            Errors.Add(new Error(message, code));
-        }
-        
-        /// <summary>
-        /// Adiciona vários erros à lista de erros
-        /// </summary>
-        /// <param name="errors">Coleção de erros</param>
-        public void AddErrors(IEnumerable<Error> errors)
-        {
-            Errors.AddRange(errors);
-        }
-        
-        /// <summary>
-        /// Cria um resultado bem-sucedido
-        /// </summary>
-        /// <param name="data">Dados da operação</param>
+        /// <param name="data">Valor de retorno</param>
         /// <returns>Resultado bem-sucedido</returns>
         public static Result<T> Success(T data)
         {
-            return new Result<T> { Data = data };
+            return new Result<T> { IsSuccess = true, Data = data };
         }
-        
+
         /// <summary>
-        /// Cria um resultado com falha
+        /// Cria um resultado de falha com a mensagem de erro especificada
         /// </summary>
         /// <param name="message">Mensagem de erro</param>
-        /// <param name="code">Código de erro (opcional)</param>
-        /// <returns>Resultado com falha</returns>
-        public static Result<T> Fail(string message, string code = null)
+        /// <returns>Resultado de falha</returns>
+        public static Result<T> Fail(string message)
         {
-            var result = new Result<T>();
-            result.AddError(message, code);
-            return result;
+            return new Result<T> 
+            { 
+                IsSuccess = false,
+                Errors = new List<string> { message }
+            };
         }
-        
+
         /// <summary>
-        /// Cria um resultado com falha a partir de uma exceção
+        /// Cria um resultado de falha com a lista de mensagens de erro especificada
         /// </summary>
-        /// <param name="exception">A exceção ocorrida</param>
-        /// <returns>Resultado com falha</returns>
-        public static Result<T> Fail(Exception exception)
+        /// <param name="errors">Lista de mensagens de erro</param>
+        /// <returns>Resultado de falha</returns>
+        public static Result<T> Fail(IEnumerable<string> errors)
         {
-            var result = new Result<T>();
-            result.AddError(exception.Message, "Exception");
-            return result;
+            return new Result<T>
+            {
+                IsSuccess = false,
+                Errors = errors.ToList()
+            };
         }
-        
+
         /// <summary>
-        /// Cria um resultado com falha a partir de uma lista de erros
+        /// Cria um resultado de falha com base em uma exceção
         /// </summary>
-        /// <param name="errors">Lista de erros</param>
-        /// <returns>Resultado com falha</returns>
-        public static Result<T> Fail(IEnumerable<Error> errors)
+        /// <param name="ex">Exceção ocorrida</param>
+        /// <returns>Resultado de falha</returns>
+        public static Result<T> Fail(Exception ex)
         {
-            var result = new Result<T>();
-            result.AddErrors(errors);
-            return result;
+            return new Result<T>
+            {
+                IsSuccess = false,
+                Errors = new List<string> { ex.Message }
+            };
         }
     }
-    
+
     /// <summary>
-    /// Versão simplificada do Result para operações que não retornam dados
+    /// Classe que encapsula o resultado de uma operação que não retorna valor,
+    /// podendo conter apenas erros ocorridos durante a execução
     /// </summary>
     public class Result
     {
         /// <summary>
         /// Indica se a operação foi bem-sucedida
         /// </summary>
-        public bool IsSuccess => !Errors.Any();
+        public bool IsSuccess { get; private set; }
         
         /// <summary>
-        /// Lista de erros ocorridos durante a operação
+        /// Lista de erros ocorridos durante a execução
         /// </summary>
-        public List<Error> Errors { get; } = new List<Error>();
-        
-        /// <summary>
-        /// Adiciona um erro à lista de erros
-        /// </summary>
-        /// <param name="message">Mensagem de erro</param>
-        /// <param name="code">Código de erro (opcional)</param>
-        public void AddError(string message, string code = null)
-        {
-            Errors.Add(new Error(message, code));
-        }
-        
-        /// <summary>
-        /// Adiciona vários erros à lista de erros
-        /// </summary>
-        /// <param name="errors">Coleção de erros</param>
-        public void AddErrors(IEnumerable<Error> errors)
-        {
-            Errors.AddRange(errors);
-        }
-        
+        public List<string> Errors { get; private set; } = new List<string>();
+
         /// <summary>
         /// Cria um resultado bem-sucedido
         /// </summary>
         /// <returns>Resultado bem-sucedido</returns>
         public static Result Success()
         {
-            return new Result();
+            return new Result { IsSuccess = true };
         }
-        
+
         /// <summary>
-        /// Cria um resultado com falha
+        /// Cria um resultado de falha com a mensagem de erro especificada
         /// </summary>
         /// <param name="message">Mensagem de erro</param>
-        /// <param name="code">Código de erro (opcional)</param>
-        /// <returns>Resultado com falha</returns>
-        public static Result Fail(string message, string code = null)
+        /// <returns>Resultado de falha</returns>
+        public static Result Fail(string message)
         {
-            var result = new Result();
-            result.AddError(message, code);
-            return result;
-        }
-        
-        /// <summary>
-        /// Cria um resultado com falha a partir de uma exceção
-        /// </summary>
-        /// <param name="exception">A exceção ocorrida</param>
-        /// <returns>Resultado com falha</returns>
-        public static Result Fail(Exception exception)
-        {
-            var result = new Result();
-            result.AddError(exception.Message, "Exception");
-            return result;
-        }
-        
-        /// <summary>
-        /// Cria um resultado com falha a partir de uma lista de erros
-        /// </summary>
-        /// <param name="errors">Lista de erros</param>
-        /// <returns>Resultado com falha</returns>
-        public static Result Fail(IEnumerable<Error> errors)
-        {
-            var result = new Result();
-            result.AddErrors(errors);
-            return result;
-        }
-        
-        /// <summary>
-        /// Converte um resultado tipado para um resultado não tipado
-        /// </summary>
-        /// <typeparam name="T">Tipo do resultado de origem</typeparam>
-        /// <param name="result">Resultado tipado</param>
-        /// <returns>Resultado não tipado</returns>
-        public static Result FromTyped<T>(Result<T> result)
-        {
-            var newResult = new Result();
-            
-            if (!result.IsSuccess)
+            return new Result
             {
-                newResult.AddErrors(result.Errors);
-            }
-            
-            return newResult;
+                IsSuccess = false,
+                Errors = new List<string> { message }
+            };
         }
-    }
-    
-    /// <summary>
-    /// Representa um erro ocorrido durante uma operação
-    /// </summary>
-    public class Error
-    {
+
         /// <summary>
-        /// Mensagem de erro
+        /// Cria um resultado de falha com a lista de mensagens de erro especificada
         /// </summary>
-        public string Message { get; }
-        
-        /// <summary>
-        /// Código do erro (opcional)
-        /// </summary>
-        public string Code { get; }
-        
-        /// <summary>
-        /// Cria uma nova instância de Error
-        /// </summary>
-        /// <param name="message">Mensagem de erro</param>
-        /// <param name="code">Código de erro (opcional)</param>
-        public Error(string message, string code = null)
+        /// <param name="errors">Lista de mensagens de erro</param>
+        /// <returns>Resultado de falha</returns>
+        public static Result Fail(IEnumerable<string> errors)
         {
-            Message = message;
-            Code = code;
+            return new Result
+            {
+                IsSuccess = false,
+                Errors = errors.ToList()
+            };
+        }
+
+        /// <summary>
+        /// Cria um resultado de falha com base em uma exceção
+        /// </summary>
+        /// <param name="ex">Exceção ocorrida</param>
+        /// <returns>Resultado de falha</returns>
+        public static Result Fail(Exception ex)
+        {
+            return new Result
+            {
+                IsSuccess = false,
+                Errors = new List<string> { ex.Message }
+            };
         }
     }
 } 

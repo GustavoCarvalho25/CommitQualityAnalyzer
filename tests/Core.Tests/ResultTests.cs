@@ -29,7 +29,7 @@ namespace RefactorScore.Core.Tests
             Assert.False(result.IsSuccess);
             Assert.Null(result.Data);
             Assert.Single(result.Errors);
-            Assert.Equal("error message", result.Errors.First().Message);
+            Assert.Equal("error message", result.Errors.First());
         }
         
         [Fact]
@@ -45,7 +45,7 @@ namespace RefactorScore.Core.Tests
             Assert.False(result.IsSuccess);
             Assert.Null(result.Data);
             Assert.Single(result.Errors);
-            Assert.Equal("test exception", result.Errors.First().Message);
+            Assert.Equal("test exception", result.Errors.First());
         }
         
         [Fact]
@@ -54,8 +54,8 @@ namespace RefactorScore.Core.Tests
             // Arrange
             var errors = new[] 
             {
-                new Error("error1"),
-                new Error("error2")
+                "error1",
+                "error2"
             };
             
             // Act
@@ -65,8 +65,8 @@ namespace RefactorScore.Core.Tests
             Assert.False(result.IsSuccess);
             Assert.Null(result.Data);
             Assert.Equal(2, result.Errors.Count());
-            Assert.Contains(result.Errors, e => e.Message == "error1");
-            Assert.Contains(result.Errors, e => e.Message == "error2");
+            Assert.Contains(result.Errors, e => e == "error1");
+            Assert.Contains(result.Errors, e => e == "error2");
         }
     }
 } 

@@ -8,13 +8,14 @@ namespace RefactorScore.Core.Interfaces
     public interface ILLMService
     {
         /// <summary>
-        /// Processa um prompt usando o modelo de linguagem
+        /// Processa um prompt com o modelo especificado e retorna a resposta
         /// </summary>
-        /// <param name="prompt">Texto de prompt a ser processado</param>
-        /// <param name="modelName">Nome do modelo a ser usado (opcional)</param>
-        /// <param name="maxTokens">Número máximo de tokens na resposta (opcional)</param>
-        /// <returns>Resposta do modelo de linguagem</returns>
-        Task<string> ProcessPromptAsync(string prompt, string modelName = null, int? maxTokens = null);
+        /// <param name="prompt">Texto do prompt a ser processado</param>
+        /// <param name="model">Nome do modelo a ser usado (opcional)</param>
+        /// <param name="temperature">Temperatura para geração (controla aleatoriedade)</param>
+        /// <param name="maxTokens">Número máximo de tokens de resposta</param>
+        /// <returns>Texto da resposta gerada pelo modelo</returns>
+        Task<string> ProcessPromptAsync(string prompt, string? model = null, float temperature = 0.1f, int maxTokens = 2048);
         
         /// <summary>
         /// Verifica se o serviço LLM está disponível

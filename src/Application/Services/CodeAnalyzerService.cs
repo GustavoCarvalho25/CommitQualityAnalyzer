@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -187,6 +188,169 @@ namespace RefactorScore.Application.Services
             }
         }
 
+        /// <inheritdoc />
+        public async Task<IEnumerable<CodeAnalysis>> AnalyzeCommitAsync(string commitId)
+        {
+            _logger.LogInformation("Analisando commit completo {CommitId}", commitId);
+            
+            try
+            {
+                // Obter informações do commit
+                var commit = await _gitRepository.GetCommitByIdAsync(commitId);
+                if (commit == null)
+                {
+                    _logger.LogWarning("Commit {CommitId} não encontrado", commitId);
+                    return new List<CodeAnalysis>();
+                }
+                
+                // Obter alterações do commit
+                var changesResult = await GetCommitChangesAsync(commitId);
+                if (!changesResult.IsSuccess)
+                {
+                    _logger.LogWarning("Não foi possível obter alterações do commit {CommitId}", commitId);
+                    return new List<CodeAnalysis>();
+                }
+                
+                var filesToAnalyze = changesResult.Data
+                    .Where(f => f.Status != FileChangeType.Deleted)
+                    .Select(f => f.FilePath ?? f.Path)
+                    .Where(p => !string.IsNullOrEmpty(p))
+                    .ToList();
+                
+                var analyses = new List<CodeAnalysis>();
+                
+                // Analisar cada arquivo
+                foreach (var filePath in filesToAnalyze)
+                {
+                    var analysisResult = await AnalyzeFileInCommitAsync(commitId, filePath);
+                    if (analysisResult != null)
+                    {
+                        analyses.Add(analysisResult);
+                    }
+                }
+                
+                return analyses;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao analisar commit {CommitId}", commitId);
+                return new List<CodeAnalysis>();
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<IEnumerable<CodeAnalysis>> AnalyzeLastDayCommitsAsync()
+        {
+            _logger.LogInformation("Analisando commits das últimas 24 horas");
+            
+            try
+            {
+                // Obter commits recentes
+                var commitsResult = await GetRecentCommitsAsync();
+                if (!commitsResult.IsSuccess)
+                {
+                    _logger.LogWarning("Não foi possível obter commits recentes");
+                    return new List<CodeAnalysis>();
+                }
+                
+                var analyses = new List<CodeAnalysis>();
+                
+                // Analisar cada commit
+                foreach (var commit in commitsResult.Data)
+                {
+                    var commitAnalyses = await AnalyzeCommitAsync(commit.Id);
+                    analyses.AddRange(commitAnalyses);
+                }
+                
+                return analyses;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao analisar commits recentes");
+                return new List<CodeAnalysis>();
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<CodeAnalysis> AnalyzeFileInCommitAsync(string commitId, string filePath)
+        {
+            _logger.LogInformation("Analisando arquivo {FilePath} no commit {CommitId}", filePath, commitId);
+            
+            try
+            {
+                var analysisResult = await AnalyzeCommitFileAsync(commitId, filePath);
+                return analysisResult.IsSuccess ? analysisResult.Data : null;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao analisar arquivo {FilePath} no commit {CommitId}", filePath, commitId);
+                return null;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<CodeAnalysis> AggregatePartialAnalysesAsync(string commitId, IEnumerable<CodeAnalysis> partialAnalyses)
+        {
+            _logger.LogInformation("Agregando análises parciais para o commit {CommitId}", commitId);
+            
+            try
+            {
+                var analyses = partialAnalyses.ToList();
+                if (!analyses.Any())
+                {
+                    _logger.LogWarning("Nenhuma análise parcial fornecida para o commit {CommitId}", commitId);
+                    return null;
+                }
+                
+                // Obter informações do commit
+                var commit = await _gitRepository.GetCommitByIdAsync(commitId);
+                if (commit == null)
+                {
+                    _logger.LogWarning("Commit {CommitId} não encontrado", commitId);
+                    return null;
+                }
+                
+                // Criar análise agregada
+                var aggregatedAnalysis = new CodeAnalysis
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    CommitId = commitId,
+                    FilePath = "agregado",
+                    Author = commit.Author,
+                    CommitDate = commit.CommitDate,
+                    AnalysisDate = DateTime.UtcNow,
+                    CleanCodeAnalysis = new CleanCodeAnalysis
+                    {
+                        VariableNaming = (int)Math.Round(analyses.Average(a => a.CleanCodeAnalysis.VariableNaming)),
+                        FunctionSize = (int)Math.Round(analyses.Average(a => a.CleanCodeAnalysis.FunctionSize)),
+                        CommentUsage = (int)Math.Round(analyses.Average(a => a.CleanCodeAnalysis.CommentUsage)),
+                        MethodCohesion = (int)Math.Round(analyses.Average(a => a.CleanCodeAnalysis.MethodCohesion)),
+                        DeadCodeAvoidance = (int)Math.Round(analyses.Average(a => a.CleanCodeAnalysis.DeadCodeAvoidance))
+                    },
+                    Justification = "Análise agregada de múltiplos arquivos"
+                };
+                
+                // Calcular pontuação geral
+                aggregatedAnalysis.OverallScore = (
+                    aggregatedAnalysis.CleanCodeAnalysis.VariableNaming +
+                    aggregatedAnalysis.CleanCodeAnalysis.FunctionSize +
+                    aggregatedAnalysis.CleanCodeAnalysis.CommentUsage +
+                    aggregatedAnalysis.CleanCodeAnalysis.MethodCohesion +
+                    aggregatedAnalysis.CleanCodeAnalysis.DeadCodeAvoidance
+                ) / 5.0;
+                
+                // Salvar análise agregada
+                await _analysisRepository.SaveAnalysisAsync(aggregatedAnalysis);
+                
+                return aggregatedAnalysis;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao agregar análises parciais para o commit {CommitId}", commitId);
+                return null;
+            }
+        }
+
         /// <summary>
         /// Realiza a análise de código usando o serviço LLM
         /// </summary>
@@ -241,7 +405,7 @@ namespace RefactorScore.Application.Services
                         return Result<CodeAnalysis>.Fail("Resposta nula após deserialização do JSON");
                     }
                     
-                    // Mapear para a entidade CodeAnalysis
+                    // Converter a resposta do LLM para o modelo de análise
                     var analysis = new CodeAnalysis
                     {
                         Id = Guid.NewGuid().ToString("N"),
@@ -252,31 +416,21 @@ namespace RefactorScore.Application.Services
                         AnalysisDate = DateTime.UtcNow,
                         CleanCodeAnalysis = new CleanCodeAnalysis
                         {
+                            VariableNaming = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
                             NamingConventions = new ScoreItem
                             {
-                                Score = llmResponse.AnaliseCleanCode.NomeclaturaVariaveis,
+                                Score = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
                                 Justification = ""
                             },
-                            FunctionSize = new ScoreItem
-                            {
-                                Score = llmResponse.AnaliseCleanCode.TamanhoFuncoes,
-                                Justification = ""
-                            },
+                            FunctionSize = (int)Math.Round(llmResponse.AnaliseCleanCode.TamanhoFuncoes),
+                            CommentUsage = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
                             MeaningfulComments = new ScoreItem
                             {
-                                Score = llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes,
+                                Score = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
                                 Justification = ""
                             },
-                            MethodCohesion = new ScoreItem
-                            {
-                                Score = llmResponse.AnaliseCleanCode.CohesaoDosMetodos,
-                                Justification = ""
-                            },
-                            DeadCodeAvoidance = new ScoreItem
-                            {
-                                Score = llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto,
-                                Justification = ""
-                            }
+                            MethodCohesion = (int)Math.Round(llmResponse.AnaliseCleanCode.CohesaoDosMetodos),
+                            DeadCodeAvoidance = (int)Math.Round(llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto)
                         },
                         OverallScore = llmResponse.NotaGeral,
                         Justification = llmResponse.Justificativa
@@ -432,19 +586,19 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
     internal class LlmAnalysisResponse
     {
         [JsonPropertyName("commit_id")]
-        public string CommitId { get; set; }
+        public string CommitId { get; set; } = string.Empty;
         
         [JsonPropertyName("autor")]
-        public string Autor { get; set; }
+        public string Autor { get; set; } = string.Empty;
         
         [JsonPropertyName("analise_clean_code")]
-        public LlmCleanCodeAnalysis AnaliseCleanCode { get; set; }
+        public LlmCleanCodeAnalysis AnaliseCleanCode { get; set; } = new LlmCleanCodeAnalysis();
         
         [JsonPropertyName("nota_geral")]
         public double NotaGeral { get; set; }
         
         [JsonPropertyName("justificativa")]
-        public string Justificativa { get; set; }
+        public string Justificativa { get; set; } = string.Empty;
     }
 
     /// <summary>

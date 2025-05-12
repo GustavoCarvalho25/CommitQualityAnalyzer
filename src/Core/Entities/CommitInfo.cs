@@ -11,17 +11,27 @@ namespace RefactorScore.Core.Entities
         /// <summary>
         /// Identificador único do commit (SHA)
         /// </summary>
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
         
         /// <summary>
         /// Autor do commit
         /// </summary>
-        public string Author { get; set; }
+        public string Author { get; set; } = string.Empty;
         
         /// <summary>
         /// Email do autor do commit
         /// </summary>
-        public string AuthorEmail { get; set; }
+        public string AuthorEmail { get; set; } = string.Empty;
+        
+        /// <summary>
+        /// Mensagem curta do commit (primeira linha)
+        /// </summary>
+        public string ShortMessage { get; set; } = string.Empty;
+        
+        /// <summary>
+        /// Data e hora do commit
+        /// </summary>
+        public DateTime Date { get; set; }
         
         /// <summary>
         /// Data e hora do commit
@@ -31,7 +41,7 @@ namespace RefactorScore.Core.Entities
         /// <summary>
         /// Mensagem associada ao commit
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
         
         /// <summary>
         /// Lista de arquivos modificados neste commit

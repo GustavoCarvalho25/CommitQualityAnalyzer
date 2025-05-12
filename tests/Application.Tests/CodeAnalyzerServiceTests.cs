@@ -84,7 +84,7 @@ namespace RefactorScore.Application.Tests
             // Assert
             Assert.False(result.IsSuccess);
             Assert.Single(result.Errors);
-            Assert.Equal("Git error", result.Errors[0].Message);
+            Assert.Equal("Git error", result.Errors[0]);
         }
 
         [Fact]

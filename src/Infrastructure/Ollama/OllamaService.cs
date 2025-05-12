@@ -35,23 +35,23 @@ namespace RefactorScore.Infrastructure.Ollama
         }
 
         /// <inheritdoc />
-        public async Task<string> ProcessPromptAsync(string prompt, string modelName = null, int? maxTokens = null)
+        public async Task<string> ProcessPromptAsync(string prompt, string? model = null, float temperature = 0.1f, int maxTokens = 2048)
         {
             try
             {
-                var model = modelName ?? _options.DefaultModel;
+                var modelName = model ?? _options.DefaultModel;
                 
-                _logger.LogInformation("Processando prompt com o modelo {Model}", model);
+                _logger.LogInformation("Processando prompt com o modelo {Model}", modelName);
                 
                 var request = new OllamaRequest
                 {
-                    Model = model,
+                    Model = modelName,
                     Prompt = prompt,
                     Stream = false,
                     Options = new OllamaRequestOptions
                     {
-                        Temperature = _options.Temperature,
-                        NumPredict = maxTokens ?? _options.MaxTokens,
+                        Temperature = temperature,
+                        NumPredict = maxTokens,
                         TopP = _options.TopP,
                         TopK = _options.TopK
                     }

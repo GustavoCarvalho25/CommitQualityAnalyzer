@@ -11,22 +11,22 @@ namespace RefactorScore.Core.Entities
         /// <summary>
         /// Identificador único da análise
         /// </summary>
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
         
         /// <summary>
         /// ID do commit analisado
         /// </summary>
-        public string CommitId { get; set; }
+        public string CommitId { get; set; } = string.Empty;
         
         /// <summary>
         /// Caminho do arquivo analisado
         /// </summary>
-        public string FilePath { get; set; }
+        public string FilePath { get; set; } = string.Empty;
         
         /// <summary>
         /// Autor do commit
         /// </summary>
-        public string Author { get; set; }
+        public string Author { get; set; } = string.Empty;
         
         /// <summary>
         /// Data do commit
@@ -41,7 +41,7 @@ namespace RefactorScore.Core.Entities
         /// <summary>
         /// Resultados da análise de qualidade do código
         /// </summary>
-        public CleanCodeAnalysis CleanCodeAnalysis { get; set; }
+        public CleanCodeAnalysis CleanCodeAnalysis { get; set; } = new CleanCodeAnalysis();
         
         /// <summary>
         /// Nota geral da análise (0-10)
@@ -51,7 +51,7 @@ namespace RefactorScore.Core.Entities
         /// <summary>
         /// Justificativa para as notas atribuídas
         /// </summary>
-        public string Justification { get; set; }
+        public string Justification { get; set; } = string.Empty;
     }
     
     /// <summary>
@@ -65,6 +65,11 @@ namespace RefactorScore.Core.Entities
         public int VariableNaming { get; set; }
         
         /// <summary>
+        /// Avaliação de nomenclatura de variáveis com justificativa
+        /// </summary>
+        public ScoreItem NamingConventions { get; set; } = new ScoreItem();
+        
+        /// <summary>
         /// Avaliação de tamanho de funções (0-10)
         /// </summary>
         public int FunctionSize { get; set; }
@@ -73,6 +78,11 @@ namespace RefactorScore.Core.Entities
         /// Avaliação de uso de comentários relevantes (0-10)
         /// </summary>
         public int CommentUsage { get; set; }
+        
+        /// <summary>
+        /// Avaliação de uso de comentários relevantes com justificativa
+        /// </summary>
+        public ScoreItem MeaningfulComments { get; set; } = new ScoreItem();
         
         /// <summary>
         /// Avaliação de coesão dos métodos (0-10)
@@ -88,5 +98,21 @@ namespace RefactorScore.Core.Entities
         /// Critérios adicionais de avaliação (extensível)
         /// </summary>
         public Dictionary<string, int> AdditionalCriteria { get; set; } = new Dictionary<string, int>();
+    }
+    
+    /// <summary>
+    /// Representa uma pontuação com justificativa
+    /// </summary>
+    public class ScoreItem
+    {
+        /// <summary>
+        /// Pontuação (0-10)
+        /// </summary>
+        public int Score { get; set; }
+        
+        /// <summary>
+        /// Justificativa para a pontuação
+        /// </summary>
+        public string Justification { get; set; } = string.Empty;
     }
 } 
