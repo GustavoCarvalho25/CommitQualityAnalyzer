@@ -58,17 +58,17 @@ namespace RefactorScore.Core.Tests
             var cleanCodeAnalysis = new CleanCodeAnalysis
             {
                 VariableNaming = 8,
-                AdditionalCriteria = new Dictionary<string, int>
+                AdditionalCriteria = new Dictionary<string, string>
                 {
-                    { "TestCoverage", 9 },
-                    { "DocumentationQuality", 7 }
+                    { "TestCoverage", "9" },
+                    { "DocumentationQuality", "7" }
                 }
             };
             
             // Act & Assert
             Assert.Equal(8, cleanCodeAnalysis.VariableNaming);
-            Assert.Equal(9, cleanCodeAnalysis.AdditionalCriteria["TestCoverage"]);
-            Assert.Equal(7, cleanCodeAnalysis.AdditionalCriteria["DocumentationQuality"]);
+            Assert.Equal("9", cleanCodeAnalysis.AdditionalCriteria["TestCoverage"]);
+            Assert.Equal("7", cleanCodeAnalysis.AdditionalCriteria["DocumentationQuality"]);
         }
         
         [Fact]

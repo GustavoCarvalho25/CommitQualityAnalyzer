@@ -97,7 +97,7 @@ namespace RefactorScore.Core.Entities
         /// <summary>
         /// Critérios adicionais de avaliação (extensível)
         /// </summary>
-        public Dictionary<string, int> AdditionalCriteria { get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, string> AdditionalCriteria { get; set; } = new Dictionary<string, string>();
     }
     
     /// <summary>

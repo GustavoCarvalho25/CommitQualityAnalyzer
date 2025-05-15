@@ -11,6 +11,8 @@ using RefactorScore.Core.Entities;
 using RefactorScore.Core.Interfaces;
 using RefactorScore.Core.Specifications;
 using RefactorScore.Application.Services.LlmResponses;
+using System.Text;
+using System.IO;
 
 namespace RefactorScore.Application.Services
 {
@@ -398,85 +400,74 @@ namespace RefactorScore.Application.Services
                 var prompt = BuildAnalysisPrompt(codeContent, codeDiff, filePath, commit);
                 _logger.LogInformation("[ANALYZER_PROMPT] Prompt built, length: {PromptLength} chars", prompt.Length);
                 
-                // Processar com o LLM
-                _logger.LogInformation("[ANALYZER_LLM_CALL] Sending prompt to LLM service using model {ModelName}...", 
-                    _options.ModelName);
-                var startTime = DateTime.UtcNow;
+                // Definir o número máximo de tentativas
+                const int maxRetries = 3;
+                int attempt = 0;
+                Exception lastException = null;
                 
-                var responseText = await _llmService.ProcessPromptAsync(prompt, _options.ModelName);
-                
-                var duration = DateTime.UtcNow - startTime;
-                _logger.LogInformation("[ANALYZER_LLM_RESPONSE] Received response from LLM after {Duration}ms. " +
-                    "Response length: {ResponseLength} chars", 
-                    duration.TotalMilliseconds, responseText?.Length ?? 0);
-                
-                // Extrair JSON da resposta
-                _logger.LogInformation("[ANALYZER_EXTRACT_JSON] Extracting JSON from LLM response...");
-                var jsonContent = ExtractJsonFromText(responseText);
-                
-                if (string.IsNullOrEmpty(jsonContent))
+                // Loop de retry para tentativas de processamento com o LLM
+                while (attempt < maxRetries)
                 {
-                    _logger.LogWarning("[ANALYZER_ERROR] Could not extract JSON from response");
-                    return Result<CodeAnalysis>.Fail("Não foi possível extrair JSON da resposta");
-                }
-                
-                _logger.LogInformation("[ANALYZER_JSON] Successfully extracted JSON, length: {JsonLength} chars", 
-                    jsonContent.Length);
-                
-                try
-                {
-                    // Converter JSON para objeto de análise
-                    _logger.LogInformation("[ANALYZER_DESERIALIZE] Deserializing JSON to analysis object...");
-                    var llmResponse = JsonSerializer.Deserialize<LlmAnalysisResponse>(jsonContent, _jsonOptions);
-                    
-                    if (llmResponse == null)
+                    attempt++;
+                    try
                     {
-                        _logger.LogWarning("[ANALYZER_ERROR] Null response after JSON deserialization");
-                        return Result<CodeAnalysis>.Fail("Resposta nula após deserialização do JSON");
-                    }
-                    
-                    // Converter a resposta do LLM para o modelo de análise
-                    _logger.LogInformation("[ANALYZER_CONVERT] Converting LLM response to analysis model. " +
-                        "Overall score: {Score}", llmResponse.NotaGeral);
-                    
-                    var analysis = new CodeAnalysis
-                    {
-                        Id = Guid.NewGuid().ToString("N"),
-                        CommitId = commit.Id,
-                        FilePath = filePath,
-                        Author = commit.Author,
-                        CommitDate = commit.Date,
-                        AnalysisDate = DateTime.UtcNow,
-                        CleanCodeAnalysis = new CleanCodeAnalysis
+                        _logger.LogInformation("[ANALYZER_LLM_CALL] Sending prompt to LLM service using model {ModelName}... Attempt {Attempt}/{MaxRetries}", 
+                            _options.ModelName, attempt, maxRetries);
+                        var startTime = DateTime.UtcNow;
+                        
+                        var responseText = await _llmService.ProcessPromptAsync(prompt, _options.ModelName);
+                        
+                        var duration = DateTime.UtcNow - startTime;
+                        _logger.LogInformation("[ANALYZER_LLM_RESPONSE] Received response from LLM after {Duration}ms. " +
+                            "Response length: {ResponseLength} chars", 
+                            duration.TotalMilliseconds, responseText?.Length ?? 0);
+                        
+                        if (string.IsNullOrEmpty(responseText))
                         {
-                            VariableNaming = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
-                            NamingConventions = new ScoreItem
-                            {
-                                Score = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
-                                Justification = ""
-                            },
-                            FunctionSize = (int)Math.Round(llmResponse.AnaliseCleanCode.TamanhoFuncoes),
-                            CommentUsage = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
-                            MeaningfulComments = new ScoreItem
-                            {
-                                Score = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
-                                Justification = ""
-                            },
-                            MethodCohesion = (int)Math.Round(llmResponse.AnaliseCleanCode.CohesaoDosMetodos),
-                            DeadCodeAvoidance = (int)Math.Round(llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto)
-                        },
-                        OverallScore = llmResponse.NotaGeral,
-                        Justification = llmResponse.Justificativa
-                    };
-                    
-                    _logger.LogInformation("[ANALYZER_SUCCESS] Successfully analyzed file {FilePath}", filePath);
-                    return Result<CodeAnalysis>.Success(analysis);
+                            _logger.LogWarning("[ANALYZER_EMPTY_RESPONSE] Empty response from LLM on attempt {Attempt}", attempt);
+                            continue; // Tenta novamente se a resposta for vazia
+                        }
+                        
+                        // Extrair JSON da resposta
+                        _logger.LogInformation("[ANALYZER_EXTRACT_JSON] Extracting JSON from LLM response...");
+                        var jsonContent = ExtractJsonFromText(responseText);
+                        
+                        if (string.IsNullOrEmpty(jsonContent))
+                        {
+                            _logger.LogWarning("[ANALYZER_ERROR] Could not extract JSON from response on attempt {Attempt}", attempt);
+                            
+                            if (attempt == maxRetries)
+                                return Result<CodeAnalysis>.Fail("Não foi possível extrair JSON da resposta");
+                                
+                            // Modificar o prompt para a próxima tentativa
+                            prompt = BuildSimplifiedPrompt(codeContent, filePath, commit);
+                            continue;
+                        }
+                        
+                        _logger.LogInformation("[ANALYZER_JSON] Successfully extracted JSON, length: {JsonLength} chars", 
+                            jsonContent.Length);
+                        
+                        // Converter JSON para objeto de análise - com tratamento de erros
+                        return await DeserializeAndCreateAnalysis(jsonContent, commit, filePath, attempt, maxRetries);
+                    }
+                    catch (Exception ex)
+                    {
+                        lastException = ex;
+                        _logger.LogError(ex, "[ANALYZER_EXCEPTION] Error on attempt {Attempt}: {ErrorMessage}", 
+                            attempt, ex.Message);
+                        
+                        // Modificar o prompt para a próxima tentativa se necessário
+                        if (attempt < maxRetries)
+                        {
+                            prompt = BuildSimplifiedPrompt(codeContent, filePath, commit);
+                            await Task.Delay(1000 * attempt); // Backoff exponencial simples
+                        }
+                    }
                 }
-                catch (JsonException ex)
-                {
-                    _logger.LogError(ex, "[ANALYZER_JSON_ERROR] Error deserializing JSON: {Message}", ex.Message);
-                    return Result<CodeAnalysis>.Fail($"Erro ao deserializar JSON: {ex.Message}");
-                }
+                
+                // Se chegou aqui, todas as tentativas falharam
+                return Result<CodeAnalysis>.Fail(lastException ?? 
+                    new Exception("Falha após múltiplas tentativas de análise"));
             }
             catch (Exception ex)
             {
@@ -484,91 +475,454 @@ namespace RefactorScore.Application.Services
                 return Result<CodeAnalysis>.Fail(ex);
             }
         }
+        
+        /// <summary>
+        /// Tenta deserializar o JSON e criar um objeto de análise, com tratamento de erros
+        /// </summary>
+        private async Task<Result<CodeAnalysis>> DeserializeAndCreateAnalysis(
+            string jsonContent, 
+            CommitInfo commit, 
+            string filePath,
+            int currentAttempt,
+            int maxRetries)
+        {
+            try
+            {
+                // Primeiro, tenta deserializar normalmente
+                _logger.LogInformation("[ANALYZER_DESERIALIZE] Deserializing JSON to analysis object...");
+                var llmResponse = JsonSerializer.Deserialize<LlmAnalysisResponse>(jsonContent, _jsonOptions);
+                
+                if (llmResponse == null)
+                {
+                    _logger.LogWarning("[ANALYZER_ERROR] Null response after JSON deserialization");
+                    return Result<CodeAnalysis>.Fail("Resposta nula após deserialização do JSON");
+                }
+                
+                // Converter a resposta do LLM para o modelo de análise
+                _logger.LogInformation("[ANALYZER_CONVERT] Converting LLM response to analysis model. " +
+                    "Overall score: {Score}", llmResponse.NotaGeral);
+                
+                var analysis = new CodeAnalysis
+                {
+                    Id = Guid.NewGuid().ToString("N"),
+                    CommitId = commit.Id,
+                    FilePath = filePath,
+                    Author = commit.Author,
+                    CommitDate = commit.Date,
+                    AnalysisDate = DateTime.UtcNow,
+                    CleanCodeAnalysis = new CleanCodeAnalysis
+                    {
+                        VariableNaming = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
+                        NamingConventions = new ScoreItem 
+                        { 
+                            Score = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
+                            Justification = EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaNomenclatura, 150)
+                        },
+                        FunctionSize = (int)Math.Round(llmResponse.AnaliseCleanCode.TamanhoFuncoes),
+                        CommentUsage = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
+                        MeaningfulComments = new ScoreItem
+                        {
+                            Score = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
+                            Justification = EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaComentarios, 150)
+                        },
+                        MethodCohesion = (int)Math.Round(llmResponse.AnaliseCleanCode.CohesaoDosMetodos),
+                        DeadCodeAvoidance = (int)Math.Round(llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto)
+                    },
+                    OverallScore = llmResponse.NotaGeral,
+                    Justification = EnsureSafeString(llmResponse.Justificativa, 500)
+                };
+                
+                // Adicionar justificativas para os outros critérios que não têm objetos ScoreItem
+                analysis.CleanCodeAnalysis.AdditionalCriteria["FunctionSizeJustification"] = 
+                    EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaFuncoes, 150);
+                analysis.CleanCodeAnalysis.AdditionalCriteria["MethodCohesionJustification"] = 
+                    EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaCohesao, 150);
+                analysis.CleanCodeAnalysis.AdditionalCriteria["DeadCodeAvoidanceJustification"] = 
+                    EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaCodigoMorto, 150);
+                
+                _logger.LogInformation("[ANALYZER_SUCCESS] Successfully analyzed file {FilePath}", filePath);
+                return Result<CodeAnalysis>.Success(analysis);
+            }
+            catch (JsonException jsonEx)
+            {
+                _logger.LogError(jsonEx, "[ANALYZER_JSON_ERROR] Error deserializing JSON: {Message}", jsonEx.Message);
+                
+                // Se ainda tiver tentativas, retorna falha para tentar novamente
+                if (currentAttempt < maxRetries)
+                {
+                    return Result<CodeAnalysis>.Fail($"Erro ao deserializar JSON: {jsonEx.Message}");
+                }
+                
+                // Última tentativa - tenta extrair o que puder do JSON com método alternativo
+                try
+                {
+                    _logger.LogWarning("[ANALYZER_FALLBACK] Trying manual JSON parsing as last resort");
+                    var analysis = CreateFallbackAnalysis(jsonContent, commit, filePath);
+                    return Result<CodeAnalysis>.Success(analysis);
+                }
+                catch (Exception fallbackEx)
+                {
+                    _logger.LogError(fallbackEx, "[ANALYZER_FALLBACK_ERROR] Error creating fallback analysis");
+                    return Result<CodeAnalysis>.Fail($"Erro ao criar análise alternativa: {fallbackEx.Message}");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Cria uma versão simplificada do prompt para tentar novamente em caso de falha
+        /// </summary>
+        private string BuildSimplifiedPrompt(string codeContent, string filePath, CommitInfo commit)
+        {
+            var fileExtension = System.IO.Path.GetExtension(filePath).ToLowerInvariant();
+            
+            return $@"Analise o seguinte código-fonte e forneça uma avaliação detalhada de acordo com os princípios de Clean Code.
+
+INFORMAÇÕES DO COMMIT:
+- ID do commit: {commit.Id}
+- Autor: {commit.Author}
+- Arquivo: {filePath}
+
+CÓDIGO-FONTE:
+```{fileExtension}
+{codeContent.Substring(0, Math.Min(codeContent.Length, 3000))}
+```
+
+Forneça uma análise com pontuações de 0-10 para:
+1. Nomenclatura de variáveis
+2. Tamanho de funções
+3. Uso de comentários
+4. Coesão de métodos
+5. Evitação de código morto
+
+Responda APENAS com um JSON simples usando a seguinte estrutura exata e sem texto adicional:
+
+{{
+  ""analise_clean_code"": {{
+    ""nomeclatura_variaveis"": 7,
+    ""tamanho_funcoes"": 8,
+    ""uso_de_comentarios_relevantes"": 6,
+    ""cohesao_dos_metodos"": 7,
+    ""evitacao_de_codigo_morto"": 9
+  }},
+  ""nota_geral"": 7.4,
+  ""justificativa"": ""Breve justificativa da análise""
+}}";
+        }
+        
+        /// <summary>
+        /// Cria uma análise de fallback quando todas as tentativas falham
+        /// </summary>
+        private CodeAnalysis CreateFallbackAnalysis(string jsonContent, CommitInfo commit, string filePath)
+        {
+            var analysis = new CodeAnalysis
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                CommitId = commit.Id,
+                FilePath = filePath,
+                Author = commit.Author,
+                CommitDate = commit.Date,
+                AnalysisDate = DateTime.UtcNow,
+                CleanCodeAnalysis = new CleanCodeAnalysis
+                {
+                    VariableNaming = 5,
+                    NamingConventions = new ScoreItem { Score = 5, Justification = "Análise parcial - falha no processamento do JSON" },
+                    FunctionSize = 5,
+                    CommentUsage = 5,
+                    MeaningfulComments = new ScoreItem { Score = 5, Justification = "Análise parcial - falha no processamento do JSON" },
+                    MethodCohesion = 5,
+                    DeadCodeAvoidance = 5
+                },
+                OverallScore = 5.0,
+                Justification = "Análise falhou ao processar resposta do LLM. Esta é uma pontuação neutra de fallback."
+            };
+            
+            // Tenta extrair valores usando regex do JSON parcial
+            try
+            {
+                // Procurar pontuações específicas com regex
+                var overallMatch = Regex.Match(jsonContent, @"""nota_geral""[\s:]+([0-9.]+)");
+                if (overallMatch.Success && overallMatch.Groups.Count > 1)
+                {
+                    if (double.TryParse(overallMatch.Groups[1].Value, out var score))
+                    {
+                        analysis.OverallScore = score;
+                    }
+                }
+                
+                // Extrair uma justificativa
+                var justificationMatch = Regex.Match(jsonContent, @"""justificativa""[\s:]+""([^""]+)""");
+                if (justificationMatch.Success && justificationMatch.Groups.Count > 1)
+                {
+                    analysis.Justification = "Recuperado parcialmente: " + EnsureSafeString(justificationMatch.Groups[1].Value, 150);
+                }
+                
+                // Extrair critérios específicos
+                ExtractScoreAndJustification(jsonContent, "nomeclatura_variaveis", "justificativa_nomenclatura", 
+                    out int namingScore, out string namingJustification);
+                ExtractScoreAndJustification(jsonContent, "tamanho_funcoes", "justificativa_funcoes", 
+                    out int sizeScore, out string sizeJustification);
+                ExtractScoreAndJustification(jsonContent, "uso_de_comentarios_relevantes", "justificativa_comentarios", 
+                    out int commentScore, out string commentJustification);
+                ExtractScoreAndJustification(jsonContent, "cohesao_dos_metodos", "justificativa_cohesao", 
+                    out int cohesionScore, out string cohesionJustification);
+                ExtractScoreAndJustification(jsonContent, "evitacao_de_codigo_morto", "justificativa_codigo_morto", 
+                    out int deadCodeScore, out string deadCodeJustification);
+                
+                // Usar os valores extraídos
+                if (namingScore > 0) analysis.CleanCodeAnalysis.VariableNaming = namingScore;
+                if (sizeScore > 0) analysis.CleanCodeAnalysis.FunctionSize = sizeScore;
+                if (commentScore > 0) analysis.CleanCodeAnalysis.CommentUsage = commentScore;
+                if (cohesionScore > 0) analysis.CleanCodeAnalysis.MethodCohesion = cohesionScore;
+                if (deadCodeScore > 0) analysis.CleanCodeAnalysis.DeadCodeAvoidance = deadCodeScore;
+                
+                if (!string.IsNullOrEmpty(namingJustification))
+                {
+                    analysis.CleanCodeAnalysis.NamingConventions.Justification = 
+                        "Recuperado parcialmente: " + namingJustification;
+                }
+                
+                if (!string.IsNullOrEmpty(commentJustification))
+                {
+                    analysis.CleanCodeAnalysis.MeaningfulComments.Justification = 
+                        "Recuperado parcialmente: " + commentJustification;
+                }
+                
+                analysis.CleanCodeAnalysis.AdditionalCriteria["FunctionSizeJustification"] = 
+                    string.IsNullOrEmpty(sizeJustification) 
+                        ? "Análise parcial - falha no processamento" 
+                        : "Recuperado parcialmente: " + sizeJustification;
+                        
+                analysis.CleanCodeAnalysis.AdditionalCriteria["MethodCohesionJustification"] = 
+                    string.IsNullOrEmpty(cohesionJustification) 
+                        ? "Análise parcial - falha no processamento" 
+                        : "Recuperado parcialmente: " + cohesionJustification;
+                        
+                analysis.CleanCodeAnalysis.AdditionalCriteria["DeadCodeAvoidanceJustification"] = 
+                    string.IsNullOrEmpty(deadCodeJustification) 
+                        ? "Análise parcial - falha no processamento" 
+                        : "Recuperado parcialmente: " + deadCodeJustification;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[ANALYZER_REGEX_ERROR] Error extracting values with regex from partial JSON");
+            }
+            
+            return analysis;
+        }
+        
+        /// <summary>
+        /// Extrai uma pontuação e justificativa de um JSON parcial usando regex
+        /// </summary>
+        private void ExtractScoreAndJustification(
+            string json, 
+            string scoreName, 
+            string justificationName, 
+            out int score, 
+            out string justification)
+        {
+            score = 0;
+            justification = string.Empty;
+            
+            var scoreMatch = Regex.Match(json, $@"""{scoreName}""[\s:]+([0-9]+)");
+            if (scoreMatch.Success && scoreMatch.Groups.Count > 1)
+            {
+                if (int.TryParse(scoreMatch.Groups[1].Value, out int parsedScore))
+                {
+                    score = parsedScore;
+                }
+            }
+            
+            var justMatch = Regex.Match(json, $@"""{justificationName}""[\s:]+""([^""]+)""");
+            if (justMatch.Success && justMatch.Groups.Count > 1)
+            {
+                justification = EnsureSafeString(justMatch.Groups[1].Value, 150);
+            }
+        }
 
         /// <summary>
-        /// Analisa código particionado em chunks menores
+        /// Processa um arquivo de código muito grande dividindo-o em partes
         /// </summary>
         private async Task<Result<CodeAnalysis>> AnalyzePartitionedCodeAsync(
-            string codeContent,
-            string codeDiff,
-            string filePath,
+            string codeContent, 
+            string codeDiff, 
+            string filePath, 
             CommitInfo commit)
         {
             try
             {
-                _logger.LogInformation("[PARTITION_START] Analyzing partitioned code for {FilePath}", filePath);
+                _logger.LogInformation("[PARTITION_START] Starting partitioned analysis for large file {FilePath}", filePath);
                 
-                // Dividir o código em chunks menores
-                _logger.LogInformation("[PARTITION_SPLIT] Splitting code into chunks for {FilePath}", filePath);
+                // Dividir o código em chunks para análise separada
                 var chunks = PartitionCode(codeContent, filePath);
-                _logger.LogInformation("[PARTITION_CHUNKS] Code divided into {ChunkCount} partitions", chunks.Count);
+                _logger.LogInformation("[PARTITION_CHUNKS] Divided file into {ChunkCount} chunks", chunks.Count);
                 
-                // Resultados de análise para cada chunk
+                // Lista para armazenar os resultados de cada chunk
                 var chunkResults = new List<CodeAnalysis>();
                 
-                // Analisar cada chunk separadamente
+                // Processar cada chunk
                 for (int i = 0; i < chunks.Count; i++)
                 {
                     var chunk = chunks[i];
-                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}] Starting analysis of chunk {ChunkIndex}/{ChunkCount} ({Description}) for file {FilePath}", 
-                        i+1, i+1, chunks.Count, chunk.Description, filePath);
-                    
-                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_PROMPT] Building prompt for chunk", i+1);
-                    var chunkPrompt = BuildChunkAnalysisPrompt(chunk.Content, codeDiff, filePath, commit, chunk.Description);
-                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_PROMPT] Prompt built, length: {PromptLength} chars", 
-                        i+1, chunkPrompt.Length);
-                    
-                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_LLM] Sending chunk to LLM service...", i+1);
-                    var startTime = DateTime.UtcNow;
-                    var responseText = await _llmService.ProcessPromptAsync(chunkPrompt, _options.ModelName);
-                    var duration = DateTime.UtcNow - startTime;
-                    
-                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_LLM_RESPONSE] Received response after {Duration}ms. Length: {ResponseLength} chars", 
-                        i+1, duration.TotalMilliseconds, responseText?.Length ?? 0);
-                    
-                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_JSON] Extracting JSON from response", i+1);
-                    var jsonContent = ExtractJsonFromText(responseText);
-                    if (string.IsNullOrEmpty(jsonContent))
-                    {
-                        _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_ERROR] Could not extract JSON from response", i+1);
-                        continue;
-                    }
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}] Processing chunk {ChunkIndex}/{ChunkCount}, size: {ChunkSize} chars", 
+                        i+1, i+1, chunks.Count, chunk.Content.Length);
                     
                     try
                     {
-                        _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_DESERIALIZE] Deserializing JSON", i+1);
-                        var llmResponse = JsonSerializer.Deserialize<LlmAnalysisResponse>(jsonContent, _jsonOptions);
-                        if (llmResponse == null)
+                        // Construir o prompt para este chunk
+                        var chunkPrompt = BuildChunkAnalysisPrompt(
+                            chunk.Content, 
+                            null, // Não incluímos diff para chunks
+                            filePath, 
+                            commit,
+                            chunk.Description);
+                            
+                        // Processar com o LLM, com retry
+                        const int maxRetries = 2;  // Menos tentativas para chunks
+                        for (int attempt = 1; attempt <= maxRetries; attempt++)
                         {
-                            _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_ERROR] Null response after JSON deserialization", i+1);
-                            continue;
-                        }
-                        
-                        _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_CONVERT] Converting response to analysis. Score: {Score}", 
-                            i+1, llmResponse.NotaGeral);
-                        
-                        var chunkAnalysis = new CodeAnalysis
-                        {
-                            Id = Guid.NewGuid().ToString("N"),
-                            CommitId = commit.Id,
-                            FilePath = $"{filePath}#chunk{chunk.Index}",
-                            Author = commit.Author,
-                            CommitDate = commit.Date,
-                            AnalysisDate = DateTime.UtcNow,
-                            CleanCodeAnalysis = new CleanCodeAnalysis
+                            try
                             {
-                                VariableNaming = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
-                                FunctionSize = (int)Math.Round(llmResponse.AnaliseCleanCode.TamanhoFuncoes),
-                                CommentUsage = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
-                                MethodCohesion = (int)Math.Round(llmResponse.AnaliseCleanCode.CohesaoDosMetodos),
-                                DeadCodeAvoidance = (int)Math.Round(llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto)
-                            },
-                            OverallScore = llmResponse.NotaGeral,
-                            Justification = llmResponse.Justificativa
-                        };
-                        
-                        chunkResults.Add(chunkAnalysis);
-                        _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_SUCCESS] Successfully analyzed chunk", i+1);
+                                _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_LLM_CALL] Sending prompt to LLM... Attempt {Attempt}/{MaxRetries}", 
+                                    i+1, attempt, maxRetries);
+                                
+                                var startTime = DateTime.UtcNow;
+                                var responseText = await _llmService.ProcessPromptAsync(chunkPrompt, _options.ModelName);
+                                var duration = DateTime.UtcNow - startTime;
+                                
+                                _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_LLM_RESPONSE] Received response after {Duration}ms. Length: {ResponseLength} chars", 
+                                    i+1, duration.TotalMilliseconds, responseText?.Length ?? 0);
+                                
+                                if (string.IsNullOrEmpty(responseText))
+                                {
+                                    _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_EMPTY] Empty response from LLM", i+1);
+                                    if (attempt < maxRetries)
+                                        continue;
+                                    break;
+                                }
+                                
+                                _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_JSON] Extracting JSON from response", i+1);
+                                var jsonContent = ExtractJsonFromText(responseText);
+                                if (string.IsNullOrEmpty(jsonContent))
+                                {
+                                    _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_ERROR] Could not extract JSON from response", i+1);
+                                    if (attempt < maxRetries)
+                                        continue;
+                                    break;
+                                }
+                                
+                                try
+                                {
+                                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_DESERIALIZE] Deserializing JSON", i+1);
+                                    var llmResponse = JsonSerializer.Deserialize<LlmAnalysisResponse>(jsonContent, _jsonOptions);
+                                    if (llmResponse == null)
+                                    {
+                                        _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_ERROR] Null response after JSON deserialization", i+1);
+                                        if (attempt < maxRetries)
+                                            continue;
+                                        break;
+                                    }
+                                    
+                                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_CONVERT] Converting response to analysis. Score: {Score}", 
+                                        i+1, llmResponse.NotaGeral);
+                                    
+                                    var chunkAnalysis = new CodeAnalysis
+                                    {
+                                        Id = Guid.NewGuid().ToString("N"),
+                                        CommitId = commit.Id,
+                                        FilePath = $"{filePath}#chunk{chunk.Index}",
+                                        Author = commit.Author,
+                                        CommitDate = commit.Date,
+                                        AnalysisDate = DateTime.UtcNow,
+                                        CleanCodeAnalysis = new CleanCodeAnalysis
+                                        {
+                                            VariableNaming = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
+                                            NamingConventions = new ScoreItem
+                                            {
+                                                Score = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
+                                                Justification = EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaNomenclatura, 150)
+                                            },
+                                            FunctionSize = (int)Math.Round(llmResponse.AnaliseCleanCode.TamanhoFuncoes),
+                                            CommentUsage = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
+                                            MeaningfulComments = new ScoreItem
+                                            {
+                                                Score = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
+                                                Justification = EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaComentarios, 150)
+                                            },
+                                            MethodCohesion = (int)Math.Round(llmResponse.AnaliseCleanCode.CohesaoDosMetodos),
+                                            DeadCodeAvoidance = (int)Math.Round(llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto)
+                                        },
+                                        OverallScore = llmResponse.NotaGeral,
+                                        Justification = EnsureSafeString(llmResponse.Justificativa, 500)
+                                    };
+                                    
+                                    // Adicionar justificativas para os outros critérios que não têm objetos ScoreItem
+                                    chunkAnalysis.CleanCodeAnalysis.AdditionalCriteria["FunctionSizeJustification"] = 
+                                        EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaFuncoes, 150);
+                                    chunkAnalysis.CleanCodeAnalysis.AdditionalCriteria["MethodCohesionJustification"] = 
+                                        EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaCohesao, 150);
+                                    chunkAnalysis.CleanCodeAnalysis.AdditionalCriteria["DeadCodeAvoidanceJustification"] = 
+                                        EnsureSafeString(llmResponse.AnaliseCleanCode.JustificativaCodigoMorto, 150);
+                                    
+                                    chunkResults.Add(chunkAnalysis);
+                                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_SUCCESS] Successfully analyzed chunk", i+1);
+                                    
+                                    // Sair do loop de retry se tiver sucesso
+                                    break;
+                                }
+                                catch (JsonException jsonEx)
+                                {
+                                    _logger.LogError(jsonEx, "[PARTITION_CHUNK_{ChunkIndex}_JSON_ERROR] JSON deserialization error: {Message}", 
+                                        i+1, jsonEx.Message);
+                                    
+                                    if (attempt == maxRetries)
+                                    {
+                                        // Na última tentativa, tentar extrair o que for possível usando regex
+                                        try
+                                        {
+                                            var fallbackAnalysis = CreateFallbackAnalysis(jsonContent, commit, $"{filePath}#chunk{chunk.Index}");
+                                            chunkResults.Add(fallbackAnalysis);
+                                            _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_FALLBACK] Created fallback analysis", i+1);
+                                        }
+                                        catch (Exception fallbackEx)
+                                        {
+                                            _logger.LogError(fallbackEx, "[PARTITION_CHUNK_{ChunkIndex}_FALLBACK_ERROR] Error creating fallback", i+1);
+                                        }
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogError(ex, "[PARTITION_CHUNK_{ChunkIndex}_ERROR] Error processing chunk: {Message}", 
+                                    i+1, ex.Message);
+                                
+                                if (attempt == maxRetries)
+                                {
+                                    // Se todas as tentativas falharem, criar um resultado neutro para este chunk
+                                    var neutralAnalysis = new CodeAnalysis
+                                    {
+                                        Id = Guid.NewGuid().ToString("N"),
+                                        CommitId = commit.Id,
+                                        FilePath = $"{filePath}#chunk{chunk.Index}",
+                                        Author = commit.Author,
+                                        CommitDate = commit.Date,
+                                        AnalysisDate = DateTime.UtcNow,
+                                        CleanCodeAnalysis = new CleanCodeAnalysis
+                                        {
+                                            VariableNaming = 5,
+                                            FunctionSize = 5,
+                                            CommentUsage = 5,
+                                            MethodCohesion = 5,
+                                            DeadCodeAvoidance = 5,
+                                            NamingConventions = new ScoreItem { Score = 5, Justification = "Análise neutra devido a falha no processamento" },
+                                            MeaningfulComments = new ScoreItem { Score = 5, Justification = "Análise neutra devido a falha no processamento" }
+                                        },
+                                        OverallScore = 5,
+                                        Justification = $"Análise neutra: falha ao processar o chunk #{chunk.Index} do arquivo."
+                                    };
+                                    chunkResults.Add(neutralAnalysis);
+                                }
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -578,19 +932,20 @@ namespace RefactorScore.Application.Services
                 
                 if (chunkResults.Count == 0)
                 {
-                    _logger.LogWarning("[PARTITION_ERROR] No chunks could be analyzed for file {FilePath}", filePath);
-                    return Result<CodeAnalysis>.Fail("Não foi possível analisar nenhuma parte do código");
+                    _logger.LogWarning("[PARTITION_EMPTY] No chunks were successfully analyzed");
+                    return Result<CodeAnalysis>.Fail("Nenhum dos chunks foi analisado com sucesso");
                 }
                 
                 // Agregar os resultados dos chunks
                 _logger.LogInformation("[PARTITION_AGGREGATE] Aggregating results from {ChunkCount} chunks", chunkResults.Count);
-                var result = Result<CodeAnalysis>.Success(AggregateChunkAnalyses(chunkResults, filePath, commit));
+                var aggregatedAnalysis = AggregateChunkResults(chunkResults, commit, filePath);
+                
                 _logger.LogInformation("[PARTITION_COMPLETE] Completed partitioned analysis for {FilePath}", filePath);
-                return result;
+                return Result<CodeAnalysis>.Success(aggregatedAnalysis);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "[PARTITION_EXCEPTION] Error analyzing partitioned code");
+                _logger.LogError(ex, "[PARTITION_ERROR] Error in partitioned analysis: {Message}", ex.Message);
                 return Result<CodeAnalysis>.Fail(ex);
             }
         }
@@ -632,21 +987,33 @@ Analise o código com base nos seguintes critérios de Clean Code:
 5. Evitação de código morto ou redundante (0-10)
 
 Sua resposta deve ser APENAS um JSON válido com a estrutura exata mostrada abaixo.
-IMPORTANTE: Todas as pontuações devem ser números inteiros (não strings).
-EVITE colocar vírgulas após o último item de cada objeto.
+IMPORTANTE: 
+- Todas as pontuações devem ser números inteiros (não strings)
+- Todas as justificativas devem ter no máximo 150 caracteres
+- Use apenas caracteres ASCII básicos nas justificativas (sem caracteres especiais ou Unicode)
+- EVITE colocar vírgulas após o último item de cada objeto
 
 {{
   ""commit_id"": ""{commit.Id}"",
   ""autor"": ""{commit.Author}"",
   ""analise_clean_code"": {{
     ""nomeclatura_variaveis"": 7,
+    ""justificativa_nomenclatura"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
     ""tamanho_funcoes"": 8,
+    ""justificativa_funcoes"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
     ""uso_de_comentarios_relevantes"": 6,
+    ""justificativa_comentarios"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
     ""cohesao_dos_metodos"": 7,
-    ""evitacao_de_codigo_morto"": 9
+    ""justificativa_cohesao"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
+    ""evitacao_de_codigo_morto"": 9,
+    ""justificativa_codigo_morto"": ""Curta explicação para a nota (max 150 caracteres)""
   }},
   ""nota_geral"": 7.4,
-  ""justificativa"": ""Justificativa da análise aqui""
+  ""justificativa"": ""Resumo geral da análise, max 500 caracteres""
 }}
 
 Os valores nas notas são apenas exemplos para mostrar que deve usar números, não strings.
@@ -658,7 +1025,7 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
         /// <summary>
         /// Agrega as análises de diferentes chunks em uma única análise
         /// </summary>
-        private CodeAnalysis AggregateChunkAnalyses(List<CodeAnalysis> chunkAnalyses, string filePath, CommitInfo commit)
+        private CodeAnalysis AggregateChunkResults(List<CodeAnalysis> chunkAnalyses, CommitInfo commit, string filePath)
         {
             _logger.LogInformation("Agregando análises de {ChunkCount} chunks para o arquivo {FilePath}", 
                 chunkAnalyses.Count, filePath);
@@ -1057,21 +1424,33 @@ Analise o código com base nos seguintes critérios de Clean Code:
 5. Evitação de código morto ou redundante (0-10)
 
 Sua resposta deve ser APENAS um JSON válido com a estrutura exata mostrada abaixo.
-IMPORTANTE: Todas as pontuações devem ser números inteiros (não strings).
-EVITE colocar vírgulas após o último item de cada objeto.
+IMPORTANTE: 
+- Todas as pontuações devem ser números inteiros (não strings)
+- Todas as justificativas devem ter no máximo 150 caracteres
+- Use apenas caracteres ASCII básicos nas justificativas (sem caracteres especiais ou Unicode)
+- EVITE colocar vírgulas após o último item de cada objeto
 
 {{
   ""commit_id"": ""{commit.Id}"",
   ""autor"": ""{commit.Author}"",
   ""analise_clean_code"": {{
     ""nomeclatura_variaveis"": 7,
+    ""justificativa_nomenclatura"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
     ""tamanho_funcoes"": 8,
+    ""justificativa_funcoes"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
     ""uso_de_comentarios_relevantes"": 6,
+    ""justificativa_comentarios"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
     ""cohesao_dos_metodos"": 7,
-    ""evitacao_de_codigo_morto"": 9
+    ""justificativa_cohesao"": ""Curta explicação para a nota (max 150 caracteres)"",
+    
+    ""evitacao_de_codigo_morto"": 9,
+    ""justificativa_codigo_morto"": ""Curta explicação para a nota (max 150 caracteres)""
   }},
   ""nota_geral"": 7.4,
-  ""justificativa"": ""Justificativa da análise aqui""
+  ""justificativa"": ""Resumo geral da análise, max 500 caracteres""
 }}
 
 Os valores nas notas são apenas exemplos para mostrar que deve usar números, não strings.
@@ -1149,25 +1528,90 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
         {
             if (string.IsNullOrEmpty(jsonContent))
                 return jsonContent;
+            
+            _logger.LogDebug("[JSON_CLEAN] Limpando conteúdo JSON com {Length} caracteres", jsonContent.Length);
+            
+            try
+            {
+                // Remove caracteres de formatação invisíveis que possam causar problemas
+                var validJson = new StringBuilder();
+                foreach (var c in jsonContent)
+                {
+                    // Aceitar apenas caracteres seguros para JSON
+                    if ((c >= ' ' && c <= '~') || c == '\n' || c == '\r' || c == '\t')
+                    {
+                        validJson.Append(c);
+                    }
+                    else
+                    {
+                        _logger.LogDebug("[JSON_CLEAN] Removendo caractere não seguro: 0x{Code:X4}", (int)c);
+                    }
+                }
                 
-            // Remove comentários estilo C#/Java
-            jsonContent = Regex.Replace(jsonContent, @"//.*?$", "", RegexOptions.Multiline);
-            
-            // Remove comentários de múltiplas linhas
-            jsonContent = Regex.Replace(jsonContent, @"/\*.*?\*/", "", RegexOptions.Singleline);
-            
-            // Trata problema de vírgulas no final de objetos ou arrays
-            jsonContent = Regex.Replace(jsonContent, @",(\s*})", "$1");
-            jsonContent = Regex.Replace(jsonContent, @",(\s*])", "$1");
-            
-            // Converte aspas simples em aspas duplas
-            jsonContent = Regex.Replace(jsonContent, @"'([^']*?)'", "\"$1\"");
-            
-            // Converte valores de texto em valores numéricos quando necessário
-            jsonContent = Regex.Replace(jsonContent, @"""(\d+)""", "$1");
-            jsonContent = Regex.Replace(jsonContent, @"""(\d+\.\d+)""", "$1");
-            
-            return jsonContent;
+                jsonContent = validJson.ToString();
+                
+                // Remove comentários estilo C#/Java
+                jsonContent = Regex.Replace(jsonContent, @"//.*?$", "", RegexOptions.Multiline);
+                
+                // Remove comentários de múltiplas linhas
+                jsonContent = Regex.Replace(jsonContent, @"/\*.*?\*/", "", RegexOptions.Singleline);
+                
+                // Trata problema de vírgulas no final de objetos ou arrays
+                jsonContent = Regex.Replace(jsonContent, @",(\s*})", "$1");
+                jsonContent = Regex.Replace(jsonContent, @",(\s*])", "$1");
+                
+                // Corrige aspas no meio de strings (substituição por aspas de escape)
+                jsonContent = Regex.Replace(jsonContent, @"(?<=[^\\]""[^""]*)("")", @"\""");
+                
+                // Converte aspas simples em aspas duplas
+                jsonContent = Regex.Replace(jsonContent, @"'([^']*?)'", "\"$1\"");
+                
+                // Converte valores de texto em valores numéricos quando necessário
+                jsonContent = Regex.Replace(jsonContent, @"""(\d+)""", "$1");
+                jsonContent = Regex.Replace(jsonContent, @"""(\d+\.\d+)""", "$1");
+                
+                // Tentar validar se é um JSON válido
+                try
+                {
+                    using (JsonDocument.Parse(jsonContent))
+                    {
+                        _logger.LogDebug("[JSON_CLEAN] JSON validado com sucesso");
+                    }
+                }
+                catch (JsonException jsonEx)
+                {
+                    _logger.LogWarning("[JSON_CLEAN] JSON inválido após limpeza: {Error}", jsonEx.Message);
+                    // Tentar corrigir problemas específicos baseados no erro
+                    if (jsonEx.Message.Contains("'0xE2'"))
+                    {
+                        // Problema com aspas inteligentes ou outro caractere Unicode
+                        jsonContent = Regex.Replace(jsonContent, @"[\u201C\u201D]", "\"");
+                        jsonContent = Regex.Replace(jsonContent, @"[\u2018\u2019]", "'");
+                        _logger.LogDebug("[JSON_CLEAN] Tentativa de correção de caracteres Unicode especiais");
+                    }
+                }
+                
+                return jsonContent;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[JSON_CLEAN] Erro ao limpar conteúdo JSON");
+                return jsonContent; // Retorna o conteúdo original no caso de erro
+            }
+        }
+
+        /// <summary>
+        /// Garante que uma string seja segura para uso em justificativas
+        /// </summary>
+        private string EnsureSafeString(string input, int maxLength)
+        {
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
+
+            if (input.Length > maxLength)
+                return input.Substring(0, maxLength);
+
+            return input;
         }
     }
 } 
