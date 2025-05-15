@@ -6,6 +6,7 @@ using RefactorScore.Infrastructure.GitIntegration;
 using RefactorScore.Infrastructure.MongoDB;
 using RefactorScore.Infrastructure.Ollama;
 using RefactorScore.Infrastructure.RedisCache;
+using StackExchange.Redis;
 
 namespace RefactorScore.Infrastructure
 {
@@ -24,6 +25,14 @@ namespace RefactorScore.Infrastructure
             
             // Adicionar serviços
             services.AddSingleton<IGitRepository, GitRepository>();
+            
+            // Registrar Redis connection multiplexer
+            services.AddSingleton<IConnectionMultiplexer>(sp =>
+            {
+                var connString = configuration.GetConnectionString("Redis") ?? "localhost:6379";
+                return ConnectionMultiplexer.Connect(connString);
+            });
+            
             services.AddSingleton<ICacheService, RedisCacheService>();
             services.AddSingleton<IAnalysisRepository, MongoDbAnalysisRepository>();
             

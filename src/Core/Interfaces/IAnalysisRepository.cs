@@ -11,6 +11,12 @@ namespace RefactorScore.Core.Interfaces
     public interface IAnalysisRepository
     {
         /// <summary>
+        /// Obtém todas as análises armazenadas
+        /// </summary>
+        /// <returns>Lista de todas as análises</returns>
+        Task<IEnumerable<CodeAnalysis>> GetAllAnalysesAsync();
+        
+        /// <summary>
         /// Salva uma análise de código no repositório
         /// </summary>
         /// <param name="analysis">Análise a ser salva</param>

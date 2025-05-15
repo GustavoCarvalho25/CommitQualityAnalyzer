@@ -14,5 +14,15 @@ namespace RefactorScore.WorkerService
         /// Número máximo de commits para processar em cada ciclo
         /// </summary>
         public int MaxProcessingCommits { get; set; } = 10;
+        
+        /// <summary>
+        /// Número máximo de arquivos a processar por commit
+        /// </summary>
+        public int MaxFilesPerCommit { get; set; } = 10;
+        
+        /// <summary>
+        /// Tamanho máximo de arquivo em KB
+        /// </summary>
+        public int MaxFileSizeKB { get; set; } = 200;
     }
 } 

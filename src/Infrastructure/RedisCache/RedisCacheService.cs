@@ -177,6 +177,30 @@ namespace RefactorScore.Infrastructure.RedisCache
             }
         }
 
+        /// <inheritdoc />
+        public async Task<bool> IsAvailableAsync()
+        {
+            try
+            {
+                _logger.LogInformation("[REDIS_CHECK] Checking Redis availability...");
+                var startTime = DateTime.UtcNow;
+                
+                // Simply ping the server to check availability
+                var isAvailable = await _database.PingAsync() != null;
+                
+                var duration = DateTime.UtcNow - startTime;
+                _logger.LogInformation("[REDIS_CHECK] Redis availability: {IsAvailable} (response time: {Duration}ms)",
+                    isAvailable, duration.TotalMilliseconds);
+                
+                return isAvailable;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[REDIS_CHECK] Error checking Redis availability");
+                return false;
+            }
+        }
+
         private string FormatKey(string key)
         {
             return string.IsNullOrEmpty(_options.KeyPrefix) ? key : $"{_options.KeyPrefix}:{key}";

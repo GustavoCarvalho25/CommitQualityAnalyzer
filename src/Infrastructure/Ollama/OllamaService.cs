@@ -27,6 +27,13 @@ namespace RefactorScore.Infrastructure.Ollama
             
             _httpClient.BaseAddress = new Uri(_options.BaseUrl);
             
+            // Set timeout if configured
+            if (_options.Timeout > 0)
+            {
+                _httpClient.Timeout = TimeSpan.FromSeconds(_options.Timeout);
+                _logger.LogInformation("[LLM_CONFIG] Setting HTTP client timeout to {Timeout} seconds", _options.Timeout);
+            }
+            
             _jsonOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -40,8 +47,10 @@ namespace RefactorScore.Infrastructure.Ollama
             try
             {
                 var modelName = model ?? _options.DefaultModel;
+                var promptLength = prompt.Length;
                 
-                _logger.LogInformation("Processando prompt com o modelo {Model}", modelName);
+                _logger.LogInformation("[LLM_BEGIN] Processing prompt with model {Model}. Prompt length: {PromptLength} chars", 
+                    modelName, promptLength);
                 
                 var request = new OllamaRequest
                 {
@@ -60,28 +69,46 @@ namespace RefactorScore.Infrastructure.Ollama
                 var content = JsonSerializer.Serialize(request, _jsonOptions);
                 var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
                 
+                _logger.LogInformation("[LLM_REQUEST] Sending request to Ollama API with timeout of {Timeout} seconds...", 
+                    _httpClient.Timeout.TotalSeconds);
+                var startTime = DateTime.UtcNow;
+                
                 var response = await _httpClient.PostAsync("api/generate", httpContent);
+                
+                var duration = DateTime.UtcNow - startTime;
+                _logger.LogInformation("[LLM_RESPONSE] Received response from Ollama API after {Duration}ms. Status: {Status}", 
+                    duration.TotalMilliseconds, response.StatusCode);
                 
                 if (!response.IsSuccessStatusCode)
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
-                    _logger.LogError("Erro ao processar prompt: {ErrorContent}", errorContent);
-                    throw new Exception($"Erro ao processar prompt: {response.StatusCode} - {errorContent}");
+                    _logger.LogError("[LLM_ERROR] Error processing prompt: {ErrorContent}", errorContent);
+                    throw new Exception($"Error processing prompt: {response.StatusCode} - {errorContent}");
                 }
                 
+                _logger.LogInformation("[LLM_PARSING] Reading response content...");
                 var ollamaResponse = await response.Content.ReadFromJsonAsync<OllamaResponse>(_jsonOptions);
                 
                 if (ollamaResponse == null)
                 {
-                    _logger.LogError("Resposta nula do serviço Ollama");
-                    throw new Exception("Resposta nula do serviço Ollama");
+                    _logger.LogError("[LLM_ERROR] Null response from Ollama service");
+                    throw new Exception("Null response from Ollama service");
                 }
+                
+                var responseLength = ollamaResponse.Response?.Length ?? 0;
+                _logger.LogInformation("[LLM_SUCCESS] Successfully processed prompt. Response length: {ResponseLength} chars", 
+                    responseLength);
                 
                 return ollamaResponse.Response;
             }
+            catch (TaskCanceledException ex)
+            {
+                _logger.LogError(ex, "[LLM_TIMEOUT] Request timed out after {Timeout} seconds", _httpClient.Timeout.TotalSeconds);
+                throw new Exception($"LLM request timed out after {_httpClient.Timeout.TotalSeconds} seconds. This usually indicates the model is taking too long to generate a response.", ex);
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao processar prompt");
+                _logger.LogError(ex, "[LLM_EXCEPTION] Error processing prompt");
                 throw;
             }
         }
@@ -91,12 +118,16 @@ namespace RefactorScore.Infrastructure.Ollama
         {
             try
             {
+                _logger.LogInformation("[LLM_CHECK] Checking Ollama service availability...");
                 var response = await _httpClient.GetAsync("api/tags");
-                return response.IsSuccessStatusCode;
+                var isAvailable = response.IsSuccessStatusCode;
+                
+                _logger.LogInformation("[LLM_CHECK] Ollama service availability: {IsAvailable}", isAvailable);
+                return isAvailable;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao verificar disponibilidade do serviço Ollama");
+                _logger.LogError(ex, "[LLM_CHECK] Error checking Ollama service availability");
                 return false;
             }
         }
@@ -183,6 +214,11 @@ namespace RefactorScore.Infrastructure.Ollama
         /// Configuração de top-k para sampling
         /// </summary>
         public int TopK { get; set; } = 40;
+        
+        /// <summary>
+        /// Timeout em segundos para requisições HTTP
+        /// </summary>
+        public int Timeout { get; set; } = 600;
     }
 
     #region DTOs

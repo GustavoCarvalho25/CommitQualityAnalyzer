@@ -11,32 +11,25 @@ namespace RefactorScore.Core.Interfaces
     public interface ICodeAnalyzerService
     {
         /// <summary>
-        /// Obtém os commits mais recentes do repositório
+        /// Obtém commits recentes (últimas 24 horas)
         /// </summary>
-        /// <returns>Lista de commits recentes</returns>
+        /// <returns>Resultado com a lista de commits recentes</returns>
         Task<Result<IEnumerable<CommitInfo>>> GetRecentCommitsAsync();
         
         /// <summary>
         /// Obtém as alterações de um commit específico
         /// </summary>
         /// <param name="commitId">ID do commit</param>
-        /// <returns>Lista de alterações em arquivos do commit</returns>
+        /// <returns>Resultado com a lista de alterações</returns>
         Task<Result<IEnumerable<CommitFileChange>>> GetCommitChangesAsync(string commitId);
         
         /// <summary>
-        /// Analisa um arquivo específico dentro de um commit
+        /// Analisa um arquivo específico em um commit
         /// </summary>
         /// <param name="commitId">ID do commit</param>
         /// <param name="filePath">Caminho do arquivo</param>
-        /// <returns>Resultado da análise do arquivo</returns>
+        /// <returns>Resultado com a análise</returns>
         Task<Result<CodeAnalysis>> AnalyzeCommitFileAsync(string commitId, string filePath);
-        
-        /// <summary>
-        /// Obtém análises existentes para um commit específico
-        /// </summary>
-        /// <param name="commitId">ID do commit</param>
-        /// <returns>Lista de análises para o commit</returns>
-        Task<Result<IEnumerable<CodeAnalysis>>> GetAnalysesForCommitAsync(string commitId);
         
         /// <summary>
         /// Analisa um commit específico
@@ -66,5 +59,12 @@ namespace RefactorScore.Core.Interfaces
         /// <param name="partialAnalyses">Lista de análises parciais</param>
         /// <returns>Análise agregada</returns>
         Task<CodeAnalysis> AggregatePartialAnalysesAsync(string commitId, IEnumerable<CodeAnalysis> partialAnalyses);
+        
+        /// <summary>
+        /// Obtém análises para um commit específico
+        /// </summary>
+        /// <param name="commitId">ID do commit</param>
+        /// <returns>Resultado com a lista de análises</returns>
+        Task<Result<IEnumerable<CodeAnalysis>>> GetAnalysesForCommitAsync(string commitId);
     }
 } 

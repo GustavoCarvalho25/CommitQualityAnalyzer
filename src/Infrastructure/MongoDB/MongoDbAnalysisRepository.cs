@@ -74,6 +74,29 @@ namespace RefactorScore.Infrastructure.MongoDB
         }
 
         /// <inheritdoc />
+        public async Task<IEnumerable<CodeAnalysis>> GetAllAnalysesAsync()
+        {
+            try
+            {
+                _logger.LogInformation("Retrieving all analyses");
+                
+                var filter = Builders<CodeAnalysis>.Filter.Empty;
+                var analyses = await _analyses.Find(filter)
+                    .Sort(Builders<CodeAnalysis>.Sort.Descending(a => a.CommitDate))
+                    .ToListAsync();
+                
+                _logger.LogInformation("Retrieved {Count} analyses in total", analyses.Count);
+                
+                return analyses;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all analyses");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
         public async Task<string> SaveAnalysisAsync(CodeAnalysis analysis)
         {
             try

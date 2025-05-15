@@ -9,6 +9,12 @@ namespace RefactorScore.Core.Interfaces
     public interface ICacheService
     {
         /// <summary>
+        /// Verifica se o serviço de cache está disponível
+        /// </summary>
+        /// <returns>True se o serviço estiver disponível</returns>
+        Task<bool> IsAvailableAsync();
+        
+        /// <summary>
         /// Obtém um item do cache
         /// </summary>
         /// <typeparam name="T">Tipo do item a ser recuperado</typeparam>

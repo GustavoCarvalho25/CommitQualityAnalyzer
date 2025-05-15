@@ -43,7 +43,11 @@ namespace RefactorScore.Application.Services
             {
                 PropertyNameCaseInsensitive = true,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true
+                WriteIndented = true,
+                AllowTrailingCommas = true,
+                NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString,
+                ReadCommentHandling = JsonCommentHandling.Skip,
+                Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
             };
         }
 
@@ -363,50 +367,78 @@ namespace RefactorScore.Application.Services
         {
             try
             {
-                _logger.LogInformation("Analisando código com LLM para o arquivo {FilePath}", filePath);
+                _logger.LogInformation("[ANALYZER_START] Beginning code analysis with LLM for file {FilePath}", filePath);
                 
-                // Limitar o tamanho do código para evitar problemas com o contexto do modelo
+                // Verificar se o código precisa ser particionado
+                var codeLength = codeContent.Length;
+                var diffLength = codeDiff?.Length ?? 0;
+                
+                _logger.LogInformation("[ANALYZER_SIZE] File stats: Code length: {CodeLength} chars, Diff length: {DiffLength} chars", 
+                    codeLength, diffLength);
+                
                 if (codeContent.Length > _options.MaxCodeLength)
                 {
-                    _logger.LogWarning("Código muito grande, será truncado: {FilePath}", filePath);
-                    codeContent = codeContent.Substring(0, _options.MaxCodeLength) + 
-                                 "\n\n// ... código truncado devido ao tamanho ...";
+                    _logger.LogInformation("[ANALYZER_PARTITION] Code too large ({Length} chars), will be partitioned: {FilePath}", 
+                        codeContent.Length, filePath);
+                    
+                    return await AnalyzePartitionedCodeAsync(codeContent, codeDiff, filePath, commit);
                 }
                 
+                // Código original para arquivos menores que não precisam ser particionados
                 if (codeDiff.Length > _options.MaxDiffLength)
                 {
-                    _logger.LogWarning("Diff muito grande, será truncado: {FilePath}", filePath);
+                    _logger.LogWarning("[ANALYZER_TRUNCATE] Diff too large ({Length} chars), will be truncated: {FilePath}", 
+                        codeDiff.Length, filePath);
                     codeDiff = codeDiff.Substring(0, _options.MaxDiffLength) + 
                               "\n\n// ... diff truncado devido ao tamanho ...";
                 }
                 
                 // Construir o prompt para o modelo
+                _logger.LogInformation("[ANALYZER_PROMPT] Building prompt for LLM...");
                 var prompt = BuildAnalysisPrompt(codeContent, codeDiff, filePath, commit);
+                _logger.LogInformation("[ANALYZER_PROMPT] Prompt built, length: {PromptLength} chars", prompt.Length);
                 
                 // Processar com o LLM
+                _logger.LogInformation("[ANALYZER_LLM_CALL] Sending prompt to LLM service using model {ModelName}...", 
+                    _options.ModelName);
+                var startTime = DateTime.UtcNow;
+                
                 var responseText = await _llmService.ProcessPromptAsync(prompt, _options.ModelName);
                 
+                var duration = DateTime.UtcNow - startTime;
+                _logger.LogInformation("[ANALYZER_LLM_RESPONSE] Received response from LLM after {Duration}ms. " +
+                    "Response length: {ResponseLength} chars", 
+                    duration.TotalMilliseconds, responseText?.Length ?? 0);
+                
                 // Extrair JSON da resposta
+                _logger.LogInformation("[ANALYZER_EXTRACT_JSON] Extracting JSON from LLM response...");
                 var jsonContent = ExtractJsonFromText(responseText);
                 
                 if (string.IsNullOrEmpty(jsonContent))
                 {
-                    _logger.LogWarning("Não foi possível extrair JSON da resposta");
+                    _logger.LogWarning("[ANALYZER_ERROR] Could not extract JSON from response");
                     return Result<CodeAnalysis>.Fail("Não foi possível extrair JSON da resposta");
                 }
+                
+                _logger.LogInformation("[ANALYZER_JSON] Successfully extracted JSON, length: {JsonLength} chars", 
+                    jsonContent.Length);
                 
                 try
                 {
                     // Converter JSON para objeto de análise
+                    _logger.LogInformation("[ANALYZER_DESERIALIZE] Deserializing JSON to analysis object...");
                     var llmResponse = JsonSerializer.Deserialize<LlmAnalysisResponse>(jsonContent, _jsonOptions);
                     
                     if (llmResponse == null)
                     {
-                        _logger.LogWarning("Resposta nula após deserialização do JSON");
+                        _logger.LogWarning("[ANALYZER_ERROR] Null response after JSON deserialization");
                         return Result<CodeAnalysis>.Fail("Resposta nula após deserialização do JSON");
                     }
                     
                     // Converter a resposta do LLM para o modelo de análise
+                    _logger.LogInformation("[ANALYZER_CONVERT] Converting LLM response to analysis model. " +
+                        "Overall score: {Score}", llmResponse.NotaGeral);
+                    
                     var analysis = new CodeAnalysis
                     {
                         Id = Guid.NewGuid().ToString("N"),
@@ -437,18 +469,553 @@ namespace RefactorScore.Application.Services
                         Justification = llmResponse.Justificativa
                     };
                     
+                    _logger.LogInformation("[ANALYZER_SUCCESS] Successfully analyzed file {FilePath}", filePath);
                     return Result<CodeAnalysis>.Success(analysis);
                 }
                 catch (JsonException ex)
                 {
-                    _logger.LogError(ex, "Erro ao deserializar JSON: {Message}", ex.Message);
+                    _logger.LogError(ex, "[ANALYZER_JSON_ERROR] Error deserializing JSON: {Message}", ex.Message);
                     return Result<CodeAnalysis>.Fail($"Erro ao deserializar JSON: {ex.Message}");
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao analisar código com LLM");
+                _logger.LogError(ex, "[ANALYZER_EXCEPTION] Error analyzing code with LLM");
                 return Result<CodeAnalysis>.Fail(ex);
+            }
+        }
+
+        /// <summary>
+        /// Analisa código particionado em chunks menores
+        /// </summary>
+        private async Task<Result<CodeAnalysis>> AnalyzePartitionedCodeAsync(
+            string codeContent,
+            string codeDiff,
+            string filePath,
+            CommitInfo commit)
+        {
+            try
+            {
+                _logger.LogInformation("[PARTITION_START] Analyzing partitioned code for {FilePath}", filePath);
+                
+                // Dividir o código em chunks menores
+                _logger.LogInformation("[PARTITION_SPLIT] Splitting code into chunks for {FilePath}", filePath);
+                var chunks = PartitionCode(codeContent, filePath);
+                _logger.LogInformation("[PARTITION_CHUNKS] Code divided into {ChunkCount} partitions", chunks.Count);
+                
+                // Resultados de análise para cada chunk
+                var chunkResults = new List<CodeAnalysis>();
+                
+                // Analisar cada chunk separadamente
+                for (int i = 0; i < chunks.Count; i++)
+                {
+                    var chunk = chunks[i];
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}] Starting analysis of chunk {ChunkIndex}/{ChunkCount} ({Description}) for file {FilePath}", 
+                        i+1, i+1, chunks.Count, chunk.Description, filePath);
+                    
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_PROMPT] Building prompt for chunk", i+1);
+                    var chunkPrompt = BuildChunkAnalysisPrompt(chunk.Content, codeDiff, filePath, commit, chunk.Description);
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_PROMPT] Prompt built, length: {PromptLength} chars", 
+                        i+1, chunkPrompt.Length);
+                    
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_LLM] Sending chunk to LLM service...", i+1);
+                    var startTime = DateTime.UtcNow;
+                    var responseText = await _llmService.ProcessPromptAsync(chunkPrompt, _options.ModelName);
+                    var duration = DateTime.UtcNow - startTime;
+                    
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_LLM_RESPONSE] Received response after {Duration}ms. Length: {ResponseLength} chars", 
+                        i+1, duration.TotalMilliseconds, responseText?.Length ?? 0);
+                    
+                    _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_JSON] Extracting JSON from response", i+1);
+                    var jsonContent = ExtractJsonFromText(responseText);
+                    if (string.IsNullOrEmpty(jsonContent))
+                    {
+                        _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_ERROR] Could not extract JSON from response", i+1);
+                        continue;
+                    }
+                    
+                    try
+                    {
+                        _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_DESERIALIZE] Deserializing JSON", i+1);
+                        var llmResponse = JsonSerializer.Deserialize<LlmAnalysisResponse>(jsonContent, _jsonOptions);
+                        if (llmResponse == null)
+                        {
+                            _logger.LogWarning("[PARTITION_CHUNK_{ChunkIndex}_ERROR] Null response after JSON deserialization", i+1);
+                            continue;
+                        }
+                        
+                        _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_CONVERT] Converting response to analysis. Score: {Score}", 
+                            i+1, llmResponse.NotaGeral);
+                        
+                        var chunkAnalysis = new CodeAnalysis
+                        {
+                            Id = Guid.NewGuid().ToString("N"),
+                            CommitId = commit.Id,
+                            FilePath = $"{filePath}#chunk{chunk.Index}",
+                            Author = commit.Author,
+                            CommitDate = commit.Date,
+                            AnalysisDate = DateTime.UtcNow,
+                            CleanCodeAnalysis = new CleanCodeAnalysis
+                            {
+                                VariableNaming = (int)Math.Round(llmResponse.AnaliseCleanCode.NomeclaturaVariaveis),
+                                FunctionSize = (int)Math.Round(llmResponse.AnaliseCleanCode.TamanhoFuncoes),
+                                CommentUsage = (int)Math.Round(llmResponse.AnaliseCleanCode.UsoDeComentariosRelevantes),
+                                MethodCohesion = (int)Math.Round(llmResponse.AnaliseCleanCode.CohesaoDosMetodos),
+                                DeadCodeAvoidance = (int)Math.Round(llmResponse.AnaliseCleanCode.EvitacaoDeCodigoMorto)
+                            },
+                            OverallScore = llmResponse.NotaGeral,
+                            Justification = llmResponse.Justificativa
+                        };
+                        
+                        chunkResults.Add(chunkAnalysis);
+                        _logger.LogInformation("[PARTITION_CHUNK_{ChunkIndex}_SUCCESS] Successfully analyzed chunk", i+1);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "[PARTITION_CHUNK_{ChunkIndex}_EXCEPTION] Error processing chunk analysis", i+1);
+                    }
+                }
+                
+                if (chunkResults.Count == 0)
+                {
+                    _logger.LogWarning("[PARTITION_ERROR] No chunks could be analyzed for file {FilePath}", filePath);
+                    return Result<CodeAnalysis>.Fail("Não foi possível analisar nenhuma parte do código");
+                }
+                
+                // Agregar os resultados dos chunks
+                _logger.LogInformation("[PARTITION_AGGREGATE] Aggregating results from {ChunkCount} chunks", chunkResults.Count);
+                var result = Result<CodeAnalysis>.Success(AggregateChunkAnalyses(chunkResults, filePath, commit));
+                _logger.LogInformation("[PARTITION_COMPLETE] Completed partitioned analysis for {FilePath}", filePath);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[PARTITION_EXCEPTION] Error analyzing partitioned code");
+                return Result<CodeAnalysis>.Fail(ex);
+            }
+        }
+
+        /// <summary>
+        /// Constrói o prompt para análise de um chunk de código
+        /// </summary>
+        private string BuildChunkAnalysisPrompt(
+            string chunkContent, 
+            string codeDiff, 
+            string filePath, 
+            CommitInfo commit,
+            string chunkDescription)
+        {
+            var fileExtension = System.IO.Path.GetExtension(filePath).ToLowerInvariant();
+            
+            var prompt = $@"Analise o seguinte trecho de código-fonte e forneça uma avaliação detalhada de acordo com os princípios de Clean Code.
+
+INFORMAÇÕES DO COMMIT:
+- ID do commit: {commit.Id}
+- Autor: {commit.Author}
+- Mensagem: {commit.Message}
+- Data: {commit.Date}
+- Arquivo: {filePath}
+- Parte do código: {chunkDescription}
+
+CÓDIGO-FONTE (TRECHO):
+```{fileExtension}
+{chunkContent}
+```
+
+OBSERVAÇÃO: Este é apenas um trecho do arquivo completo. Concentre sua análise apenas neste trecho.
+
+Analise o código com base nos seguintes critérios de Clean Code:
+1. Nomenclatura de variáveis e métodos (0-10)
+2. Tamanho adequado das funções (0-10)
+3. Uso de comentários relevantes (0-10)
+4. Coesão dos métodos (0-10)
+5. Evitação de código morto ou redundante (0-10)
+
+Sua resposta deve ser APENAS um JSON válido com a estrutura exata mostrada abaixo.
+IMPORTANTE: Todas as pontuações devem ser números inteiros (não strings).
+EVITE colocar vírgulas após o último item de cada objeto.
+
+{{
+  ""commit_id"": ""{commit.Id}"",
+  ""autor"": ""{commit.Author}"",
+  ""analise_clean_code"": {{
+    ""nomeclatura_variaveis"": 7,
+    ""tamanho_funcoes"": 8,
+    ""uso_de_comentarios_relevantes"": 6,
+    ""cohesao_dos_metodos"": 7,
+    ""evitacao_de_codigo_morto"": 9
+  }},
+  ""nota_geral"": 7.4,
+  ""justificativa"": ""Justificativa da análise aqui""
+}}
+
+Os valores nas notas são apenas exemplos para mostrar que deve usar números, não strings.
+Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON válido solicitado.";
+
+            return prompt;
+        }
+
+        /// <summary>
+        /// Agrega as análises de diferentes chunks em uma única análise
+        /// </summary>
+        private CodeAnalysis AggregateChunkAnalyses(List<CodeAnalysis> chunkAnalyses, string filePath, CommitInfo commit)
+        {
+            _logger.LogInformation("Agregando análises de {ChunkCount} chunks para o arquivo {FilePath}", 
+                chunkAnalyses.Count, filePath);
+            
+            // Calcular médias de cada métrica
+            var variableNaming = (int)Math.Round(chunkAnalyses.Average(a => a.CleanCodeAnalysis.VariableNaming));
+            var functionSize = (int)Math.Round(chunkAnalyses.Average(a => a.CleanCodeAnalysis.FunctionSize));
+            var commentUsage = (int)Math.Round(chunkAnalyses.Average(a => a.CleanCodeAnalysis.CommentUsage));
+            var methodCohesion = (int)Math.Round(chunkAnalyses.Average(a => a.CleanCodeAnalysis.MethodCohesion));
+            var deadCodeAvoidance = (int)Math.Round(chunkAnalyses.Average(a => a.CleanCodeAnalysis.DeadCodeAvoidance));
+            var overallScore = chunkAnalyses.Average(a => a.OverallScore);
+            
+            // Concatenar as justificativas
+            var justifications = chunkAnalyses.Select((a, i) => $"Parte {i+1}: {a.Justification}").ToList();
+            var justification = string.Join("\n\n", justifications);
+            
+            if (justification.Length > 2000)
+            {
+                justification = justification.Substring(0, 2000) + "... (justificativa truncada)";
+            }
+            
+            // Criar análise agregada
+            var aggregatedAnalysis = new CodeAnalysis
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                CommitId = commit.Id,
+                FilePath = filePath,
+                Author = commit.Author,
+                CommitDate = commit.Date,
+                AnalysisDate = DateTime.UtcNow,
+                CleanCodeAnalysis = new CleanCodeAnalysis
+                {
+                    VariableNaming = variableNaming,
+                    NamingConventions = new ScoreItem { Score = variableNaming, Justification = "" },
+                    FunctionSize = functionSize,
+                    CommentUsage = commentUsage,
+                    MeaningfulComments = new ScoreItem { Score = commentUsage, Justification = "" },
+                    MethodCohesion = methodCohesion,
+                    DeadCodeAvoidance = deadCodeAvoidance
+                },
+                OverallScore = overallScore,
+                Justification = $"Análise de {chunkAnalyses.Count} partes do código.\n\n{justification}"
+            };
+            
+            return aggregatedAnalysis;
+        }
+
+        /// <summary>
+        /// Divide o código em chunks menores para análise
+        /// </summary>
+        private List<CodeChunk> PartitionCode(string codeContent, string filePath)
+        {
+            var extension = Path.GetExtension(filePath).ToLowerInvariant();
+            var maxChunkSize = _options.MaxCodeLength;
+            var chunks = new List<CodeChunk>();
+            
+            // Abordagem de particionamento depende da extensão do arquivo
+            switch (extension)
+            {
+                case ".cs":
+                case ".java":
+                case ".cpp":
+                case ".c":
+                    return PartitionCodeByClasses(codeContent, maxChunkSize);
+                    
+                case ".js":
+                case ".ts":
+                    return PartitionCodeByFunctions(codeContent, maxChunkSize);
+                    
+                default:
+                    return PartitionCodeByLines(codeContent, maxChunkSize);
+            }
+        }
+
+        /// <summary>
+        /// Particiona o código por classes (para C#, Java, etc.)
+        /// </summary>
+        private List<CodeChunk> PartitionCodeByClasses(string codeContent, int maxChunkSize)
+        {
+            var chunks = new List<CodeChunk>();
+            
+            // Regex para identificar declarações de classe ou interface
+            var classRegex = new Regex(@"(public|private|protected|internal|abstract|static|sealed|partial)?\s+(class|interface|struct|enum)\s+(\w+).*?{", RegexOptions.Compiled);
+            
+            // Tenta encontrar classes/interfaces
+            var matches = classRegex.Matches(codeContent);
+            
+            if (matches.Count > 0)
+            {
+                // Cabeçalho do arquivo (namespaces, imports, etc)
+                var headerEnd = matches[0].Index;
+                if (headerEnd > 0)
+                {
+                    var header = codeContent.Substring(0, headerEnd);
+                    chunks.Add(new CodeChunk(0, header, "Cabeçalho do arquivo"));
+                }
+                
+                // Adicionar cada classe como um chunk
+                for (int i = 0; i < matches.Count; i++)
+                {
+                    var currentMatch = matches[i];
+                    int startIndex = currentMatch.Index;
+                    int endIndex;
+                    
+                    if (i < matches.Count - 1)
+                    {
+                        endIndex = matches[i + 1].Index;
+                    }
+                    else
+                    {
+                        endIndex = codeContent.Length;
+                    }
+                    
+                    var classContent = codeContent.Substring(startIndex, endIndex - startIndex);
+                    var className = currentMatch.Groups[3].Value;
+                    
+                    // Se a classe for muito grande, particiona por métodos
+                    if (classContent.Length > maxChunkSize)
+                    {
+                        var classChunks = PartitionClassByMethods(classContent, className, maxChunkSize);
+                        foreach (var chunk in classChunks)
+                        {
+                            chunk.Index = chunks.Count;
+                            chunks.Add(chunk);
+                        }
+                    }
+                    else
+                    {
+                        chunks.Add(new CodeChunk(chunks.Count, classContent, $"Classe {className}"));
+                    }
+                }
+            }
+            else
+            {
+                // Fallback para particionamento por linhas se não encontrar classes
+                return PartitionCodeByLines(codeContent, maxChunkSize);
+            }
+            
+            return chunks;
+        }
+
+        /// <summary>
+        /// Particiona uma classe por métodos
+        /// </summary>
+        private List<CodeChunk> PartitionClassByMethods(string classContent, string className, int maxChunkSize)
+        {
+            var chunks = new List<CodeChunk>();
+            
+            // Regex para identificar métodos
+            var methodRegex = new Regex(@"(public|private|protected|internal|virtual|abstract|static|override|async)?\s+\w+(\<.*\>)?\s+\w+\s*\(.*\)\s*({|\s*=>)", RegexOptions.Compiled);
+            
+            // Tentar encontrar métodos
+            var matches = methodRegex.Matches(classContent);
+            
+            if (matches.Count > 0)
+            {
+                // Parte inicial da classe (campos, propriedades, etc)
+                var headerEnd = matches[0].Index;
+                if (headerEnd > 0)
+                {
+                    var header = classContent.Substring(0, headerEnd);
+                    chunks.Add(new CodeChunk(0, header, $"Classe {className} - definição e campos"));
+                }
+                
+                // Adicionar cada método como um chunk
+                for (int i = 0; i < matches.Count; i++)
+                {
+                    var currentMatch = matches[i];
+                    int startIndex = currentMatch.Index;
+                    int endIndex;
+                    
+                    if (i < matches.Count - 1)
+                    {
+                        endIndex = matches[i + 1].Index;
+                    }
+                    else
+                    {
+                        endIndex = classContent.Length;
+                    }
+                    
+                    var methodContent = classContent.Substring(startIndex, endIndex - startIndex);
+                    
+                    // Se ainda estiver muito grande, quebrar em partes
+                    if (methodContent.Length > maxChunkSize)
+                    {
+                        var parts = (int)Math.Ceiling((double)methodContent.Length / maxChunkSize);
+                        for (int part = 0; part < parts; part++)
+                        {
+                            int partStart = part * maxChunkSize;
+                            int partLength = Math.Min(maxChunkSize, methodContent.Length - partStart);
+                            var partContent = methodContent.Substring(partStart, partLength);
+                            
+                            chunks.Add(new CodeChunk(chunks.Count, partContent, 
+                                $"Classe {className} - método grande (parte {part + 1}/{parts})"));
+                        }
+                    }
+                    else
+                    {
+                        // Extrair o nome do método
+                        var methodName = "método";
+                        var nameMatch = Regex.Match(methodContent, @"\w+\s+(\w+)\s*\(");
+                        if (nameMatch.Success && nameMatch.Groups.Count > 1)
+                        {
+                            methodName = nameMatch.Groups[1].Value;
+                        }
+                        
+                        chunks.Add(new CodeChunk(chunks.Count, methodContent, $"Classe {className} - método {methodName}"));
+                    }
+                }
+            }
+            else
+            {
+                // Se não encontrou métodos, divide a classe em partes
+                var parts = (int)Math.Ceiling((double)classContent.Length / maxChunkSize);
+                for (int i = 0; i < parts; i++)
+                {
+                    int start = i * maxChunkSize;
+                    int length = Math.Min(maxChunkSize, classContent.Length - start);
+                    var content = classContent.Substring(start, length);
+                    
+                    chunks.Add(new CodeChunk(i, content, $"Classe {className} - parte {i + 1}/{parts}"));
+                }
+            }
+            
+            return chunks;
+        }
+
+        /// <summary>
+        /// Particiona o código por funções (para JavaScript, TypeScript, etc.)
+        /// </summary>
+        private List<CodeChunk> PartitionCodeByFunctions(string codeContent, int maxChunkSize)
+        {
+            var chunks = new List<CodeChunk>();
+            
+            // Regex para identificar funções e métodos
+            var functionRegex = new Regex(@"(function|async function|\w+\s*=\s*function|\w+\s*=\s*\(.*\)\s*=>|const\s+\w+\s*=\s*\(.*\)\s*=>|\w+\s*\(.*\)\s*{)", RegexOptions.Compiled);
+            
+            // Tentar encontrar funções
+            var matches = functionRegex.Matches(codeContent);
+            
+            if (matches.Count > 0)
+            {
+                // Parte inicial do arquivo
+                var headerEnd = matches[0].Index;
+                if (headerEnd > 0)
+                {
+                    var header = codeContent.Substring(0, headerEnd);
+                    chunks.Add(new CodeChunk(0, header, "Código inicial (imports, constantes, etc)"));
+                }
+                
+                // Adicionar cada função como um chunk
+                for (int i = 0; i < matches.Count; i++)
+                {
+                    var currentMatch = matches[i];
+                    int startIndex = currentMatch.Index;
+                    int endIndex;
+                    
+                    if (i < matches.Count - 1)
+                    {
+                        endIndex = matches[i + 1].Index;
+                    }
+                    else
+                    {
+                        endIndex = codeContent.Length;
+                    }
+                    
+                    var functionContent = codeContent.Substring(startIndex, endIndex - startIndex);
+                    
+                    // Se a função for muito grande, dividir em partes
+                    if (functionContent.Length > maxChunkSize)
+                    {
+                        var parts = (int)Math.Ceiling((double)functionContent.Length / maxChunkSize);
+                        for (int part = 0; part < parts; part++)
+                        {
+                            int partStart = part * maxChunkSize;
+                            int partLength = Math.Min(maxChunkSize, functionContent.Length - partStart);
+                            var partContent = functionContent.Substring(partStart, partLength);
+                            
+                            chunks.Add(new CodeChunk(chunks.Count, partContent, 
+                                $"Função grande (parte {part + 1}/{parts})"));
+                        }
+                    }
+                    else
+                    {
+                        // Tentar extrair o nome da função
+                        var functionName = "função";
+                        var nameMatch = Regex.Match(functionContent, @"function\s+(\w+)|const\s+(\w+)|let\s+(\w+)|var\s+(\w+)");
+                        if (nameMatch.Success)
+                        {
+                            for (int g = 1; g < nameMatch.Groups.Count; g++)
+                            {
+                                if (!string.IsNullOrEmpty(nameMatch.Groups[g].Value))
+                                {
+                                    functionName = nameMatch.Groups[g].Value;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        chunks.Add(new CodeChunk(chunks.Count, functionContent, $"Função {functionName}"));
+                    }
+                }
+            }
+            else
+            {
+                // Fallback para particionamento por linhas
+                return PartitionCodeByLines(codeContent, maxChunkSize);
+            }
+            
+            return chunks;
+        }
+
+        /// <summary>
+        /// Particiona o código por linhas (último recurso)
+        /// </summary>
+        private List<CodeChunk> PartitionCodeByLines(string codeContent, int maxChunkSize)
+        {
+            var chunks = new List<CodeChunk>();
+            var lines = codeContent.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+            
+            // Estimativa do número de chunks necessários
+            int totalChunks = (int)Math.Ceiling((double)codeContent.Length / maxChunkSize);
+            int linesPerChunk = (int)Math.Ceiling((double)lines.Length / totalChunks);
+            
+            for (int i = 0; i < totalChunks; i++)
+            {
+                int startLine = i * linesPerChunk;
+                int endLine = Math.Min(startLine + linesPerChunk, lines.Length);
+                
+                // Concatenar linhas para o chunk atual
+                var chunkLines = new List<string>();
+                for (int j = startLine; j < endLine; j++)
+                {
+                    chunkLines.Add(lines[j]);
+                }
+                
+                var chunkContent = string.Join(Environment.NewLine, chunkLines);
+                chunks.Add(new CodeChunk(i, chunkContent, $"Parte {i + 1}/{totalChunks} do arquivo"));
+            }
+            
+            return chunks;
+        }
+
+        /// <summary>
+        /// Classe para representar um chunk de código
+        /// </summary>
+        private class CodeChunk
+        {
+            public int Index { get; set; }
+            public string Content { get; }
+            public string Description { get; }
+            
+            public CodeChunk(int index, string content, string description)
+            {
+                Index = index;
+                Content = content;
+                Description = description;
             }
         }
 
@@ -489,22 +1056,26 @@ Analise o código com base nos seguintes critérios de Clean Code:
 4. Coesão dos métodos (0-10)
 5. Evitação de código morto ou redundante (0-10)
 
-Sua resposta deve ser APENAS um JSON válido com a estrutura exata:
+Sua resposta deve ser APENAS um JSON válido com a estrutura exata mostrada abaixo.
+IMPORTANTE: Todas as pontuações devem ser números inteiros (não strings).
+EVITE colocar vírgulas após o último item de cada objeto.
+
 {{
   ""commit_id"": ""{commit.Id}"",
   ""autor"": ""{commit.Author}"",
   ""analise_clean_code"": {{
-    ""nomeclatura_variaveis"": [valor entre 0-10],
-    ""tamanho_funcoes"": [valor entre 0-10],
-    ""uso_de_comentarios_relevantes"": [valor entre 0-10],
-    ""cohesao_dos_metodos"": [valor entre 0-10],
-    ""evitacao_de_codigo_morto"": [valor entre 0-10]
+    ""nomeclatura_variaveis"": 7,
+    ""tamanho_funcoes"": 8,
+    ""uso_de_comentarios_relevantes"": 6,
+    ""cohesao_dos_metodos"": 7,
+    ""evitacao_de_codigo_morto"": 9
   }},
-  ""nota_geral"": [média das notas acima],
-  ""justificativa"": ""[Explicação objetiva das notas atribuídas]""
+  ""nota_geral"": 7.4,
+  ""justificativa"": ""Justificativa da análise aqui""
 }}
 
-Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON solicitado.";
+Os valores nas notas são apenas exemplos para mostrar que deve usar números, não strings.
+Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON válido solicitado.";
 
             return prompt;
         }
@@ -528,7 +1099,7 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 
                 if (jsonCodeBlockMatch.Success)
                 {
-                    return jsonCodeBlockMatch.Groups[1].Value.Trim();
+                    return CleanJsonContent(jsonCodeBlockMatch.Groups[1].Value.Trim());
                 }
                 
                 // Tentar extrair o JSON delimitado por ``` e ```
@@ -537,7 +1108,7 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 
                 if (codeBlockMatch.Success)
                 {
-                    return codeBlockMatch.Groups[1].Value.Trim();
+                    return CleanJsonContent(codeBlockMatch.Groups[1].Value.Trim());
                 }
                 
                 // Tentar encontrar um objeto JSON 
@@ -546,7 +1117,19 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 
                 if (jsonMatch.Success)
                 {
-                    return jsonMatch.Groups[1].Value.Trim();
+                    return CleanJsonContent(jsonMatch.Groups[1].Value.Trim());
+                }
+                
+                // Último recurso: tentar limpar o texto completo e ver se é um JSON
+                if (text.Contains("{") && text.Contains("}"))
+                {
+                    var startIndex = text.IndexOf('{');
+                    var endIndex = text.LastIndexOf('}');
+                    if (startIndex >= 0 && endIndex > startIndex)
+                    {
+                        var potentialJson = text.Substring(startIndex, endIndex - startIndex + 1);
+                        return CleanJsonContent(potentialJson);
+                    }
                 }
                 
                 _logger.LogWarning("Não foi possível encontrar um JSON válido na resposta");
@@ -557,6 +1140,34 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 _logger.LogError(ex, "Erro ao extrair JSON do texto");
                 return string.Empty;
             }
+        }
+        
+        /// <summary>
+        /// Limpa e corrige problemas comuns em strings JSON geradas por LLMs
+        /// </summary>
+        private string CleanJsonContent(string jsonContent)
+        {
+            if (string.IsNullOrEmpty(jsonContent))
+                return jsonContent;
+                
+            // Remove comentários estilo C#/Java
+            jsonContent = Regex.Replace(jsonContent, @"//.*?$", "", RegexOptions.Multiline);
+            
+            // Remove comentários de múltiplas linhas
+            jsonContent = Regex.Replace(jsonContent, @"/\*.*?\*/", "", RegexOptions.Singleline);
+            
+            // Trata problema de vírgulas no final de objetos ou arrays
+            jsonContent = Regex.Replace(jsonContent, @",(\s*})", "$1");
+            jsonContent = Regex.Replace(jsonContent, @",(\s*])", "$1");
+            
+            // Converte aspas simples em aspas duplas
+            jsonContent = Regex.Replace(jsonContent, @"'([^']*?)'", "\"$1\"");
+            
+            // Converte valores de texto em valores numéricos quando necessário
+            jsonContent = Regex.Replace(jsonContent, @"""(\d+)""", "$1");
+            jsonContent = Regex.Replace(jsonContent, @"""(\d+\.\d+)""", "$1");
+            
+            return jsonContent;
         }
     }
 } 
