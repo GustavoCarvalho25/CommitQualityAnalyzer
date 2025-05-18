@@ -1538,9 +1538,14 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 foreach (var c in jsonContent)
                 {
                     // Aceitar apenas caracteres seguros para JSON
-                    if ((c >= ' ' && c <= '~') || c == '\n' || c == '\r' || c == '\t')
+                    if ((c >= ' ' && c <= '~') || c == '\t')
                     {
                         validJson.Append(c);
+                    }
+                    else if (c == '\n' || c == '\r')
+                    {
+                        // Substituir quebras de linha por espaço em strings
+                        validJson.Append(' ');
                     }
                     else
                     {
@@ -1581,13 +1586,97 @@ Não inclua texto adicional antes ou depois do JSON. Responda apenas com o JSON 
                 catch (JsonException jsonEx)
                 {
                     _logger.LogWarning("[JSON_CLEAN] JSON inválido após limpeza: {Error}", jsonEx.Message);
-                    // Tentar corrigir problemas específicos baseados no erro
+                    
+                    // Tentar aplicar correções específicas baseadas no erro
+                    
+                    // Problema com aspas inteligentes ou outro caractere Unicode
                     if (jsonEx.Message.Contains("'0xE2'"))
                     {
-                        // Problema com aspas inteligentes ou outro caractere Unicode
                         jsonContent = Regex.Replace(jsonContent, @"[\u201C\u201D]", "\"");
                         jsonContent = Regex.Replace(jsonContent, @"[\u2018\u2019]", "'");
                         _logger.LogDebug("[JSON_CLEAN] Tentativa de correção de caracteres Unicode especiais");
+                    }
+                    
+                    // Problemas com caracteres inválidos em strings
+                    if (jsonEx.Message.Contains("invalid within a JSON string") || jsonEx.Message.Contains("LineNumber"))
+                    {
+                        // Tenta normalizar o JSON usando um método alternativo
+                        try
+                        {
+                            // Técnica de normalização por objeto do C#
+                            var tempObject = new
+                            {
+                                commit_id = "",
+                                autor = "",
+                                analise_clean_code = new
+                                {
+                                    nomeclatura_variaveis = 0,
+                                    justificativa_nomenclatura = "",
+                                    tamanho_funcoes = 0,
+                                    justificativa_funcoes = "",
+                                    uso_de_comentarios_relevantes = 0,
+                                    justificativa_comentarios = "",
+                                    cohesao_dos_metodos = 0,
+                                    justificativa_cohesao = "",
+                                    evitacao_de_codigo_morto = 0,
+                                    justificativa_codigo_morto = ""
+                                },
+                                nota_geral = 0.0,
+                                justificativa = ""
+                            };
+                            
+                            // Extrair cada valor possível usando regex
+                            var commitIdMatch = Regex.Match(jsonContent, @"""commit_id""[\s:]+""([^""]+)""");
+                            var autorMatch = Regex.Match(jsonContent, @"""autor""[\s:]+""([^""]+)""");
+                            var nomeclaturaMatch = Regex.Match(jsonContent, @"""nomeclatura_variaveis""[\s:]+(\d+)");
+                            var justNomenMatch = Regex.Match(jsonContent, @"""justificativa_nomenclatura""[\s:]+""([^""]+)""");
+                            var tamanhoMatch = Regex.Match(jsonContent, @"""tamanho_funcoes""[\s:]+(\d+)");
+                            var justFuncMatch = Regex.Match(jsonContent, @"""justificativa_funcoes""[\s:]+""([^""]+)""");
+                            var comentariosMatch = Regex.Match(jsonContent, @"""uso_de_comentarios_relevantes""[\s:]+(\d+)");
+                            var justComMatch = Regex.Match(jsonContent, @"""justificativa_comentarios""[\s:]+""([^""]+)""");
+                            var coesaoMatch = Regex.Match(jsonContent, @"""cohesao_dos_metodos""[\s:]+(\d+)");
+                            var justCoesMatch = Regex.Match(jsonContent, @"""justificativa_cohesao""[\s:]+""([^""]+)""");
+                            var codigoMortoMatch = Regex.Match(jsonContent, @"""evitacao_de_codigo_morto""[\s:]+(\d+)");
+                            var justCodigoMatch = Regex.Match(jsonContent, @"""justificativa_codigo_morto""[\s:]+""([^""]+)""");
+                            var notaMatch = Regex.Match(jsonContent, @"""nota_geral""[\s:]+([0-9.]+)");
+                            var justMatch = Regex.Match(jsonContent, @"""justificativa""[\s:]+""([^""]+)""");
+                            
+                            // Construir objeto limpo
+                            var cleanObj = new
+                            {
+                                commit_id = commitIdMatch.Success ? commitIdMatch.Groups[1].Value : "",
+                                autor = autorMatch.Success ? autorMatch.Groups[1].Value : "",
+                                analise_clean_code = new
+                                {
+                                    nomeclatura_variaveis = nomeclaturaMatch.Success ? int.Parse(nomeclaturaMatch.Groups[1].Value) : 5,
+                                    justificativa_nomenclatura = justNomenMatch.Success ? justNomenMatch.Groups[1].Value : "Análise parcial devido a problemas no JSON",
+                                    tamanho_funcoes = tamanhoMatch.Success ? int.Parse(tamanhoMatch.Groups[1].Value) : 5,
+                                    justificativa_funcoes = justFuncMatch.Success ? justFuncMatch.Groups[1].Value : "Análise parcial devido a problemas no JSON",
+                                    uso_de_comentarios_relevantes = comentariosMatch.Success ? int.Parse(comentariosMatch.Groups[1].Value) : 5,
+                                    justificativa_comentarios = justComMatch.Success ? justComMatch.Groups[1].Value : "Análise parcial devido a problemas no JSON",
+                                    cohesao_dos_metodos = coesaoMatch.Success ? int.Parse(coesaoMatch.Groups[1].Value) : 5,
+                                    justificativa_cohesao = justCoesMatch.Success ? justCoesMatch.Groups[1].Value : "Análise parcial devido a problemas no JSON",
+                                    evitacao_de_codigo_morto = codigoMortoMatch.Success ? int.Parse(codigoMortoMatch.Groups[1].Value) : 5,
+                                    justificativa_codigo_morto = justCodigoMatch.Success ? justCodigoMatch.Groups[1].Value : "Análise parcial devido a problemas no JSON"
+                                },
+                                nota_geral = notaMatch.Success ? double.Parse(notaMatch.Groups[1].Value) : 5.0,
+                                justificativa = justMatch.Success ? justMatch.Groups[1].Value : "Análise parcial devido a problemas no JSON"
+                            };
+                            
+                            // Serializar para JSON limpo
+                            var options = new JsonSerializerOptions
+                            {
+                                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                                WriteIndented = true
+                            };
+                            
+                            jsonContent = JsonSerializer.Serialize(cleanObj, options);
+                            _logger.LogDebug("[JSON_CLEAN] Regenerado JSON válido via extração regex");
+                        }
+                        catch (Exception regexEx)
+                        {
+                            _logger.LogError(regexEx, "[JSON_CLEAN] Erro ao tentar normalizar JSON via regex");
+                        }
                     }
                 }
                 
