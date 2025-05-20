@@ -1,0 +1,754 @@
+2025-05-05 00:00:42.761 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:00:42.762 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:00:42.762 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:00:42.762 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:00:42.762 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:00:42.762 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:00:42.763 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:00:42.763 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:00:42.826 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit b43b414e
+2025-05-05 00:00:42.826 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit b43b414e
+2025-05-05 00:00:43.827 -03:00 [INF] Processando commit: 21bea466 de Lucas Ferreira em "2025-05-02T14:08:35.0000000-03:00"
+2025-05-05 00:00:43.827 -03:00 [INF] Processando commit: 21bea466 de Lucas Ferreira em "2025-05-02T14:08:35.0000000-03:00"
+2025-05-05 00:00:43.837 -03:00 [INF] Encontradas 1 mudanças no commit 21bea4668d50ca062e02736535eb6d2e4006e97b
+2025-05-05 00:00:43.837 -03:00 [INF] Encontradas 1 mudanças no commit 21bea4668d50ca062e02736535eb6d2e4006e97b
+2025-05-05 00:00:43.837 -03:00 [INF] Encontradas 1 alterações no commit 21bea466
+2025-05-05 00:00:43.837 -03:00 [INF] Encontradas 1 alterações no commit 21bea466
+2025-05-05 00:00:43.837 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:00:43.837 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:00:43.841 -03:00 [INF] Analisando arquivo: src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:00:43.841 -03:00 [INF] Analisando arquivo: src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:00:43.848 -03:00 [INF] Arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs dividido em 7 partes para análise
+2025-05-05 00:00:43.848 -03:00 [INF] Arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs dividido em 7 partes para análise
+2025-05-05 00:00:43.848 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:00:43.848 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:00:43.848 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 0)
+2025-05-05 00:00:43.848 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 0)
+2025-05-05 00:00:43.848 -03:00 [INF] Processando prompt completo de 1085 caracteres
+2025-05-05 00:00:43.848 -03:00 [INF] Processando prompt completo de 1085 caracteres
+2025-05-05 00:00:43.848 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:00:43.848 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:00:43.848 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:00:43.848 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:00:43.848 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:00:43.848 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:01:31.852 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:01:31.852 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: nomenclaturaMetodos, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: nomenclaturaMetodos, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: tamanhoFuncoes, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: tamanhoFuncoes, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: comentarios, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: comentarios, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: duplicacaoCodigo, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Subcritério processado: duplicacaoCodigo, Nota: 0
+2025-05-05 00:01:31.852 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:01:31.852 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:01:31.852 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 1)
+2025-05-05 00:01:31.852 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 1)
+2025-05-05 00:01:31.852 -03:00 [INF] Processando prompt completo de 2962 caracteres
+2025-05-05 00:01:31.853 -03:00 [INF] Processando prompt completo de 2962 caracteres
+2025-05-05 00:01:31.853 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:01:31.853 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:01:31.853 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:01:31.853 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:01:31.853 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:01:31.853 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:03:37.206 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:03:37.206 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:03:37.207 -03:00 [ERR] Erro ao processar resposta: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 40.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 40.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalysis.SimpleResponseAnalysisService.ProcessResponse(String textResponse) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalysis\SimpleResponseAnalysisService.cs:line 59
+2025-05-05 00:03:37.210 -03:00 [ERR] Erro ao processar resposta: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 40.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 40.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalysis.SimpleResponseAnalysisService.ProcessResponse(String textResponse) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalysis\SimpleResponseAnalysisService.cs:line 59
+2025-05-05 00:03:37.210 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:03:37.210 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:03:37.210 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:03:37.210 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:03:37.210 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 2)
+2025-05-05 00:03:37.210 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 2)
+2025-05-05 00:03:37.210 -03:00 [INF] Processando prompt completo de 2963 caracteres
+2025-05-05 00:03:37.210 -03:00 [INF] Processando prompt completo de 2963 caracteres
+2025-05-05 00:03:37.210 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:03:37.210 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:03:37.210 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:03:37.210 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:03:37.210 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:03:37.210 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:04:44.602 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:04:44.602 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:04:44.602 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:04:44.602 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:04:44.602 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:04:44.602 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:04:44.602 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:04:44.602 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:04:44.602 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 3)
+2025-05-05 00:04:44.602 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 3)
+2025-05-05 00:04:44.602 -03:00 [INF] Processando prompt completo de 2990 caracteres
+2025-05-05 00:04:44.602 -03:00 [INF] Processando prompt completo de 2990 caracteres
+2025-05-05 00:04:44.602 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:04:44.602 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:04:44.602 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:04:44.602 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:04:44.602 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:04:44.602 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:06:53.390 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:06:53.390 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 8
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 8
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: nomenclaturaMétodos, Nota: 8
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: nomenclaturaMétodos, Nota: 8
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: tamanhoFunções, Nota: 6
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: tamanhoFunções, Nota: 6
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: comentários, Nota: 4
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: comentários, Nota: 4
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: duplicaçãoCódigo, Nota: 10
+2025-05-05 00:06:53.390 -03:00 [INF] Subcritério processado: duplicaçãoCódigo, Nota: 10
+2025-05-05 00:06:53.390 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:06:53.390 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:06:53.390 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 4)
+2025-05-05 00:06:53.390 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 4)
+2025-05-05 00:06:53.390 -03:00 [INF] Processando prompt completo de 2975 caracteres
+2025-05-05 00:06:53.390 -03:00 [INF] Processando prompt completo de 2975 caracteres
+2025-05-05 00:06:53.390 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:06:53.390 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:06:53.390 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:06:53.390 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:06:53.390 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:06:53.390 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:08:29.827 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:08:29.827 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:08:29.827 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:08:29.827 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:08:29.827 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:08:29.827 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:08:29.827 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:08:29.827 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:08:29.827 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 5)
+2025-05-05 00:08:29.827 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 5)
+2025-05-05 00:08:29.827 -03:00 [INF] Processando prompt completo de 2954 caracteres
+2025-05-05 00:08:29.827 -03:00 [INF] Processando prompt completo de 2954 caracteres
+2025-05-05 00:08:29.827 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:08:29.827 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:08:29.827 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:08:29.827 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:08:29.827 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:08:29.827 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:13:29.828 -03:00 [ERR] Timeout ao processar prompt após 300 segundos
+2025-05-05 00:13:29.828 -03:00 [ERR] Timeout ao processar prompt após 300 segundos
+2025-05-05 00:13:29.828 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:13:29.828 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:13:29.828 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:13:29.828 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:13:29.828 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:13:29.828 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:13:29.828 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:13:29.828 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:13:29.828 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 6)
+2025-05-05 00:13:29.828 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 6)
+2025-05-05 00:13:29.828 -03:00 [INF] Processando prompt completo de 2492 caracteres
+2025-05-05 00:13:29.828 -03:00 [INF] Processando prompt completo de 2492 caracteres
+2025-05-05 00:13:29.828 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:13:29.828 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:13:29.828 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:13:29.828 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:13:29.828 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:13:29.828 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:14:37.813 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:14:37.813 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:14:37.813 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:14:37.813 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:14:37.813 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:14:37.813 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:14:37.813 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:14:37.813 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:14:37.820 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit 21bea466
+2025-05-05 00:14:37.820 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit 21bea466
+2025-05-05 00:14:38.821 -03:00 [INF] Processando commit: 3d01b23f de Gustavo Carvalho em "2025-05-02T11:33:36.0000000-03:00"
+2025-05-05 00:14:38.821 -03:00 [INF] Processando commit: 3d01b23f de Gustavo Carvalho em "2025-05-02T11:33:36.0000000-03:00"
+2025-05-05 00:14:39.125 -03:00 [INF] Encontradas 1 mudanças no commit 3d01b23f851e6c341a29bf5be78fef58ae54cff8
+2025-05-05 00:14:39.125 -03:00 [INF] Encontradas 1 mudanças no commit 3d01b23f851e6c341a29bf5be78fef58ae54cff8
+2025-05-05 00:14:39.125 -03:00 [INF] Encontradas 1 alterações no commit 3d01b23f
+2025-05-05 00:14:39.125 -03:00 [INF] Encontradas 1 alterações no commit 3d01b23f
+2025-05-05 00:14:39.125 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:14:39.125 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:14:39.127 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:14:39.127 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:14:39.135 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs dividido em 6 partes para análise
+2025-05-05 00:14:39.135 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs dividido em 6 partes para análise
+2025-05-05 00:14:39.135 -03:00 [INF] Analisando parte 1 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:14:39.135 -03:00 [INF] Analisando parte 1 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:14:39.135 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 0)
+2025-05-05 00:14:39.135 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 0)
+2025-05-05 00:14:39.135 -03:00 [INF] Processando prompt completo de 1430 caracteres
+2025-05-05 00:14:39.135 -03:00 [INF] Processando prompt completo de 1430 caracteres
+2025-05-05 00:14:39.135 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:14:39.135 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:14:39.135 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:14:39.135 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:14:39.135 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:14:39.135 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:15:33.021 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:15:33.021 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:15:33.021 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:15:33.021 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:15:33.021 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:15:33.021 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:15:33.021 -03:00 [INF] Analisando parte 2 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:15:33.021 -03:00 [INF] Analisando parte 2 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:15:33.021 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 1)
+2025-05-05 00:15:33.021 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 1)
+2025-05-05 00:15:33.021 -03:00 [INF] Processando prompt completo de 3000 caracteres
+2025-05-05 00:15:33.021 -03:00 [INF] Processando prompt completo de 3000 caracteres
+2025-05-05 00:15:33.021 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:15:33.021 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:15:33.021 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:15:33.021 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:15:33.021 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:15:33.021 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:17:01.301 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:17:01.301 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:17:01.301 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:17:01.301 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:17:01.301 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:17:01.301 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:17:01.301 -03:00 [INF] Analisando parte 3 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:17:01.301 -03:00 [INF] Analisando parte 3 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:17:01.301 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 2)
+2025-05-05 00:17:01.301 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 2)
+2025-05-05 00:17:01.301 -03:00 [INF] Processando prompt completo de 2987 caracteres
+2025-05-05 00:17:01.301 -03:00 [INF] Processando prompt completo de 2987 caracteres
+2025-05-05 00:17:01.301 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:17:01.301 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:17:01.301 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:17:01.301 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:17:01.301 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:17:01.301 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:18:07.128 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:18:07.128 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:18:07.128 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:18:07.128 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:18:07.128 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:18:07.128 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:18:07.128 -03:00 [INF] Analisando parte 4 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:18:07.128 -03:00 [INF] Analisando parte 4 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:18:07.128 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 3)
+2025-05-05 00:18:07.128 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 3)
+2025-05-05 00:18:07.128 -03:00 [INF] Processando prompt completo de 2953 caracteres
+2025-05-05 00:18:07.128 -03:00 [INF] Processando prompt completo de 2953 caracteres
+2025-05-05 00:18:07.128 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:18:07.128 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:18:07.128 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:18:07.128 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:18:07.128 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:18:07.128 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:19:24.233 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:19:24.233 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:19:24.233 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:19:24.233 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:19:24.233 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:19:24.233 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:19:24.233 -03:00 [INF] Analisando parte 5 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:19:24.233 -03:00 [INF] Analisando parte 5 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:19:24.233 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 4)
+2025-05-05 00:19:24.233 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 4)
+2025-05-05 00:19:24.233 -03:00 [INF] Processando prompt completo de 2958 caracteres
+2025-05-05 00:19:24.233 -03:00 [INF] Processando prompt completo de 2958 caracteres
+2025-05-05 00:19:24.233 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:19:24.233 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:19:24.233 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:19:24.233 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:19:24.233 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:19:24.233 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:20:58.728 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-05-05 00:20:58.762 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-05-05 00:20:58.764 -03:00 [INF] Config: windir = C:\Windows
+2025-05-05 00:20:58.765 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-05-05 00:20:58.765 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-05-05 00:20:58.766 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-05-05 00:20:58.767 -03:00 [INF] Config: USERNAME = Gusta
+2025-05-05 00:20:58.767 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-05-05 00:20:58.768 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-05-05 00:20:58.768 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-05-05 00:20:58.769 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-05-05 00:20:58.769 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-05-05 00:20:58.770 -03:00 [INF] Config: SystemDrive = C:
+2025-05-05 00:20:58.770 -03:00 [INF] Config: SESSIONNAME = Console
+2025-05-05 00:20:58.772 -03:00 [INF] Config: Serilog = null
+2025-05-05 00:20:58.774 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-05-05 00:20:58.774 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-05-05 00:20:58.775 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-05-05 00:20:58.775 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-05-05 00:20:58.776 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-05-05 00:20:58.777 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-05-05 00:20:58.777 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-05-05 00:20:58.778 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-05-05 00:20:58.778 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-05-05 00:20:58.779 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-05-05 00:20:58.780 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-05-05 00:20:58.782 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-05-05 00:20:58.783 -03:00 [INF] Config: Serilog:Using = null
+2025-05-05 00:20:58.784 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-05-05 00:20:58.785 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-05-05 00:20:58.785 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-05-05 00:20:58.786 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-05-05 00:20:58.787 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-05-05 00:20:58.788 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-05-05 00:20:58.789 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-05-05 00:20:58.789 -03:00 [INF] Config: Serilog:Enrich = null
+2025-05-05 00:20:58.790 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-05-05 00:20:58.792 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-05-05 00:20:58.793 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-05-05 00:20:58.794 -03:00 [INF] Config: ROOT_X64 = C:\Program Files\dotnet
+2025-05-05 00:20:58.794 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-05-05 00:20:58.795 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-05-05 00:20:58.796 -03:00 [INF] Config: PROMPT = $P$G
+2025-05-05 00:20:58.797 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-05-05 00:20:58.798 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-05-05 00:20:58.799 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-05-05 00:20:58.799 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-05-05 00:20:58.800 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-05-05 00:20:58.802 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-05-05 00:20:58.803 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-05-05 00:20:58.804 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-05-05 00:20:58.805 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-05-05 00:20:58.805 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin;F:\Apps\Dev\Azure Data Studio\bin;C:\Users\Gusta\AppData\Local\Programs\Julia-1.11.5\bin
+2025-05-05 00:20:58.808 -03:00 [INF] Config: OS = Windows_NT
+2025-05-05 00:20:58.808 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-05-05 00:20:58.809 -03:00 [INF] Config: Ollama = null
+2025-05-05 00:20:58.811 -03:00 [INF] Config: Ollama:TimeoutMinutes = 15
+2025-05-05 00:20:58.812 -03:00 [INF] Config: Ollama:ModelName = codellama
+2025-05-05 00:20:58.813 -03:00 [INF] Config: Ollama:MaxPromptLength = 6000
+2025-05-05 00:20:58.813 -03:00 [INF] Config: Ollama:MaxPartLength = 2000
+2025-05-05 00:20:58.814 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-05-05 00:20:58.815 -03:00 [INF] Config: Ollama:ContextLength = 1024
+2025-05-05 00:20:58.816 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-05-05 00:20:58.816 -03:00 [INF] Config: Ollama:AlternativeModels = null
+2025-05-05 00:20:58.817 -03:00 [INF] Config: Ollama:AlternativeModels:0 = codellama
+2025-05-05 00:20:58.818 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-05-05 00:20:58.819 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-05-05 00:20:58.820 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-05-05 00:20:58.822 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-05-05 00:20:58.822 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-05-05 00:20:58.823 -03:00 [INF] Config: MSBuildLoadMicrosoftTargetsReadOnly = true
+2025-05-05 00:20:58.824 -03:00 [INF] Config: MSBUILDFAILONDRIVEENUMERATINGWILDCARD = 1
+2025-05-05 00:20:58.825 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-05-05 00:20:58.825 -03:00 [INF] Config: Logging = null
+2025-05-05 00:20:58.826 -03:00 [INF] Config: Logging:LogLevel = null
+2025-05-05 00:20:58.827 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-05-05 00:20:58.828 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-05-05 00:20:58.829 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-05-05 00:20:58.831 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-05-05 00:20:58.831 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-05-05 00:20:58.833 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-05-05 00:20:58.834 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-05-05 00:20:58.834 -03:00 [INF] Config: GitRepository = null
+2025-05-05 00:20:58.835 -03:00 [INF] Config: GitRepository:Path = D:\Edata\Vision\backend
+2025-05-05 00:20:58.836 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-05-05 00:20:58.837 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-05-05 00:20:58.838 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-05-05 00:20:58.839 -03:00 [INF] Config: DOTNET_ROOT_X64 = C:\Program Files\dotnet
+2025-05-05 00:20:58.840 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker
+2025-05-05 00:20:58.841 -03:00 [INF] Config: ConnectionStrings = null
+2025-05-05 00:20:58.842 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-05-05 00:20:58.843 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-05-05 00:20:58.844 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-05-05 00:20:58.845 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-05-05 00:20:58.845 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-05-05 00:20:58.846 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-05-05 00:20:58.847 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-05-05 00:20:58.848 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-05-05 00:20:58.850 -03:00 [INF] Caminho do repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.003 -03:00 [INF] OllamaService inicializado com timeout de 15 minutos e tamanho máximo de prompt de 6000 caracteres
+2025-05-05 00:20:59.005 -03:00 [INF] OllamaService inicializado com timeout de 15 minutos e tamanho máximo de prompt de 6000 caracteres
+2025-05-05 00:20:59.006 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-05-05 00:20:59.007 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.007 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.008 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.009 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.018 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.018 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-05-05 00:20:59.048 -03:00 [INF] Encontrados 4 commits nas últimas 24 horas
+2025-05-05 00:20:59.049 -03:00 [INF] Encontrados 4 commits nas últimas 24 horas
+2025-05-05 00:20:59.051 -03:00 [INF] Encontrados 4 commits nas últimas 24 horas
+2025-05-05 00:20:59.051 -03:00 [INF] Encontrados 4 commits nas últimas 24 horas
+2025-05-05 00:20:59.053 -03:00 [INF] Processando commit: b43b414e de Lucas Ferreira em "2025-05-02T14:09:07.0000000-03:00"
+2025-05-05 00:20:59.055 -03:00 [INF] Processando commit: b43b414e de Lucas Ferreira em "2025-05-02T14:09:07.0000000-03:00"
+2025-05-05 00:20:59.076 -03:00 [INF] Encontradas 1 mudanças no commit b43b414e1574d37b91dcb9653ac452ef1c1c5e3e
+2025-05-05 00:20:59.077 -03:00 [INF] Encontradas 1 mudanças no commit b43b414e1574d37b91dcb9653ac452ef1c1c5e3e
+2025-05-05 00:20:59.078 -03:00 [INF] Encontradas 1 alterações no commit b43b414e
+2025-05-05 00:20:59.079 -03:00 [INF] Encontradas 1 alterações no commit b43b414e
+2025-05-05 00:20:59.086 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:20:59.087 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:20:59.119 -03:00 [INF] Analisando arquivo: src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:20:59.119 -03:00 [INF] Analisando arquivo: src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:20:59.130 -03:00 [INF] Arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs dividido em 7 partes para análise
+2025-05-05 00:20:59.131 -03:00 [INF] Arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs dividido em 7 partes para análise
+2025-05-05 00:20:59.132 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:20:59.134 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:20:59.135 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 0)
+2025-05-05 00:20:59.136 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 0)
+2025-05-05 00:20:59.139 -03:00 [INF] Processando prompt completo de 1085 caracteres
+2025-05-05 00:20:59.139 -03:00 [INF] Processando prompt completo de 1085 caracteres
+2025-05-05 00:20:59.140 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:20:59.141 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:20:59.143 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:20:59.144 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:20:59.144 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:20:59.145 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:21:48.837 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:21:48.838 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:21:48.840 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 0
+2025-05-05 00:21:48.840 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 0
+2025-05-05 00:21:48.841 -03:00 [INF] Subcritério processado: nomenclaturaMetodos, Nota: 0
+2025-05-05 00:21:48.842 -03:00 [INF] Subcritério processado: nomenclaturaMetodos, Nota: 0
+2025-05-05 00:21:48.843 -03:00 [INF] Subcritério processado: tamanhoFuncoes, Nota: 0
+2025-05-05 00:21:48.844 -03:00 [INF] Subcritério processado: tamanhoFuncoes, Nota: 0
+2025-05-05 00:21:48.845 -03:00 [INF] Subcritério processado: comentarios, Nota: 0
+2025-05-05 00:21:48.845 -03:00 [INF] Subcritério processado: comentarios, Nota: 0
+2025-05-05 00:21:48.847 -03:00 [INF] Subcritério processado: duplicacaoCodigo, Nota: 0
+2025-05-05 00:21:48.848 -03:00 [INF] Subcritério processado: duplicacaoCodigo, Nota: 0
+2025-05-05 00:21:48.849 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:21:48.850 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:21:48.851 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 1)
+2025-05-05 00:21:48.853 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 1)
+2025-05-05 00:21:48.854 -03:00 [INF] Processando prompt completo de 2962 caracteres
+2025-05-05 00:21:48.854 -03:00 [INF] Processando prompt completo de 2962 caracteres
+2025-05-05 00:21:48.855 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:21:48.856 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:21:48.857 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:21:48.858 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:21:48.859 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:21:48.860 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:23:37.938 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:23:37.939 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:23:37.940 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:23:37.940 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:23:37.941 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:23:37.941 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:23:37.942 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:23:37.943 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:23:37.944 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 2)
+2025-05-05 00:23:37.946 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 2)
+2025-05-05 00:23:37.947 -03:00 [INF] Processando prompt completo de 2963 caracteres
+2025-05-05 00:23:37.949 -03:00 [INF] Processando prompt completo de 2963 caracteres
+2025-05-05 00:23:37.950 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:23:37.951 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:23:37.952 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:23:37.953 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:23:37.954 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:23:37.954 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:24:45.238 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:24:45.238 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:24:45.239 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:24:45.240 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:24:45.240 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:24:45.241 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:24:45.241 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:24:45.243 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:24:45.244 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 3)
+2025-05-05 00:24:45.245 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 3)
+2025-05-05 00:24:45.246 -03:00 [INF] Processando prompt completo de 2990 caracteres
+2025-05-05 00:24:45.248 -03:00 [INF] Processando prompt completo de 2990 caracteres
+2025-05-05 00:24:45.249 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:24:45.250 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:24:45.250 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:24:45.251 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:24:45.252 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:24:45.253 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:25:56.850 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:25:56.851 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:25:56.852 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:25:56.852 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:25:56.853 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:25:56.854 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:25:56.854 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:25:56.855 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:25:56.857 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 4)
+2025-05-05 00:25:56.858 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 4)
+2025-05-05 00:25:56.859 -03:00 [INF] Processando prompt completo de 2975 caracteres
+2025-05-05 00:25:56.860 -03:00 [INF] Processando prompt completo de 2975 caracteres
+2025-05-05 00:25:56.861 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:25:56.862 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:25:56.862 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:25:56.863 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:25:56.864 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:25:56.865 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:27:47.209 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:27:47.209 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:27:47.210 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 8
+2025-05-05 00:27:47.211 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 8
+2025-05-05 00:27:47.212 -03:00 [INF] Subcritério processado: nomenclaturaMétodos, Nota: 8
+2025-05-05 00:27:47.212 -03:00 [INF] Subcritério processado: nomenclaturaMétodos, Nota: 8
+2025-05-05 00:27:47.213 -03:00 [INF] Subcritério processado: tamanhoFunções, Nota: 9
+2025-05-05 00:27:47.214 -03:00 [INF] Subcritério processado: tamanhoFunções, Nota: 9
+2025-05-05 00:27:47.215 -03:00 [INF] Subcritério processado: comentários, Nota: 7
+2025-05-05 00:27:47.215 -03:00 [INF] Subcritério processado: comentários, Nota: 7
+2025-05-05 00:27:47.216 -03:00 [INF] Subcritério processado: duplicaçãoCódigo, Nota: 10
+2025-05-05 00:27:47.217 -03:00 [INF] Subcritério processado: duplicaçãoCódigo, Nota: 10
+2025-05-05 00:27:47.219 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:27:47.220 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:27:47.221 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 5)
+2025-05-05 00:27:47.222 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 5)
+2025-05-05 00:27:47.223 -03:00 [INF] Processando prompt completo de 2954 caracteres
+2025-05-05 00:27:47.224 -03:00 [INF] Processando prompt completo de 2954 caracteres
+2025-05-05 00:27:47.225 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:27:47.225 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:27:47.226 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:27:47.227 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:27:47.229 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:27:47.229 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:29:23.469 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:29:23.470 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:29:23.470 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:29:23.471 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:29:23.472 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:29:23.472 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:29:23.473 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:29:23.474 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:29:23.475 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 6)
+2025-05-05 00:29:23.476 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 6)
+2025-05-05 00:29:23.477 -03:00 [INF] Processando prompt completo de 2492 caracteres
+2025-05-05 00:29:23.478 -03:00 [INF] Processando prompt completo de 2492 caracteres
+2025-05-05 00:29:23.480 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:29:23.481 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:29:23.481 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:29:23.482 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:29:23.483 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:29:23.483 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:30:30.429 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:30:30.429 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:30:30.430 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:30:30.431 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:30:30.431 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:30:30.432 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:30:30.433 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:30:30.434 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:30:30.435 -03:00 [INF] Mapeados 5 subcritérios para o critério CleanCode
+2025-05-05 00:30:30.436 -03:00 [INF] Mapeados 5 subcritérios para o critério CleanCode
+2025-05-05 00:30:30.479 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit b43b414e
+2025-05-05 00:30:30.480 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit b43b414e
+2025-05-05 00:30:31.482 -03:00 [INF] Processando commit: 21bea466 de Lucas Ferreira em "2025-05-02T14:08:35.0000000-03:00"
+2025-05-05 00:30:31.482 -03:00 [INF] Processando commit: 21bea466 de Lucas Ferreira em "2025-05-02T14:08:35.0000000-03:00"
+2025-05-05 00:30:31.493 -03:00 [INF] Encontradas 1 mudanças no commit 21bea4668d50ca062e02736535eb6d2e4006e97b
+2025-05-05 00:30:31.494 -03:00 [INF] Encontradas 1 mudanças no commit 21bea4668d50ca062e02736535eb6d2e4006e97b
+2025-05-05 00:30:31.495 -03:00 [INF] Encontradas 1 alterações no commit 21bea466
+2025-05-05 00:30:31.496 -03:00 [INF] Encontradas 1 alterações no commit 21bea466
+2025-05-05 00:30:31.496 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:30:31.497 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:30:31.501 -03:00 [INF] Analisando arquivo: src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:30:31.502 -03:00 [INF] Analisando arquivo: src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:30:31.510 -03:00 [INF] Arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs dividido em 7 partes para análise
+2025-05-05 00:30:31.511 -03:00 [INF] Arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs dividido em 7 partes para análise
+2025-05-05 00:30:31.512 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:30:31.513 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:30:31.515 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 0)
+2025-05-05 00:30:31.516 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 0)
+2025-05-05 00:30:31.517 -03:00 [INF] Processando prompt completo de 1085 caracteres
+2025-05-05 00:30:31.518 -03:00 [INF] Processando prompt completo de 1085 caracteres
+2025-05-05 00:30:31.519 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:30:31.520 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:30:31.520 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:30:31.521 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:30:31.522 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:30:31.522 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:31:18.000 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:31:18.001 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:31:18.002 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 0
+2025-05-05 00:31:18.002 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 0
+2025-05-05 00:31:18.003 -03:00 [INF] Subcritério processado: nomenclaturaMetodos, Nota: 0
+2025-05-05 00:31:18.004 -03:00 [INF] Subcritério processado: nomenclaturaMetodos, Nota: 0
+2025-05-05 00:31:18.005 -03:00 [INF] Subcritério processado: tamanhoFuncoes, Nota: 0
+2025-05-05 00:31:18.006 -03:00 [INF] Subcritério processado: tamanhoFuncoes, Nota: 0
+2025-05-05 00:31:18.006 -03:00 [INF] Subcritério processado: comentarios, Nota: 0
+2025-05-05 00:31:18.007 -03:00 [INF] Subcritério processado: comentarios, Nota: 0
+2025-05-05 00:31:18.008 -03:00 [INF] Subcritério processado: duplicacaoCodigo, Nota: 0
+2025-05-05 00:31:18.009 -03:00 [INF] Subcritério processado: duplicacaoCodigo, Nota: 0
+2025-05-05 00:31:18.011 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:31:18.012 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:31:18.013 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 1)
+2025-05-05 00:31:18.014 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 1)
+2025-05-05 00:31:18.015 -03:00 [INF] Processando prompt completo de 2962 caracteres
+2025-05-05 00:31:18.016 -03:00 [INF] Processando prompt completo de 2962 caracteres
+2025-05-05 00:31:18.017 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:31:18.017 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:31:18.018 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:31:18.018 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:31:18.020 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:31:18.021 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:32:57.973 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:32:57.974 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:32:57.975 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:32:57.976 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:32:57.976 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:32:57.977 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:32:57.977 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:32:57.978 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:32:57.980 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 2)
+2025-05-05 00:32:57.981 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 2)
+2025-05-05 00:32:57.983 -03:00 [INF] Processando prompt completo de 2963 caracteres
+2025-05-05 00:32:57.984 -03:00 [INF] Processando prompt completo de 2963 caracteres
+2025-05-05 00:32:57.985 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:32:57.985 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:32:57.986 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:32:57.987 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:32:57.987 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:32:57.988 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:34:09.685 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:34:09.686 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:34:09.687 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:34:09.687 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:34:09.688 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:34:09.688 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:34:09.689 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:34:09.690 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:34:09.691 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 3)
+2025-05-05 00:34:09.692 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 3)
+2025-05-05 00:34:09.693 -03:00 [INF] Processando prompt completo de 2990 caracteres
+2025-05-05 00:34:09.695 -03:00 [INF] Processando prompt completo de 2990 caracteres
+2025-05-05 00:34:09.696 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:34:09.697 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:34:09.697 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:34:09.698 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:34:09.699 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:34:09.699 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:35:48.858 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:35:48.858 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:35:48.861 -03:00 [ERR] Erro ao processar resposta: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 30.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 30.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalysis.SimpleResponseAnalysisService.ProcessResponse(String textResponse) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalysis\SimpleResponseAnalysisService.cs:line 59
+2025-05-05 00:35:48.870 -03:00 [ERR] Erro ao processar resposta: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 30.
+System.Text.Json.JsonReaderException: '/' is invalid after a value. Expected either ',', '}', or ']'. LineNumber: 2 | BytePositionInLine: 30.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.JsonDocument.Parse(ReadOnlySpan`1 utf8JsonSpan, JsonReaderOptions readerOptions, MetadataDb& database, StackRowStack& stack)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 utf8Json, JsonReaderOptions readerOptions, Byte[] extraRentedArrayPoolBytes, PooledByteBufferWriter extraPooledByteBufferWriter)
+   at System.Text.Json.JsonDocument.Parse(ReadOnlyMemory`1 json, JsonDocumentOptions options)
+   at System.Text.Json.JsonDocument.Parse(String json, JsonDocumentOptions options)
+   at CommitQualityAnalyzer.Worker.Services.CommitAnalysis.SimpleResponseAnalysisService.ProcessResponse(String textResponse) in D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\Services\CommitAnalysis\SimpleResponseAnalysisService.cs:line 59
+2025-05-05 00:35:48.876 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:35:48.878 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:35:48.878 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:35:48.879 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:35:48.880 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 4)
+2025-05-05 00:35:48.882 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 4)
+2025-05-05 00:35:48.883 -03:00 [INF] Processando prompt completo de 2975 caracteres
+2025-05-05 00:35:48.883 -03:00 [INF] Processando prompt completo de 2975 caracteres
+2025-05-05 00:35:48.884 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:35:48.885 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:35:48.885 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:35:48.887 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:35:48.888 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:35:48.889 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:37:33.037 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:37:40.489 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:37:40.490 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:37:40.490 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:37:40.491 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:37:40.492 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:37:40.492 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:37:40.493 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:37:40.495 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 5)
+2025-05-05 00:37:40.496 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 5)
+2025-05-05 00:37:40.498 -03:00 [INF] Processando prompt completo de 2954 caracteres
+2025-05-05 00:37:40.498 -03:00 [INF] Processando prompt completo de 2954 caracteres
+2025-05-05 00:37:40.499 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:37:40.500 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:37:40.500 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:37:40.501 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:37:40.502 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:37:40.503 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:39:59.888 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:39:59.892 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:39:59.892 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 8
+2025-05-05 00:39:59.893 -03:00 [INF] Subcritério processado: nomenclaturaVariaveis, Nota: 8
+2025-05-05 00:39:59.894 -03:00 [INF] Subcritério processado: nomenclaturaMétodos, Nota: 8
+2025-05-05 00:39:59.895 -03:00 [INF] Subcritério processado: nomenclaturaMétodos, Nota: 8
+2025-05-05 00:39:59.896 -03:00 [INF] Subcritério processado: tamanhoFunções, Nota: 6
+2025-05-05 00:39:59.897 -03:00 [INF] Subcritério processado: tamanhoFunções, Nota: 6
+2025-05-05 00:39:59.897 -03:00 [INF] Subcritério processado: comentários, Nota: 7
+2025-05-05 00:39:59.898 -03:00 [INF] Subcritério processado: comentários, Nota: 7
+2025-05-05 00:39:59.901 -03:00 [INF] Subcritério processado: duplicaçãoCódigo, Nota: 10
+2025-05-05 00:39:59.902 -03:00 [INF] Subcritério processado: duplicaçãoCódigo, Nota: 10
+2025-05-05 00:39:59.903 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:39:59.904 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs
+2025-05-05 00:39:59.905 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 6)
+2025-05-05 00:39:59.906 -03:00 [INF] Construindo prompt para análise de código para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs (parte 6)
+2025-05-05 00:39:59.907 -03:00 [INF] Processando prompt completo de 2492 caracteres
+2025-05-05 00:39:59.908 -03:00 [INF] Processando prompt completo de 2492 caracteres
+2025-05-05 00:39:59.910 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:39:59.911 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:39:59.911 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:39:59.912 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:39:59.913 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:39:59.914 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:41:12.331 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:41:12.331 -03:00 [INF] Processando resposta do modelo
+2025-05-05 00:41:12.332 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:41:12.332 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-05-05 00:41:12.333 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:41:12.334 -03:00 [WRN] Criando resultado de análise padrão devido a erro
+2025-05-05 00:41:12.334 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:41:12.335 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-05-05 00:41:12.336 -03:00 [INF] Mapeados 5 subcritérios para o critério CleanCode
+2025-05-05 00:41:12.337 -03:00 [INF] Mapeados 5 subcritérios para o critério CleanCode
+2025-05-05 00:41:12.354 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit 21bea466
+2025-05-05 00:41:12.355 -03:00 [INF] Análise salva com sucesso para src/Reading/Edata.Vision.Reading.Api/Application/Views/ApontamentoProducao.cs no commit 21bea466
+2025-05-05 00:41:13.356 -03:00 [INF] Processando commit: 3d01b23f de Gustavo Carvalho em "2025-05-02T11:33:36.0000000-03:00"
+2025-05-05 00:41:13.357 -03:00 [INF] Processando commit: 3d01b23f de Gustavo Carvalho em "2025-05-02T11:33:36.0000000-03:00"
+2025-05-05 00:41:13.370 -03:00 [INF] Encontradas 1 mudanças no commit 3d01b23f851e6c341a29bf5be78fef58ae54cff8
+2025-05-05 00:41:13.371 -03:00 [INF] Encontradas 1 mudanças no commit 3d01b23f851e6c341a29bf5be78fef58ae54cff8
+2025-05-05 00:41:13.373 -03:00 [INF] Encontradas 1 alterações no commit 3d01b23f
+2025-05-05 00:41:13.373 -03:00 [INF] Encontradas 1 alterações no commit 3d01b23f
+2025-05-05 00:41:13.374 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:41:13.376 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-05-05 00:41:13.379 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:41:13.379 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:41:13.389 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs dividido em 6 partes para análise
+2025-05-05 00:41:13.391 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs dividido em 6 partes para análise
+2025-05-05 00:41:13.394 -03:00 [INF] Analisando parte 1 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:41:13.395 -03:00 [INF] Analisando parte 1 de 6 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs
+2025-05-05 00:41:13.397 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 0)
+2025-05-05 00:41:13.398 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/EntryRepository.cs (parte 0)
+2025-05-05 00:41:13.399 -03:00 [INF] Processando prompt completo de 1430 caracteres
+2025-05-05 00:41:13.400 -03:00 [INF] Processando prompt completo de 1430 caracteres
+2025-05-05 00:41:13.401 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:41:13.401 -03:00 [INF] Processando prompt completo diretamente
+2025-05-05 00:41:13.402 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:41:13.404 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-05-05 00:41:13.404 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-05-05 00:41:13.405 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos

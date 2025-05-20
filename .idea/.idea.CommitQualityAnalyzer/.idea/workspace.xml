@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="RunManager" selected=".NET Launch Settings Profile.CommitQualityAnalyzer.RefactoringWorker">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="012dfcea-b5f6-4def-ab59-b45d17da182e" name="Changes" comment="checkpoint save">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CommitQualityAnalyzer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CommitQualityAnalyzer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GustavoCarvalho25&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GustavoCarvalho25/CommitQualityAnalyzer.git&quot;,
+    &quot;accountId&quot;: &quot;da83b2e1-99e6-4b23-b26a-67db20d9d6e0&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/13e79b2a7b78394ccf591d3454bff5bfb14e692da011a7e38b66c2312b365a/String.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Core/Models/CodeAnalysis.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Estudos/Projects/CommitQualityAnalyzer/src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2vT8ZPB73qUwMcfULpemPU3plF6" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.CommitQualityAnalyzer.Worker.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected=".NET Project.CommitQualityAnalyzer.Worker">
     <configuration name="CommitQualityAnalyzer.Worker" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -34,5 +119,91 @@
         <option name="Build" />
       </method>
     </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="012dfcea-b5f6-4def-ab59-b45d17da182e" name="Changes" comment="" />
+      <created>1744157759826</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744157759826</updated>
+      <workItem from="1744157762325" duration="1541000" />
+      <workItem from="1744160016483" duration="904000" />
+      <workItem from="1744161676920" duration="7523000" />
+      <workItem from="1746412274634" duration="2492000" />
+      <workItem from="1746669920378" duration="1265000" />
+    </task>
+    <task id="LOCAL-00001" summary="fix(FullProject) - @GustavoCarvalho25 - Refatorando projeto e corrigindo grande serviço">
+      <option name="closed" value="true" />
+      <created>1744162854497</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744162854497</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix(FullProject) - @GustavoCarvalho25 - Refatorando projeto e corrigindo grande serviço">
+      <option name="closed" value="true" />
+      <created>1744162868659</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744162868659</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix(FullProject) - @GustavoCarvalho25 - Refatorando serviços">
+      <option name="closed" value="true" />
+      <created>1744168875381</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744168875381</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix(FullProject) - @GustavoCarvalho25 - Refatorando serviços">
+      <option name="closed" value="true" />
+      <created>1744168931897</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744168931897</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix(FullProject) - @GustavoCarvalho25 - Ajustando verificações">
+      <option name="closed" value="true" />
+      <created>1744169710442</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744169710442</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix(FullProject) - @GustavoCarvalho25 - Mudando modelo para deepseek">
+      <option name="closed" value="true" />
+      <created>1744171924391</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744171924391</updated>
+    </task>
+    <task id="LOCAL-00007" summary="checkpoint save">
+      <option name="closed" value="true" />
+      <created>1746670567323</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746670567323</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix(FullProject) - @GustavoCarvalho25 - Refatorando projeto e corrigindo grande serviço" />
+    <MESSAGE value="fix(FullProject) - @GustavoCarvalho25 - Refatorando serviços" />
+    <MESSAGE value="fix(FullProject) - @GustavoCarvalho25 - Ajustando verificações" />
+    <MESSAGE value="fix(FullProject) - @GustavoCarvalho25 - Mudando modelo para deepseek" />
+    <MESSAGE value="checkpoint save" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkpoint save" />
   </component>
 </project>

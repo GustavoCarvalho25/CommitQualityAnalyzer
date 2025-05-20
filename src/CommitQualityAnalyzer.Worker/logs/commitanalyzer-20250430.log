@@ -1,0 +1,350 @@
+2025-04-30 00:00:10.363 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:00:10.595 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:00:10.595 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:00:10.596 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:00:10.596 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:00:10.597 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:00:10.598 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:00:10.599 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:00:10.600 -03:00 [INF] Analisando parte 5 de 6 do arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-04-30 00:00:10.601 -03:00 [INF] Analisando parte 5 de 6 do arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-04-30 00:00:10.601 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs (parte 4)
+2025-04-30 00:00:10.602 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs (parte 4)
+2025-04-30 00:00:10.603 -03:00 [INF] Processando prompt completo de 3002 caracteres
+2025-04-30 00:00:10.604 -03:00 [INF] Processando prompt completo de 3002 caracteres
+2025-04-30 00:00:10.606 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:00:10.606 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:00:10.607 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:00:10.608 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:00:10.608 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:00:10.609 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:01:46.868 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:01:46.868 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:01:46.869 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:01:46.870 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:01:46.870 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:01:46.871 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:01:46.872 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:01:46.872 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:01:46.873 -03:00 [INF] Analisando parte 6 de 6 do arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-04-30 00:01:46.874 -03:00 [INF] Analisando parte 6 de 6 do arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs
+2025-04-30 00:01:46.875 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs (parte 5)
+2025-04-30 00:01:46.876 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs (parte 5)
+2025-04-30 00:01:46.878 -03:00 [INF] Processando prompt completo de 2578 caracteres
+2025-04-30 00:01:46.878 -03:00 [INF] Processando prompt completo de 2578 caracteres
+2025-04-30 00:01:46.879 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:01:46.880 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:01:46.880 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:01:46.881 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:01:46.882 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:01:46.883 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:03:23.157 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:03:23.158 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:03:23.159 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:03:23.159 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:03:23.160 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:03:23.161 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:03:23.162 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:03:23.162 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:03:23.163 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-30 00:03:23.164 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-30 00:03:23.165 -03:00 [INF] Análise salva com sucesso para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs no commit 786360d6
+2025-04-30 00:03:23.167 -03:00 [INF] Análise salva com sucesso para src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs no commit 786360d6
+2025-04-30 00:03:24.170 -03:00 [INF] Analisando arquivo: src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:03:24.171 -03:00 [INF] Analisando arquivo: src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:03:24.179 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs dividido em 7 partes para análise
+2025-04-30 00:03:24.180 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs dividido em 7 partes para análise
+2025-04-30 00:03:24.181 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:03:24.182 -03:00 [INF] Analisando parte 1 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:03:24.183 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 0)
+2025-04-30 00:03:24.184 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 0)
+2025-04-30 00:03:24.184 -03:00 [INF] Processando prompt completo de 1794 caracteres
+2025-04-30 00:03:24.185 -03:00 [INF] Processando prompt completo de 1794 caracteres
+2025-04-30 00:03:24.186 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:03:24.186 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:03:24.187 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:03:24.189 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:03:24.190 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:03:24.191 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:04:28.948 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:04:28.949 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:04:28.949 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:04:28.950 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:04:28.951 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:04:28.951 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:04:28.953 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:04:28.953 -03:00 [INF] Analisando parte 2 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:04:28.954 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 1)
+2025-04-30 00:04:28.955 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 1)
+2025-04-30 00:04:28.956 -03:00 [INF] Processando prompt completo de 2981 caracteres
+2025-04-30 00:04:28.957 -03:00 [INF] Processando prompt completo de 2981 caracteres
+2025-04-30 00:04:28.959 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:04:28.959 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:04:28.960 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:04:28.961 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:04:28.962 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:04:28.962 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:05:50.700 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:05:50.701 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:05:50.702 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:05:50.702 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:05:50.703 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:05:50.704 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:05:50.705 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:05:50.705 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:05:50.706 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:05:50.707 -03:00 [INF] Analisando parte 3 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:05:50.708 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 2)
+2025-04-30 00:05:50.709 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 2)
+2025-04-30 00:05:50.711 -03:00 [INF] Processando prompt completo de 3011 caracteres
+2025-04-30 00:05:50.712 -03:00 [INF] Processando prompt completo de 3011 caracteres
+2025-04-30 00:05:50.712 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:05:50.713 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:05:50.713 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:05:50.714 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:05:50.715 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:05:50.716 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:06:58.106 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:06:58.107 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:06:58.108 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:06:58.108 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:06:58.109 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:06:58.109 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:06:58.111 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:06:58.111 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:06:58.112 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:06:58.113 -03:00 [INF] Analisando parte 4 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:06:58.114 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 3)
+2025-04-30 00:06:58.117 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 3)
+2025-04-30 00:06:58.118 -03:00 [INF] Processando prompt completo de 2953 caracteres
+2025-04-30 00:06:58.118 -03:00 [INF] Processando prompt completo de 2953 caracteres
+2025-04-30 00:06:58.119 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:06:58.120 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:06:58.120 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:06:58.121 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:06:58.122 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:06:58.122 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:08:12.137 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:08:12.137 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:08:12.138 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:08:12.139 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:08:12.139 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:08:12.140 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:08:12.141 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:08:12.142 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:08:12.142 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:08:12.143 -03:00 [INF] Analisando parte 5 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:08:12.144 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 4)
+2025-04-30 00:08:12.145 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 4)
+2025-04-30 00:08:12.147 -03:00 [INF] Processando prompt completo de 2995 caracteres
+2025-04-30 00:08:12.148 -03:00 [INF] Processando prompt completo de 2995 caracteres
+2025-04-30 00:08:12.149 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:08:12.149 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:08:12.150 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:08:12.151 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:08:12.152 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:08:12.152 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:09:32.005 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:09:32.005 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:09:32.006 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:09:32.007 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:09:32.007 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:09:32.008 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:09:32.009 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:09:32.010 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:09:32.010 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:09:32.011 -03:00 [INF] Analisando parte 6 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:09:32.012 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 5)
+2025-04-30 00:09:32.013 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 5)
+2025-04-30 00:09:32.015 -03:00 [INF] Processando prompt completo de 2972 caracteres
+2025-04-30 00:09:32.034 -03:00 [INF] Processando prompt completo de 2972 caracteres
+2025-04-30 00:09:32.034 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:09:32.035 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:09:32.036 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:09:32.036 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:09:32.037 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:09:32.038 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:10:51.942 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:10:51.943 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:10:51.944 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:10:51.944 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:10:51.945 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:10:51.946 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:10:51.947 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:10:51.947 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:10:51.948 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:10:51.949 -03:00 [INF] Analisando parte 7 de 7 do arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs
+2025-04-30 00:10:51.950 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 6)
+2025-04-30 00:10:51.951 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs (parte 6)
+2025-04-30 00:10:51.953 -03:00 [INF] Processando prompt completo de 1317 caracteres
+2025-04-30 00:10:51.954 -03:00 [INF] Processando prompt completo de 1317 caracteres
+2025-04-30 00:10:51.954 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:10:51.955 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:10:51.955 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:10:51.956 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:10:51.957 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:10:51.958 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:11:41.407 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:11:41.408 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:11:41.409 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:11:41.409 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:11:41.410 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:11:41.410 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:11:41.411 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:11:41.412 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:11:41.413 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-30 00:11:41.413 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-30 00:11:41.429 -03:00 [INF] Análise salva com sucesso para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs no commit 786360d6
+2025-04-30 00:11:41.430 -03:00 [INF] Análise salva com sucesso para src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs no commit 786360d6
+2025-04-30 00:11:42.433 -03:00 [INF] Analisando arquivo: src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs
+2025-04-30 00:11:42.434 -03:00 [INF] Analisando arquivo: src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs
+2025-04-30 00:11:42.442 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs dividido em 2 partes para análise
+2025-04-30 00:11:42.443 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs dividido em 2 partes para análise
+2025-04-30 00:11:42.444 -03:00 [INF] Analisando parte 1 de 2 do arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs
+2025-04-30 00:11:42.445 -03:00 [INF] Analisando parte 1 de 2 do arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs
+2025-04-30 00:11:42.446 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs (parte 0)
+2025-04-30 00:11:42.447 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs (parte 0)
+2025-04-30 00:11:42.447 -03:00 [INF] Processando prompt completo de 1120 caracteres
+2025-04-30 00:11:42.448 -03:00 [INF] Processando prompt completo de 1120 caracteres
+2025-04-30 00:11:42.449 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:11:42.450 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:11:42.450 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:11:42.452 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:11:42.453 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:11:42.454 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:12:27.666 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:12:27.666 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:12:27.667 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:12:27.668 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:12:27.668 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:12:27.669 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:12:27.670 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:12:27.670 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:12:27.671 -03:00 [INF] Analisando parte 2 de 2 do arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs
+2025-04-30 00:12:27.672 -03:00 [INF] Analisando parte 2 de 2 do arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs
+2025-04-30 00:12:27.673 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs (parte 1)
+2025-04-30 00:12:27.674 -03:00 [INF] Construindo prompt para análise de código para src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs (parte 1)
+2025-04-30 00:12:27.676 -03:00 [INF] Processando prompt completo de 1249 caracteres
+2025-04-30 00:12:27.677 -03:00 [INF] Processando prompt completo de 1249 caracteres
+2025-04-30 00:12:27.677 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:12:27.678 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:12:27.678 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:12:27.679 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:12:27.680 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:12:27.681 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:13:36.398 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:13:36.399 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:13:36.400 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:13:36.400 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:13:36.401 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:13:36.402 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:13:36.403 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:13:36.403 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:13:36.404 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-30 00:13:36.405 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-30 00:13:36.406 -03:00 [INF] Análise salva com sucesso para src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs no commit 786360d6
+2025-04-30 00:13:36.408 -03:00 [INF] Análise salva com sucesso para src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs no commit 786360d6
+2025-04-30 00:13:37.409 -03:00 [INF] Processando commit: 89cfecdd de Gabriel Mattos em "2025-04-29T12:13:42.0000000-03:00"
+2025-04-30 00:13:37.409 -03:00 [INF] Processando commit: 89cfecdd de Gabriel Mattos em "2025-04-29T12:13:42.0000000-03:00"
+2025-04-30 00:13:37.420 -03:00 [INF] Encontradas 4 mudanças no commit 89cfecdd38f7b434d3f3b9af4f63cb72664af603
+2025-04-30 00:13:37.421 -03:00 [INF] Encontradas 4 mudanças no commit 89cfecdd38f7b434d3f3b9af4f63cb72664af603
+2025-04-30 00:13:37.422 -03:00 [INF] Encontradas 4 alterações no commit 89cfecdd
+2025-04-30 00:13:37.423 -03:00 [INF] Encontradas 4 alterações no commit 89cfecdd
+2025-04-30 00:13:37.424 -03:00 [INF] Encontrados 4 arquivos C# relevantes para analisar
+2025-04-30 00:13:37.425 -03:00 [INF] Encontrados 4 arquivos C# relevantes para analisar
+2025-04-30 00:13:37.427 -03:00 [INF] Analisando arquivo: src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:13:37.427 -03:00 [INF] Analisando arquivo: src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:13:37.436 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs dividido em 8 partes para análise
+2025-04-30 00:13:37.437 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs dividido em 8 partes para análise
+2025-04-30 00:13:37.437 -03:00 [INF] Analisando parte 1 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:13:37.438 -03:00 [INF] Analisando parte 1 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:13:37.439 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 0)
+2025-04-30 00:13:37.440 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 0)
+2025-04-30 00:13:37.441 -03:00 [INF] Processando prompt completo de 2210 caracteres
+2025-04-30 00:13:37.442 -03:00 [INF] Processando prompt completo de 2210 caracteres
+2025-04-30 00:13:37.442 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:13:37.443 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:13:37.444 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:13:37.445 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:13:37.446 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:13:37.447 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:14:38.281 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:14:38.282 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:14:38.283 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:14:38.283 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:14:38.284 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:14:38.284 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:14:38.285 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:14:38.286 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:14:38.286 -03:00 [INF] Analisando parte 2 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:14:38.287 -03:00 [INF] Analisando parte 2 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:14:38.288 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 1)
+2025-04-30 00:14:38.289 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 1)
+2025-04-30 00:14:38.291 -03:00 [INF] Processando prompt completo de 2987 caracteres
+2025-04-30 00:14:38.292 -03:00 [INF] Processando prompt completo de 2987 caracteres
+2025-04-30 00:14:38.293 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:14:38.293 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:14:38.294 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:14:38.295 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:14:38.295 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:14:38.296 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:16:04.568 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:16:04.569 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:16:04.570 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:16:04.570 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:16:04.571 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:16:04.571 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:16:04.575 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:16:04.575 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:16:04.576 -03:00 [INF] Analisando parte 3 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:16:04.578 -03:00 [INF] Analisando parte 3 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:16:04.579 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 2)
+2025-04-30 00:16:04.579 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 2)
+2025-04-30 00:16:04.580 -03:00 [INF] Processando prompt completo de 2969 caracteres
+2025-04-30 00:16:04.581 -03:00 [INF] Processando prompt completo de 2969 caracteres
+2025-04-30 00:16:04.582 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:16:04.582 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:16:04.583 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:16:04.584 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:16:04.584 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:16:04.585 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:17:43.072 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:17:43.073 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:17:43.074 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:17:43.075 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:17:43.075 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:17:43.076 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:17:43.077 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:17:43.077 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:17:43.078 -03:00 [INF] Analisando parte 4 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:17:43.079 -03:00 [INF] Analisando parte 4 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:17:43.080 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 3)
+2025-04-30 00:17:43.080 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 3)
+2025-04-30 00:17:43.081 -03:00 [INF] Processando prompt completo de 3038 caracteres
+2025-04-30 00:17:43.083 -03:00 [INF] Processando prompt completo de 3038 caracteres
+2025-04-30 00:17:43.084 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:17:43.085 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:17:43.085 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:17:43.086 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:17:43.087 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:17:43.088 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:20:26.353 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:20:26.354 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-30 00:20:26.355 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:20:26.355 -03:00 [WRN] Não foi possível extrair JSON da resposta
+2025-04-30 00:20:26.356 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:20:26.357 -03:00 [INF] Extraindo informações de análise diretamente do texto
+2025-04-30 00:20:26.358 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:20:26.359 -03:00 [INF] Extraindo informações do comentário geral...
+2025-04-30 00:20:26.360 -03:00 [INF] Analisando parte 5 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:20:26.360 -03:00 [INF] Analisando parte 5 de 8 do arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs
+2025-04-30 00:20:26.361 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 4)
+2025-04-30 00:20:26.363 -03:00 [INF] Construindo prompt para análise de código para src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs (parte 4)
+2025-04-30 00:20:26.364 -03:00 [INF] Processando prompt completo de 2957 caracteres
+2025-04-30 00:20:26.365 -03:00 [INF] Processando prompt completo de 2957 caracteres
+2025-04-30 00:20:26.366 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:20:26.367 -03:00 [INF] Processando prompt completo diretamente
+2025-04-30 00:20:26.367 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:20:26.368 -03:00 [INF] Usando num_ctx = 1024 para o modelo codellama
+2025-04-30 00:20:26.369 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-30 00:20:26.370 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos

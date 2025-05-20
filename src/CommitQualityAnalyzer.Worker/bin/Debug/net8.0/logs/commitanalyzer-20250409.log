@@ -1,0 +1,1671 @@
+2025-04-09 00:01:21.042 -03:00 [INF] Processando parte 2/2
+2025-04-09 00:01:21.047 -03:00 [INF] Processando parte 2/2
+2025-04-09 00:01:21.048 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:01:21.049 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:03:21.403 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-09 00:03:21.403 -03:00 [INF] Tentando converter resposta em texto para JSON
+2025-04-09 00:03:21.410 -03:00 [INF] Análise concluída com sucesso para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:03:21.410 -03:00 [INF] Análise concluída com sucesso para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:03:21.412 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 00:03:21.412 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 00:03:21.511 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs no commit a10b8410
+2025-04-09 00:03:21.512 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs no commit a10b8410
+2025-04-09 00:03:22.514 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:03:22.515 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:03:22.515 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:03:22.516 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:03:22.516 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:03:22.517 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:03:22.517 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:03:22.518 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:03:23.518 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:03:23.518 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:03:23.519 -03:00 [INF] Processando prompt completo de 8040 caracteres
+2025-04-09 00:03:23.520 -03:00 [INF] Processando prompt completo de 8040 caracteres
+2025-04-09 00:03:23.521 -03:00 [WRN] Parte 3 excede o tamanho máximo (2045 > 2000). Truncando...
+2025-04-09 00:03:23.521 -03:00 [WRN] Parte 3 excede o tamanho máximo (2045 > 2000). Truncando...
+2025-04-09 00:03:23.522 -03:00 [WRN] Parte 4 excede o tamanho máximo (2044 > 2000). Truncando...
+2025-04-09 00:03:23.523 -03:00 [WRN] Parte 4 excede o tamanho máximo (2044 > 2000). Truncando...
+2025-04-09 00:03:23.524 -03:00 [INF] Prompt dividido em 5 partes
+2025-04-09 00:03:23.524 -03:00 [INF] Prompt dividido em 5 partes
+2025-04-09 00:03:23.525 -03:00 [INF] Processando parte 1/5
+2025-04-09 00:03:23.525 -03:00 [INF] Processando parte 1/5
+2025-04-09 00:03:23.526 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:03:23.527 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:04:16.575 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:04:16.697 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:04:16.701 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:04:16.702 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:04:16.703 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:04:16.703 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:04:16.704 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:04:16.704 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:04:16.705 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:04:16.705 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:04:16.706 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:04:16.707 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:04:16.707 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:04:16.708 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:04:16.709 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:04:16.709 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:04:16.712 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:04:16.712 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:04:16.713 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:04:16.713 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:04:16.714 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:04:16.715 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:04:16.715 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:04:16.716 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:04:16.716 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:04:16.717 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:04:16.718 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:04:16.718 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:04:16.719 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:04:16.719 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:04:16.720 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:04:16.720 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:04:16.721 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:04:16.722 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:04:16.722 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:04:16.723 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:04:16.724 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:04:16.724 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:04:16.725 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:04:16.725 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:04:16.726 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:04:16.726 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:04:16.727 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:04:16.728 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:04:16.728 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:04:16.729 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:04:16.729 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:04:16.730 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:04:16.730 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:04:16.731 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:04:16.732 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:04:16.732 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:04:16.733 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:04:16.733 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:04:16.734 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:04:16.735 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:04:16.735 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:04:16.736 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:04:16.736 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:04:16.737 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:04:16.737 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:04:16.738 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:04:16.739 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:04:16.739 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:04:16.740 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:04:16.740 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:04:16.741 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:04:16.742 -03:00 [INF] Config: Logging = null
+2025-04-09 00:04:16.742 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:04:16.743 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:04:16.743 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:04:16.744 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:04:16.744 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:04:16.745 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:04:16.745 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:04:16.746 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:04:16.747 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:04:16.747 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:16.748 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:04:16.749 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:04:16.749 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:04:16.750 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:04:16.751 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:04:16.751 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:04:16.752 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:04:16.752 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:04:16.753 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:04:16.753 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:04:16.754 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:04:16.754 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:04:16.755 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:04:16.756 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:04:16.757 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:04:16.767 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.173 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:04:17.176 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:04:17.177 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:04:17.178 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.178 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.179 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.179 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.204 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.205 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:17.226 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:17.226 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:17.227 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:17.228 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:17.230 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:04:17.233 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:04:17.259 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:04:17.260 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:04:17.260 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:04:17.261 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:04:17.268 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:04:17.269 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:04:17.328 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:04:17.329 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:04:17.329 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:04:17.330 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:04:17.331 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:04:17.332 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:04:17.337 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.338 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.338 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:17.339 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:17.341 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.341 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.342 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:17.342 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:17.343 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.344 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.344 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.345 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.351 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.351 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:17.352 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:17.352 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:17.353 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.353 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.354 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:04:17.354 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:04:17.355 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:17.355 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:17.357 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.358 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.358 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:17.359 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:17.360 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.360 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.361 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.361 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:17.362 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:04:17.362 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:04:17.363 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:04:17.363 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:04:17.364 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:04:17.364 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:04:17.418 -03:00 [INF] Arquivo src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs já foi analisado anteriormente para o commit a10b8410
+2025-04-09 00:04:17.418 -03:00 [INF] Arquivo src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs já foi analisado anteriormente para o commit a10b8410
+2025-04-09 00:04:17.423 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:04:17.424 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:04:17.425 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:04:17.426 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:04:17.427 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:04:17.428 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 00:04:17.438 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:04:17.439 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:04:18.501 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:04:18.501 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:04:18.503 -03:00 [INF] Processando prompt completo de 8040 caracteres
+2025-04-09 00:04:18.503 -03:00 [INF] Processando prompt completo de 8040 caracteres
+2025-04-09 00:04:18.512 -03:00 [WRN] Parte 3 excede o tamanho máximo (2045 > 2000). Truncando...
+2025-04-09 00:04:18.513 -03:00 [WRN] Parte 3 excede o tamanho máximo (2045 > 2000). Truncando...
+2025-04-09 00:04:18.514 -03:00 [WRN] Parte 4 excede o tamanho máximo (2044 > 2000). Truncando...
+2025-04-09 00:04:18.514 -03:00 [WRN] Parte 4 excede o tamanho máximo (2044 > 2000). Truncando...
+2025-04-09 00:04:18.515 -03:00 [INF] Prompt dividido em 5 partes
+2025-04-09 00:04:18.516 -03:00 [INF] Prompt dividido em 5 partes
+2025-04-09 00:04:18.516 -03:00 [INF] Processando parte 1/5
+2025-04-09 00:04:18.517 -03:00 [INF] Processando parte 1/5
+2025-04-09 00:04:18.519 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:04:18.520 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:04:43.207 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:04:43.325 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:04:43.329 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:04:43.330 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:04:43.330 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:04:43.331 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:04:43.331 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:04:43.332 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:04:43.333 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:04:43.333 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:04:43.334 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:04:43.334 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:04:43.335 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:04:43.335 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:04:43.336 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:04:43.337 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:04:43.452 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:04:43.453 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:04:43.453 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:04:43.454 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:04:43.454 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:04:43.455 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:04:43.456 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:04:43.456 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:04:43.457 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:04:43.458 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:04:43.458 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:04:43.459 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:04:43.459 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:04:43.460 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:04:43.460 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:04:43.461 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:04:43.461 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:04:43.462 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:04:43.463 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:04:43.463 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:04:43.464 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:04:43.465 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:04:43.465 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:04:43.466 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:04:43.466 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:04:43.467 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:04:43.468 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:04:43.468 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:04:43.469 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:04:43.469 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:04:43.470 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:04:43.470 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:04:43.471 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:04:43.472 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:04:43.472 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:04:43.473 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:04:43.474 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:04:43.474 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:04:43.475 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:04:43.475 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:04:43.476 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:04:43.476 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:04:43.477 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:04:43.478 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:04:43.478 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:04:43.479 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:04:43.480 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:04:43.480 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:04:43.481 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:04:43.481 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:04:43.482 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:04:43.483 -03:00 [INF] Config: Logging = null
+2025-04-09 00:04:43.483 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:04:43.484 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:04:43.484 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:04:43.485 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:04:43.486 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:04:43.487 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:04:43.487 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:04:43.488 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:04:43.488 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:04:43.489 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.490 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:04:43.490 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:04:43.491 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:04:43.491 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:04:43.492 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:04:43.493 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:04:43.493 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:04:43.494 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:04:43.495 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:04:43.495 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:04:43.496 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:04:43.496 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:04:43.497 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:04:43.497 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:04:43.498 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:04:43.509 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.909 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:04:43.911 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:04:43.913 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:04:43.914 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.916 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.917 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.917 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.947 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.947 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:04:43.972 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:43.973 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:43.974 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:43.975 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:04:43.977 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:04:43.979 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:04:44.009 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:04:44.010 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:04:44.010 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:04:44.011 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:04:44.019 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:04:44.020 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:04:44.087 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:04:44.088 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:04:44.088 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:04:44.089 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:04:44.090 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:04:44.091 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:04:44.098 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.098 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.099 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:44.099 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:44.102 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.102 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.103 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:44.103 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:44.104 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.105 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.105 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.106 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.112 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.112 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:04:44.113 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:44.113 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:04:44.114 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.114 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.115 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:04:44.115 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:04:44.115 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:44.116 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:44.118 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.119 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.119 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:44.120 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:04:44.120 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.121 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.122 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.122 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:04:44.123 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:04:44.123 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:04:44.124 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:04:44.124 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:04:44.125 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:04:44.125 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:04:44.145 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:04:44.145 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:06:03.488 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:06:03.492 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:06:40.920 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:06:40.920 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:06:52.790 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:06:52.791 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:06:53.892 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:06:53.892 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:07:01.879 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:07:01.880 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:07:01.887 -03:00 [INF] Prompt dividido em 2 partes
+2025-04-09 00:07:01.888 -03:00 [INF] Prompt dividido em 2 partes
+2025-04-09 00:07:01.889 -03:00 [INF] Processando parte 1/2
+2025-04-09 00:07:01.889 -03:00 [INF] Processando parte 1/2
+2025-04-09 00:07:01.892 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:07:01.892 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:07:42.818 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:07:42.938 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:07:42.941 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:07:42.942 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:07:42.943 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:07:42.943 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:07:42.944 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:07:42.944 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:07:42.945 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:07:42.945 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:07:42.946 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:07:42.946 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:07:42.947 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:07:42.947 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:07:42.948 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:07:42.949 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:07:42.951 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:07:42.952 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:07:42.952 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:07:42.953 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:07:42.953 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:07:42.954 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:07:42.954 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:07:42.955 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:07:42.956 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:07:42.956 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:07:42.957 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:07:42.957 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:07:42.958 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:07:42.959 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:07:42.959 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:07:42.960 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:07:42.960 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:07:42.961 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:07:42.962 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:07:42.962 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:07:42.963 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:07:42.963 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:07:42.964 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:07:42.964 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:07:42.965 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:07:42.965 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:07:42.966 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:07:42.967 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:07:42.967 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:07:42.968 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:07:42.968 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:07:42.969 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:07:42.969 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:07:42.970 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:07:42.970 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:07:42.971 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:07:42.972 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:07:42.972 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:07:42.973 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:07:42.974 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:07:42.974 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:07:42.975 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:07:42.975 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:07:42.976 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:07:42.976 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:07:42.977 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:07:42.978 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:07:42.978 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:07:42.979 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:07:42.979 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:07:42.980 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:07:42.981 -03:00 [INF] Config: Logging = null
+2025-04-09 00:07:42.981 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:07:42.982 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:07:42.983 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:07:42.983 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:07:42.984 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:07:42.984 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:07:42.985 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:07:42.985 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:07:42.986 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:07:42.986 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:42.987 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:07:42.988 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:07:42.988 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:07:42.989 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:07:42.989 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:07:42.990 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:07:42.990 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:07:42.991 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:07:42.991 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:07:42.992 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:07:42.993 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:07:42.993 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:07:42.994 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:07:42.994 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:07:42.995 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:07:43.007 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.414 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:07:43.416 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:07:43.417 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:07:43.418 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.419 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.419 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.420 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.445 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.446 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:07:43.468 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:07:43.469 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:07:43.470 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:07:43.470 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:07:43.473 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:07:43.475 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:07:43.501 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:07:43.502 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:07:43.502 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:07:43.503 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:07:43.510 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:07:43.510 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:07:43.569 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:07:43.570 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:07:43.571 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:07:43.571 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:07:43.572 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:07:43.573 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:07:43.578 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.579 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.579 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:07:43.580 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:07:43.582 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.582 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.583 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:07:43.583 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:07:43.584 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.585 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.585 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.586 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.592 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.592 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:07:43.593 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:07:43.593 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:07:43.593 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.594 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.594 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:07:43.595 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:07:43.595 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:07:43.596 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:07:43.598 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.598 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.599 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:07:43.599 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:07:43.600 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.600 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.601 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.601 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:07:43.602 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:07:43.602 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:07:43.603 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:07:43.604 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:07:43.604 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:07:43.605 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:07:43.623 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:07:43.624 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:07:43.625 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:07:43.626 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:07:43.627 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:07:43.627 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:07:43.640 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:07:43.640 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:07:44.751 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:07:44.752 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:07:44.753 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:07:44.754 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:07:44.762 -03:00 [INF] Prompt dividido em 2 partes
+2025-04-09 00:07:44.763 -03:00 [INF] Prompt dividido em 2 partes
+2025-04-09 00:07:44.763 -03:00 [INF] Processando parte 1/2
+2025-04-09 00:07:44.764 -03:00 [INF] Processando parte 1/2
+2025-04-09 00:07:44.766 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:07:44.767 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:10:08.631 -03:00 [INF] Processando parte 2/2
+2025-04-09 00:10:08.632 -03:00 [INF] Processando parte 2/2
+2025-04-09 00:10:08.633 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:10:08.633 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:10:57.684 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:10:57.838 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:10:57.842 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:10:57.843 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:10:57.844 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:10:57.844 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:10:57.845 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:10:57.845 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:10:57.846 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:10:57.846 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:10:57.847 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:10:57.847 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:10:57.848 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:10:57.848 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:10:57.850 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:10:57.850 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:10:57.853 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:10:57.853 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:10:57.854 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:10:57.854 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:10:57.855 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:10:57.856 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:10:57.856 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:10:57.857 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:10:57.858 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:10:57.858 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:10:57.859 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:10:57.860 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:10:57.860 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:10:57.861 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:10:57.861 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:10:57.862 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:10:57.862 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:10:57.863 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:10:57.864 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:10:57.864 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:10:57.865 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:10:57.866 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:10:57.866 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:10:57.867 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:10:57.867 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:10:57.868 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:10:57.868 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:10:57.869 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:10:57.870 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:10:57.870 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:10:57.871 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:10:57.871 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:10:57.872 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:10:57.873 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:10:57.873 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:10:57.874 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:10:57.875 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:10:57.875 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:10:57.876 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:10:57.876 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:10:57.877 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:10:57.878 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:10:57.878 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:10:57.879 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:10:57.880 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:10:57.880 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:10:57.881 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:10:57.881 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:10:57.882 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:10:57.882 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:10:57.883 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:10:57.883 -03:00 [INF] Config: Logging = null
+2025-04-09 00:10:57.884 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:10:57.885 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:10:57.886 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:10:57.886 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:10:57.887 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:10:57.888 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:10:57.888 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:10:57.889 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:10:57.889 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:10:57.890 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:57.891 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:10:57.892 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:10:57.892 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:10:57.893 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:10:57.893 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:10:57.894 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:10:57.894 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:10:57.895 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:10:57.896 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:10:57.896 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:10:57.897 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:10:57.897 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:10:57.898 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:10:57.899 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:10:57.900 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:10:57.916 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.438 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:10:58.442 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:10:58.444 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:10:58.445 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.445 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.447 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.448 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.485 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.486 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:10:58.509 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:10:58.510 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:10:58.511 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:10:58.511 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:10:58.514 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:10:58.516 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:10:58.548 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:10:58.548 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:10:58.549 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:10:58.550 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:10:58.559 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:10:58.559 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:10:58.630 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:10:58.631 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:10:58.631 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:10:58.632 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:10:58.633 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:10:58.634 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:10:58.641 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.641 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.642 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:10:58.643 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:10:58.645 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.646 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.646 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:10:58.646 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:10:58.647 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.648 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.649 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.649 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.657 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.657 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:10:58.658 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:10:58.658 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:10:58.659 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.659 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.660 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:10:58.660 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:10:58.660 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:10:58.661 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:10:58.664 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.664 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.665 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:10:58.665 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:10:58.666 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.667 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.667 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.668 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:10:58.668 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:10:58.669 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:10:58.669 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:10:58.670 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:10:58.671 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:10:58.672 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:10:58.691 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:10:58.692 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:10:58.693 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:10:58.694 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:10:58.695 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:10:58.695 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:10:58.707 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:10:58.708 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:10:59.826 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:10:59.827 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:12:57.689 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:12:57.694 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:13:37.081 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:13:37.224 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:13:37.228 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:13:37.229 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:13:37.230 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:13:37.230 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:13:37.231 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:13:37.231 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:13:37.232 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:13:37.232 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:13:37.233 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:13:37.234 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:13:37.234 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:13:37.235 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:13:37.235 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:13:37.236 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:13:37.238 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:13:37.239 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:13:37.240 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:13:37.240 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:13:37.241 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:13:37.242 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:13:37.242 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:13:37.243 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:13:37.243 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:13:37.244 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:13:37.245 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:13:37.245 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:13:37.246 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:13:37.246 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:13:37.247 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:13:37.248 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:13:37.248 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:13:37.249 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:13:37.249 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:13:37.250 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:13:37.250 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:13:37.251 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:13:37.251 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:13:37.252 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:13:37.253 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:13:37.253 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:13:37.254 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:13:37.254 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:13:37.255 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:13:37.255 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:13:37.256 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:13:37.257 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:13:37.257 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:13:37.258 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:13:37.258 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:13:37.259 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:13:37.259 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:13:37.260 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:13:37.261 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:13:37.262 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:13:37.262 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:13:37.263 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:13:37.263 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:13:37.264 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:13:37.264 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:13:37.265 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:13:37.266 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:13:37.266 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:13:37.267 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:13:37.267 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:13:37.268 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:13:37.269 -03:00 [INF] Config: Logging = null
+2025-04-09 00:13:37.270 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:13:37.270 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:13:37.271 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:13:37.271 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:13:37.272 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:13:37.272 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:13:37.273 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:13:37.273 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:13:37.274 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:13:37.274 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.275 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:13:37.276 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:13:37.276 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:13:37.277 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:13:37.277 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:13:37.278 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:13:37.278 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:13:37.279 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:13:37.280 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:13:37.280 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:13:37.281 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:13:37.281 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:13:37.282 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:13:37.283 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:13:37.283 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:13:37.296 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.715 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:13:37.717 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:13:37.718 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:13:37.720 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.720 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.721 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.721 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.754 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.755 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:13:37.778 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:13:37.778 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:13:37.779 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:13:37.780 -03:00 [INF] Encontrados 3 commits nas últimas 24 horas
+2025-04-09 00:13:37.782 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:13:37.784 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 00:13:37.812 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:13:37.812 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 00:13:37.813 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:13:37.814 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 00:13:37.822 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:13:37.823 -03:00 [INF] Encontrados 1 arquivos C# para analisar
+2025-04-09 00:13:37.887 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:13:37.887 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 00:13:37.888 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:13:37.889 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 00:13:37.890 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:13:37.890 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 00:13:37.898 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.898 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.899 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:13:37.899 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:13:37.902 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.902 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.903 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:13:37.903 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:13:37.904 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.905 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.905 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.906 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.912 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.912 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 00:13:37.913 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:13:37.913 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 00:13:37.914 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.914 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.915 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:13:37.915 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 00:13:37.916 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:13:37.916 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:13:37.918 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.919 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.919 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:13:37.920 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 00:13:37.921 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.921 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.921 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.922 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 00:13:37.922 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:13:37.923 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 00:13:37.924 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:13:37.924 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 00:13:37.925 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:13:37.925 -03:00 [INF] Encontrados 15 arquivos C# para analisar
+2025-04-09 00:13:37.944 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:13:37.945 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:13:37.946 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:13:37.947 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:13:37.948 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:13:37.948 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 00:13:37.959 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:13:37.960 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:13:38.315 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:13:38.316 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:13:46.979 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:13:46.980 -03:00 [INF] Processando prompt completo de 3715 caracteres
+2025-04-09 00:13:46.982 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:13:46.983 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:27:19.731 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:27:19.846 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:27:19.850 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:27:19.850 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:27:19.851 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:27:19.851 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:27:19.852 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:27:19.853 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:27:19.853 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:27:19.854 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:27:19.854 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:27:19.855 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:27:19.855 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:27:19.856 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:27:19.857 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:27:19.857 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:27:19.860 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:27:19.860 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:27:19.861 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:27:19.861 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:27:19.862 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:27:19.862 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:27:19.863 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:27:19.863 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:27:19.864 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:27:19.864 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:27:19.865 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:27:19.866 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:27:19.866 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:27:19.867 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:27:19.867 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:27:19.868 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:27:19.868 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:27:19.869 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:27:19.870 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:27:19.870 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:27:19.871 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:27:19.871 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:27:19.872 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:27:19.872 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:27:19.873 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:27:19.874 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:27:19.874 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:27:19.875 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:27:19.875 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:27:19.876 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:27:19.876 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:27:19.877 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:27:19.877 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:27:19.878 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:27:19.879 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:27:19.879 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:27:19.880 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:27:19.881 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:27:19.881 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:27:19.882 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:27:19.882 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:27:19.883 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:27:19.883 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:27:19.884 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:27:19.884 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:27:19.885 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:27:19.886 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:27:19.886 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:27:19.887 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:27:19.888 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:27:19.888 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:27:19.889 -03:00 [INF] Config: Logging = null
+2025-04-09 00:27:19.889 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:27:19.890 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:27:19.890 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:27:19.891 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:27:19.891 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:27:19.892 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:27:19.892 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:27:19.893 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:27:19.894 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:27:19.894 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:19.895 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:27:19.895 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:27:19.896 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:27:19.896 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:27:19.897 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:27:19.898 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:27:19.898 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:27:19.899 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:27:19.899 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:27:19.900 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:27:19.901 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:27:19.901 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:27:19.902 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:27:19.902 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:27:19.903 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:27:19.913 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.313 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:27:20.315 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:27:20.316 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:27:20.317 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.318 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.319 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.319 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.351 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.352 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:27:20.378 -03:00 [INF] Encontrados 5 commits nas últimas 24 horas
+2025-04-09 00:27:20.379 -03:00 [INF] Encontrados 5 commits nas últimas 24 horas
+2025-04-09 00:27:20.380 -03:00 [INF] Encontrados 5 commits nas últimas 24 horas
+2025-04-09 00:27:20.380 -03:00 [INF] Encontrados 5 commits nas últimas 24 horas
+2025-04-09 00:27:20.383 -03:00 [INF] Processando commit: 92d7cb53 de Gustavo Carvalho em "2025-04-09T00:22:10.0000000-03:00"
+2025-04-09 00:27:20.387 -03:00 [INF] Processando commit: 92d7cb53 de Gustavo Carvalho em "2025-04-09T00:22:10.0000000-03:00"
+2025-04-09 00:27:20.420 -03:00 [INF] Encontradas 1 mudanças no commit 92d7cb53f55b5c187b4c9f40907f6d074b395e50
+2025-04-09 00:27:20.421 -03:00 [INF] Encontradas 1 mudanças no commit 92d7cb53f55b5c187b4c9f40907f6d074b395e50
+2025-04-09 00:27:20.422 -03:00 [INF] Encontradas 1 alterações no commit 92d7cb53
+2025-04-09 00:27:20.423 -03:00 [INF] Encontradas 1 alterações no commit 92d7cb53
+2025-04-09 00:27:20.434 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 00:27:20.434 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 00:27:20.503 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 00:27:20.504 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 00:27:20.506 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 00:27:20.507 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 00:27:20.508 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 00:27:20.508 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 00:27:20.517 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:27:20.518 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:27:24.228 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:27:24.229 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:27:54.998 -03:00 [INF] Processando prompt completo de 25166 caracteres
+2025-04-09 00:27:54.999 -03:00 [INF] Processando prompt completo de 25166 caracteres
+2025-04-09 00:28:01.846 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:28:01.847 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:43:56.907 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:43:57.030 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:43:57.034 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:43:57.034 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:43:57.035 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:43:57.035 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:43:57.036 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:43:57.036 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:43:57.037 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:43:57.037 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:43:57.038 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:43:57.038 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:43:57.039 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:43:57.040 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:43:57.040 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:43:57.041 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:43:57.044 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:43:57.044 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:43:57.045 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:43:57.045 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:43:57.046 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:43:57.046 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:43:57.047 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:43:57.047 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:43:57.048 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:43:57.049 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:43:57.049 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:43:57.050 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:43:57.051 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:43:57.051 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:43:57.052 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:43:57.052 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:43:57.053 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:43:57.053 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:43:57.054 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:43:57.055 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:43:57.056 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:43:57.056 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:43:57.057 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:43:57.057 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:43:57.058 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:43:57.059 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:43:57.059 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:43:57.060 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:43:57.060 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:43:57.061 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:43:57.061 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:43:57.062 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:43:57.062 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:43:57.063 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:43:57.064 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:43:57.064 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:43:57.065 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:43:57.066 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:43:57.066 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:43:57.067 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:43:57.067 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:43:57.068 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:43:57.068 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:43:57.069 -03:00 [INF] Config: Ollama:ContextLength = 8192
+2025-04-09 00:43:57.070 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:43:57.070 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:43:57.071 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:43:57.071 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:43:57.072 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:43:57.073 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:43:57.073 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:43:57.074 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:43:57.074 -03:00 [INF] Config: Logging = null
+2025-04-09 00:43:57.075 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:43:57.075 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:43:57.076 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:43:57.077 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:43:57.078 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:43:57.079 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:43:57.079 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:43:57.080 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:43:57.080 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:43:57.081 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.081 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:43:57.082 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:43:57.082 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:43:57.083 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:43:57.084 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:43:57.084 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:43:57.085 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:43:57.085 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:43:57.086 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:43:57.087 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:43:57.087 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:43:57.088 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:43:57.088 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:43:57.089 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:43:57.089 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:43:57.101 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.666 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:43:57.668 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:43:57.669 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:43:57.670 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.671 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.671 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.672 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.852 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.852 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:43:57.875 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:43:57.876 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:43:57.877 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:43:57.878 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:43:57.880 -03:00 [INF] Processando commit: d0f0c196 de Gustavo Carvalho em "2025-04-09T00:35:08.0000000-03:00"
+2025-04-09 00:43:57.883 -03:00 [INF] Processando commit: d0f0c196 de Gustavo Carvalho em "2025-04-09T00:35:08.0000000-03:00"
+2025-04-09 00:43:58.108 -03:00 [INF] Encontradas 1 mudanças no commit d0f0c196c5d3ae7b51b91f51c5e562d96b9a6b5f
+2025-04-09 00:43:58.109 -03:00 [INF] Encontradas 1 mudanças no commit d0f0c196c5d3ae7b51b91f51c5e562d96b9a6b5f
+2025-04-09 00:43:58.110 -03:00 [INF] Encontradas 1 alterações no commit d0f0c196
+2025-04-09 00:43:58.110 -03:00 [INF] Encontradas 1 alterações no commit d0f0c196
+2025-04-09 00:43:58.118 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 00:43:58.119 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 00:43:58.185 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:43:58.185 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:43:58.187 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:43:58.187 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:43:58.188 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:43:58.189 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:43:58.199 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:43:58.199 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:44:01.928 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:44:01.929 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:44:04.960 -03:00 [INF] Processando prompt completo de 17134 caracteres
+2025-04-09 00:44:04.960 -03:00 [INF] Processando prompt completo de 17134 caracteres
+2025-04-09 00:44:04.962 -03:00 [INF] Usando context_length = 8192 para o modelo codellama:latest
+2025-04-09 00:44:04.963 -03:00 [INF] Usando context_length = 8192 para o modelo codellama:latest
+2025-04-09 00:44:04.963 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:44:04.964 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:49:41.905 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 00:49:42.035 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 00:49:42.039 -03:00 [INF] Config: _NO_DEBUG_HEAP = 1
+2025-04-09 00:49:42.039 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 00:49:42.040 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 00:49:42.040 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 00:49:42.041 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 00:49:42.041 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 00:49:42.042 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 00:49:42.042 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 00:49:42.043 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:49:42.043 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 00:49:42.044 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 00:49:42.045 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 00:49:42.045 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 00:49:42.046 -03:00 [INF] Config: Serilog = null
+2025-04-09 00:49:42.048 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 00:49:42.049 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 00:49:42.049 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 00:49:42.050 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 00:49:42.050 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 00:49:42.051 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 00:49:42.052 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 00:49:42.052 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:49:42.053 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 00:49:42.053 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 00:49:42.054 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 00:49:42.055 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 00:49:42.055 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 00:49:42.056 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 00:49:42.056 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 00:49:42.057 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 00:49:42.057 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 00:49:42.058 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 00:49:42.058 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 00:49:42.059 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 00:49:42.060 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 00:49:42.060 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 00:49:42.061 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 00:49:42.061 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 00:49:42.062 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 00:49:42.062 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 00:49:42.063 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 00:49:42.063 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 00:49:42.064 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 00:49:42.065 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 00:49:42.065 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 00:49:42.066 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 00:49:42.067 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 00:49:42.068 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 00:49:42.068 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 00:49:42.069 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 00:49:42.069 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 00:49:42.070 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 00:49:42.070 -03:00 [INF] Config: Ollama = null
+2025-04-09 00:49:42.071 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 00:49:42.072 -03:00 [INF] Config: Ollama:ModelName = codellama:latest
+2025-04-09 00:49:42.072 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 00:49:42.073 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 00:49:42.073 -03:00 [INF] Config: Ollama:ContextLength = 8192
+2025-04-09 00:49:42.074 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 00:49:42.075 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 00:49:42.075 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 00:49:42.076 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 00:49:42.076 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 00:49:42.077 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 00:49:42.077 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:49:42.078 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 00:49:42.078 -03:00 [INF] Config: Logging = null
+2025-04-09 00:49:42.079 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 00:49:42.079 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 00:49:42.080 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 00:49:42.081 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 00:49:42.081 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 00:49:42.082 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 00:49:42.082 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 00:49:42.083 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 00:49:42.083 -03:00 [INF] Config: GitRepository = null
+2025-04-09 00:49:42.084 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.084 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 00:49:42.085 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 00:49:42.086 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 00:49:42.086 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 00:49:42.088 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 00:49:42.089 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 00:49:42.089 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 00:49:42.090 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 00:49:42.091 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 00:49:42.091 -03:00 [INF] Config: COMPLUS_FORCEENC = 1
+2025-04-09 00:49:42.092 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 00:49:42.092 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 00:49:42.093 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 00:49:42.094 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 00:49:42.094 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 00:49:42.107 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.588 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:49:42.590 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 00:49:42.591 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 00:49:42.592 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.593 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.593 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.594 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.627 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.628 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 00:49:42.652 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:49:42.652 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:49:42.653 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:49:42.654 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 00:49:42.657 -03:00 [INF] Processando commit: d0f0c196 de Gustavo Carvalho em "2025-04-09T00:35:08.0000000-03:00"
+2025-04-09 00:49:42.659 -03:00 [INF] Processando commit: d0f0c196 de Gustavo Carvalho em "2025-04-09T00:35:08.0000000-03:00"
+2025-04-09 00:49:42.691 -03:00 [INF] Encontradas 1 mudanças no commit d0f0c196c5d3ae7b51b91f51c5e562d96b9a6b5f
+2025-04-09 00:49:42.692 -03:00 [INF] Encontradas 1 mudanças no commit d0f0c196c5d3ae7b51b91f51c5e562d96b9a6b5f
+2025-04-09 00:49:42.693 -03:00 [INF] Encontradas 1 alterações no commit d0f0c196
+2025-04-09 00:49:42.694 -03:00 [INF] Encontradas 1 alterações no commit d0f0c196
+2025-04-09 00:49:42.701 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 00:49:42.702 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 00:49:42.771 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:49:42.771 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:49:42.773 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:49:42.773 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:49:42.775 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:49:42.775 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 00:49:42.785 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:49:42.786 -03:00 [INF] Testando conexão com Ollama usando modelo codellama:latest
+2025-04-09 00:49:48.243 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:49:48.243 -03:00 [INF] Conexão com Ollama estabelecida com sucesso
+2025-04-09 00:50:39.940 -03:00 [INF] Processando prompt completo de 17134 caracteres
+2025-04-09 00:50:39.941 -03:00 [INF] Processando prompt completo de 17134 caracteres
+2025-04-09 00:50:39.943 -03:00 [INF] Usando context_length = 8192 para o modelo codellama:latest
+2025-04-09 00:50:39.944 -03:00 [INF] Usando context_length = 8192 para o modelo codellama:latest
+2025-04-09 00:50:39.944 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 00:50:39.945 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-09 01:11:14.821 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-09 01:11:14.861 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-09 01:11:14.864 -03:00 [INF] Config: windir = C:\Windows
+2025-04-09 01:11:14.864 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-09 01:11:14.865 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-09 01:11:14.865 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-09 01:11:14.866 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-09 01:11:14.866 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-09 01:11:14.867 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-09 01:11:14.867 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 01:11:14.868 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-09 01:11:14.868 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-09 01:11:14.868 -03:00 [INF] Config: SystemDrive = C:
+2025-04-09 01:11:14.869 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-09 01:11:14.870 -03:00 [INF] Config: Serilog = null
+2025-04-09 01:11:14.872 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-09 01:11:14.872 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-09 01:11:14.873 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-09 01:11:14.873 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-09 01:11:14.874 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-09 01:11:14.874 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-09 01:11:14.875 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-09 01:11:14.875 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 01:11:14.876 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-09 01:11:14.876 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-09 01:11:14.877 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-09 01:11:14.877 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-09 01:11:14.878 -03:00 [INF] Config: Serilog:Using = null
+2025-04-09 01:11:14.878 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-09 01:11:14.879 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-09 01:11:14.879 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-09 01:11:14.880 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-09 01:11:14.880 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-09 01:11:14.881 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-09 01:11:14.881 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-09 01:11:14.882 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-09 01:11:14.882 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-09 01:11:14.883 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-09 01:11:14.883 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-09 01:11:14.884 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-09 01:11:14.884 -03:00 [INF] Config: PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-09 01:11:14.885 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-09 01:11:14.885 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-09 01:11:14.886 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-09 01:11:14.886 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-09 01:11:14.887 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-09 01:11:14.887 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-09 01:11:14.888 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-09 01:11:14.888 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-09 01:11:14.889 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+2025-04-09 01:11:14.889 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin
+2025-04-09 01:11:14.890 -03:00 [INF] Config: OS = Windows_NT
+2025-04-09 01:11:14.890 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-09 01:11:14.891 -03:00 [INF] Config: Ollama = null
+2025-04-09 01:11:14.892 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-09 01:11:14.892 -03:00 [INF] Config: Ollama:ModelName = deepseek-extended
+2025-04-09 01:11:14.893 -03:00 [INF] Config: Ollama:MaxPromptLength = 32000
+2025-04-09 01:11:14.893 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-09 01:11:14.894 -03:00 [INF] Config: Ollama:ContextLength = 16384
+2025-04-09 01:11:14.894 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-09 01:11:14.895 -03:00 [INF] Config: Ollama:AlternativeModels = null
+2025-04-09 01:11:14.895 -03:00 [INF] Config: Ollama:AlternativeModels:1 = deepseek-extended
+2025-04-09 01:11:14.896 -03:00 [INF] Config: Ollama:AlternativeModels:0 = codellama-extended
+2025-04-09 01:11:14.896 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-09 01:11:14.897 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-09 01:11:14.897 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-09 01:11:14.898 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-09 01:11:14.898 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-09 01:11:14.899 -03:00 [INF] Config: MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 01:11:14.899 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-09 01:11:14.900 -03:00 [INF] Config: Logging = null
+2025-04-09 01:11:14.900 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-09 01:11:14.901 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-09 01:11:14.901 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-09 01:11:14.902 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-09 01:11:14.902 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-09 01:11:14.903 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-09 01:11:14.903 -03:00 [INF] Config: HOTRELOAD_NAMEDPIPE_NAME = b7be7501-f586-4edb-b9af-7f65a412a31c
+2025-04-09 01:11:14.904 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-09 01:11:14.904 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-09 01:11:14.905 -03:00 [INF] Config: GitRepository = null
+2025-04-09 01:11:14.905 -03:00 [INF] Config: GitRepository:Path = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:14.906 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-09 01:11:14.906 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-09 01:11:14.907 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-09 01:11:14.907 -03:00 [INF] Config: DOTNET_MODIFIABLE_ASSEMBLIES = debug
+2025-04-09 01:11:14.908 -03:00 [INF] Config: DOTNET_HOTRELOAD_NAMEDPIPE_NAME = b7be7501-f586-4edb-b9af-7f65a412a31c
+2025-04-09 01:11:14.908 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0
+2025-04-09 01:11:14.909 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-09 01:11:14.909 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-09 01:11:14.910 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-09 01:11:14.910 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-09 01:11:14.911 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-09 01:11:14.911 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-09 01:11:14.912 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-09 01:11:14.912 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-09 01:11:14.913 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-09 01:11:14.915 -03:00 [INF] Caminho do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.162 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 01:11:15.164 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 32000 caracteres
+2025-04-09 01:11:15.165 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-09 01:11:15.166 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.166 -03:00 [INF] Iniciando análise do repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.167 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.167 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.178 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.179 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-09 01:11:15.196 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 01:11:15.197 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 01:11:15.197 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 01:11:15.198 -03:00 [INF] Encontrados 6 commits nas últimas 24 horas
+2025-04-09 01:11:15.200 -03:00 [INF] Processando commit: d0f0c196 de Gustavo Carvalho em "2025-04-09T00:35:08.0000000-03:00"
+2025-04-09 01:11:15.201 -03:00 [INF] Processando commit: d0f0c196 de Gustavo Carvalho em "2025-04-09T00:35:08.0000000-03:00"
+2025-04-09 01:11:15.225 -03:00 [INF] Encontradas 1 mudanças no commit d0f0c196c5d3ae7b51b91f51c5e562d96b9a6b5f
+2025-04-09 01:11:15.225 -03:00 [INF] Encontradas 1 mudanças no commit d0f0c196c5d3ae7b51b91f51c5e562d96b9a6b5f
+2025-04-09 01:11:15.226 -03:00 [INF] Encontradas 1 alterações no commit d0f0c196
+2025-04-09 01:11:15.226 -03:00 [INF] Encontradas 1 alterações no commit d0f0c196
+2025-04-09 01:11:15.233 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 01:11:15.234 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 01:11:15.283 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:15.284 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:15.285 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:15.286 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:15.287 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:15.287 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:15.291 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:15.292 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:15.361 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:15.362 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:15.363 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:15.364 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:15.366 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:15.366 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:15.451 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs no commit d0f0c196
+2025-04-09 01:11:15.452 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs no commit d0f0c196
+2025-04-09 01:11:16.453 -03:00 [INF] Processando commit: 92d7cb53 de Gustavo Carvalho em "2025-04-09T00:22:10.0000000-03:00"
+2025-04-09 01:11:16.454 -03:00 [INF] Processando commit: 92d7cb53 de Gustavo Carvalho em "2025-04-09T00:22:10.0000000-03:00"
+2025-04-09 01:11:16.465 -03:00 [INF] Encontradas 1 mudanças no commit 92d7cb53f55b5c187b4c9f40907f6d074b395e50
+2025-04-09 01:11:16.466 -03:00 [INF] Encontradas 1 mudanças no commit 92d7cb53f55b5c187b4c9f40907f6d074b395e50
+2025-04-09 01:11:16.466 -03:00 [INF] Encontradas 1 alterações no commit 92d7cb53
+2025-04-09 01:11:16.467 -03:00 [INF] Encontradas 1 alterações no commit 92d7cb53
+2025-04-09 01:11:16.468 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 01:11:16.468 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 01:11:16.474 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 01:11:16.475 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 01:11:16.475 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 01:11:16.476 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 01:11:16.476 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 01:11:16.477 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs
+2025-04-09 01:11:16.477 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:16.478 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:16.492 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:16.493 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:16.494 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:16.494 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:16.494 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:16.495 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:16.497 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs no commit 92d7cb53
+2025-04-09 01:11:16.498 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitRepositoryWrapper.cs no commit 92d7cb53
+2025-04-09 01:11:17.499 -03:00 [INF] Processando commit: 9fec7b21 de Gustavo Carvalho em "2025-04-09T00:21:12.0000000-03:00"
+2025-04-09 01:11:17.500 -03:00 [INF] Processando commit: 9fec7b21 de Gustavo Carvalho em "2025-04-09T00:21:12.0000000-03:00"
+2025-04-09 01:11:17.578 -03:00 [INF] Encontradas 10 mudanças no commit 9fec7b2112af410d61c33489a174b9b559f7ac53
+2025-04-09 01:11:17.578 -03:00 [INF] Encontradas 10 mudanças no commit 9fec7b2112af410d61c33489a174b9b559f7ac53
+2025-04-09 01:11:17.579 -03:00 [INF] Encontradas 10 alterações no commit 9fec7b21
+2025-04-09 01:11:17.579 -03:00 [INF] Encontradas 10 alterações no commit 9fec7b21
+2025-04-09 01:11:17.580 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 01:11:17.580 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 01:11:17.581 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfo.cs
+2025-04-09 01:11:17.581 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfo.cs
+2025-04-09 01:11:17.582 -03:00 [INF] Encontrados 6 arquivos C# relevantes para analisar
+2025-04-09 01:11:17.582 -03:00 [INF] Encontrados 6 arquivos C# relevantes para analisar
+2025-04-09 01:11:17.585 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs
+2025-04-09 01:11:17.585 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs
+2025-04-09 01:11:17.585 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs
+2025-04-09 01:11:17.586 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs
+2025-04-09 01:11:17.586 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs
+2025-04-09 01:11:17.587 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs
+2025-04-09 01:11:17.587 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:17.588 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:17.601 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:17.602 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:17.602 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:17.602 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:17.603 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:17.603 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:17.605 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs no commit 9fec7b21
+2025-04-09 01:11:17.605 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Core/Repositories/ICodeAnalysisRepository.cs no commit 9fec7b21
+2025-04-09 01:11:18.608 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs
+2025-04-09 01:11:18.608 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs
+2025-04-09 01:11:18.609 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs
+2025-04-09 01:11:18.609 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs
+2025-04-09 01:11:18.610 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs
+2025-04-09 01:11:18.610 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs
+2025-04-09 01:11:18.610 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:18.611 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:18.624 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:18.624 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:18.625 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:18.625 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:18.626 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:18.626 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:18.628 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs no commit 9fec7b21
+2025-04-09 01:11:18.628 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Core/Repositories/MongoCodeAnalysisRepository.cs no commit 9fec7b21
+2025-04-09 01:11:19.630 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:19.631 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:19.631 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:19.632 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:19.632 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:19.633 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:19.633 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:19.633 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:19.647 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:19.648 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:19.648 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:19.649 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:19.649 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:19.649 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:19.651 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs no commit 9fec7b21
+2025-04-09 01:11:19.652 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs no commit 9fec7b21
+2025-04-09 01:11:20.654 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs
+2025-04-09 01:11:20.655 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs
+2025-04-09 01:11:20.655 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs
+2025-04-09 01:11:20.656 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs
+2025-04-09 01:11:20.656 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs
+2025-04-09 01:11:20.657 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs
+2025-04-09 01:11:20.657 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:20.657 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:20.671 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:20.671 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:20.672 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:20.673 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:20.673 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:20.673 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:20.675 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs no commit 9fec7b21
+2025-04-09 01:11:20.675 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/GitDiffService.cs no commit 9fec7b21
+2025-04-09 01:11:21.678 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs
+2025-04-09 01:11:21.678 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs
+2025-04-09 01:11:21.679 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs
+2025-04-09 01:11:21.679 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs
+2025-04-09 01:11:21.679 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs
+2025-04-09 01:11:21.680 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs
+2025-04-09 01:11:21.680 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:21.681 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:21.694 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:21.694 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:21.695 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:21.695 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:21.696 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:21.696 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:21.698 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs no commit 9fec7b21
+2025-04-09 01:11:21.698 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/Models/CommitChangeInfo.cs no commit 9fec7b21
+2025-04-09 01:11:22.700 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs
+2025-04-09 01:11:22.700 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs
+2025-04-09 01:11:22.701 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs
+2025-04-09 01:11:22.701 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs
+2025-04-09 01:11:22.702 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs
+2025-04-09 01:11:22.702 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs
+2025-04-09 01:11:22.703 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:22.703 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:22.716 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:22.717 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:22.717 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:22.718 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:22.718 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:22.718 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:22.720 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs no commit 9fec7b21
+2025-04-09 01:11:22.720 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/OllamaService.cs no commit 9fec7b21
+2025-04-09 01:11:23.721 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 01:11:23.722 -03:00 [INF] Processando commit: 073fa2c6 de Gustavo Carvalho em "2025-04-08T22:41:07.0000000-03:00"
+2025-04-09 01:11:23.735 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 01:11:23.736 -03:00 [INF] Encontradas 1 mudanças no commit 073fa2c625d5ae0396d964c0fa9630738d9e01cc
+2025-04-09 01:11:23.736 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 01:11:23.737 -03:00 [INF] Encontradas 1 alterações no commit 073fa2c6
+2025-04-09 01:11:23.737 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 01:11:23.738 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-09 01:11:23.740 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 01:11:23.740 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs
+2025-04-09 01:11:23.741 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 01:11:23.741 -03:00 [WRN] Conteúdo do arquivo src/CommitQualityAnalyzer.Worker/Services/CommitAnalyzerService.cs muito grande para análise. Tamanho: 137267 caracteres (limite: 50000 caracteres)
+2025-04-09 01:11:23.742 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 01:11:23.742 -03:00 [INF] Processando commit: a10b8410 de Gustavo Carvalho em "2025-04-08T22:40:51.0000000-03:00"
+2025-04-09 01:11:23.753 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.754 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.754 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 01:11:23.755 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 01:11:23.763 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.764 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.764 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 01:11:23.765 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 01:11:23.769 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.769 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.770 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.770 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.815 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.815 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.dll
+2025-04-09 01:11:23.816 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 01:11:23.816 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Core.pdb
+2025-04-09 01:11:23.817 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.817 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.817 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 01:11:23.818 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.exe
+2025-04-09 01:11:23.818 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 01:11:23.819 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/bin/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 01:11:23.841 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.841 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.842 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 01:11:23.842 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.pdb
+2025-04-09 01:11:23.843 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.843 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/ref/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.844 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.844 -03:00 [INF] Ignorando arquivo binário: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/refint/CommitQualityAnalyzer.Worker.dll
+2025-04-09 01:11:23.845 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 01:11:23.845 -03:00 [INF] Encontradas 22 mudanças no commit a10b8410839bf151ad020e95ae1249adedac477e
+2025-04-09 01:11:23.846 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 01:11:23.846 -03:00 [INF] Encontradas 22 alterações no commit a10b8410
+2025-04-09 01:11:23.847 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 01:11:23.847 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Core/obj/Debug/net8.0/CommitQualityAnalyzer.Core.AssemblyInfo.cs
+2025-04-09 01:11:23.847 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfo.cs
+2025-04-09 01:11:23.848 -03:00 [INF] Ignorando arquivo gerado automaticamente: src/CommitQualityAnalyzer.Worker/obj/Debug/net8.0/CommitQualityAnalyzer.Worker.AssemblyInfo.cs
+2025-04-09 01:11:23.848 -03:00 [INF] Encontrados 13 arquivos C# relevantes para analisar
+2025-04-09 01:11:23.848 -03:00 [INF] Encontrados 13 arquivos C# relevantes para analisar
+2025-04-09 01:11:23.850 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 01:11:23.851 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 01:11:23.851 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 01:11:23.851 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 01:11:23.852 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 01:11:23.852 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Program.cs
+2025-04-09 01:11:23.853 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:23.853 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:23.866 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:23.867 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:23.867 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:23.868 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:23.868 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:23.868 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:23.870 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Program.cs no commit a10b8410
+2025-04-09 01:11:23.871 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Program.cs no commit a10b8410
+2025-04-09 01:11:24.873 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs
+2025-04-09 01:11:24.874 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs
+2025-04-09 01:11:24.874 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs
+2025-04-09 01:11:24.874 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs
+2025-04-09 01:11:24.875 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs
+2025-04-09 01:11:24.875 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs
+2025-04-09 01:11:24.876 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:24.876 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:24.889 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:24.890 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:24.890 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:24.891 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:24.891 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:24.891 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:24.893 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs no commit a10b8410
+2025-04-09 01:11:24.894 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/AnalysisMapperService.cs no commit a10b8410
+2025-04-09 01:11:25.896 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:25.896 -03:00 [INF] Analisando arquivo: src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:25.897 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:25.897 -03:00 [INF] Analisando diferenças para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:25.897 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:25.898 -03:00 [INF] Construindo prompt para análise de diferenças em src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs
+2025-04-09 01:11:25.898 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:25.899 -03:00 [INF] Testando conexão com Ollama usando modelo deepseek-extended
+2025-04-09 01:11:25.911 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:25.912 -03:00 [ERR] Falha no teste de conexão: "InternalServerError" - Internal Server Error
+2025-04-09 01:11:25.912 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:25.913 -03:00 [ERR] Não foi possível conectar ao modelo Ollama
+2025-04-09 01:11:25.913 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:25.914 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-09 01:11:25.915 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs no commit a10b8410
+2025-04-09 01:11:25.915 -03:00 [INF] Análise salva com sucesso para src/CommitQualityAnalyzer.Worker/Services/CommitAnalysis/CommitAnalyzerService.cs no commit a10b8410

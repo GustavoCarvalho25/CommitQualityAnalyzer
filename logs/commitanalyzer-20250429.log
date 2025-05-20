@@ -1,0 +1,1378 @@
+2025-04-29 22:25:14.775 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-29 22:25:14.833 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-29 22:25:14.835 -03:00 [INF] Config: windir = C:\Windows
+2025-04-29 22:25:14.835 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_PID = 20280
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"pt-br","resolvedLanguage":"en","defaultMessagesFile":"F:\\Apps\\Windsurf\\resources\\app\\out\\nls.messages.json","locale":"en-us","availableLanguages":{}}
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_IPC_HOOK = \\.\pipe\cf4cbb10-1.97.0-main-sock
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_CWD = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VSCODE_CODE_CACHE_PATH = C:\Users\Gusta\AppData\Roaming\Windsurf\CachedData\69a900001328c5e276063fc33dcff89076073a54
+2025-04-29 22:25:14.835 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-29 22:25:14.835 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-29 22:25:14.836 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-29 22:25:14.836 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-29 22:25:14.836 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-29 22:25:14.836 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-29 22:25:14.836 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-29 22:25:14.836 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-29 22:25:14.836 -03:00 [INF] Config: SystemDrive = C:
+2025-04-29 22:25:14.836 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog = null
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-29 22:25:14.836 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Using = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-29 22:25:14.837 -03:00 [INF] Config: ROOT_X64 = C:\Program Files\dotnet
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PSModulePath = C:\Users\Gusta\OneDrive\Documentos\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-29 22:25:14.837 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-29 22:25:14.837 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-29 22:25:14.837 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-29 22:25:14.837 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-29 22:25:14.837 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin;F:\Apps\Dev\Azure Data Studio\bin;C:\Users\Gusta\AppData\Local\Programs\Julia-1.11.5\bin
+2025-04-29 22:25:14.837 -03:00 [INF] Config: OS = Windows_NT
+2025-04-29 22:25:14.837 -03:00 [INF] Config: ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+2025-04-29 22:25:14.837 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:ModelName = codellama
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:MaxPromptLength = 12000
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:MaxPartLength = 2500
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:ContextLength = 8192
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:AlternativeModels = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:AlternativeModels:1 = deepseek-extended
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Ollama:AlternativeModels:0 = codellama-extended
+2025-04-29 22:25:14.837 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-29 22:25:14.837 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-29 22:25:14.837 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-29 22:25:14.837 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-29 22:25:14.837 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-29 22:25:14.837 -03:00 [INF] Config: MSBuildLoadMicrosoftTargetsReadOnly = true
+2025-04-29 22:25:14.837 -03:00 [INF] Config: MSBUILDFAILONDRIVEENUMERATINGWILDCARD = 1
+2025-04-29 22:25:14.837 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Logging = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-29 22:25:14.837 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-29 22:25:14.838 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-29 22:25:14.838 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-29 22:25:14.838 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-29 22:25:14.838 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-29 22:25:14.838 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-29 22:25:14.838 -03:00 [INF] Config: GitRepository = null
+2025-04-29 22:25:14.838 -03:00 [INF] Config: GitRepository:Path = D:\Edata\Vision\backend
+2025-04-29 22:25:14.838 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-29 22:25:14.838 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-29 22:25:14.838 -03:00 [INF] Config: ELECTRON_RUN_AS_NODE = 1
+2025-04-29 22:25:14.838 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-29 22:25:14.838 -03:00 [INF] Config: DOTNET_ROOT_X64 = C:\Program Files\dotnet
+2025-04-29 22:25:14.838 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-29 22:25:14.838 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-29 22:25:14.838 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-29 22:25:14.838 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-29 22:25:14.838 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-29 22:25:14.838 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-29 22:25:14.838 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-29 22:25:14.838 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-29 22:25:14.838 -03:00 [INF] Config: CODEIUM_EDITOR_APP_ROOT = f:\Apps\Windsurf\resources\app
+2025-04-29 22:25:14.838 -03:00 [INF] Config: CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_20280_MSULADPZVWTUWZPQ
+2025-04-29 22:25:14.838 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-29 22:25:14.838 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-29 22:25:14.840 -03:00 [INF] Caminho do repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.003 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 12000 caracteres
+2025-04-29 22:25:15.004 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 12000 caracteres
+2025-04-29 22:25:15.004 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-29 22:25:15.005 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.005 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.005 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.005 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.015 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.015 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:25:15.048 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:25:15.048 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:25:15.049 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:25:15.049 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:25:15.050 -03:00 [INF] Processando commit: f87363c5 de Gabriel Mattos em "2025-04-29T15:48:10.0000000-03:00"
+2025-04-29 22:25:15.051 -03:00 [INF] Processando commit: f87363c5 de Gabriel Mattos em "2025-04-29T15:48:10.0000000-03:00"
+2025-04-29 22:25:15.074 -03:00 [INF] Encontradas 1 mudanças no commit f87363c5254b3c3f1be715ce22d1f1481d30c9e3
+2025-04-29 22:25:15.074 -03:00 [INF] Encontradas 1 mudanças no commit f87363c5254b3c3f1be715ce22d1f1481d30c9e3
+2025-04-29 22:25:15.075 -03:00 [INF] Encontradas 1 alterações no commit f87363c5
+2025-04-29 22:25:15.075 -03:00 [INF] Encontradas 1 alterações no commit f87363c5
+2025-04-29 22:25:15.082 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.082 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.138 -03:00 [INF] Arquivo src/Core/Edata.Vision.Infrastructure.Core.Data.Legacy/Repositories/WindowRepository.cs já foi analisado anteriormente para o commit f87363c5
+2025-04-29 22:25:15.138 -03:00 [INF] Arquivo src/Core/Edata.Vision.Infrastructure.Core.Data.Legacy/Repositories/WindowRepository.cs já foi analisado anteriormente para o commit f87363c5
+2025-04-29 22:25:15.138 -03:00 [INF] Processando commit: d7560387 de Gabriel Mattos em "2025-04-29T14:15:28.0000000-03:00"
+2025-04-29 22:25:15.138 -03:00 [INF] Processando commit: d7560387 de Gabriel Mattos em "2025-04-29T14:15:28.0000000-03:00"
+2025-04-29 22:25:15.148 -03:00 [INF] Encontradas 1 mudanças no commit d75603871cea1982d76adac0b89fe6334ce26997
+2025-04-29 22:25:15.148 -03:00 [INF] Encontradas 1 mudanças no commit d75603871cea1982d76adac0b89fe6334ce26997
+2025-04-29 22:25:15.149 -03:00 [INF] Encontradas 1 alterações no commit d7560387
+2025-04-29 22:25:15.149 -03:00 [INF] Encontradas 1 alterações no commit d7560387
+2025-04-29 22:25:15.149 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.149 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.156 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit d7560387
+2025-04-29 22:25:15.157 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit d7560387
+2025-04-29 22:25:15.157 -03:00 [INF] Processando commit: 786360d6 de Gabriel Mattos em "2025-04-29T12:18:17.0000000-03:00"
+2025-04-29 22:25:15.157 -03:00 [INF] Processando commit: 786360d6 de Gabriel Mattos em "2025-04-29T12:18:17.0000000-03:00"
+2025-04-29 22:25:15.172 -03:00 [INF] Encontradas 5 mudanças no commit 786360d6f431ae18c7c722b6a2c5d22ef0f45051
+2025-04-29 22:25:15.172 -03:00 [INF] Encontradas 5 mudanças no commit 786360d6f431ae18c7c722b6a2c5d22ef0f45051
+2025-04-29 22:25:15.173 -03:00 [INF] Encontradas 5 alterações no commit 786360d6
+2025-04-29 22:25:15.173 -03:00 [INF] Encontradas 5 alterações no commit 786360d6
+2025-04-29 22:25:15.173 -03:00 [INF] Encontrados 5 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.173 -03:00 [INF] Encontrados 5 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.176 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Interfaces/IWindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.176 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Interfaces/IWindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.177 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Services/WindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.177 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Services/WindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.178 -03:00 [INF] Arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.178 -03:00 [INF] Arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.179 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.179 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.180 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.180 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:25:15.180 -03:00 [INF] Processando commit: 89cfecdd de Gabriel Mattos em "2025-04-29T12:13:42.0000000-03:00"
+2025-04-29 22:25:15.180 -03:00 [INF] Processando commit: 89cfecdd de Gabriel Mattos em "2025-04-29T12:13:42.0000000-03:00"
+2025-04-29 22:25:15.191 -03:00 [INF] Encontradas 4 mudanças no commit 89cfecdd38f7b434d3f3b9af4f63cb72664af603
+2025-04-29 22:25:15.191 -03:00 [INF] Encontradas 4 mudanças no commit 89cfecdd38f7b434d3f3b9af4f63cb72664af603
+2025-04-29 22:25:15.192 -03:00 [INF] Encontradas 4 alterações no commit 89cfecdd
+2025-04-29 22:25:15.192 -03:00 [INF] Encontradas 4 alterações no commit 89cfecdd
+2025-04-29 22:25:15.192 -03:00 [INF] Encontrados 4 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.192 -03:00 [INF] Encontrados 4 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.194 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.194 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.195 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/Interfaces/Repository/IReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.195 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/Interfaces/Repository/IReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.195 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Infrastructure.Data.Reports/Repositories/ReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.195 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Infrastructure.Data.Reports/Repositories/ReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.196 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Reports.Api/Controllers/v1/ReportController.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.196 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Reports.Api/Controllers/v1/ReportController.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:25:15.196 -03:00 [INF] Processando commit: 91e10b9e de Gabriel Mattos em "2025-04-29T11:54:18.0000000-03:00"
+2025-04-29 22:25:15.196 -03:00 [INF] Processando commit: 91e10b9e de Gabriel Mattos em "2025-04-29T11:54:18.0000000-03:00"
+2025-04-29 22:25:15.206 -03:00 [INF] Encontradas 1 mudanças no commit 91e10b9eeffd798bbbc5ebc3f02f5c30e6d1dd71
+2025-04-29 22:25:15.206 -03:00 [INF] Encontradas 1 mudanças no commit 91e10b9eeffd798bbbc5ebc3f02f5c30e6d1dd71
+2025-04-29 22:25:15.207 -03:00 [INF] Encontradas 1 alterações no commit 91e10b9e
+2025-04-29 22:25:15.207 -03:00 [INF] Encontradas 1 alterações no commit 91e10b9e
+2025-04-29 22:25:15.207 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.207 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.208 -03:00 [INF] Arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs já foi analisado anteriormente para o commit 91e10b9e
+2025-04-29 22:25:15.208 -03:00 [INF] Arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs já foi analisado anteriormente para o commit 91e10b9e
+2025-04-29 22:25:15.208 -03:00 [INF] Processando commit: df7c5f8d de Gabriel Mattos em "2025-04-29T11:49:32.0000000-03:00"
+2025-04-29 22:25:15.208 -03:00 [INF] Processando commit: df7c5f8d de Gabriel Mattos em "2025-04-29T11:49:32.0000000-03:00"
+2025-04-29 22:25:15.218 -03:00 [INF] Encontradas 9 mudanças no commit df7c5f8df6ae077d9c8c5a682646ba41c564cdcc
+2025-04-29 22:25:15.218 -03:00 [INF] Encontradas 9 mudanças no commit df7c5f8df6ae077d9c8c5a682646ba41c564cdcc
+2025-04-29 22:25:15.218 -03:00 [INF] Encontradas 9 alterações no commit df7c5f8d
+2025-04-29 22:25:15.218 -03:00 [INF] Encontradas 9 alterações no commit df7c5f8d
+2025-04-29 22:25:15.219 -03:00 [INF] Encontrados 9 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.219 -03:00 [INF] Encontrados 9 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.220 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.220 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.222 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.222 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.223 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.223 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.224 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.224 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.225 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.225 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.226 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.226 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.226 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.227 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.227 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.228 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.228 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.228 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs já foi analisado anteriormente para o commit df7c5f8d
+2025-04-29 22:25:15.228 -03:00 [INF] Processando commit: 6d326a5b de Gabriel Mattos em "2025-04-29T11:48:48.0000000-03:00"
+2025-04-29 22:25:15.228 -03:00 [INF] Processando commit: 6d326a5b de Gabriel Mattos em "2025-04-29T11:48:48.0000000-03:00"
+2025-04-29 22:25:15.239 -03:00 [INF] Encontradas 1 mudanças no commit 6d326a5b9de584692d79d585f0042d83688778b7
+2025-04-29 22:25:15.239 -03:00 [INF] Encontradas 1 mudanças no commit 6d326a5b9de584692d79d585f0042d83688778b7
+2025-04-29 22:25:15.240 -03:00 [INF] Encontradas 1 alterações no commit 6d326a5b
+2025-04-29 22:25:15.240 -03:00 [INF] Encontradas 1 alterações no commit 6d326a5b
+2025-04-29 22:25:15.240 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.240 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:25:15.241 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.241 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.252 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs dividido em 11 partes para análise
+2025-04-29 22:25:15.252 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs dividido em 11 partes para análise
+2025-04-29 22:25:15.252 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.252 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.252 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.252 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.253 -03:00 [INF] Processando prompt completo de 1518 caracteres
+2025-04-29 22:25:15.253 -03:00 [INF] Processando prompt completo de 1518 caracteres
+2025-04-29 22:25:15.253 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.253 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.255 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.255 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.255 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.255 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.315 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.315 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.315 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.315 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.315 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.315 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.315 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.315 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.316 -03:00 [INF] Processando prompt completo de 3466 caracteres
+2025-04-29 22:25:15.316 -03:00 [INF] Processando prompt completo de 3466 caracteres
+2025-04-29 22:25:15.316 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.316 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.316 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.316 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.316 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.316 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.376 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.376 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.376 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.376 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.376 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.376 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.376 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.376 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.377 -03:00 [INF] Processando prompt completo de 3499 caracteres
+2025-04-29 22:25:15.377 -03:00 [INF] Processando prompt completo de 3499 caracteres
+2025-04-29 22:25:15.377 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.377 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.377 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.377 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.377 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.377 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.437 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.437 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.437 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.437 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.437 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.437 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.437 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.437 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.437 -03:00 [INF] Processando prompt completo de 3510 caracteres
+2025-04-29 22:25:15.437 -03:00 [INF] Processando prompt completo de 3510 caracteres
+2025-04-29 22:25:15.437 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.437 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.437 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.437 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.437 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.437 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.498 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.498 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.498 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.498 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.498 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.498 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.498 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.498 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.498 -03:00 [INF] Processando prompt completo de 3472 caracteres
+2025-04-29 22:25:15.498 -03:00 [INF] Processando prompt completo de 3472 caracteres
+2025-04-29 22:25:15.498 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.498 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.498 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.498 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.498 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.498 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.557 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.557 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.557 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.557 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.557 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.557 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.557 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.557 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.557 -03:00 [INF] Processando prompt completo de 3513 caracteres
+2025-04-29 22:25:15.557 -03:00 [INF] Processando prompt completo de 3513 caracteres
+2025-04-29 22:25:15.557 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.557 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.557 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.557 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.557 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.557 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.616 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.616 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.616 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.617 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.617 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.617 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.617 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.617 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.617 -03:00 [INF] Processando prompt completo de 3462 caracteres
+2025-04-29 22:25:15.617 -03:00 [INF] Processando prompt completo de 3462 caracteres
+2025-04-29 22:25:15.617 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.617 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.617 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.617 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.617 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.617 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.677 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.677 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.677 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.677 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.677 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.677 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.677 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.677 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.677 -03:00 [INF] Processando prompt completo de 3507 caracteres
+2025-04-29 22:25:15.677 -03:00 [INF] Processando prompt completo de 3507 caracteres
+2025-04-29 22:25:15.678 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.678 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.678 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.678 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.678 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.678 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.737 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.737 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.737 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.737 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.737 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.737 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.737 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.737 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.737 -03:00 [INF] Processando prompt completo de 2003 caracteres
+2025-04-29 22:25:15.737 -03:00 [INF] Processando prompt completo de 2003 caracteres
+2025-04-29 22:25:15.737 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.737 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.737 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.737 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.737 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.737 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.748 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.748 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.748 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.748 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.748 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.748 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.748 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.748 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.748 -03:00 [INF] Processando prompt completo de 1143 caracteres
+2025-04-29 22:25:15.748 -03:00 [INF] Processando prompt completo de 1143 caracteres
+2025-04-29 22:25:15.748 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.749 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.749 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.749 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.749 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.749 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.759 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.759 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.759 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.759 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.760 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.760 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.760 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.760 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:25:15.760 -03:00 [INF] Processando prompt completo de 1205 caracteres
+2025-04-29 22:25:15.760 -03:00 [INF] Processando prompt completo de 1205 caracteres
+2025-04-29 22:25:15.760 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.760 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:25:15.760 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.760 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:25:15.760 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.760 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:25:15.770 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.770 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:25:15.770 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.770 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:25:15.770 -03:00 [WRN] Nenhuma parte do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:25:15.770 -03:00 [WRN] Nenhuma parte do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:25:15.771 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:25:15.771 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:25:15.810 -03:00 [INF] Análise salva com sucesso para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs no commit 6d326a5b
+2025-04-29 22:25:15.810 -03:00 [INF] Análise salva com sucesso para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs no commit 6d326a5b
+2025-04-29 22:25:16.811 -03:00 [INF] Análise de commits concluída com sucesso
+2025-04-29 22:34:26.076 -03:00 [INF] Iniciando CommitQualityAnalyzer
+2025-04-29 22:34:26.107 -03:00 [INF] Usando arquivo de configuração: D:\Estudos\Projects\CommitQualityAnalyzer\src\CommitQualityAnalyzer.Worker\bin\Debug\net8.0\appsettings.json
+2025-04-29 22:34:26.109 -03:00 [INF] Config: windir = C:\Windows
+2025-04-29 22:34:26.109 -03:00 [INF] Config: WebStorm = F:\Apps\Dev\WebStorm 2024.3.4\bin;
+2025-04-29 22:34:26.109 -03:00 [INF] Config: VSCODE_PID = 20280
+2025-04-29 22:34:26.109 -03:00 [INF] Config: VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"pt-br","resolvedLanguage":"en","defaultMessagesFile":"F:\\Apps\\Windsurf\\resources\\app\\out\\nls.messages.json","locale":"en-us","availableLanguages":{}}
+2025-04-29 22:34:26.109 -03:00 [INF] Config: VSCODE_IPC_HOOK = \\.\pipe\cf4cbb10-1.97.0-main-sock
+2025-04-29 22:34:26.109 -03:00 [INF] Config: VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+2025-04-29 22:34:26.110 -03:00 [INF] Config: VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+2025-04-29 22:34:26.110 -03:00 [INF] Config: VSCODE_CWD = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-29 22:34:26.110 -03:00 [INF] Config: VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+2025-04-29 22:34:26.110 -03:00 [INF] Config: VSCODE_CODE_CACHE_PATH = C:\Users\Gusta\AppData\Roaming\Windsurf\CachedData\69a900001328c5e276063fc33dcff89076073a54
+2025-04-29 22:34:26.110 -03:00 [INF] Config: VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+2025-04-29 22:34:26.110 -03:00 [INF] Config: USERPROFILE = C:\Users\Gusta
+2025-04-29 22:34:26.110 -03:00 [INF] Config: USERNAME = Gusta
+2025-04-29 22:34:26.110 -03:00 [INF] Config: USERDOMAIN_ROAMINGPROFILE = DESKTOP-CDA8E74
+2025-04-29 22:34:26.110 -03:00 [INF] Config: USERDOMAIN = DESKTOP-CDA8E74
+2025-04-29 22:34:26.110 -03:00 [INF] Config: TMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-29 22:34:26.110 -03:00 [INF] Config: TEMP = C:\Users\Gusta\AppData\Local\Temp
+2025-04-29 22:34:26.110 -03:00 [INF] Config: SystemRoot = C:\Windows
+2025-04-29 22:34:26.110 -03:00 [INF] Config: SystemDrive = C:
+2025-04-29 22:34:26.110 -03:00 [INF] Config: SESSIONNAME = Console
+2025-04-29 22:34:26.110 -03:00 [INF] Config: Serilog = null
+2025-04-29 22:34:26.110 -03:00 [INF] Config: Serilog:WriteTo = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1 = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1:Name = File
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1:Args = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1:Args:rollingInterval = Day
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1:Args:retainedFileCountLimit = 30
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1:Args:path = logs/commitanalyzer-.log
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:1:Args:outputTemplate = {Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:0 = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:0:Name = Console
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:0:Args = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:WriteTo:0:Args:outputTemplate = [{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Using = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Using:1 = Serilog.Sinks.File
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Using:0 = Serilog.Sinks.Console
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:MinimumLevel = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:MinimumLevel:Override = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:MinimumLevel:Override:System = Warning
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:MinimumLevel:Override:Microsoft = Warning
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:MinimumLevel:Default = Information
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Enrich = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Enrich:2 = WithThreadId
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Enrich:1 = WithMachineName
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Serilog:Enrich:0 = FromLogContext
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ROOT_X64 = C:\Program Files\dotnet
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PUBLIC = C:\Users\Public
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PSModulePath = C:\Users\Gusta\OneDrive\Documentos\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ProgramW6432 = C:\Program Files
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ProgramFiles(x86) = C:\Program Files (x86)
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ProgramFiles = C:\Program Files
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ProgramData = C:\ProgramData
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PROCESSOR_REVISION = 2102
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PROCESSOR_LEVEL = 25
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PROCESSOR_IDENTIFIER = AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PROCESSOR_ARCHITECTURE = AMD64
+2025-04-29 22:34:26.111 -03:00 [INF] Config: PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Path = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\dotnet\;C:\Users\Gusta\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\Gusta\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;;F:\Apps\Dev\WebStorm 2024.3.4\bin;;C:\Users\Gusta\.dotnet\tools;F:\Apps\Windsurf\bin;F:\Apps\Dev\Azure Data Studio\bin;C:\Users\Gusta\AppData\Local\Programs\Julia-1.11.5\bin
+2025-04-29 22:34:26.111 -03:00 [INF] Config: OS = Windows_NT
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+2025-04-29 22:34:26.111 -03:00 [INF] Config: OneDrive = C:\Users\Gusta\OneDrive
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:TimeoutMinutes = 30
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:ModelName = codellama
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:MaxPromptLength = 12000
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:MaxPartLength = 2500
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:DockerContainerName = ollama
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:ContextLength = 8192
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:ApiUrl = http://localhost:11434/api/generate
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:AlternativeModels = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:AlternativeModels:1 = deepseek-extended
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Ollama:AlternativeModels:0 = codellama-extended
+2025-04-29 22:34:26.111 -03:00 [INF] Config: NVM_SYMLINK = C:\Program Files\nodejs
+2025-04-29 22:34:26.111 -03:00 [INF] Config: NVM_HOME = C:\Users\Gusta\AppData\Roaming\nvm
+2025-04-29 22:34:26.111 -03:00 [INF] Config: NUMBER_OF_PROCESSORS = 16
+2025-04-29 22:34:26.111 -03:00 [INF] Config: MSMPI_BIN = C:\Program Files\Microsoft MPI\Bin\
+2025-04-29 22:34:26.111 -03:00 [INF] Config: MSMPI_BENCHMARKS = C:\Program Files\Microsoft MPI\Benchmarks\
+2025-04-29 22:34:26.111 -03:00 [INF] Config: MSBuildLoadMicrosoftTargetsReadOnly = true
+2025-04-29 22:34:26.111 -03:00 [INF] Config: MSBUILDFAILONDRIVEENUMERATINGWILDCARD = 1
+2025-04-29 22:34:26.111 -03:00 [INF] Config: LOGONSERVER = \\DESKTOP-CDA8E74
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Logging = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Logging:LogLevel = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Logging:LogLevel:Microsoft.Hosting.Lifetime = Information
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Logging:LogLevel:Microsoft = Warning
+2025-04-29 22:34:26.111 -03:00 [INF] Config: Logging:LogLevel:Default = Information
+2025-04-29 22:34:26.111 -03:00 [INF] Config: LOCALAPPDATA = C:\Users\Gusta\AppData\Local
+2025-04-29 22:34:26.111 -03:00 [INF] Config: IntelliJ IDEA = D:\Aplicativos\IntelliJ IDEA 2024.2.4\bin;
+2025-04-29 22:34:26.111 -03:00 [INF] Config: HOMEPATH = \Users\Gusta
+2025-04-29 22:34:26.111 -03:00 [INF] Config: HOMEDRIVE = C:
+2025-04-29 22:34:26.111 -03:00 [INF] Config: GitRepository = null
+2025-04-29 22:34:26.111 -03:00 [INF] Config: GitRepository:Path = D:\Edata\Vision\backend
+2025-04-29 22:34:26.111 -03:00 [INF] Config: FPS_BROWSER_USER_PROFILE_STRING = Default
+2025-04-29 22:34:26.111 -03:00 [INF] Config: FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+2025-04-29 22:34:26.111 -03:00 [INF] Config: ELECTRON_RUN_AS_NODE = 1
+2025-04-29 22:34:26.111 -03:00 [INF] Config: DriverData = C:\Windows\System32\Drivers\DriverData
+2025-04-29 22:34:26.111 -03:00 [INF] Config: DOTNET_ROOT_X64 = C:\Program Files\dotnet
+2025-04-29 22:34:26.112 -03:00 [INF] Config: contentRoot = D:\Estudos\Projects\CommitQualityAnalyzer
+2025-04-29 22:34:26.112 -03:00 [INF] Config: ConnectionStrings = null
+2025-04-29 22:34:26.112 -03:00 [INF] Config: ConnectionStrings:MongoDB = mongodb://admin:admin123@localhost:27017
+2025-04-29 22:34:26.112 -03:00 [INF] Config: ComSpec = C:\Windows\system32\cmd.exe
+2025-04-29 22:34:26.112 -03:00 [INF] Config: COMPUTERNAME = DESKTOP-CDA8E74
+2025-04-29 22:34:26.112 -03:00 [INF] Config: CommonProgramW6432 = C:\Program Files\Common Files
+2025-04-29 22:34:26.112 -03:00 [INF] Config: CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+2025-04-29 22:34:26.112 -03:00 [INF] Config: CommonProgramFiles = C:\Program Files\Common Files
+2025-04-29 22:34:26.112 -03:00 [INF] Config: CODEIUM_EDITOR_APP_ROOT = f:\Apps\Windsurf\resources\app
+2025-04-29 22:34:26.112 -03:00 [INF] Config: CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_20280_MSULADPZVWTUWZPQ
+2025-04-29 22:34:26.112 -03:00 [INF] Config: APPDATA = C:\Users\Gusta\AppData\Roaming
+2025-04-29 22:34:26.112 -03:00 [INF] Config: ALLUSERSPROFILE = C:\ProgramData
+2025-04-29 22:34:26.114 -03:00 [INF] Caminho do repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.274 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 12000 caracteres
+2025-04-29 22:34:26.275 -03:00 [INF] OllamaService inicializado com timeout de 30 minutos e tamanho máximo de prompt de 12000 caracteres
+2025-04-29 22:34:26.275 -03:00 [INF] Iniciando análise de commits das últimas 24 horas
+2025-04-29 22:34:26.275 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.275 -03:00 [INF] Iniciando análise do repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.275 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.275 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.285 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.285 -03:00 [INF] Obtendo commits do último dia no repositório: D:\Edata\Vision\backend
+2025-04-29 22:34:26.316 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:34:26.316 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:34:26.317 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:34:26.317 -03:00 [INF] Encontrados 7 commits nas últimas 24 horas
+2025-04-29 22:34:26.318 -03:00 [INF] Processando commit: f87363c5 de Gabriel Mattos em "2025-04-29T15:48:10.0000000-03:00"
+2025-04-29 22:34:26.319 -03:00 [INF] Processando commit: f87363c5 de Gabriel Mattos em "2025-04-29T15:48:10.0000000-03:00"
+2025-04-29 22:34:26.339 -03:00 [INF] Encontradas 1 mudanças no commit f87363c5254b3c3f1be715ce22d1f1481d30c9e3
+2025-04-29 22:34:26.339 -03:00 [INF] Encontradas 1 mudanças no commit f87363c5254b3c3f1be715ce22d1f1481d30c9e3
+2025-04-29 22:34:26.340 -03:00 [INF] Encontradas 1 alterações no commit f87363c5
+2025-04-29 22:34:26.340 -03:00 [INF] Encontradas 1 alterações no commit f87363c5
+2025-04-29 22:34:26.346 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.346 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.396 -03:00 [INF] Arquivo src/Core/Edata.Vision.Infrastructure.Core.Data.Legacy/Repositories/WindowRepository.cs já foi analisado anteriormente para o commit f87363c5
+2025-04-29 22:34:26.396 -03:00 [INF] Arquivo src/Core/Edata.Vision.Infrastructure.Core.Data.Legacy/Repositories/WindowRepository.cs já foi analisado anteriormente para o commit f87363c5
+2025-04-29 22:34:26.396 -03:00 [INF] Processando commit: d7560387 de Gabriel Mattos em "2025-04-29T14:15:28.0000000-03:00"
+2025-04-29 22:34:26.396 -03:00 [INF] Processando commit: d7560387 de Gabriel Mattos em "2025-04-29T14:15:28.0000000-03:00"
+2025-04-29 22:34:26.405 -03:00 [INF] Encontradas 1 mudanças no commit d75603871cea1982d76adac0b89fe6334ce26997
+2025-04-29 22:34:26.405 -03:00 [INF] Encontradas 1 mudanças no commit d75603871cea1982d76adac0b89fe6334ce26997
+2025-04-29 22:34:26.405 -03:00 [INF] Encontradas 1 alterações no commit d7560387
+2025-04-29 22:34:26.405 -03:00 [INF] Encontradas 1 alterações no commit d7560387
+2025-04-29 22:34:26.405 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.405 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.412 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit d7560387
+2025-04-29 22:34:26.412 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit d7560387
+2025-04-29 22:34:26.412 -03:00 [INF] Processando commit: 786360d6 de Gabriel Mattos em "2025-04-29T12:18:17.0000000-03:00"
+2025-04-29 22:34:26.412 -03:00 [INF] Processando commit: 786360d6 de Gabriel Mattos em "2025-04-29T12:18:17.0000000-03:00"
+2025-04-29 22:34:26.422 -03:00 [INF] Encontradas 5 mudanças no commit 786360d6f431ae18c7c722b6a2c5d22ef0f45051
+2025-04-29 22:34:26.422 -03:00 [INF] Encontradas 5 mudanças no commit 786360d6f431ae18c7c722b6a2c5d22ef0f45051
+2025-04-29 22:34:26.423 -03:00 [INF] Encontradas 5 alterações no commit 786360d6
+2025-04-29 22:34:26.423 -03:00 [INF] Encontradas 5 alterações no commit 786360d6
+2025-04-29 22:34:26.423 -03:00 [INF] Encontrados 5 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.423 -03:00 [INF] Encontrados 5 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.425 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Interfaces/IWindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.425 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Interfaces/IWindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.426 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Services/WindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.426 -03:00 [INF] Arquivo src/Core/Edata.Vision.Application.Core/Services/WindowService.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.427 -03:00 [INF] Arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.427 -03:00 [INF] Arquivo src/Core/Edata.Vision.Core.Api/Controllers/v1/WindowController.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.428 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.428 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/CommandHandlers/WindowCommandHandler.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.428 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.429 -03:00 [INF] Arquivo src/Core/Edata.Vision.Domain.Core/Commands/WindowCommands/Update/UpdateWindowCommand.cs já foi analisado anteriormente para o commit 786360d6
+2025-04-29 22:34:26.429 -03:00 [INF] Processando commit: 89cfecdd de Gabriel Mattos em "2025-04-29T12:13:42.0000000-03:00"
+2025-04-29 22:34:26.429 -03:00 [INF] Processando commit: 89cfecdd de Gabriel Mattos em "2025-04-29T12:13:42.0000000-03:00"
+2025-04-29 22:34:26.439 -03:00 [INF] Encontradas 4 mudanças no commit 89cfecdd38f7b434d3f3b9af4f63cb72664af603
+2025-04-29 22:34:26.440 -03:00 [INF] Encontradas 4 mudanças no commit 89cfecdd38f7b434d3f3b9af4f63cb72664af603
+2025-04-29 22:34:26.440 -03:00 [INF] Encontradas 4 alterações no commit 89cfecdd
+2025-04-29 22:34:26.440 -03:00 [INF] Encontradas 4 alterações no commit 89cfecdd
+2025-04-29 22:34:26.440 -03:00 [INF] Encontrados 4 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.440 -03:00 [INF] Encontrados 4 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.442 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.442 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/CommandHandlers/ReportCommandHandler.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.443 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/Interfaces/Repository/IReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.443 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Domain.Reports/Interfaces/Repository/IReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.443 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Infrastructure.Data.Reports/Repositories/ReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.443 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Infrastructure.Data.Reports/Repositories/ReportRepository.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.444 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Reports.Api/Controllers/v1/ReportController.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.444 -03:00 [INF] Arquivo src/Reports/Edata.Vision.Reports.Api/Controllers/v1/ReportController.cs já foi analisado anteriormente para o commit 89cfecdd
+2025-04-29 22:34:26.444 -03:00 [INF] Processando commit: 91e10b9e de Gabriel Mattos em "2025-04-29T11:54:18.0000000-03:00"
+2025-04-29 22:34:26.444 -03:00 [INF] Processando commit: 91e10b9e de Gabriel Mattos em "2025-04-29T11:54:18.0000000-03:00"
+2025-04-29 22:34:26.455 -03:00 [INF] Encontradas 1 mudanças no commit 91e10b9eeffd798bbbc5ebc3f02f5c30e6d1dd71
+2025-04-29 22:34:26.455 -03:00 [INF] Encontradas 1 mudanças no commit 91e10b9eeffd798bbbc5ebc3f02f5c30e6d1dd71
+2025-04-29 22:34:26.456 -03:00 [INF] Encontradas 1 alterações no commit 91e10b9e
+2025-04-29 22:34:26.456 -03:00 [INF] Encontradas 1 alterações no commit 91e10b9e
+2025-04-29 22:34:26.456 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.456 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:26.458 -03:00 [INF] Analisando arquivo: src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.458 -03:00 [INF] Analisando arquivo: src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.467 -03:00 [INF] Arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs dividido em 5 partes para análise
+2025-04-29 22:34:26.467 -03:00 [INF] Arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs dividido em 5 partes para análise
+2025-04-29 22:34:26.467 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.467 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.468 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.468 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.469 -03:00 [INF] Processando prompt completo de 3493 caracteres
+2025-04-29 22:34:26.469 -03:00 [INF] Processando prompt completo de 3493 caracteres
+2025-04-29 22:34:26.469 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.469 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.470 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.470 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.470 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.470 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.527 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.528 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.528 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.528 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.528 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.528 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.528 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.528 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.528 -03:00 [INF] Processando prompt completo de 3505 caracteres
+2025-04-29 22:34:26.528 -03:00 [INF] Processando prompt completo de 3505 caracteres
+2025-04-29 22:34:26.528 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.528 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.528 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.528 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.528 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.528 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.594 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.594 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.594 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.594 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.594 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.594 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.594 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.594 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.594 -03:00 [INF] Processando prompt completo de 3530 caracteres
+2025-04-29 22:34:26.594 -03:00 [INF] Processando prompt completo de 3530 caracteres
+2025-04-29 22:34:26.594 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.594 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.594 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.594 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.594 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.594 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.655 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.655 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.655 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.655 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.655 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.655 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.655 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.655 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.655 -03:00 [INF] Processando prompt completo de 3561 caracteres
+2025-04-29 22:34:26.655 -03:00 [INF] Processando prompt completo de 3561 caracteres
+2025-04-29 22:34:26.655 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.655 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.655 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.655 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.655 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.655 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.724 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.724 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.724 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.724 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.725 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.725 -03:00 [INF] Analisando parte 1 de 5 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.725 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.725 -03:00 [INF] Construindo prompt para análise de código para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs (parte 0)
+2025-04-29 22:34:26.725 -03:00 [INF] Processando prompt completo de 3272 caracteres
+2025-04-29 22:34:26.725 -03:00 [INF] Processando prompt completo de 3272 caracteres
+2025-04-29 22:34:26.725 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.725 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:26.725 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.725 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:26.725 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.725 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:26.786 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.786 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:26.786 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.786 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs
+2025-04-29 22:34:26.786 -03:00 [WRN] Nenhuma parte do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:26.786 -03:00 [WRN] Nenhuma parte do arquivo src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:26.787 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:26.787 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:26.820 -03:00 [INF] Análise salva com sucesso para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs no commit 91e10b9e
+2025-04-29 22:34:26.820 -03:00 [INF] Análise salva com sucesso para src/Utilities/Edata.Components.Criteria/Services/CriteriaGenerator.cs no commit 91e10b9e
+2025-04-29 22:34:27.821 -03:00 [INF] Processando commit: df7c5f8d de Gabriel Mattos em "2025-04-29T11:49:32.0000000-03:00"
+2025-04-29 22:34:27.821 -03:00 [INF] Processando commit: df7c5f8d de Gabriel Mattos em "2025-04-29T11:49:32.0000000-03:00"
+2025-04-29 22:34:27.832 -03:00 [INF] Encontradas 9 mudanças no commit df7c5f8df6ae077d9c8c5a682646ba41c564cdcc
+2025-04-29 22:34:27.832 -03:00 [INF] Encontradas 9 mudanças no commit df7c5f8df6ae077d9c8c5a682646ba41c564cdcc
+2025-04-29 22:34:27.833 -03:00 [INF] Encontradas 9 alterações no commit df7c5f8d
+2025-04-29 22:34:27.833 -03:00 [INF] Encontradas 9 alterações no commit df7c5f8d
+2025-04-29 22:34:27.833 -03:00 [INF] Encontrados 9 arquivos C# relevantes para analisar
+2025-04-29 22:34:27.833 -03:00 [INF] Encontrados 9 arquivos C# relevantes para analisar
+2025-04-29 22:34:27.836 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.836 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.845 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs dividido em 3 partes para análise
+2025-04-29 22:34:27.845 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs dividido em 3 partes para análise
+2025-04-29 22:34:27.845 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.845 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.845 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs (parte 0)
+2025-04-29 22:34:27.845 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs (parte 0)
+2025-04-29 22:34:27.845 -03:00 [INF] Processando prompt completo de 1425 caracteres
+2025-04-29 22:34:27.845 -03:00 [INF] Processando prompt completo de 1425 caracteres
+2025-04-29 22:34:27.845 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:27.845 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:27.845 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:27.845 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:27.845 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:27.845 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:27.857 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:27.857 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:27.857 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.857 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.857 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.857 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.857 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs (parte 0)
+2025-04-29 22:34:27.857 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs (parte 0)
+2025-04-29 22:34:27.857 -03:00 [INF] Processando prompt completo de 3490 caracteres
+2025-04-29 22:34:27.857 -03:00 [INF] Processando prompt completo de 3490 caracteres
+2025-04-29 22:34:27.857 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:27.857 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:27.857 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:27.857 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:27.857 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:27.857 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:27.917 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:27.917 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:27.917 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.918 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.918 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.918 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.918 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs (parte 0)
+2025-04-29 22:34:27.918 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs (parte 0)
+2025-04-29 22:34:27.918 -03:00 [INF] Processando prompt completo de 1176 caracteres
+2025-04-29 22:34:27.918 -03:00 [INF] Processando prompt completo de 1176 caracteres
+2025-04-29 22:34:27.918 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:27.918 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:27.918 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:27.918 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:27.918 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:27.918 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:27.931 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:27.931 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:27.931 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.931 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs
+2025-04-29 22:34:27.931 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:27.931 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:27.931 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:27.931 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:27.933 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs no commit df7c5f8d
+2025-04-29 22:34:27.933 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/CommandHandlers/CargoExpeditionCommandHandler.cs no commit df7c5f8d
+2025-04-29 22:34:28.935 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.935 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.943 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs dividido em 3 partes para análise
+2025-04-29 22:34:28.943 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs dividido em 3 partes para análise
+2025-04-29 22:34:28.943 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.943 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.943 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs (parte 0)
+2025-04-29 22:34:28.943 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs (parte 0)
+2025-04-29 22:34:28.943 -03:00 [INF] Processando prompt completo de 1213 caracteres
+2025-04-29 22:34:28.943 -03:00 [INF] Processando prompt completo de 1213 caracteres
+2025-04-29 22:34:28.943 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:28.943 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:28.943 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:28.943 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:28.943 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:28.943 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:28.955 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:28.955 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:28.955 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.955 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.955 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.955 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.955 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs (parte 0)
+2025-04-29 22:34:28.955 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs (parte 0)
+2025-04-29 22:34:28.955 -03:00 [INF] Processando prompt completo de 1135 caracteres
+2025-04-29 22:34:28.955 -03:00 [INF] Processando prompt completo de 1135 caracteres
+2025-04-29 22:34:28.955 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:28.955 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:28.955 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:28.955 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:28.955 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:28.955 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:28.967 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:28.967 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:28.967 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.967 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.967 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.967 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.967 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs (parte 0)
+2025-04-29 22:34:28.967 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs (parte 0)
+2025-04-29 22:34:28.967 -03:00 [INF] Processando prompt completo de 1373 caracteres
+2025-04-29 22:34:28.967 -03:00 [INF] Processando prompt completo de 1373 caracteres
+2025-04-29 22:34:28.967 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:28.967 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:28.967 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:28.967 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:28.967 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:28.967 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:28.978 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:28.978 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:28.978 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.978 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs
+2025-04-29 22:34:28.979 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:28.979 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:28.979 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:28.979 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:28.980 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs no commit df7c5f8d
+2025-04-29 22:34:28.980 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoStatusCommand.cs no commit df7c5f8d
+2025-04-29 22:34:29.982 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:29.982 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:29.990 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs dividido em 3 partes para análise
+2025-04-29 22:34:29.990 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs dividido em 3 partes para análise
+2025-04-29 22:34:29.990 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:29.990 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:29.990 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs (parte 0)
+2025-04-29 22:34:29.990 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs (parte 0)
+2025-04-29 22:34:29.990 -03:00 [INF] Processando prompt completo de 1220 caracteres
+2025-04-29 22:34:29.990 -03:00 [INF] Processando prompt completo de 1220 caracteres
+2025-04-29 22:34:29.990 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:29.990 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:29.990 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:29.990 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:29.990 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:29.990 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:30.011 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:30.011 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:30.011 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.011 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.011 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.011 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.011 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs (parte 0)
+2025-04-29 22:34:30.011 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs (parte 0)
+2025-04-29 22:34:30.011 -03:00 [INF] Processando prompt completo de 1161 caracteres
+2025-04-29 22:34:30.011 -03:00 [INF] Processando prompt completo de 1161 caracteres
+2025-04-29 22:34:30.011 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:30.011 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:30.011 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:30.011 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:30.011 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:30.011 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:30.022 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:30.022 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:30.022 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.022 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.022 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.022 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.022 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs (parte 0)
+2025-04-29 22:34:30.022 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs (parte 0)
+2025-04-29 22:34:30.022 -03:00 [INF] Processando prompt completo de 1420 caracteres
+2025-04-29 22:34:30.022 -03:00 [INF] Processando prompt completo de 1420 caracteres
+2025-04-29 22:34:30.022 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:30.022 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:30.022 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:30.022 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:30.022 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:30.022 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:30.032 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:30.032 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:30.032 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.032 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs
+2025-04-29 22:34:30.032 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:30.032 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:30.032 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:30.032 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:30.034 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs no commit df7c5f8d
+2025-04-29 22:34:30.034 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Commands/CargoExpeditionCommands/Update/UpdateCargoVehicleStatusCommand.cs no commit df7c5f8d
+2025-04-29 22:34:31.035 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-29 22:34:31.035 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-29 22:34:31.043 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs dividido em 1 partes para análise
+2025-04-29 22:34:31.043 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs dividido em 1 partes para análise
+2025-04-29 22:34:31.043 -03:00 [INF] Analisando parte 1 de 1 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-29 22:34:31.043 -03:00 [INF] Analisando parte 1 de 1 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-29 22:34:31.043 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (parte 0)
+2025-04-29 22:34:31.043 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs (parte 0)
+2025-04-29 22:34:31.043 -03:00 [INF] Processando prompt completo de 2698 caracteres
+2025-04-29 22:34:31.043 -03:00 [INF] Processando prompt completo de 2698 caracteres
+2025-04-29 22:34:31.043 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:31.043 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:31.043 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:31.043 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:31.043 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:31.043 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:31.054 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:31.054 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:31.054 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-29 22:34:31.054 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs
+2025-04-29 22:34:31.054 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:31.054 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:31.054 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:31.054 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:31.055 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs no commit df7c5f8d
+2025-04-29 22:34:31.055 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Interfaces/ICargoService.cs no commit df7c5f8d
+2025-04-29 22:34:32.057 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.057 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.065 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs dividido em 4 partes para análise
+2025-04-29 22:34:32.065 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs dividido em 4 partes para análise
+2025-04-29 22:34:32.065 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.065 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.065 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.065 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.065 -03:00 [INF] Processando prompt completo de 1766 caracteres
+2025-04-29 22:34:32.065 -03:00 [INF] Processando prompt completo de 1766 caracteres
+2025-04-29 22:34:32.065 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.065 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.065 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.065 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.065 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.065 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.077 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.077 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.077 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.077 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.077 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.077 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.077 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.077 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.077 -03:00 [INF] Processando prompt completo de 3536 caracteres
+2025-04-29 22:34:32.077 -03:00 [INF] Processando prompt completo de 3536 caracteres
+2025-04-29 22:34:32.077 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.077 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.077 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.077 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.077 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.077 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.144 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.144 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.144 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.144 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.144 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.144 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.144 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.144 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.144 -03:00 [INF] Processando prompt completo de 3543 caracteres
+2025-04-29 22:34:32.144 -03:00 [INF] Processando prompt completo de 3543 caracteres
+2025-04-29 22:34:32.144 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.144 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.144 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.144 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.144 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.144 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.204 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.204 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.204 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.204 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.204 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.204 -03:00 [INF] Analisando parte 1 de 4 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.204 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.204 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs (parte 0)
+2025-04-29 22:34:32.204 -03:00 [INF] Processando prompt completo de 1277 caracteres
+2025-04-29 22:34:32.204 -03:00 [INF] Processando prompt completo de 1277 caracteres
+2025-04-29 22:34:32.204 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.204 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:32.204 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.205 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:32.205 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.205 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:32.216 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.216 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:32.216 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.216 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs
+2025-04-29 22:34:32.216 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:32.216 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:32.216 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:32.216 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:32.217 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs no commit df7c5f8d
+2025-04-29 22:34:32.217 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Application.SupplyChain/Services/CargoService.cs no commit df7c5f8d
+2025-04-29 22:34:33.219 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.219 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.226 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs dividido em 3 partes para análise
+2025-04-29 22:34:33.226 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs dividido em 3 partes para análise
+2025-04-29 22:34:33.226 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.226 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.226 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs (parte 0)
+2025-04-29 22:34:33.226 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs (parte 0)
+2025-04-29 22:34:33.227 -03:00 [INF] Processando prompt completo de 1543 caracteres
+2025-04-29 22:34:33.227 -03:00 [INF] Processando prompt completo de 1543 caracteres
+2025-04-29 22:34:33.227 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:33.227 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:33.227 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:33.227 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:33.227 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:33.227 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:33.241 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:33.241 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:33.241 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.241 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.241 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.241 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.241 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs (parte 0)
+2025-04-29 22:34:33.241 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs (parte 0)
+2025-04-29 22:34:33.241 -03:00 [INF] Processando prompt completo de 3513 caracteres
+2025-04-29 22:34:33.241 -03:00 [INF] Processando prompt completo de 3513 caracteres
+2025-04-29 22:34:33.241 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:33.241 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:33.241 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:33.241 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:33.241 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:33.241 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:33.294 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:33.294 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:33.294 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.294 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.294 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.294 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.294 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs (parte 0)
+2025-04-29 22:34:33.294 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs (parte 0)
+2025-04-29 22:34:33.294 -03:00 [INF] Processando prompt completo de 1898 caracteres
+2025-04-29 22:34:33.294 -03:00 [INF] Processando prompt completo de 1898 caracteres
+2025-04-29 22:34:33.294 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:33.294 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:33.294 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:33.294 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:33.294 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:33.294 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:33.305 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:33.305 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:33.305 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.305 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs
+2025-04-29 22:34:33.305 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:33.305 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:33.305 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:33.305 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:33.307 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs no commit df7c5f8d
+2025-04-29 22:34:33.307 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Delivery.Api/Controllers/CargoExpeditionController.cs no commit df7c5f8d
+2025-04-29 22:34:34.308 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.308 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.315 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs dividido em 2 partes para análise
+2025-04-29 22:34:34.315 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs dividido em 2 partes para análise
+2025-04-29 22:34:34.315 -03:00 [INF] Analisando parte 1 de 2 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.315 -03:00 [INF] Analisando parte 1 de 2 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.315 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs (parte 0)
+2025-04-29 22:34:34.315 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs (parte 0)
+2025-04-29 22:34:34.316 -03:00 [INF] Processando prompt completo de 1546 caracteres
+2025-04-29 22:34:34.316 -03:00 [INF] Processando prompt completo de 1546 caracteres
+2025-04-29 22:34:34.316 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:34.316 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:34.316 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:34.316 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:34.316 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:34.316 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:34.326 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:34.326 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:34.326 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.326 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.326 -03:00 [INF] Analisando parte 1 de 2 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.326 -03:00 [INF] Analisando parte 1 de 2 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.326 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs (parte 0)
+2025-04-29 22:34:34.326 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs (parte 0)
+2025-04-29 22:34:34.326 -03:00 [INF] Processando prompt completo de 2480 caracteres
+2025-04-29 22:34:34.326 -03:00 [INF] Processando prompt completo de 2480 caracteres
+2025-04-29 22:34:34.326 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:34.326 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:34.326 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:34.326 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:34.326 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:34.326 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:34.338 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:34.338 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:34.338 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.338 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs
+2025-04-29 22:34:34.338 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:34.338 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:34.338 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:34.338 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:34.339 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs no commit df7c5f8d
+2025-04-29 22:34:34.339 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Domain.SupplyChain/Entities/Cargos/Cargo.cs no commit df7c5f8d
+2025-04-29 22:34:35.341 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.341 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.349 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs dividido em 3 partes para análise
+2025-04-29 22:34:35.349 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs dividido em 3 partes para análise
+2025-04-29 22:34:35.349 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.349 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.349 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs (parte 0)
+2025-04-29 22:34:35.349 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs (parte 0)
+2025-04-29 22:34:35.349 -03:00 [INF] Processando prompt completo de 1209 caracteres
+2025-04-29 22:34:35.349 -03:00 [INF] Processando prompt completo de 1209 caracteres
+2025-04-29 22:34:35.349 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:35.349 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:35.349 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:35.349 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:35.349 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:35.349 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:35.360 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:35.360 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:35.360 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.360 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.360 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.360 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.360 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs (parte 0)
+2025-04-29 22:34:35.360 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs (parte 0)
+2025-04-29 22:34:35.360 -03:00 [INF] Processando prompt completo de 3455 caracteres
+2025-04-29 22:34:35.360 -03:00 [INF] Processando prompt completo de 3455 caracteres
+2025-04-29 22:34:35.360 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:35.360 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:35.360 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:35.360 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:35.360 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:35.360 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:35.417 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:35.417 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:35.417 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.417 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.417 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.417 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.417 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs (parte 0)
+2025-04-29 22:34:35.417 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs (parte 0)
+2025-04-29 22:34:35.417 -03:00 [INF] Processando prompt completo de 2787 caracteres
+2025-04-29 22:34:35.417 -03:00 [INF] Processando prompt completo de 2787 caracteres
+2025-04-29 22:34:35.417 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:35.417 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:35.417 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:35.417 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:35.417 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:35.417 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:35.430 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:35.430 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:35.430 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.430 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs
+2025-04-29 22:34:35.430 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:35.430 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:35.430 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:35.430 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:35.431 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs no commit df7c5f8d
+2025-04-29 22:34:35.431 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/MSSQL/CargoMap.cs no commit df7c5f8d
+2025-04-29 22:34:36.433 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.433 -03:00 [INF] Analisando arquivo: src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.441 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs dividido em 3 partes para análise
+2025-04-29 22:34:36.441 -03:00 [INF] Arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs dividido em 3 partes para análise
+2025-04-29 22:34:36.441 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.441 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.441 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs (parte 0)
+2025-04-29 22:34:36.441 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs (parte 0)
+2025-04-29 22:34:36.441 -03:00 [INF] Processando prompt completo de 1260 caracteres
+2025-04-29 22:34:36.441 -03:00 [INF] Processando prompt completo de 1260 caracteres
+2025-04-29 22:34:36.441 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:36.441 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:36.441 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:36.441 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:36.441 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:36.441 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:36.451 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:36.451 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:36.451 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.451 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.451 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.451 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.451 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs (parte 0)
+2025-04-29 22:34:36.451 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs (parte 0)
+2025-04-29 22:34:36.451 -03:00 [INF] Processando prompt completo de 3459 caracteres
+2025-04-29 22:34:36.451 -03:00 [INF] Processando prompt completo de 3459 caracteres
+2025-04-29 22:34:36.451 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:36.451 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:36.451 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:36.451 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:36.451 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:36.451 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:36.514 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:36.515 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:36.515 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.515 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.515 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.515 -03:00 [INF] Analisando parte 1 de 3 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.515 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs (parte 0)
+2025-04-29 22:34:36.515 -03:00 [INF] Construindo prompt para análise de código para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs (parte 0)
+2025-04-29 22:34:36.515 -03:00 [INF] Processando prompt completo de 2124 caracteres
+2025-04-29 22:34:36.515 -03:00 [INF] Processando prompt completo de 2124 caracteres
+2025-04-29 22:34:36.515 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:36.515 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:36.515 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:36.515 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:36.515 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:36.515 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:36.525 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:36.525 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:36.525 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.525 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs
+2025-04-29 22:34:36.525 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:36.525 -03:00 [WRN] Nenhuma parte do arquivo src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:36.525 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:36.525 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:36.526 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs no commit df7c5f8d
+2025-04-29 22:34:36.526 -03:00 [INF] Análise salva com sucesso para src/SupplyChain/Edata.Vision.Infra.SupplyChain.Data/Mappings/Oracle/CargoMap.cs no commit df7c5f8d
+2025-04-29 22:34:37.527 -03:00 [INF] Processando commit: 6d326a5b de Gabriel Mattos em "2025-04-29T11:48:48.0000000-03:00"
+2025-04-29 22:34:37.527 -03:00 [INF] Processando commit: 6d326a5b de Gabriel Mattos em "2025-04-29T11:48:48.0000000-03:00"
+2025-04-29 22:34:37.539 -03:00 [INF] Encontradas 1 mudanças no commit 6d326a5b9de584692d79d585f0042d83688778b7
+2025-04-29 22:34:37.539 -03:00 [INF] Encontradas 1 mudanças no commit 6d326a5b9de584692d79d585f0042d83688778b7
+2025-04-29 22:34:37.539 -03:00 [INF] Encontradas 1 alterações no commit 6d326a5b
+2025-04-29 22:34:37.539 -03:00 [INF] Encontradas 1 alterações no commit 6d326a5b
+2025-04-29 22:34:37.539 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:37.539 -03:00 [INF] Encontrados 1 arquivos C# relevantes para analisar
+2025-04-29 22:34:37.541 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.541 -03:00 [INF] Analisando arquivo: src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.548 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs dividido em 11 partes para análise
+2025-04-29 22:34:37.548 -03:00 [INF] Arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs dividido em 11 partes para análise
+2025-04-29 22:34:37.548 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.548 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.548 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.548 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.548 -03:00 [INF] Processando prompt completo de 1518 caracteres
+2025-04-29 22:34:37.548 -03:00 [INF] Processando prompt completo de 1518 caracteres
+2025-04-29 22:34:37.548 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.548 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.548 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.548 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.548 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.548 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.561 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.561 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.561 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.561 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.561 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.561 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.561 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.561 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.561 -03:00 [INF] Processando prompt completo de 3466 caracteres
+2025-04-29 22:34:37.561 -03:00 [INF] Processando prompt completo de 3466 caracteres
+2025-04-29 22:34:37.561 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.561 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.561 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.561 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.561 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.561 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.614 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.614 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.614 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.614 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.614 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.614 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.614 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.614 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.614 -03:00 [INF] Processando prompt completo de 3499 caracteres
+2025-04-29 22:34:37.614 -03:00 [INF] Processando prompt completo de 3499 caracteres
+2025-04-29 22:34:37.614 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.614 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.614 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.614 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.614 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.614 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.675 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.675 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.675 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.675 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.675 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.675 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.675 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.675 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.675 -03:00 [INF] Processando prompt completo de 3510 caracteres
+2025-04-29 22:34:37.675 -03:00 [INF] Processando prompt completo de 3510 caracteres
+2025-04-29 22:34:37.675 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.675 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.675 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.675 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.675 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.675 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.735 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.735 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.735 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.735 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.735 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.735 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.735 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.735 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.735 -03:00 [INF] Processando prompt completo de 3472 caracteres
+2025-04-29 22:34:37.735 -03:00 [INF] Processando prompt completo de 3472 caracteres
+2025-04-29 22:34:37.735 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.735 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.735 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.735 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.735 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.735 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.799 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.799 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.799 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.799 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.799 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.799 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.799 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.799 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.799 -03:00 [INF] Processando prompt completo de 3513 caracteres
+2025-04-29 22:34:37.799 -03:00 [INF] Processando prompt completo de 3513 caracteres
+2025-04-29 22:34:37.799 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.799 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.799 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.799 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.799 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.799 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.857 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.857 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.857 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.857 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.857 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.857 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.857 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.857 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.857 -03:00 [INF] Processando prompt completo de 3462 caracteres
+2025-04-29 22:34:37.857 -03:00 [INF] Processando prompt completo de 3462 caracteres
+2025-04-29 22:34:37.857 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.857 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.857 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.857 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.857 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.857 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.914 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.914 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.914 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.914 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.914 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.914 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.914 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.914 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.915 -03:00 [INF] Processando prompt completo de 3507 caracteres
+2025-04-29 22:34:37.915 -03:00 [INF] Processando prompt completo de 3507 caracteres
+2025-04-29 22:34:37.915 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.915 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.915 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.915 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.915 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.915 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.974 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.975 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.975 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.975 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.975 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.975 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.975 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.975 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.975 -03:00 [INF] Processando prompt completo de 2003 caracteres
+2025-04-29 22:34:37.975 -03:00 [INF] Processando prompt completo de 2003 caracteres
+2025-04-29 22:34:37.975 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.975 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.975 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.975 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.975 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.975 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.985 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.985 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.985 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.985 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.985 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.985 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.986 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.986 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.986 -03:00 [INF] Processando prompt completo de 1143 caracteres
+2025-04-29 22:34:37.986 -03:00 [INF] Processando prompt completo de 1143 caracteres
+2025-04-29 22:34:37.986 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.986 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.986 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.986 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.986 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.986 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.996 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.996 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:37.996 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.996 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.996 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.996 -03:00 [INF] Analisando parte 1 de 11 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:37.996 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.996 -03:00 [INF] Construindo prompt para análise de código para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs (parte 0)
+2025-04-29 22:34:37.996 -03:00 [INF] Processando prompt completo de 1205 caracteres
+2025-04-29 22:34:37.996 -03:00 [INF] Processando prompt completo de 1205 caracteres
+2025-04-29 22:34:37.996 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.996 -03:00 [INF] Processando prompt completo diretamente
+2025-04-29 22:34:37.996 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.996 -03:00 [INF] Usando num_ctx = 8192 para o modelo codellama
+2025-04-29 22:34:37.996 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:37.996 -03:00 [INF] Enviando requisição para Ollama com timeout de 300 segundos
+2025-04-29 22:34:38.006 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:38.006 -03:00 [ERR] Erro ao chamar API Ollama: "InternalServerError" - Internal Server Error
+2025-04-29 22:34:38.006 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:38.006 -03:00 [WRN] Resposta vazia para a parte 0 do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs
+2025-04-29 22:34:38.006 -03:00 [WRN] Nenhuma parte do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:38.006 -03:00 [WRN] Nenhuma parte do arquivo src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs pôde ser analisada. Usando fallback.
+2025-04-29 22:34:38.006 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:38.006 -03:00 [INF] Mapeando resultado de análise para CodeAnalysis
+2025-04-29 22:34:38.008 -03:00 [INF] Análise salva com sucesso para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs no commit 6d326a5b
+2025-04-29 22:34:38.008 -03:00 [INF] Análise salva com sucesso para src/Checklist/Edata.Vision.Infra.Checklist.Data/Repositories/MetadataItemRepository.cs no commit 6d326a5b
+2025-04-29 22:34:39.007 -03:00 [INF] Análise de commits concluída com sucesso
