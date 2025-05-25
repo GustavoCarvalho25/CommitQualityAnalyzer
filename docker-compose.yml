@@ -21,6 +21,23 @@ services:
           memory: 8G
     restart: unless-stopped
 
+  # Serviço para inicializar o modelo do Ollama
+  ollama-init:
+    image: curlimages/curl:latest
+    depends_on:
+      - ollama
+    command: >
+      sh -c "
+        echo 'Aguardando Ollama iniciar...' &&
+        sleep 20 &&
+        echo 'Verificando status do Ollama...' &&
+        curl -s http://ollama:11434/api/tags &&
+        echo 'Baixando modelo deepseek-coder...' &&
+        curl -X POST http://ollama:11434/api/pull -d '{\"name\":\"deepseek-coder:6.7b-instruct-q4_0\"}' &&
+        echo 'Modelo baixado com sucesso!'
+      "
+    restart: "no"
+
   # Serviço para o banco de dados MongoDB
   mongodb:
     image: mongo:latest

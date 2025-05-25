@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj": {}
+    "D:\\Estudos\\Projects\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj": {}
   },
   "projects": {
-    "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj": {
+    "D:\\Estudos\\Projects\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj",
+        "projectUniqueName": "D:\\Estudos\\Projects\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj",
         "projectName": "RefactorScore.Core",
-        "projectPath": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj",
+        "projectPath": "D:\\Estudos\\Projects\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj",
         "packagesPath": "C:\\Users\\Gusta\\.nuget\\packages\\",
-        "outputPath": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\src\\Core\\obj\\",
+        "outputPath": "D:\\Estudos\\Projects\\RefactorScore\\src\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,37 +58,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.311/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj": {
+    "D:\\Estudos\\Projects\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj",
+        "projectUniqueName": "D:\\Estudos\\Projects\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj",
         "projectName": "RefactorScore.Core.Tests",
-        "projectPath": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj",
+        "projectPath": "D:\\Estudos\\Projects\\RefactorScore\\tests\\Core.Tests\\RefactorScore.Core.Tests.csproj",
         "packagesPath": "C:\\Users\\Gusta\\.nuget\\packages\\",
-        "outputPath": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\tests\\Core.Tests\\obj\\",
+        "outputPath": "D:\\Estudos\\Projects\\RefactorScore\\tests\\Core.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gusta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj": {
-                "projectPath": "C:\\ESTUDO\\DOTNET\\TCC\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj"
+              "D:\\Estudos\\Projects\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj": {
+                "projectPath": "D:\\Estudos\\Projects\\RefactorScore\\src\\Core\\RefactorScore.Core.csproj"
               }
             }
           }
@@ -114,6 +108,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -144,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.311/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
