@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using RefactorScore.Core.Common;
 using RefactorScore.Core.Entities;
 using RefactorScore.Core.Interfaces;
 
@@ -110,6 +112,14 @@ namespace RefactorScore.Infrastructure.LLM
                 
                 // Analisar o arquivo
                 var resultadoAnalise = await AnalisarArquivoAsync(arquivo);
+                
+                // Se não foi possível analisar o arquivo, retornar null
+                if (resultadoAnalise == null)
+                {
+                    _logger.LogWarning("Não foi possível analisar o arquivo {CaminhoArquivo} no commit {CommitId}", 
+                        caminhoArquivo, commitId);
+                    return null;
+                }
                 
                 // Gerar recomendações para o arquivo
                 var recomendacoes = await GerarRecomendacoesParaArquivoAsync(
@@ -480,16 +490,32 @@ namespace RefactorScore.Infrastructure.LLM
         {
             try
             {
+                // Validar se o arquivo é adequado para análise
+                var validacao = ValidacaoArquivo.ValidarArquivo(arquivo);
+                if (!validacao.Sucesso)
+                {
+                    _logger.LogWarning("⚠️ Arquivo {CaminhoArquivo} não é válido para análise: {Motivo}", 
+                        arquivo.CaminhoArquivo, string.Join(", ", validacao.Erros));
+                    return null;
+                }
+                
                 string linguagem = DeterminarLinguagem(arquivo.CaminhoArquivo);
                 string contexto = $"Este arquivo foi {ConverterTipoMudancaParaDescricao(arquivo.TipoMudanca)} " +
                     $"em um commit. Foram adicionadas {arquivo.LinhasAdicionadas} linhas e " +
                     $"removidas {arquivo.LinhasRemovidas} linhas.";
                 
-                _logger.LogInformation("🤖 Enviando conteúdo do arquivo {CaminhoArquivo} para análise (Tamanho: {TamanhoBytes} bytes)", 
-                    arquivo.CaminhoArquivo, arquivo.ConteudoModificado?.Length ?? 0);
+                // Processar conteúdo para lidar com arquivos grandes
+                string conteudoProcessado = ProcessadorArquivoGrande.PrepararConteudoParaAnalise(
+                    arquivo.ConteudoModificado,
+                    EstimarLinhaModificada(arquivo));
+                
+                _logger.LogInformation("🤖 Enviando conteúdo do arquivo {CaminhoArquivo} para análise (Tamanho original: {TamanhoOriginal} bytes, Processado: {TamanhoProcessado} bytes)", 
+                    arquivo.CaminhoArquivo, 
+                    arquivo.ConteudoModificado?.Length ?? 0,
+                    conteudoProcessado?.Length ?? 0);
                 
                 var resultado = await _llmService.AnalisarCodigoAsync(
-                    arquivo.ConteudoModificado, 
+                    conteudoProcessado, 
                     linguagem, 
                     contexto);
                 
@@ -505,6 +531,45 @@ namespace RefactorScore.Infrastructure.LLM
                 _logger.LogError(ex, "❌ Erro ao analisar arquivo {CaminhoArquivo}", arquivo.CaminhoArquivo);
                 return null;
             }
+        }
+        
+        /// <summary>
+        /// Estima a linha central das modificações com base no tipo de mudança e conteúdo
+        /// </summary>
+        private int EstimarLinhaModificada(MudancaDeArquivoNoCommit arquivo)
+        {
+            // Para arquivos adicionados ou removidos, não há uma linha específica modificada
+            if (arquivo.TipoMudanca == TipoMudanca.Adicionado || arquivo.TipoMudanca == TipoMudanca.Removido)
+                return -1;
+            
+            // Se tivermos um diff, podemos tentar extrair informação dele
+            if (!string.IsNullOrEmpty(arquivo.TextoDiff))
+            {
+                // Procurar por linhas de contexto do diff como "@@ -10,5 +10,8 @@"
+                var diffLines = arquivo.TextoDiff.Split('\n');
+                foreach (var line in diffLines)
+                {
+                    if (line.StartsWith("@@") && line.IndexOf("@@", 2) >= 0)
+                    {
+                        // Extrair o número após o +
+                        var match = Regex.Match(line, @"\+(\d+),");
+                        if (match.Success && int.TryParse(match.Groups[1].Value, out int lineNumber))
+                        {
+                            return lineNumber;
+                        }
+                    }
+                }
+            }
+            
+            // Se não conseguimos informação mais precisa, assumimos que as modificações
+            // estão próximas do meio do arquivo
+            if (!string.IsNullOrEmpty(arquivo.ConteudoModificado))
+            {
+                int totalLines = arquivo.ConteudoModificado.Split('\n').Length;
+                return totalLines / 2;
+            }
+            
+            return -1;
         }
         
         /// <summary>
