@@ -1,6 +1,4 @@
-using Microsoft.Extensions.Logging.Console;
 using RefactorScore.Application.ServiceProviders;
-using RefactorScore.Core.Interfaces;
 using RefactorScore.WorkerService;
 using Serilog;
 

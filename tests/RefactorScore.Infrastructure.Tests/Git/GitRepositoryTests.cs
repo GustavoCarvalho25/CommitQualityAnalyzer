@@ -1,11 +1,9 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using LibGit2Sharp;
 using RefactorScore.Core.Entities;
 using RefactorScore.Infrastructure.Git;
 using Xunit;
+using Microsoft.Extensions.Logging;
+using Moq;
 
 namespace RefactorScore.Infrastructure.Tests.Git
 {
@@ -13,6 +11,7 @@ namespace RefactorScore.Infrastructure.Tests.Git
     {
         private readonly string _testRepoPath;
         private readonly GitRepository _gitRepository;
+        private readonly Mock<ILogger<GitRepository>> _loggerMock;
         
         public GitRepositoryTests()
         {
@@ -25,7 +24,10 @@ namespace RefactorScore.Infrastructure.Tests.Git
             // Inicializar o repositório com um commit inicial
             CreateInitialCommit();
             
-            _gitRepository = new GitRepository(_testRepoPath);
+            // Criar mock do logger
+            _loggerMock = new Mock<ILogger<GitRepository>>();
+            
+            _gitRepository = new GitRepository(_testRepoPath, _loggerMock.Object);
         }
         
         [Fact]

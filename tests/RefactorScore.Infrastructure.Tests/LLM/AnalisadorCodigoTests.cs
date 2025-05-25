@@ -114,11 +114,6 @@ namespace RefactorScore.Infrastructure.Tests.LLM
                 LinhasRemovidas = 0
             };
             
-            // Use reflection to set the property if it's read-only
-            typeof(MudancaDeArquivoNoCommit)
-                .GetProperty("EhCodigoFonte")?
-                .SetValue(arquivo, true, null);
-            
             var commit = new Commit
             {
                 Id = commitId,
@@ -278,7 +273,7 @@ namespace RefactorScore.Infrastructure.Tests.LLM
             {
                 Id = "abc123",
                 IdCommit = "123456",
-                Recomendacoes = null,
+                Recomendacoes = new List<Recomendacao>(),
                 Commit = new Commit 
                 { 
                     Mudancas = new List<MudancaDeArquivoNoCommit>
@@ -315,11 +310,6 @@ namespace RefactorScore.Infrastructure.Tests.LLM
                 LinhasAdicionadas = 1,
                 LinhasRemovidas = 0
             };
-            
-            // Use reflection to set the property if it's read-only
-            typeof(MudancaDeArquivoNoCommit)
-                .GetProperty("EhCodigoFonte")?
-                .SetValue(arquivo, true, null);
             
             var commit = new Commit
             {
