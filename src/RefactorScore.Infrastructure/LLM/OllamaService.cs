@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using RefactorScore.Core.Entities;
 using RefactorScore.Core.Interfaces;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace RefactorScore.Infrastructure.LLM
 {
@@ -149,6 +150,15 @@ namespace RefactorScore.Infrastructure.LLM
             {
                 _logger.LogInformation("🔍 Iniciando análise de código na linguagem {Linguagem}", linguagem);
                 
+                // Verificar se o código é muito grande para processar de uma vez
+                const int TAMANHO_MAXIMO_CHUNK = 7000;
+                if (codigo.Length > TAMANHO_MAXIMO_CHUNK)
+                {
+                    _logger.LogWarning("⚠️ Código muito grande ({TamanhoTotal} caracteres). Dividindo em chunks para evitar timeout.", 
+                        codigo.Length);
+                    return await AnalisarCodigoGrandeEmChunksAsync(codigo, linguagem, contexto);
+                }
+                
                 // Construir o prompt usando o template de análise de código
                 string prompt = _promptTemplates.AnaliseCodigo
                     .Replace("{{CODIGO}}", codigo)
@@ -176,6 +186,231 @@ namespace RefactorScore.Infrastructure.LLM
             }
         }
         
+        /// <summary>
+        /// Analisa código grande dividindo-o em chunks para evitar timeouts
+        /// </summary>
+        private async Task<CodigoLimpo> AnalisarCodigoGrandeEmChunksAsync(
+            string codigo, 
+            string linguagem, 
+            string? contexto = null)
+        {
+            try
+            {
+                _logger.LogInformation("🔄 Iniciando análise de código grande em chunks");
+                
+                // Dividir o código em chunks
+                var chunks = DividirCodigoEmChunks(codigo, 7000);
+                _logger.LogInformation("📊 Código dividido em {NumeroChunks} chunks", chunks.Count);
+                
+                // Analisar cada chunk separadamente
+                var resultadosChunks = new List<CodigoLimpo>();
+                int chunkAtual = 0;
+                
+                foreach (var chunk in chunks)
+                {
+                    chunkAtual++;
+                    _logger.LogInformation("🔍 Analisando chunk {ChunkAtual}/{TotalChunks} (tamanho: {TamanhoChunk} caracteres)",
+                        chunkAtual, chunks.Count, chunk.Length);
+                    
+                    // Adicionar contexto sobre o chunking
+                    string contextoChunk = $"{contexto ?? "Nenhum contexto adicional."} Este é o chunk {chunkAtual} de {chunks.Count} do arquivo completo.";
+                    
+                    // Analisar o chunk
+                    try
+                    {
+                        // Construir o prompt para o chunk
+                        string prompt = _promptTemplates.AnaliseCodigo
+                            .Replace("{{CODIGO}}", chunk)
+                            .Replace("{{LINGUAGEM}}", linguagem)
+                            .Replace("{{CONTEXTO}}", contextoChunk);
+                        
+                        // Enviar para o LLM com timeout reduzido para chunks
+                        string resposta = await ProcessarPromptAsync(prompt, _options.ModeloAnalise, 0.1f, 
+                            Math.Min(2048, _options.MaxTokens));
+                        
+                        // Processar a resposta
+                        var analiseChunk = await ProcessarRespostaAnalise(resposta);
+                        
+                        if (analiseChunk != null)
+                        {
+                            resultadosChunks.Add(analiseChunk);
+                            _logger.LogInformation("✅ Chunk {ChunkAtual} analisado com sucesso. Nota: {NotaGeral:F1}", 
+                                chunkAtual, analiseChunk.NotaGeral);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "❌ Erro ao analisar chunk {ChunkAtual}", chunkAtual);
+                        // Continuar para o próximo chunk mesmo em caso de erro
+                    }
+                }
+                
+                // Se não conseguimos analisar nenhum chunk, retornar objeto padrão
+                if (resultadosChunks.Count == 0)
+                {
+                    _logger.LogWarning("⚠️ Não foi possível analisar nenhum chunk do código. Usando valores padrão.");
+                    return CriarCodigoLimpoPadrao("Falha ao analisar todos os chunks");
+                }
+                
+                // Combinar os resultados dos chunks
+                var resultadoCombinado = CombinarResultadosChunks(resultadosChunks);
+                
+                _logger.LogInformation("✅ Análise combinada de {NumChunks} chunks concluída. Nota geral: {NotaGeral:F1}", 
+                    resultadosChunks.Count, resultadoCombinado.NotaGeral);
+                
+                return resultadoCombinado;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "❌ Erro ao analisar código grande em chunks");
+                throw;
+            }
+        }
+        
+        /// <summary>
+        /// Divide um código em chunks inteligentes, tentando manter a integridade das funções
+        /// </summary>
+        private List<string> DividirCodigoEmChunks(string codigo, int tamanhoMaximoChunk)
+        {
+            var chunks = new List<string>();
+            
+            // Se o código já é pequeno o suficiente, retornar como um único chunk
+            if (codigo.Length <= tamanhoMaximoChunk)
+            {
+                chunks.Add(codigo);
+                return chunks;
+            }
+            
+            // Dividir o código em linhas
+            string[] linhas = codigo.Split('\n');
+            
+            StringBuilder chunkAtual = new StringBuilder();
+            int contadorChars = 0;
+            
+            foreach (var linha in linhas)
+            {
+                int tamanhoLinha = linha.Length + 1; // +1 para o \n
+                
+                // Se adicionar esta linha excederia o tamanho máximo e já temos algum conteúdo,
+                // adicionar o chunk atual à lista e começar um novo
+                if (contadorChars + tamanhoLinha > tamanhoMaximoChunk && chunkAtual.Length > 0)
+                {
+                    chunks.Add(chunkAtual.ToString());
+                    chunkAtual.Clear();
+                    contadorChars = 0;
+                }
+                
+                // Adicionar a linha ao chunk atual
+                chunkAtual.AppendLine(linha);
+                contadorChars += tamanhoLinha;
+            }
+            
+            // Adicionar o último chunk se tiver conteúdo
+            if (chunkAtual.Length > 0)
+            {
+                chunks.Add(chunkAtual.ToString());
+            }
+            
+            return chunks;
+        }
+        
+        /// <summary>
+        /// Combina os resultados da análise de múltiplos chunks
+        /// </summary>
+        private CodigoLimpo CombinarResultadosChunks(List<CodigoLimpo> resultados)
+        {
+            // Se houver apenas um resultado, retorná-lo diretamente
+            if (resultados.Count == 1)
+                return resultados[0];
+            
+            // Calcular médias para cada métrica
+            double somaVariaveis = 0;
+            double somaFuncoes = 0;
+            double somaComentarios = 0;
+            double somaCoesao = 0;
+            double somaCodigoMorto = 0;
+            
+            // Coletar justificativas de todos os chunks
+            var todasJustificativas = new Dictionary<string, List<string>>
+            {
+                { "NomenclaturaVariaveis", new List<string>() },
+                { "TamanhoFuncoes", new List<string>() },
+                { "UsoComentariosRelevantes", new List<string>() },
+                { "CoesaoMetodos", new List<string>() },
+                { "EvitacaoCodigoMorto", new List<string>() }
+            };
+            
+            foreach (var resultado in resultados)
+            {
+                somaVariaveis += resultado.NomenclaturaVariaveis;
+                somaFuncoes += resultado.TamanhoFuncoes;
+                somaComentarios += resultado.UsoComentariosRelevantes;
+                somaCoesao += resultado.CoesaoMetodos;
+                somaCodigoMorto += resultado.EvitacaoCodigoMorto;
+                
+                // Coletar justificativas (se disponíveis)
+                if (resultado.Justificativas != null)
+                {
+                    if (resultado.Justificativas.TryGetValue("NomenclaturaVariaveis", out var justificativa))
+                        todasJustificativas["NomenclaturaVariaveis"].Add(justificativa);
+                    
+                    if (resultado.Justificativas.TryGetValue("TamanhoFuncoes", out justificativa))
+                        todasJustificativas["TamanhoFuncoes"].Add(justificativa);
+                    
+                    if (resultado.Justificativas.TryGetValue("UsoComentariosRelevantes", out justificativa))
+                        todasJustificativas["UsoComentariosRelevantes"].Add(justificativa);
+                    
+                    if (resultado.Justificativas.TryGetValue("CoesaoMetodos", out justificativa))
+                        todasJustificativas["CoesaoMetodos"].Add(justificativa);
+                    
+                    if (resultado.Justificativas.TryGetValue("EvitacaoCodigoMorto", out justificativa))
+                        todasJustificativas["EvitacaoCodigoMorto"].Add(justificativa);
+                }
+            }
+            
+            // Calcular médias
+            int count = resultados.Count;
+            double notaVariaveis = Math.Round(somaVariaveis / count, 1);
+            double notaFuncoes = Math.Round(somaFuncoes / count, 1);
+            double notaComentarios = Math.Round(somaComentarios / count, 1);
+            double notaCoesao = Math.Round(somaCoesao / count, 1);
+            double notaCodigoMorto = Math.Round(somaCodigoMorto / count, 1);
+            
+            // Consolidar justificativas (pegar a primeira não vazia ou combinar até 2)
+            var justificativasFinal = new Dictionary<string, string>();
+            
+            foreach (var categoria in todasJustificativas.Keys)
+            {
+                var justificativasCategoria = todasJustificativas[categoria]
+                    .Where(j => !string.IsNullOrWhiteSpace(j))
+                    .Take(2)
+                    .ToList();
+                
+                if (justificativasCategoria.Count > 0)
+                {
+                    justificativasFinal[categoria] = string.Join(" ", justificativasCategoria);
+                }
+                else
+                {
+                    justificativasFinal[categoria] = "Análise baseada em múltiplos chunks do código.";
+                }
+            }
+            
+            // Incluir informação sobre o processo de chunking
+            justificativasFinal["Observacao"] = $"Esta análise foi combinada a partir de {count} chunks do código original.";
+            
+            // Criar o objeto final
+            return new CodigoLimpo
+            {
+                NomenclaturaVariaveis = (int)notaVariaveis,
+                TamanhoFuncoes = (int)notaFuncoes,
+                UsoComentariosRelevantes = (int)notaComentarios,
+                CoesaoMetodos = (int)notaCoesao,
+                EvitacaoCodigoMorto = (int)notaCodigoMorto,
+                Justificativas = justificativasFinal
+            };
+        }
+        
         /// <inheritdoc/>
         public async Task<List<Recomendacao>> GerarRecomendacoesAsync(CodigoLimpo analise, 
             string codigo, string linguagem)
@@ -183,6 +418,15 @@ namespace RefactorScore.Infrastructure.LLM
             try
             {
                 _logger.LogInformation("🔍 Iniciando geração de recomendações para código na linguagem {Linguagem}", linguagem);
+                
+                // Verificar se o código é muito grande para processar de uma vez
+                const int TAMANHO_MAXIMO_CHUNK = 7000;
+                if (codigo.Length > TAMANHO_MAXIMO_CHUNK)
+                {
+                    _logger.LogWarning("⚠️ Código muito grande ({TamanhoTotal} caracteres) para recomendações. Dividindo em chunks para evitar timeout.", 
+                        codigo.Length);
+                    return await GerarRecomendacoesEmChunksAsync(analise, codigo, linguagem);
+                }
                 
                 // Criar um JSON com a análise para incluir no prompt
                 string analiseJson = JsonSerializer.Serialize(analise);
@@ -213,6 +457,181 @@ namespace RefactorScore.Infrastructure.LLM
                 _logger.LogError(ex, "❌ Erro ao gerar recomendações no Ollama");
                 throw;
             }
+        }
+        
+        /// <summary>
+        /// Gera recomendações para código grande dividindo-o em chunks
+        /// </summary>
+        private async Task<List<Recomendacao>> GerarRecomendacoesEmChunksAsync(
+            CodigoLimpo analiseCompleta, 
+            string codigo, 
+            string linguagem)
+        {
+            try
+            {
+                _logger.LogInformation("🔄 Iniciando geração de recomendações em chunks");
+                
+                // Dividir o código em chunks
+                var chunks = DividirCodigoEmChunks(codigo, 7000);
+                _logger.LogInformation("📊 Código dividido em {NumeroChunks} chunks para recomendações", chunks.Count);
+                
+                // Gerar recomendações para cada chunk separadamente
+                var todasRecomendacoes = new List<Recomendacao>();
+                int chunkAtual = 0;
+                
+                foreach (var chunk in chunks)
+                {
+                    chunkAtual++;
+                    _logger.LogInformation("🔍 Gerando recomendações para chunk {ChunkAtual}/{TotalChunks} (tamanho: {TamanhoChunk} caracteres)",
+                        chunkAtual, chunks.Count, chunk.Length);
+                    
+                    // Adaptar a análise para este chunk
+                    var analiseChunk = new CodigoLimpo
+                    {
+                        NomenclaturaVariaveis = analiseCompleta.NomenclaturaVariaveis,
+                        TamanhoFuncoes = analiseCompleta.TamanhoFuncoes,
+                        UsoComentariosRelevantes = analiseCompleta.UsoComentariosRelevantes,
+                        CoesaoMetodos = analiseCompleta.CoesaoMetodos,
+                        EvitacaoCodigoMorto = analiseCompleta.EvitacaoCodigoMorto,
+                        Justificativas = analiseCompleta.Justificativas
+                    };
+                    
+                    // Adicionar informação sobre chunking à análise
+                    if (analiseChunk.Justificativas == null)
+                        analiseChunk.Justificativas = new Dictionary<string, string>();
+                    
+                    analiseChunk.Justificativas["Chunking"] = $"Este é o chunk {chunkAtual} de {chunks.Count} do arquivo completo.";
+                    
+                    // Gerar recomendações para o chunk
+                    try
+                    {
+                        // Serializar a análise adaptada
+                        string analiseJson = JsonSerializer.Serialize(analiseChunk);
+                        
+                        // Construir o prompt para o chunk
+                        string prompt = _promptTemplates.Recomendacoes
+                            .Replace("{{ANALISE}}", analiseJson)
+                            .Replace("{{CODIGO}}", chunk)
+                            .Replace("{{LINGUAGEM}}", linguagem);
+                        
+                        prompt += $"\n\nATENÇÃO: Este é o chunk {chunkAtual} de {chunks.Count} do arquivo completo. Gere recomendações específicas para este trecho de código.";
+                        
+                        // Enviar para o LLM com timeout reduzido para chunks
+                        string resposta = await ProcessarPromptAsync(prompt, _options.ModeloRecomendacoes, 0.1f, 
+                            Math.Min(2048, _options.MaxTokens));
+                        
+                        // Processar a resposta
+                        var recomendacoesChunk = await ProcessarRespostaRecomendacoes(resposta);
+                        
+                        if (recomendacoesChunk != null && recomendacoesChunk.Count > 0)
+                        {
+                            // Adicionar informação sobre o chunk em cada recomendação
+                            foreach (var recomendacao in recomendacoesChunk)
+                            {
+                                recomendacao.Titulo = $"[Chunk {chunkAtual}] {recomendacao.Titulo}";
+                                
+                                // Evitar duplicação de recomendações muito similares
+                                if (!ExisteRecomendacaoSimilar(todasRecomendacoes, recomendacao))
+                                {
+                                    todasRecomendacoes.Add(recomendacao);
+                                }
+                            }
+                            
+                            _logger.LogInformation("✅ Geradas {NumRecomendacoes} recomendações para o chunk {ChunkAtual}", 
+                                recomendacoesChunk.Count, chunkAtual);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "❌ Erro ao gerar recomendações para chunk {ChunkAtual}", chunkAtual);
+                        // Continuar para o próximo chunk mesmo em caso de erro
+                    }
+                    
+                    // Limitar o número total de recomendações (máximo 10)
+                    if (todasRecomendacoes.Count >= 10)
+                    {
+                        _logger.LogInformation("🛑 Limite de 10 recomendações atingido. Parando processamento de chunks.");
+                        break;
+                    }
+                }
+                
+                // Se não conseguimos gerar nenhuma recomendação, tentar uma abordagem mais genérica
+                if (todasRecomendacoes.Count == 0)
+                {
+                    _logger.LogWarning("⚠️ Não foi possível gerar recomendações para nenhum chunk. Tentando uma abordagem mais genérica.");
+                    
+                    // Tentar gerar recomendações com base apenas na análise geral
+                    try
+                    {
+                        string analiseJson = JsonSerializer.Serialize(analiseCompleta);
+                        string promptGenerico = _promptTemplates.RecomendacoesGenericas
+                            .Replace("{{ANALISE}}", analiseJson)
+                            .Replace("{{LINGUAGEM}}", linguagem);
+                        
+                        string resposta = await ProcessarPromptAsync(promptGenerico, _options.ModeloRecomendacoes);
+                        var recomendacoesGenericas = await ProcessarRespostaRecomendacoes(resposta);
+                        
+                        if (recomendacoesGenericas != null && recomendacoesGenericas.Count > 0)
+                        {
+                            todasRecomendacoes.AddRange(recomendacoesGenericas);
+                            _logger.LogInformation("✅ Geradas {NumRecomendacoes} recomendações genéricas", 
+                                recomendacoesGenericas.Count);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "❌ Erro ao gerar recomendações genéricas");
+                    }
+                }
+                
+                // Ordenar as recomendações por prioridade
+                var recomendacoesOrdenadas = todasRecomendacoes
+                    .OrderByDescending(r => r.Prioridade == "Alta" ? 3 : r.Prioridade == "Média" ? 2 : 1)
+                    .ToList();
+                
+                _logger.LogInformation("✅ Geração de recomendações em chunks concluída. Total: {Total} recomendações", 
+                    recomendacoesOrdenadas.Count);
+                
+                return recomendacoesOrdenadas;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "❌ Erro ao gerar recomendações em chunks");
+                throw;
+            }
+        }
+        
+        /// <summary>
+        /// Verifica se já existe uma recomendação similar na lista
+        /// </summary>
+        private bool ExisteRecomendacaoSimilar(List<Recomendacao> recomendacoes, Recomendacao novaRecomendacao)
+        {
+            // Simplificar o título para comparação (remover prefixo de chunk)
+            string tituloSimplificado = novaRecomendacao.Titulo;
+            if (tituloSimplificado.Contains("]"))
+            {
+                tituloSimplificado = tituloSimplificado.Substring(tituloSimplificado.IndexOf("]") + 1).Trim();
+            }
+            
+            // Verificar se já existe recomendação com título similar
+            foreach (var recomendacao in recomendacoes)
+            {
+                string tituloExistente = recomendacao.Titulo;
+                if (tituloExistente.Contains("]"))
+                {
+                    tituloExistente = tituloExistente.Substring(tituloExistente.IndexOf("]") + 1).Trim();
+                }
+                
+                // Comparar títulos simplificados e tipos
+                if ((tituloExistente.Contains(tituloSimplificado) || 
+                     tituloSimplificado.Contains(tituloExistente)) &&
+                    recomendacao.Tipo == novaRecomendacao.Tipo)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
         }
         
         /// <inheritdoc/>
@@ -690,6 +1109,7 @@ Retorne o JSON puro e corrigido:";
         public string ModeloAnalise { get; set; } = "deepseek-coder:6.7b-instruct-q4_0";
         public string ModeloRecomendacoes { get; set; } = "deepseek-coder:6.7b-instruct-q4_0";
         public int TimeoutSegundos { get; set; } = 600;
+        public int MaxTokens { get; set; } = 2048;
     }
     
     /// <summary>
@@ -774,6 +1194,41 @@ Formato único e esperado (não fuja desse formato do JSON):
     ""tipo"": ""Nomenclatura"",
     ""dificuldade"": ""Fácil"",
     ""referenciaArquivo"": ""linha 25-30"",
+    ""recursosEstudo"": [""https://cleancoders.com/resources/naming-variables"", ""https://refactoring.guru/renaming""]
+  }
+]";
+
+        /// <summary>
+        /// Template para geração de recomendações genéricas (sem código específico)
+        /// </summary>
+        public string RecomendacoesGenericas { get; set; } = @"
+Você é um tutor de programação experiente. Com base na análise de código abaixo, gere recomendações educativas genéricas para ajudar o desenvolvedor a melhorar seu código e aprender melhores práticas.
+
+Linguagem: {{LINGUAGEM}}
+
+Análise do código:
+{{ANALISE}}
+
+Forneça 3-5 recomendações genéricas, priorizando os aspectos que mais precisam de melhoria conforme indicado na análise. Como você não tem acesso ao código específico, foque em princípios gerais e boas práticas para a linguagem mencionada.
+
+Cada recomendação deve:
+1. Focar em um problema ou oportunidade de melhoria que provavelmente existe no código
+2. Explicar o impacto positivo da mudança
+3. Incluir um exemplo genérico de como implementar a melhoria
+4. Fornecer links ou recursos para aprendizado adicional
+
+IMPORTANTE: Responda APENAS em formato JSON, sem texto adicional antes ou depois. Forneça apenas o array JSON puro, sem formatação markdown ou explicações.
+
+Formato único e esperado (não fuja desse formato do JSON):
+[
+  {
+    ""titulo"": ""Melhore a nomenclatura de variáveis"",
+    ""descricao"": ""Variáveis com nomes pouco descritivos não comunicam seu propósito. Nomes descritivos melhoram a legibilidade e manutenção do código."",
+    ""exemplo"": ""Em vez de 'int x = calcularTotal();', use 'int totalProdutos = calcularTotalProdutos();'"",
+    ""prioridade"": ""Alta"",
+    ""tipo"": ""Nomenclatura"",
+    ""dificuldade"": ""Fácil"",
+    ""referenciaArquivo"": ""Diversos arquivos"",
     ""recursosEstudo"": [""https://cleancoders.com/resources/naming-variables"", ""https://refactoring.guru/renaming""]
   }
 ]";
