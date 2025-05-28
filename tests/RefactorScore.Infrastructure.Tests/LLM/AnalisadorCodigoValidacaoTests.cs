@@ -17,6 +17,7 @@ namespace RefactorScore.Infrastructure.Tests.LLM
         private readonly Mock<ILLMService> _mockLlmService;
         private readonly Mock<IGitRepository> _mockGitRepository;
         private readonly Mock<ILogger<AnalisadorCodigo>> _mockLogger;
+        private readonly Mock<IAnaliseRepository> _mockAnaliseRepository;
         private readonly AnalisadorCodigo _analisador;
         
         public AnalisadorCodigoValidacaoTests()
@@ -24,11 +25,27 @@ namespace RefactorScore.Infrastructure.Tests.LLM
             _mockLlmService = new Mock<ILLMService>();
             _mockGitRepository = new Mock<IGitRepository>();
             _mockLogger = new Mock<ILogger<AnalisadorCodigo>>();
+            _mockAnaliseRepository = new Mock<IAnaliseRepository>();
             
             _analisador = new AnalisadorCodigo(
                 _mockLlmService.Object,
                 _mockGitRepository.Object,
-                _mockLogger.Object);
+                _mockLogger.Object,
+                _mockAnaliseRepository.Object);
+                
+            // Configurar o mock do repositório para retornar null para análises existentes
+            _mockAnaliseRepository.Setup(r => r.ObterAnaliseRecentePorCommitAsync(It.IsAny<string>()))
+                .ReturnsAsync((AnaliseDeCommit)null);
+            
+            _mockAnaliseRepository.Setup(r => r.ObterAnalisesArquivoPorCommitAsync(It.IsAny<string>()))
+                .ReturnsAsync(new List<AnaliseDeArquivo>());
+                
+            // Configurar o mock para salvar análises
+            _mockAnaliseRepository.Setup(r => r.AdicionarAsync(It.IsAny<AnaliseDeCommit>()))
+                .ReturnsAsync((AnaliseDeCommit a) => a);
+                
+            _mockAnaliseRepository.Setup(r => r.SalvarAnaliseArquivoAsync(It.IsAny<AnaliseDeArquivo>()))
+                .ReturnsAsync(true);
         }
         
         [Fact]
