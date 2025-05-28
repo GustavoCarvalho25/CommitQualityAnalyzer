@@ -44,6 +44,16 @@ namespace RefactorScore.Core.Entities
         public string ReferenciaArquivo { get; set; }
         
         /// <summary>
+        /// ID do commit ao qual esta recomendação está associada
+        /// </summary>
+        public string IdCommit { get; set; }
+        
+        /// <summary>
+        /// Data de criação da recomendação
+        /// </summary>
+        public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
+        
+        /// <summary>
         /// Links ou recursos para estudo relacionados à recomendação
         /// </summary>
         public List<string> RecursosEstudo { get; set; } = new List<string>();

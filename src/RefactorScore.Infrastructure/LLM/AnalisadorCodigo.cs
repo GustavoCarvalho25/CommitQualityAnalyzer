@@ -20,15 +20,18 @@ namespace RefactorScore.Infrastructure.LLM
         private readonly IGitRepository _gitRepository;
         private readonly ILogger<AnalisadorCodigo> _logger;
         private readonly Dictionary<string, Dictionary<string, CodigoLimpo>> _resultadosCache;
+        private readonly IAnaliseRepository _analiseRepository;
         
         public AnalisadorCodigo(
             ILLMService llmService, 
             IGitRepository gitRepository,
-            ILogger<AnalisadorCodigo> logger)
+            ILogger<AnalisadorCodigo> logger,
+            IAnaliseRepository analiseRepository)
         {
             _llmService = llmService;
             _gitRepository = gitRepository;
             _logger = logger;
+            _analiseRepository = analiseRepository;
             _resultadosCache = new Dictionary<string, Dictionary<string, CodigoLimpo>>();
         }
         
@@ -41,6 +44,14 @@ namespace RefactorScore.Infrastructure.LLM
                 
                 if (string.IsNullOrEmpty(commitId))
                     throw new ArgumentException("ID do commit não pode ser nulo ou vazio", nameof(commitId));
+                
+                // Verificar se já existe uma análise recente para este commit
+                var analiseExistente = await _analiseRepository.ObterAnaliseRecentePorCommitAsync(commitId);
+                if (analiseExistente != null)
+                {
+                    _logger.LogInformation("📋 Análise recente encontrada para o commit {CommitId}. Retornando resultado do banco de dados.", commitId);
+                    return analiseExistente;
+                }
                 
                 // Obter commit do repositório
                 _logger.LogInformation("🔍 Buscando dados do commit {CommitId}", commitId);
@@ -64,6 +75,11 @@ namespace RefactorScore.Infrastructure.LLM
                 // Analisar o commit obtido
                 var analiseResult = await AnalisarCommitInternoAsync(commit);
                 
+                // Salvar a análise no banco de dados
+                _logger.LogInformation("💾 Salvando análise do commit {CommitId} no banco de dados", commitId);
+                await _analiseRepository.AdicionarAsync(analiseResult);
+                _logger.LogInformation("✅ Análise do commit {CommitId} salva com sucesso no banco de dados", commitId);
+                
                 return analiseResult;
             }
             catch (Exception ex)
@@ -86,6 +102,17 @@ namespace RefactorScore.Infrastructure.LLM
                 
                 if (string.IsNullOrEmpty(caminhoArquivo))
                     throw new ArgumentException("Caminho do arquivo não pode ser nulo ou vazio", nameof(caminhoArquivo));
+                
+                // Verificar se já existe uma análise para este arquivo no banco
+                var analiseExistente = await _analiseRepository.ObterAnalisesArquivoPorCommitAsync(commitId);
+                var arquivoExistente = analiseExistente?.FirstOrDefault(a => a.CaminhoArquivo == caminhoArquivo);
+                
+                if (arquivoExistente != null)
+                {
+                    _logger.LogInformation("📋 Análise existente encontrada para o arquivo {CaminhoArquivo} no commit {CommitId}. Retornando resultado do banco de dados.", 
+                        caminhoArquivo, commitId);
+                    return arquivoExistente;
+                }
                 
                 // Obter commit do repositório
                 var commit = await _gitRepository.ObterCommitPorIdAsync(commitId);
@@ -130,6 +157,7 @@ namespace RefactorScore.Infrastructure.LLM
                 // Criar a análise de arquivo
                 var analiseArquivo = new AnaliseDeArquivo
                 {
+                    Id = Guid.NewGuid().ToString(),
                     IdCommit = commitId,
                     CaminhoArquivo = caminhoArquivo,
                     DataAnalise = DateTime.UtcNow,
@@ -137,9 +165,33 @@ namespace RefactorScore.Infrastructure.LLM
                     Linguagem = DeterminarLinguagem(caminhoArquivo),
                     LinhasAdicionadas = arquivo.LinhasAdicionadas,
                     LinhasRemovidas = arquivo.LinhasRemovidas,
-                    Analise = resultadoAnalise,
-                    Recomendacoes = recomendacoes
+                    Analise = resultadoAnalise
                 };
+                
+                // Salvar a análise do arquivo no banco de dados primeiro (sem recomendações)
+                _logger.LogInformation("💾 Salvando análise inicial do arquivo {CaminhoArquivo} no banco de dados", caminhoArquivo);
+                await _analiseRepository.SalvarAnaliseArquivoAsync(analiseArquivo);
+                _logger.LogInformation("✅ Análise inicial do arquivo salva com sucesso no banco de dados");
+                
+                // Adicionar e salvar as recomendações
+                if (recomendacoes != null && recomendacoes.Any())
+                {
+                    // Preparar recomendações com as referências adequadas
+                    foreach (var recomendacao in recomendacoes)
+                    {
+                        recomendacao.ReferenciaArquivo = caminhoArquivo;
+                        recomendacao.IdCommit = commitId;
+                    }
+                    
+                    // Atualizar o objeto de análise com as recomendações
+                    analiseArquivo.Recomendacoes = recomendacoes;
+                    
+                    // Salvar a versão atualizada com recomendações
+                    _logger.LogInformation("💾 Salvando análise do arquivo com {Total} recomendações no banco de dados", 
+                        recomendacoes.Count);
+                    await _analiseRepository.SalvarAnaliseArquivoAsync(analiseArquivo);
+                    _logger.LogInformation("✅ Análise do arquivo com recomendações salva com sucesso no banco de dados");
+                }
                 
                 return analiseArquivo;
             }
@@ -415,9 +467,20 @@ namespace RefactorScore.Infrastructure.LLM
                         var analiseArquivo = new AnaliseDeArquivo
                         {
                             Id = Guid.NewGuid().ToString(),
+                            IdCommit = commit.Id,
                             CaminhoArquivo = arquivo.CaminhoArquivo,
+                            DataAnalise = DateTime.UtcNow,
+                            TipoArquivo = Path.GetExtension(arquivo.CaminhoArquivo),
+                            Linguagem = DeterminarLinguagem(arquivo.CaminhoArquivo),
+                            LinhasAdicionadas = arquivo.LinhasAdicionadas,
+                            LinhasRemovidas = arquivo.LinhasRemovidas,
                             Analise = codigoLimpo
                         };
+                        
+                        // Salvar a análise do arquivo imediatamente após obter o resultado
+                        _logger.LogInformation("💾 Salvando análise do arquivo {CaminhoArquivo} no banco de dados", arquivo.CaminhoArquivo);
+                        await _analiseRepository.SalvarAnaliseArquivoAsync(analiseArquivo);
+                        _logger.LogInformation("✅ Análise do arquivo {CaminhoArquivo} salva com sucesso no banco de dados", arquivo.CaminhoArquivo);
                         
                         analise.AnalisesDeArquivos.Add(analiseArquivo);
                         resultadosAnalise[arquivo.CaminhoArquivo] = codigoLimpo;
@@ -434,12 +497,28 @@ namespace RefactorScore.Infrastructure.LLM
                             _logger.LogInformation("📋 Geradas {Total} recomendações para o arquivo {CaminhoArquivo}", 
                                 recomendacoes.Count, arquivo.CaminhoArquivo);
                             
-                            // Adicionar o caminho do arquivo às recomendações
+                            // Adicionar o caminho do arquivo às recomendações e salvá-las no banco
+                            _logger.LogInformation("💾 Salvando {Total} recomendações para o arquivo {CaminhoArquivo} no banco de dados", 
+                                recomendacoes.Count, arquivo.CaminhoArquivo);
+                                
                             foreach (var recomendacao in recomendacoes)
                             {
                                 recomendacao.ReferenciaArquivo = arquivo.CaminhoArquivo;
+                                recomendacao.IdCommit = commit.Id;
+                                recomendacao.DataCriacao = DateTime.UtcNow;
+                                
+                                if (string.IsNullOrEmpty(recomendacao.Id))
+                                {
+                                    recomendacao.Id = Guid.NewGuid().ToString();
+                                }
+                                
                                 analise.Recomendacoes.Add(recomendacao);
                             }
+                            
+                            // Atualizar a análise de arquivo com as recomendações
+                            analiseArquivo.Recomendacoes = recomendacoes;
+                            await _analiseRepository.SalvarAnaliseArquivoAsync(analiseArquivo);
+                            _logger.LogInformation("✅ Recomendações para o arquivo {CaminhoArquivo} salvas com sucesso", arquivo.CaminhoArquivo);
                         }
                         else
                         {
@@ -469,6 +548,11 @@ namespace RefactorScore.Infrastructure.LLM
                     analise.NotaGeral = 0;
                     analise.Justificativa = "Não foi possível analisar nenhum arquivo neste commit";
                 }
+                
+                // Salvar a análise do commit completa no banco de dados
+                _logger.LogInformation("💾 Salvando análise completa do commit {CommitId} no banco de dados", commit.Id);
+                await _analiseRepository.AdicionarAsync(analise);
+                _logger.LogInformation("✅ Análise completa do commit {CommitId} salva com sucesso no banco de dados", commit.Id);
                 
                 _logger.LogInformation("✅ Análise do commit {CommitId} concluída", commit.Id);
                 _logger.LogInformation("📊 Resumo: Nota geral: {NotaGeral:F1}, Arquivos analisados: {ArquivosAnalisados}, Recomendações: {Recomendacoes}", 
@@ -582,14 +666,36 @@ namespace RefactorScore.Infrastructure.LLM
         {
             try
             {
-                if (analise == null || string.IsNullOrEmpty(codigoFonte))
-                    return new List<Recomendacao>();
+                var recomendacoes = await _llmService.GerarRecomendacoesAsync(analise, codigoFonte, linguagem);
                 
-                return await _llmService.GerarRecomendacoesAsync(analise, codigoFonte, linguagem);
+                // Verificar se há recomendações para salvar
+                if (recomendacoes != null && recomendacoes.Count > 0)
+                {
+                    _logger.LogInformation("✅ Geradas {Count} recomendações válidas para o arquivo", recomendacoes.Count);
+                    
+                    // Preparar recomendações com IDs
+                    foreach (var recomendacao in recomendacoes)
+                    {
+                        if (string.IsNullOrEmpty(recomendacao.Id))
+                        {
+                            recomendacao.Id = Guid.NewGuid().ToString();
+                        }
+                        
+                        // A propriedade ReferenciaArquivo será definida pelo método chamador
+                        // A propriedade IdCommit será definida pelo método chamador
+                        recomendacao.DataCriacao = DateTime.UtcNow;
+                    }
+                }
+                else
+                {
+                    _logger.LogInformation("ℹ️ Nenhuma recomendação válida gerada para o arquivo");
+                }
+                
+                return recomendacoes ?? new List<Recomendacao>();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao gerar recomendações para arquivo");
+                _logger.LogError(ex, "❌ Erro ao gerar recomendações para arquivo");
                 return new List<Recomendacao>();
             }
         }
