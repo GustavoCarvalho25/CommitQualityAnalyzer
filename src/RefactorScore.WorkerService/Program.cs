@@ -1,4 +1,5 @@
 using RefactorScore.Application.ServiceProviders;
+using RefactorScore.Infrastructure.MongoDB;
 using RefactorScore.WorkerService;
 using Serilog;
 
@@ -29,6 +30,9 @@ try
 
     // Adicionar serviços LLM
     builder.Services.AddLLMServices(builder.Configuration);
+    
+    // Adicionar serviços MongoDB
+    builder.Services.AddMongoDb(builder.Configuration);
 
     // Adicionar worker
     builder.Services.AddHostedService<Worker>();
