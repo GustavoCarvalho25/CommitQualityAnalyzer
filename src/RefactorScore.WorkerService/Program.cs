@@ -39,6 +39,21 @@ try
 
     var host = builder.Build();
     
+    // Verificar conexão com MongoDB
+    using (var scope = host.Services.CreateScope())
+    {
+        var serviceProvider = scope.ServiceProvider;
+        
+        Log.Information("🔍 Verificando conexão com banco de dados MongoDB...");
+        bool conexaoMongoDB = await serviceProvider.VerificarConexaoMongoDbAsync();
+        
+        if (!conexaoMongoDB)
+        {
+            Log.Fatal("❌ ERRO CRÍTICO: Não foi possível conectar ao MongoDB. Verifique se o servidor está rodando e as credenciais estão corretas.");
+            return 1;
+        }
+    }
+    
     Log.Information("✅ Serviços configurados, iniciando execução");
     host.Run();
     

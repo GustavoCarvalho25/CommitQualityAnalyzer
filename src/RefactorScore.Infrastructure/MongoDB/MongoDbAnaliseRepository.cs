@@ -104,9 +104,15 @@ namespace RefactorScore.Infrastructure.MongoDB
                 _logger.LogInformation("✅ Análise de commit adicionada com sucesso: {CommitId}", entity.IdCommit);
                 return entity;
             }
+            catch (MongoException mongoEx)
+            {
+                _logger.LogError(mongoEx, "❌ ERRO DE BANCO: Falha ao adicionar análise no MongoDB para commit {CommitId}: {Mensagem}", 
+                    entity.IdCommit, mongoEx.Message);
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Erro ao adicionar análise de commit: {CommitId}", entity.IdCommit);
+                _logger.LogError(ex, "❌ ERRO: Falha ao adicionar análise de commit: {CommitId}", entity.IdCommit);
                 throw;
             }
         }
@@ -138,9 +144,15 @@ namespace RefactorScore.Infrastructure.MongoDB
                 _logger.LogInformation("✅ Análise de commit atualizada com sucesso: {CommitId}", entity.IdCommit);
                 return entity;
             }
+            catch (MongoException mongoEx)
+            {
+                _logger.LogError(mongoEx, "❌ ERRO DE BANCO: Falha ao atualizar análise no MongoDB para commit {CommitId}: {Mensagem}", 
+                    entity.IdCommit, mongoEx.Message);
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Erro ao atualizar análise de commit: {CommitId}", entity.IdCommit);
+                _logger.LogError(ex, "❌ ERRO: Falha ao atualizar análise de commit: {CommitId}", entity.IdCommit);
                 throw;
             }
         }
@@ -436,9 +448,15 @@ namespace RefactorScore.Infrastructure.MongoDB
                     return true;
                 }
             }
+            catch (MongoException mongoEx)
+            {
+                _logger.LogError(mongoEx, "❌ ERRO DE BANCO: Falha ao salvar análise de arquivo no MongoDB: {CommitId}/{CaminhoArquivo}: {Mensagem}", 
+                    analiseArquivo.IdCommit, analiseArquivo.CaminhoArquivo, mongoEx.Message);
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Erro ao salvar análise de arquivo: {CommitId}/{CaminhoArquivo}", 
+                _logger.LogError(ex, "❌ ERRO: Falha ao salvar análise de arquivo: {CommitId}/{CaminhoArquivo}", 
                     analiseArquivo.IdCommit, analiseArquivo.CaminhoArquivo);
                 throw;
             }
