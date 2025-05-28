@@ -159,7 +159,7 @@ RefactorScore can be configured through the `appsettings.json` files:
 
 ```json
 "MongoDB": {
-  "ConnectionString": "mongodb://admin:admin123@localhost:27017",
+  "ConnectionString": "mongodb://admin:admin123@localhost:27017/?authSource=admin",
   "DatabaseName": "RefactorScore",
   "AnaliseCommitCollectionName": "AnaliseDeCommits",
   "AnaliseArquivoCollectionName": "AnaliseDeArquivos",
