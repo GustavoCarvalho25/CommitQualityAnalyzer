@@ -161,7 +161,9 @@ RefactorScore can be configured through the `appsettings.json` files:
 "MongoDB": {
   "ConnectionString": "mongodb://admin:admin123@localhost:27017",
   "DatabaseName": "RefactorScore",
-  "CollectionName": "CodeAnalyses"
+  "AnaliseCommitCollectionName": "AnaliseDeCommits",
+  "AnaliseArquivoCollectionName": "AnaliseDeArquivos",
+  "RecomendacoesCollectionName": "Recomendacoes"
 }
 ```
 
@@ -193,7 +195,10 @@ This will start the worker service, which will:
 You can access the analysis results through:
 
 - **MongoDB Express**: http://localhost:8081
-  - Navigate to the "RefactorScore" database and "CodeAnalyses" collection
+  - Navigate to the "RefactorScore" database and view the following collections:
+    - `AnaliseDeCommits`: Full commit analyses
+    - `AnaliseDeArquivos`: Individual file analyses
+    - `Recomendacoes`: Detailed recommendations for improving code
 
 - **Redis Commander**: http://localhost:8082
   - View cached analyses and intermediate results
