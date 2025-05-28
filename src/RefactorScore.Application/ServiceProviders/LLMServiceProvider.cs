@@ -59,7 +59,14 @@ namespace RefactorScore.Application.ServiceProviders
             services.AddSingleton<ILLMService, OllamaService>();
             
             // Registrar serviço de análise de código como singleton
-            services.AddSingleton<IAnalisadorCodigo, AnalisadorCodigo>();
+            services.AddSingleton<IAnalisadorCodigo, AnalisadorCodigo>(sp => {
+                var llmService = sp.GetRequiredService<ILLMService>();
+                var gitRepository = sp.GetRequiredService<IGitRepository>();
+                var logger = sp.GetRequiredService<ILogger<AnalisadorCodigo>>();
+                var analiseRepository = sp.GetRequiredService<IAnaliseRepository>();
+                
+                return new AnalisadorCodigo(llmService, gitRepository, logger, analiseRepository);
+            });
             
             return services;
         }
