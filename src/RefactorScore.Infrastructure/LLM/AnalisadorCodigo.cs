@@ -554,9 +554,30 @@ namespace RefactorScore.Infrastructure.LLM
                 await _analiseRepository.AdicionarAsync(analise);
                 _logger.LogInformation("✅ Análise completa do commit {CommitId} salva com sucesso no banco de dados", commit.Id);
                 
-                _logger.LogInformation("✅ Análise do commit {CommitId} concluída", commit.Id);
                 _logger.LogInformation("📊 Resumo: Nota geral: {NotaGeral:F1}, Arquivos analisados: {ArquivosAnalisados}, Recomendações: {Recomendacoes}", 
                     analise.NotaGeral, analise.AnalisesDeArquivos.Count, analise.Recomendacoes.Count);
+                
+                // Copiar propriedades do objeto Commit para a raiz do AnaliseDeCommit
+                if (commit != null)
+                {
+                    analise.Autor = commit.Autor;
+                    analise.Email = commit.Email;
+                    analise.DataDoCommit = commit.Data;
+                    
+                    // Preencher AnaliseCodigoLimpo com base nas análises dos arquivos
+                    if (analise.AnalisesDeArquivos.Any())
+                    {
+                        analise.AnaliseCodigoLimpo = new CodigoLimpo
+                        {
+                            NomenclaturaVariaveis = (int)Math.Round(analise.AnalisesDeArquivos.Average(a => a.Analise.NomenclaturaVariaveis)),
+                            TamanhoFuncoes = (int)Math.Round(analise.AnalisesDeArquivos.Average(a => a.Analise.TamanhoFuncoes)),
+                            UsoComentariosRelevantes = (int)Math.Round(analise.AnalisesDeArquivos.Average(a => a.Analise.UsoComentariosRelevantes)),
+                            CoesaoMetodos = (int)Math.Round(analise.AnalisesDeArquivos.Average(a => a.Analise.CoesaoMetodos)),
+                            EvitacaoCodigoMorto = (int)Math.Round(analise.AnalisesDeArquivos.Average(a => a.Analise.EvitacaoCodigoMorto)),
+                            Justificativas = new Dictionary<string, string>()
+                        };
+                    }
+                }
                 
                 return analise;
             }

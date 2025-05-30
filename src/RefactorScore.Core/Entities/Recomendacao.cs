@@ -44,14 +44,14 @@ namespace RefactorScore.Core.Entities
         public string ReferenciaArquivo { get; set; }
         
         /// <summary>
-        /// ID do commit ao qual esta recomendação está associada
+        /// ID do commit relacionado à recomendação
         /// </summary>
         public string IdCommit { get; set; }
         
         /// <summary>
         /// Data de criação da recomendação
         /// </summary>
-        public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
+        public DateTime DataCriacao { get; set; }
         
         /// <summary>
         /// Links ou recursos para estudo relacionados à recomendação
@@ -64,6 +64,7 @@ namespace RefactorScore.Core.Entities
         public Recomendacao()
         {
             Id = Guid.NewGuid().ToString();
+            DataCriacao = DateTime.UtcNow;
         }
         
         /// <summary>
@@ -76,6 +77,7 @@ namespace RefactorScore.Core.Entities
             Descricao = descricao;
             Tipo = tipo;
             Prioridade = prioridade;
+            DataCriacao = DateTime.UtcNow;
         }
     }
 } 
