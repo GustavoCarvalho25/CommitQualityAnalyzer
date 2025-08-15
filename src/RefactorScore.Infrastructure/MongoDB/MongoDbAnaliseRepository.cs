@@ -6,19 +6,13 @@ using RefactorScore.Core.Interfaces;
 
 namespace RefactorScore.Infrastructure.MongoDB
 {
-    /// <summary>
-    /// Implementação do repositório de análises usando MongoDB
-    /// </summary>
     public class MongoDbAnaliseRepository : IAnaliseRepository
     {
         private readonly IMongoCollection<AnaliseDeCommit> _analiseCommitCollection;
         private readonly IMongoCollection<AnaliseDeArquivo> _analiseArquivoCollection;
         private readonly IMongoCollection<Recomendacao> _recomendacoesCollection;
         private readonly ILogger<MongoDbAnaliseRepository> _logger;
-
-        /// <summary>
-        /// Construtor
-        /// </summary>
+        
         public MongoDbAnaliseRepository(
             IOptions<MongoDbOptions> options,
             ILogger<MongoDbAnaliseRepository> logger)
@@ -44,7 +38,7 @@ namespace RefactorScore.Infrastructure.MongoDB
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Erro ao inicializar repositório MongoDB");
+                _logger.LogError(ex, "Erro ao inicializar repositório MongoDB");
                 throw;
             }
         }

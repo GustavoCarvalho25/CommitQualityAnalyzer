@@ -33,15 +33,13 @@ namespace RefactorScore.Infrastructure.LLM
             _logger = logger;
             _promptTemplates = promptTemplates;
             
-            // Configurar o client HTTP com a URL base do Ollama
             _httpClient.BaseAddress = new Uri(_options.BaseUrl);
             
-            // Garantir que o timeout do HttpClient está configurado corretamente
             _httpClient.Timeout = TimeSpan.FromSeconds(_options.TimeoutSegundos);
             
-            _logger.LogInformation("🤖 Serviço Ollama inicializado com base URL: {BaseUrl}", _options.BaseUrl);
-            _logger.LogInformation("⏱️ Timeout configurado: {TimeoutSegundos} segundos", _options.TimeoutSegundos);
-            _logger.LogInformation("⏱️ HttpClient Timeout: {HttpClientTimeout} segundos", _httpClient.Timeout.TotalSeconds);
+            _logger.LogInformation("Serviço Ollama inicializado com base URL: {BaseUrl}", _options.BaseUrl);
+            _logger.LogInformation("Timeout configurado: {TimeoutSegundos} segundos", _options.TimeoutSegundos);
+            _logger.LogInformation("HttpClient Timeout: {HttpClientTimeout} segundos", _httpClient.Timeout.TotalSeconds);
         }
         
         /// <inheritdoc/>

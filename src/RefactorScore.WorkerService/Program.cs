@@ -3,7 +3,6 @@ using RefactorScore.Infrastructure.MongoDB;
 using RefactorScore.WorkerService;
 using Serilog;
 
-// Configurar Serilog
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
@@ -17,51 +16,43 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("🚀 Iniciando RefactorScore Worker");
+    Log.Information("Iniciando RefactorScore Worker");
 
     var builder = Host.CreateApplicationBuilder(args);
 
-    // Usar Serilog
     builder.Logging.ClearProviders();
     builder.Logging.AddSerilog();
 
-    // Adicionar serviços do Git
     builder.Services.AddGitServices(builder.Configuration);
-
-    // Adicionar serviços LLM
     builder.Services.AddLLMServices(builder.Configuration);
-    
-    // Adicionar serviços MongoDB
     builder.Services.AddMongoDb(builder.Configuration);
 
-    // Adicionar worker
     builder.Services.AddHostedService<Worker>();
 
     var host = builder.Build();
     
-    // Verificar conexão com MongoDB
     using (var scope = host.Services.CreateScope())
     {
         var serviceProvider = scope.ServiceProvider;
         
-        Log.Information("🔍 Verificando conexão com banco de dados MongoDB...");
+        Log.Information("Verificando conexão com banco de dados MongoDB...");
         bool conexaoMongoDB = await serviceProvider.VerificarConexaoMongoDbAsync();
         
         if (!conexaoMongoDB)
         {
-            Log.Fatal("❌ ERRO CRÍTICO: Não foi possível conectar ao MongoDB. Verifique se o servidor está rodando e as credenciais estão corretas.");
+            Log.Fatal("ERRO CRÍTICO: Não foi possível conectar ao MongoDB. Verifique se o servidor está rodando e as credenciais estão corretas.");
             return 1;
         }
     }
     
-    Log.Information("✅ Serviços configurados, iniciando execução");
+    Log.Information("Serviços configurados, iniciando execução");
     host.Run();
     
     return 0;
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "❌ Erro fatal na inicialização do Worker");
+    Log.Fatal(ex, "Erro fatal na inicialização do Worker");
     return 1;
 }
 finally
