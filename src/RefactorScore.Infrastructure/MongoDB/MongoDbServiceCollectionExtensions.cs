@@ -7,17 +7,8 @@ using RefactorScore.Core.Interfaces;
 
 namespace RefactorScore.Infrastructure.MongoDB
 {
-    /// <summary>
-    /// Extensões para registrar serviços do MongoDB
-    /// </summary>
     public static class MongoDbServiceCollectionExtensions
     {
-        /// <summary>
-        /// Adiciona os serviços do MongoDB ao container de DI
-        /// </summary>
-        /// <param name="services">Collection de serviços</param>
-        /// <param name="configuration">Configuração da aplicação</param>
-        /// <returns>Collection de serviços modificada</returns>
         public static IServiceCollection AddMongoDb(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<MongoDbOptions>(configuration.GetSection("MongoDB"))
@@ -26,11 +17,6 @@ namespace RefactorScore.Infrastructure.MongoDB
             return services;
         }
         
-        /// <summary>
-        /// Verifica se a conexão com o MongoDB está funcionando
-        /// </summary>
-        /// <param name="serviceProvider">Provider de serviços</param>
-        /// <returns>True se a conexão estiver ok, False caso contrário</returns>
         public static async Task<bool> VerificarConexaoMongoDbAsync(this IServiceProvider serviceProvider)
         {
             var logger = serviceProvider.GetRequiredService<ILogger<MongoDbAnaliseRepository>>();

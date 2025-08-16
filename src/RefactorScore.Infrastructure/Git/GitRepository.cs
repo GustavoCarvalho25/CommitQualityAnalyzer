@@ -310,7 +310,6 @@ namespace RefactorScore.Infrastructure.Git
                 }
                 catch (Exception)
                 {
-                    // Em caso de erro, retorna null
                     return null;
                 }
             });
@@ -336,7 +335,6 @@ namespace RefactorScore.Infrastructure.Git
                         ContextLines = 3
                     };
                     
-                    // Tenta obter o diff com filtro de caminho
                     try
                     {
                         var patch = repo.Diff.Compare<Patch>(commitAntigo.Tree, commitNovo.Tree,
@@ -346,7 +344,6 @@ namespace RefactorScore.Infrastructure.Git
                     }
                     catch
                     {
-                        // Fallback para diff sem filtro
                         return null;
                     }
                 }
@@ -376,7 +373,6 @@ namespace RefactorScore.Infrastructure.Git
                     {
                         if (commit.Parents.Count() == 0)
                         {
-                            // Para o primeiro commit, diff de todas as adições
                             var patch = repo.Diff.Compare<Patch>(null, commit.Tree, options);
                             return patch;
                         }
@@ -389,7 +385,6 @@ namespace RefactorScore.Infrastructure.Git
                     }
                     catch
                     {
-                        // Em caso de erro, retorna string vazia
                         return string.Empty;
                     }
                 }
@@ -409,41 +404,21 @@ namespace RefactorScore.Infrastructure.Git
                     
                     if (repoValido)
                     {
-                        _logger.LogInformation("✅ Repositório Git válido encontrado em: {Caminho}", caminho);
+                        _logger.LogInformation("Repositório Git válido encontrado em: {Caminho}", caminho);
                     }
                     else
                     {
-                        _logger.LogWarning("⚠️ Diretório não é um repositório Git válido: {Caminho}", caminho);
+                        _logger.LogWarning("Diretório não é um repositório Git válido: {Caminho}", caminho);
                     }
                     
                     return repoValido;
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "❌ Erro ao validar repositório Git: {Mensagem}", ex.Message);
+                    _logger.LogError(ex, "Erro ao validar repositório Git: {Mensagem}", ex.Message);
                     return false;
                 }
             });
-        }
-        
-        /// <summary>
-        /// Verifica se um arquivo é código fonte com base na extensão
-        /// </summary>
-        private bool VerificarSeArquivoEhCodigoFonte(string caminhoArquivo)
-        {
-            string extensao = Path.GetExtension(caminhoArquivo).ToLowerInvariant();
-            
-            // Lista de extensões de código fonte
-            var extensoesCodigo = new[] 
-            { 
-                ".cs", ".java", ".js", ".ts", ".py", ".rb", ".php", ".go", 
-                ".c", ".cpp", ".h", ".hpp", ".swift", ".kt", ".rs", ".m", 
-                ".scala", ".groovy", ".dart", ".sh", ".pl", ".ex", ".exs",
-                ".clj", ".fs", ".ml", ".hs", ".jsx", ".tsx", ".vue", ".razor",
-                ".cshtml", ".vb", ".ps1", ".lua"
-            };
-            
-            return extensoesCodigo.Contains(extensao);
         }
         
         #region Métodos auxiliares

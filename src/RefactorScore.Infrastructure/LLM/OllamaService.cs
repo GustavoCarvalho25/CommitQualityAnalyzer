@@ -71,7 +71,7 @@ namespace RefactorScore.Infrastructure.LLM
         }
         
         /// <inheritdoc/>
-        public async Task<string> ProcessarPromptAsync(
+        private async Task<string> ProcessarPromptAsync(
             string prompt, 
             string? modelo = null, 
             float temperatura = 0.1f, 
@@ -666,7 +666,7 @@ namespace RefactorScore.Infrastructure.LLM
         }
         
         /// <inheritdoc/>
-        public async Task<bool> VerificarModeloDisponivelAsync(string nomeModelo)
+        private async Task<bool> VerificarModeloDisponivelAsync(string nomeModelo)
         {
             try
             {

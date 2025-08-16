@@ -1,4 +1,4 @@
-FROM mistral:latest
+FROM deepseek-coder:6.7b-instruct-q4_0
 
 # Configurações do modelo
 PARAMETER temperature 0.1

@@ -47,6 +47,7 @@ namespace RefactorScore.Application.ServiceProviders
                 
                 logger.LogInformation("Configurando HttpClient com timeout de {Timeout} segundos", options.TimeoutSegundos);
             });
+            
             services.AddSingleton<ILLMService, OllamaService>();
             
             services.AddSingleton<IAnalisadorCodigo, AnalisadorCodigo>(sp => {

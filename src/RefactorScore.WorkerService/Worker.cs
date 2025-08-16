@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using RefactorScore.Application.ServiceProviders;
+using RefactorScore.Application.Options;
 using RefactorScore.Core.Interfaces;
 
 namespace RefactorScore.WorkerService;
