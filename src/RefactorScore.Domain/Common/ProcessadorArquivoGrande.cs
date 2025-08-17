@@ -1,23 +1,11 @@
 using System.Text;
 
-namespace RefactorScore.Core.Common
+namespace RefactorScore.Domain.Common
 {
-    /// <summary>
-    /// Classe para processar e fragmentar arquivos grandes para análise
-    /// </summary>
     public static class ProcessadorArquivoGrande
     {
-        /// <summary>
-        /// Tamanho máximo do conteúdo a ser enviado para análise (50KB)
-        /// </summary>
         public const int TAMANHO_MAXIMO_ANALISE = 50_000;
         
-        /// <summary>
-        /// Prepara o conteúdo de um arquivo para análise, lidando com limitações de tamanho
-        /// </summary>
-        /// <param name="conteudo">Conteúdo original do arquivo</param>
-        /// <param name="linhasModificadas">Índice aproximado das linhas modificadas (opcional)</param>
-        /// <returns>Conteúdo processado adequado para análise</returns>
         public static string PrepararConteudoParaAnalise(string conteudo, int linhasModificadas = -1)
         {
             if (string.IsNullOrEmpty(conteudo) || conteudo.Length <= TAMANHO_MAXIMO_ANALISE)
@@ -36,12 +24,6 @@ namespace RefactorScore.Core.Common
             return ExtrairPartesRelevantes(conteudo);
         }
         
-        /// <summary>
-        /// Extrai as linhas próximas às modificações
-        /// </summary>
-        /// <param name="linhas">Array com todas as linhas do arquivo</param>
-        /// <param name="centroModificacoes">Índice aproximado das modificações</param>
-        /// <returns>String com as linhas relevantes</returns>
         private static string ExtrairLinhasRelevantes(string[] linhas, int centroModificacoes)
         {
             // Calculamos o número de linhas que podemos incluir antes e depois
@@ -92,11 +74,6 @@ namespace RefactorScore.Core.Common
             return sb.ToString();
         }
         
-        /// <summary>
-        /// Extrai partes relevantes de um arquivo grande
-        /// </summary>
-        /// <param name="conteudo">Conteúdo original</param>
-        /// <returns>Conteúdo processado com partes inicial, central e final</returns>
         private static string ExtrairPartesRelevantes(string conteudo)
         {
             // Calculamos quanto extrair de cada parte (início, meio e fim)

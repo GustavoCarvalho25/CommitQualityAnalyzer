@@ -1,5 +1,4 @@
-using RefactorScore.Application.ServiceProviders;
-using RefactorScore.Infrastructure.MongoDB;
+using CrossCutting.IoC.DependenceInjection;
 using RefactorScore.WorkerService;
 using Serilog;
 
@@ -16,43 +15,27 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Iniciando RefactorScore Worker");
+    Log.Information("🚀 Starting RefactorScore Worker");
 
     var builder = Host.CreateApplicationBuilder(args);
 
     builder.Logging.ClearProviders();
     builder.Logging.AddSerilog();
 
-    builder.Services.AddGitServices(builder.Configuration);
-    builder.Services.AddLLMServices(builder.Configuration);
-    builder.Services.AddMongoDb(builder.Configuration);
+    builder.Services.AddRefactorScoreServices(builder.Configuration);
 
     builder.Services.AddHostedService<Worker>();
 
     var host = builder.Build();
     
-    using (var scope = host.Services.CreateScope())
-    {
-        var serviceProvider = scope.ServiceProvider;
-        
-        Log.Information("Verificando conexão com banco de dados MongoDB...");
-        bool conexaoMongoDB = await serviceProvider.VerificarConexaoMongoDbAsync();
-        
-        if (!conexaoMongoDB)
-        {
-            Log.Fatal("ERRO CRÍTICO: Não foi possível conectar ao MongoDB. Verifique se o servidor está rodando e as credenciais estão corretas.");
-            return 1;
-        }
-    }
-    
-    Log.Information("Serviços configurados, iniciando execução");
-    host.Run();
+    Log.Information("Services configured successfully, starting execution");
+    await host.RunAsync();
     
     return 0;
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "Erro fatal na inicialização do Worker");
+    Log.Fatal(ex, "Fatal error during Worker initialization");
     return 1;
 }
 finally

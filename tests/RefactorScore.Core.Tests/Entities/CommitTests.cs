@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using RefactorScore.Core.Entities;
+using RefactorScore.Domain.Entities;
 using Xunit;
 
 namespace RefactorScore.Core.Tests.Entities

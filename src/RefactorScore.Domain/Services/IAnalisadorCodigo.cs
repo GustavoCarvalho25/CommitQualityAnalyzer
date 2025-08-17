@@ -1,6 +1,6 @@
-using RefactorScore.Core.Entities;
+using RefactorScore.Domain.Entities;
 
-namespace RefactorScore.Core.Interfaces;
+namespace RefactorScore.Domain.Interfaces;
 
 public interface IAnalisadorCodigo
 {

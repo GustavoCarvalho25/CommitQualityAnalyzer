@@ -1,4 +1,4 @@
-namespace RefactorScore.Core.Interfaces
+namespace RefactorScore.Domain.Interfaces
 {
     public interface IRepository<T> where T : class
     {

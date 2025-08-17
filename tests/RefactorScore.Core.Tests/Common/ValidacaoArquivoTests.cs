@@ -1,6 +1,6 @@
 using System.Text;
-using RefactorScore.Core.Common;
-using RefactorScore.Core.Entities;
+using RefactorScore.Domain.Common;
+using RefactorScore.Domain.Entities;
 
 namespace RefactorScore.Core.Tests.Common
 {

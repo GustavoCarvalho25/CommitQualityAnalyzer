@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
 using Moq;
-using RefactorScore.Core.Entities;
+using RefactorScore.Domain.Entities;
 using RefactorScore.Infrastructure.Git;
 using Xunit;
 

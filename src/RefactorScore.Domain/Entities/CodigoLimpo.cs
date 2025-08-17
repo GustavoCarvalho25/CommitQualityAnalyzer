@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RefactorScore.Core.Entities
+namespace RefactorScore.Domain.Entities
 {
     public class CodigoLimpo
     {

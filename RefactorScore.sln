@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12A59917-BD56-498B-8CC2-23F1678DCF3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Core", "src\RefactorScore.Core\RefactorScore.Core.csproj", "{66DC8FE7-2B18-49C9-B195-F023D47C1904}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Domain", "src\RefactorScore.Domain\RefactorScore.Domain.csproj", "{66DC8FE7-2B18-49C9-B195-F023D47C1904}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Application", "src\RefactorScore.Application\RefactorScore.Application.csproj", "{04F87545-D2C2-4FB2-8A99-9C4889D2BEF4}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Core.Tests", "tests\RefactorScore.Core.Tests\RefactorScore.Core.Tests.csproj", "{6B54373E-0054-4EFF-95D9-FFD6C483589E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Infrastructure.Tests", "tests\RefactorScore.Infrastructure.Tests\RefactorScore.Infrastructure.Tests.csproj", "{7B20F8B0-C2E6-4F39-B169-005BEEEBAFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.IoC", "CrossCutting.IoC\CrossCutting.IoC.csproj", "{EA54B24E-194B-4993-83A5-89AC083BE086}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{7B20F8B0-C2E6-4F39-B169-005BEEEBAFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B20F8B0-C2E6-4F39-B169-005BEEEBAFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B20F8B0-C2E6-4F39-B169-005BEEEBAFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA54B24E-194B-4993-83A5-89AC083BE086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA54B24E-194B-4993-83A5-89AC083BE086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA54B24E-194B-4993-83A5-89AC083BE086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA54B24E-194B-4993-83A5-89AC083BE086}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{66DC8FE7-2B18-49C9-B195-F023D47C1904} = {12A59917-BD56-498B-8CC2-23F1678DCF3B}
@@ -60,5 +66,6 @@ Global
 		{A2334240-50AF-4303-9603-09C95487386C} = {12A59917-BD56-498B-8CC2-23F1678DCF3B}
 		{6B54373E-0054-4EFF-95D9-FFD6C483589E} = {8DA184A4-0935-49E0-9F6D-1C62319FD768}
 		{7B20F8B0-C2E6-4F39-B169-005BEEEBAFEE} = {8DA184A4-0935-49E0-9F6D-1C62319FD768}
+		{EA54B24E-194B-4993-83A5-89AC083BE086} = {12A59917-BD56-498B-8CC2-23F1678DCF3B}
 	EndGlobalSection
 EndGlobal

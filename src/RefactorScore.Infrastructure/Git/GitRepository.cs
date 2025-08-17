@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
-using RefactorScore.Core.Entities;
-using RefactorScore.Core.Interfaces;
-using Commit = RefactorScore.Core.Entities.Commit;
+using RefactorScore.Domain.Entities;
+using RefactorScore.Domain.Interfaces;
+using Commit = RefactorScore.Domain.Entities.Commit;
 
 namespace RefactorScore.Infrastructure.Git
 {
-    /// <summary>
-    /// Implementação da interface IGitRepository usando LibGit2Sharp
-    /// </summary>
     public class GitRepository : IGitRepository
     {
         private readonly string _repositoryPath;
@@ -33,7 +25,6 @@ namespace RefactorScore.Infrastructure.Git
             _logger.LogInformation("📂 Repositório Git inicializado em: {RepositoryPath}", _repositoryPath);
         }
         
-        /// <inheritdoc/>
         public async Task<List<Commit>> ObterCommitsPorPeriodoAsync(DateTime? dataInicio = null, DateTime? dataFim = null)
         {
             _logger.LogInformation("🔍 Buscando commits no período: {DataInicio} a {DataFim}", 
@@ -77,7 +68,6 @@ namespace RefactorScore.Infrastructure.Git
             });
         }
         
-        /// <inheritdoc/>
         public async Task<List<Commit>> ObterCommitsUltimosDiasAsync(int dias)
         {
             _logger.LogInformation("🔍 Buscando commits dos últimos {Dias} dias", dias);
@@ -86,7 +76,6 @@ namespace RefactorScore.Infrastructure.Git
             return await ObterCommitsPorPeriodoAsync(dataInicio);
         }
         
-        /// <inheritdoc/>
         public async Task<Commit?> ObterCommitPorIdAsync(string commitId)
         {
             _logger.LogInformation("🔍 Buscando commit por ID: {CommitId}", commitId);
@@ -111,7 +100,6 @@ namespace RefactorScore.Infrastructure.Git
             });
         }
         
-        /// <inheritdoc/>
         public async Task<List<MudancaDeArquivoNoCommit>> ObterMudancasNoCommitAsync(string commitId)
         {
             _logger.LogInformation("🔍 Buscando mudanças no commit: {CommitId}", commitId);
@@ -285,7 +273,6 @@ namespace RefactorScore.Infrastructure.Git
             });
         }
         
-        /// <inheritdoc/>
         public async Task<string?> ObterConteudoArquivoNoCommitAsync(string commitId, string caminhoArquivo)
         {
             return await Task.Run(() =>
@@ -315,7 +302,6 @@ namespace RefactorScore.Infrastructure.Git
             });
         }
         
-        /// <inheritdoc/>
         public async Task<string?> ObterDiffArquivoAsync(string commitIdAntigo, string commitIdNovo, string caminhoArquivo)
         {
             return await Task.Run(() =>
@@ -350,7 +336,6 @@ namespace RefactorScore.Infrastructure.Git
             });
         }
         
-        /// <inheritdoc/>
         public async Task<string?> ObterDiffCommitAsync(string commitId)
         {
             return await Task.Run(() =>
@@ -391,7 +376,6 @@ namespace RefactorScore.Infrastructure.Git
             });
         }
         
-        /// <inheritdoc/>
         public async Task<bool> ValidarRepositorioAsync(string caminho)
         {
             _logger.LogInformation("🔍 Validando repositório Git em: {Caminho}", caminho);

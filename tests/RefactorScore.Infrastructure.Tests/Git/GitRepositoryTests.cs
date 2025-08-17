@@ -1,5 +1,5 @@
 using LibGit2Sharp;
-using RefactorScore.Core.Entities;
+using RefactorScore.Domain.Entities;
 using RefactorScore.Infrastructure.Git;
 using Xunit;
 using Microsoft.Extensions.Logging;

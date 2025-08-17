@@ -4,9 +4,9 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Moq;
-using RefactorScore.Core.Common;
-using RefactorScore.Core.Entities;
-using RefactorScore.Core.Interfaces;
+using RefactorScore.Domain.Common;
+using RefactorScore.Domain.Entities;
+using RefactorScore.Domain.Interfaces;
 using RefactorScore.Infrastructure.LLM;
 using Xunit;
 

@@ -1,5 +1,5 @@
 using System.Text;
-using RefactorScore.Core.Common;
+using RefactorScore.Domain.Common;
 
 namespace RefactorScore.Core.Tests.Common
 {

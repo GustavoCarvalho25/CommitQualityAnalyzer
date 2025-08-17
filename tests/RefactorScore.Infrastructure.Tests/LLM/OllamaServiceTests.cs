@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using Moq.Protected;
-using RefactorScore.Core.Entities;
+using RefactorScore.Domain.Entities;
 using RefactorScore.Infrastructure.LLM;
 using Xunit;
 

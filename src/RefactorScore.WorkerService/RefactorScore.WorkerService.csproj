@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RefactorScore.Core\RefactorScore.Core.csproj" />
+    <ProjectReference Include="..\..\CrossCutting.IoC\CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\RefactorScore.Domain\RefactorScore.Domain.csproj" />
     <ProjectReference Include="..\RefactorScore.Application\RefactorScore.Application.csproj" />
     <ProjectReference Include="..\RefactorScore.Infrastructure\RefactorScore.Infrastructure.csproj" />
   </ItemGroup>

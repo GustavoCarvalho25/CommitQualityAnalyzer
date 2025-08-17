@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using RefactorScore.Core.Interfaces;
+using RefactorScore.Domain.Interfaces;
 
 namespace RefactorScore.Infrastructure.MongoDB
 {

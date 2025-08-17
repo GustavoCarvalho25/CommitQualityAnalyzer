@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RefactorScore.Core.Common;
+using RefactorScore.Domain.Common;
 using Xunit;
 
 namespace RefactorScore.Core.Tests.Common

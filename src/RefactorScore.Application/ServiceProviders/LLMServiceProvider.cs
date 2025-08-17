@@ -1,22 +1,14 @@
-using System;
-using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RefactorScore.Core.Interfaces;
+using RefactorScore.Domain.Interfaces;
 using RefactorScore.Infrastructure.LLM;
 
-namespace RefactorScore.Application.ServiceProviders
-{
-    public static class LLMServiceProvider
+namespace RefactorScore.Application.ServiceProviders;
+
+public static class LLMServiceProvider
     {
-        /// <summary>
-        /// Adiciona os serviços LLM ao contêiner de serviços
-        /// </summary>
-        /// <param name="services">Coleção de serviços</param>
-        /// <param name="configuration">Configuração da aplicação</param>
-        /// <returns>Coleção de serviços atualizada</returns>
         public static IServiceCollection AddLLMServices(this IServiceCollection services, IConfiguration configuration)
         {
             var ollamaConfig = configuration.GetSection("Ollama");
@@ -62,4 +54,3 @@ namespace RefactorScore.Application.ServiceProviders
             return services;
         }
     }
-} 

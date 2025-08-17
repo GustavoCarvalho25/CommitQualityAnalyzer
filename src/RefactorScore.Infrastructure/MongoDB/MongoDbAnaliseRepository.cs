@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using RefactorScore.Core.Entities;
-using RefactorScore.Core.Interfaces;
+using RefactorScore.Domain.Entities;
+using RefactorScore.Domain.Interfaces;
 
 namespace RefactorScore.Infrastructure.MongoDB
 {

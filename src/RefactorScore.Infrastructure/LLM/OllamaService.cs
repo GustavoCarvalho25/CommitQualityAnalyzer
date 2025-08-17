@@ -1,23 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RefactorScore.Core.Entities;
-using RefactorScore.Core.Interfaces;
+using RefactorScore.Domain.Entities;
+using RefactorScore.Domain.Interfaces;
 using System.Text.RegularExpressions;
-using System.Linq;
 
 namespace RefactorScore.Infrastructure.LLM
 {
-    /// <summary>
-    /// Implementação do serviço LLM utilizando Ollama
-    /// </summary>
     public class OllamaService : ILLMService
     {
         private readonly HttpClient _httpClient;
@@ -42,7 +34,6 @@ namespace RefactorScore.Infrastructure.LLM
             _logger.LogInformation("HttpClient Timeout: {HttpClientTimeout} segundos", _httpClient.Timeout.TotalSeconds);
         }
         
-        /// <inheritdoc/>
         public async Task<bool> IsAvailableAsync()
         {
             try
@@ -70,7 +61,6 @@ namespace RefactorScore.Infrastructure.LLM
             }
         }
         
-        /// <inheritdoc/>
         private async Task<string> ProcessarPromptAsync(
             string prompt, 
             string? modelo = null, 
@@ -138,7 +128,6 @@ namespace RefactorScore.Infrastructure.LLM
             }
         }
         
-        /// <inheritdoc/>
         public async Task<CodigoLimpo> AnalisarCodigoAsync(
             string codigo, 
             string linguagem, 

@@ -1,4 +1,4 @@
-namespace RefactorScore.Core.Entities
+namespace RefactorScore.Domain.Entities
 {
     public class MudancaDeArquivoNoCommit
     {

@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\RefactorScore.Infrastructure\RefactorScore.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\src\RefactorScore.Core\RefactorScore.Core.csproj" />
+    <ProjectReference Include="..\..\src\RefactorScore.Domain\RefactorScore.Domain.csproj" />
   </ItemGroup>
 
 </Project> 

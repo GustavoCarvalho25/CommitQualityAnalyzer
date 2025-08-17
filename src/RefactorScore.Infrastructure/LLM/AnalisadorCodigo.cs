@@ -1,14 +1,11 @@
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Logging;
-using RefactorScore.Core.Common;
-using RefactorScore.Core.Entities;
-using RefactorScore.Core.Interfaces;
+using RefactorScore.Domain.Common;
+using RefactorScore.Domain.Entities;
+using RefactorScore.Domain.Interfaces;
 
 namespace RefactorScore.Infrastructure.LLM
 {
-    /// <summary>
-    /// Implementação do analisador de código usando LLM
-    /// </summary>
     public class AnalisadorCodigo : IAnalisadorCodigo
     {
         private readonly ILLMService _llmService;
@@ -30,7 +27,6 @@ namespace RefactorScore.Infrastructure.LLM
             _resultadosCache = new Dictionary<string, Dictionary<string, CodigoLimpo>>();
         }
         
-        /// <inheritdoc/>
         public async Task<AnaliseDeCommit> AnalisarCommitAsync(string commitId)
         {
             try
@@ -85,10 +81,6 @@ namespace RefactorScore.Infrastructure.LLM
         }
         
         #region Métodos internos
-        
-        /// <summary>
-        /// Analisa internamente um commit
-        /// </summary>
         private async Task<AnaliseDeCommit> AnalisarCommitInternoAsync(Commit commit)
         {
             try
@@ -290,9 +282,6 @@ namespace RefactorScore.Infrastructure.LLM
             }
         }
         
-        /// <summary>
-        /// Analisa um arquivo específico e retorna sua análise de código limpo
-        /// </summary>
         private async Task<CodigoLimpo> AnalisarArquivoAsync(MudancaDeArquivoNoCommit arquivo)
         {
             try
@@ -340,9 +329,6 @@ namespace RefactorScore.Infrastructure.LLM
             }
         }
         
-        /// <summary>
-        /// Estima a linha central das modificações com base no tipo de mudança e conteúdo
-        /// </summary>
         private int EstimarLinhaModificada(MudancaDeArquivoNoCommit arquivo)
         {
             // Para arquivos adicionados ou removidos, não há uma linha específica modificada
@@ -379,9 +365,6 @@ namespace RefactorScore.Infrastructure.LLM
             return -1;
         }
         
-        /// <summary>
-        /// Gera recomendações para um arquivo específico
-        /// </summary>
         private async Task<List<Recomendacao>> GerarRecomendacoesParaArquivoAsync(
             CodigoLimpo analise, 
             string codigoFonte, 
@@ -423,9 +406,6 @@ namespace RefactorScore.Infrastructure.LLM
             }
         }
         
-        /// <summary>
-        /// Determina a linguagem de programação com base na extensão do arquivo
-        /// </summary>
         private string DeterminarLinguagem(string caminhoArquivo)
         {
             if (string.IsNullOrEmpty(caminhoArquivo))
@@ -456,9 +436,6 @@ namespace RefactorScore.Infrastructure.LLM
             };
         }
         
-        /// <summary>
-        /// Converte o tipo de mudança para uma descrição
-        /// </summary>
         private string ConverterTipoMudancaParaDescricao(TipoMudanca tipoMudanca)
         {
             return tipoMudanca switch
@@ -471,9 +448,6 @@ namespace RefactorScore.Infrastructure.LLM
             };
         }
         
-        /// <summary>
-        /// Gera uma justificativa para a análise do commit
-        /// </summary>
         private string GerarJustificativaCommit(AnaliseDeCommit analise, Dictionary<string, CodigoLimpo> resultadosAnalise)
         {
             // Se não tiver arquivos analisados
@@ -513,9 +487,6 @@ namespace RefactorScore.Infrastructure.LLM
             return justificativa;
         }
         
-        /// <summary>
-        /// Identifica os critérios com piores notas nas análises
-        /// </summary>
         private List<string> IdentificarCriteriosPiores(List<CodigoLimpo> analises)
         {
             if (analises == null || !analises.Any())
@@ -546,9 +517,6 @@ namespace RefactorScore.Infrastructure.LLM
                 .ToList();
         }
         
-        /// <summary>
-        /// Calcula métricas temporais para a análise
-        /// </summary>
         private Dictionary<string, double> CalcularMetricasTemporais(List<Commit> commits)
         {
             var metricas = new Dictionary<string, double>();
