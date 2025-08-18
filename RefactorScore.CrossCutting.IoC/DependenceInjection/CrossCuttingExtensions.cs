@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CrossCutting.IoC.DependenceInjection;
+namespace RefactorScore.CrossCutting.IoC.DependenceInjection;
 
 public static class CrossCuttingExtensions
 {

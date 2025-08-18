@@ -1,17 +1,16 @@
-using CrossCutting.IoC.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using RefactorScore.Application.Services;
+using RefactorScore.CrossCutting.IoC.Configuration;
 using RefactorScore.Domain.Repositories;
 using RefactorScore.Domain.Services;
 using RefactorScore.Infrastructure.Mappers;
-using RefactorScore.Infrastructure.MongoDB;
 using RefactorScore.Infrastructure.Repositories;
 using RefactorScore.Infrastructure.Services;
 
-namespace CrossCutting.IoC.DependenceInjection;
+namespace RefactorScore.CrossCutting.IoC.DependenceInjection;
 
 public static class InfraestructureServiceExtensions
 {
@@ -41,12 +40,12 @@ public static class InfraestructureServiceExtensions
         
         services.AddHttpClient();
 
-        services.AddScoped<ILLMServiceNew>(sp =>
+        services.AddScoped<ILLMService>(sp =>
         {
             var httpClient = sp.GetRequiredService<HttpClient>();
-            var logger = sp.GetRequiredService<ILogger<OllamaLLMService>>();
+            var logger = sp.GetRequiredService<ILogger<OllamaIllmService>>();
             var ollamaSettings = configuration.GetSection("Ollama").Get<OllamaSettings>();
-            return new OllamaLLMService(logger, httpClient, ollamaSettings.BaseUrl);
+            return new OllamaIllmService(logger, httpClient, ollamaSettings.BaseUrl);
         });
 
         return services;

@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Core.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.Infrastructure.Tests", "tests\RefactorScore.Infrastructure.Tests\RefactorScore.Infrastructure.Tests.csproj", "{7B20F8B0-C2E6-4F39-B169-005BEEEBAFEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.IoC", "CrossCutting.IoC\CrossCutting.IoC.csproj", "{EA54B24E-194B-4993-83A5-89AC083BE086}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorScore.CrossCutting.IoC", "RefactorScore.CrossCutting.IoC\RefactorScore.CrossCutting.IoC.csproj", "{EA54B24E-194B-4993-83A5-89AC083BE086}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

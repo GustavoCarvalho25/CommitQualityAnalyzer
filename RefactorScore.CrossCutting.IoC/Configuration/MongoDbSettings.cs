@@ -1,4 +1,4 @@
-namespace CrossCutting.IoC.Configuration;
+namespace RefactorScore.CrossCutting.IoC.Configuration;
 
 public class MongoDbSettings
 {

@@ -1,11 +1,10 @@
-using RefactorScore.Domain.Entities;
+using RefactorScore.Domain.Models;
+using RefactorScore.Domain.ValueObjects;
 
-namespace RefactorScore.Domain.Interfaces;
+namespace RefactorScore.Domain.Services;
+
 public interface ILLMService
 {
-    Task<bool> IsAvailableAsync();
-    Task<CodigoLimpo> AnalisarCodigoAsync(string codigo, string linguagem, string? contexto = null);
-        
-    Task<List<Recomendacao>> GerarRecomendacoesAsync(CodigoLimpo analise, string codigo, string linguagem);
-    Task<List<string>> ObterModelosDisponiveisAsync();
+    Task<LLMAnalysisResult> AnalyzeFileAsync(string filePath);
+    Task<List<LLMSuggestion>> GenerateSuggestionsAsync(string fileContent, CleanCodeRating rating);
 }

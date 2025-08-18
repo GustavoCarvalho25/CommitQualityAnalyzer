@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RefactorScore.Application.Services;
 using RefactorScore.Domain.Services;
 
-namespace CrossCutting.IoC.DependenceInjection;
+namespace RefactorScore.CrossCutting.IoC.DependenceInjection;
 
 public static class ApplicationServiceExtensions
 {

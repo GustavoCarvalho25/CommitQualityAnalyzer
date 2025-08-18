@@ -13,14 +13,14 @@ public class CommitAnalysisService : ICommitAnalysisService
     private ICommitAnalysisRepository _repository;
     private ILogger<CommitAnalysisService> _logger;
     private IGitServiceFacade _gitRepository;
-    private ILLMServiceNew _llmService;
+    private ILLMService _illmService;
 
-    public CommitAnalysisService(ICommitAnalysisRepository repository, ILogger<CommitAnalysisService> logger, IGitServiceFacade gitRepository, ILLMServiceNew llmService)
+    public CommitAnalysisService(ICommitAnalysisRepository repository, ILogger<CommitAnalysisService> logger, IGitServiceFacade gitRepository, ILLMService illmService)
     {
         _repository = repository;
         _logger = logger;
         _gitRepository = gitRepository;
-        _llmService = llmService;
+        _illmService = illmService;
     }
 
     public async Task<CommitAnalysis> AnalyzeCommitAsync(string commitId)
@@ -66,7 +66,7 @@ public class CommitAnalysisService : ICommitAnalysisService
             
             analysis.AddFile(commitFile);
             
-            var llmResult = await _llmService.AnalyzeFileAsync(file.Content);
+            var llmResult = await _illmService.AnalyzeFileAsync(file.Content);
             
             var rating = new CleanCodeRating(
                 llmResult.VariableScore,

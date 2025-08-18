@@ -7,13 +7,13 @@ using RefactorScore.Domain.ValueObjects;
 
 namespace RefactorScore.Application.Services;
 
-public class OllamaLLMService : ILLMServiceNew
+public class OllamaIllmService : ILLMService
 {
     private readonly HttpClient _httpClient;
-    private readonly ILogger<OllamaLLMService> _logger;
+    private readonly ILogger<OllamaIllmService> _logger;
     private readonly string _ollamaUrl;
 
-    public OllamaLLMService(ILogger<OllamaLLMService> logger, HttpClient httpClient, string ollamaUrl)
+    public OllamaIllmService(ILogger<OllamaIllmService> logger, HttpClient httpClient, string ollamaUrl)
     {
         _logger = logger;
         _httpClient = httpClient;

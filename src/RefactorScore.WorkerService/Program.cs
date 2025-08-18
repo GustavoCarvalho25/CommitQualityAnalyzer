@@ -1,4 +1,4 @@
-using CrossCutting.IoC.DependenceInjection;
+using RefactorScore.CrossCutting.IoC.DependenceInjection;
 using RefactorScore.WorkerService;
 using Serilog;
 
@@ -15,7 +15,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("🚀 Starting RefactorScore Worker");
+    Log.Information("Starting RefactorScore Worker");
 
     var builder = Host.CreateApplicationBuilder(args);
 

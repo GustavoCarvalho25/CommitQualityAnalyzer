@@ -1,6 +1,3 @@
-using Microsoft.Extensions.Options;
-using RefactorScore.Application.Options;
-using RefactorScore.Domain.Interfaces;
 using RefactorScore.Domain.Services;
 
 namespace RefactorScore.WorkerService;
