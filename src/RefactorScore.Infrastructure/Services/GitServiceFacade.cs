@@ -60,53 +60,42 @@ public class GitServiceFacade : IGitServiceFacade
 
     public async Task<List<CommitData>> GetCommitsByPeriodAsync(DateTime? startDate, DateTime? endDate)
     {
-        try
-        {
-            _logger.LogInformation("Getting commits by period: {StartDate} to {EndDate}", startDate, endDate);
+        _logger.LogInformation("Getting commits by period: {StartDate} to {EndDate}", startDate, endDate);
         
-            return await Task.Run(() =>
-            {
-                if (!Repository.IsValid(_repositoryPath))
-                {
-                    _logger.LogError("Invalid repository path: {RepositoryPath}", _repositoryPath);
-                    throw new InvalidOperationException($"Invalid repository path: {_repositoryPath}");
-                }
-
-                using var repo = new Repository(_repositoryPath);
-            
-                var commitFilter = new CommitFilter
-                {
-                    SortBy = CommitSortStrategies.Time,
-                    IncludeReachableFrom = repo.Head.CanonicalName
-                };
-
-                var commits = repo.Commits.QueryBy(commitFilter);
-            
-                var filteredCommits = commits
-                    .Where(commit =>
-                    {
-                        var commitDate = commit.Author.When.DateTime;
-                    
-                        if (startDate.HasValue && commitDate < startDate.Value)
-                            return false;
-                        
-                        if (endDate.HasValue && commitDate > endDate.Value)
-                            return false;
-                        
-                        return true;
-                    })
-                    .ToList();
-
-                _logger.LogInformation("Found {Count} commits in the specified period", filteredCommits.Count);
-            
-                return filteredCommits.Select(c => _mapper.MapCommitToCommitData(c)).ToList();
-            });
-        }
-        catch (Exception ex)
+        if (!Repository.IsValid(_repositoryPath))
         {
-            _logger.LogError(ex, "Error getting commits by period: {StartDate} to {EndDate}", startDate, endDate);
-            throw;
+            _logger.LogError("Invalid repository path: {RepositoryPath}", _repositoryPath);
+            throw new InvalidOperationException($"Invalid repository path: {_repositoryPath}");
         }
+
+        using var repo = new Repository(_repositoryPath);
+            
+        var commitFilter = new CommitFilter
+        {
+            SortBy = CommitSortStrategies.Time,
+            IncludeReachableFrom = repo.Head.CanonicalName
+        };
+
+        var commits = repo.Commits.QueryBy(commitFilter);
+            
+        var filteredCommits = commits
+            .Where(commit =>
+            {
+                var commitDate = commit.Author.When.DateTime;
+                    
+                if (startDate.HasValue && commitDate < startDate.Value)
+                    return false;
+                        
+                if (endDate.HasValue && commitDate > endDate.Value)
+                    return false;
+                        
+                return true;
+            })
+            .ToList();
+
+        _logger.LogInformation("Found {Count} commits in the specified period", filteredCommits.Count);
+            
+        return filteredCommits.Select(c => _mapper.MapCommitToCommitData(c)).ToList();
     }
 
     public async Task<List<FileChange>> GetCommitChangesAsync(string commitId)

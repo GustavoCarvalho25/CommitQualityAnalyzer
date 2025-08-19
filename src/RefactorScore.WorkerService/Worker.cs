@@ -21,6 +21,30 @@ public class Worker : BackgroundService
         {
             try
             {
+                _logger.LogInformation("Checking if repository is valid...");
+                var isValid = await _gitService.ValidateRepositoryAsync();
+                if (!isValid)
+                {
+                    _logger.LogError("Repository is not valid. Exiting worker service.");
+                    return;
+                }
+                
+                _logger.LogInformation("Checking MongoDB connection...");
+                var isMongoConnected = await _commitAnalysisService.CheckMongoConnectionAsync();
+                if (!isMongoConnected)
+                {
+                    _logger.LogError("MongoDB connection failed. Exiting worker service.");
+                    return;
+                }
+                
+                _logger.LogInformation("Checking LLM service connection...");
+                var isLLMConnected = await _commitAnalysisService.CheckLLMConnectionAsync();
+                if (!isLLMConnected)
+                {
+                    _logger.LogError("LLM service connection failed. Exiting worker service.");
+                    return;
+                }
+                
                 _logger.LogInformation("🚀 Starting commit analysis cycle at: {time}", DateTimeOffset.Now);
 
                 var recentCommits = await _gitService.GetCommitsByPeriodAsync(

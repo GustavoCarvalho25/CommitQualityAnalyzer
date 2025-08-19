@@ -8,7 +8,7 @@ public static class ApplicationServiceExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddScoped<ICommitAnalysisService, CommitAnalysisService>();
+        services.AddSingleton<ICommitAnalysisService, CommitAnalysisService>();
         
         return services;
     }
