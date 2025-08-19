@@ -1,0 +1,322 @@
+{
+  "commitAnalyses": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "commitId": "a1b2c3d4e5f6",
+      "author": "João Silva",
+      "email": "joao.silva@empresa.com",
+      "commitDate": "2024-01-15T10:30:00Z",
+      "analysisDate": "2024-01-15T11:00:00Z",
+      "language": "C#",
+      "addedLines": 150,
+      "removedLines": 45,
+      "overallNote": 8.2,
+      "rating": {
+        "variableNaming": 9,
+        "functionSizes": 8,
+        "noNeedsComments": 7,
+        "methodCohesion": 9,
+        "deadCode": 8,
+        "note": 8.2,
+        "quality": "VeryGood",
+        "justifies": {
+          "variableNaming": "Nomes de variáveis são descritivos e seguem convenções",
+          "functionSizes": "Funções têm tamanho adequado, maioria com menos de 20 linhas",
+          "noNeedsComments": "Código é autoexplicativo na maioria dos casos",
+          "methodCohesion": "Métodos têm responsabilidade única e bem definida",
+          "deadCode": "Não foi encontrado código morto ou não utilizado"
+        }
+      },
+      "files": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440001",
+          "path": "src/Services/UserService.cs",
+          "language": "C#",
+          "addedLines": 80,
+          "removedLines": 20,
+          "content": "public class UserService { ... }",
+          "hasAnalysis": true,
+          "rating": {
+            "variableNaming": 9,
+            "functionSizes": 8,
+            "noNeedsComments": 7,
+            "methodCohesion": 9,
+            "deadCode": 8,
+            "note": 8.2,
+            "quality": "VeryGood",
+            "justifies": {
+              "variableNaming": "Variáveis bem nomeadas como 'userRepository' e 'validationResult'",
+              "functionSizes": "Métodos têm tamanho adequado",
+              "noNeedsComments": "Código é claro e autoexplicativo",
+              "methodCohesion": "Cada método tem responsabilidade única",
+              "deadCode": "Não há código morto identificado"
+            }
+          },
+          "suggestions": [
+            {
+              "title": "Extrair método para validação de email",
+              "description": "A validação de email está duplicada em múltiplos métodos. Considere extrair para um método privado.",
+              "priority": "Medium",
+              "type": "Refactoring",
+              "difficult": "Easy",
+              "fileReference": "src/Services/UserService.cs:45",
+              "lastUpdate": "2024-01-15T11:00:00Z",
+              "studyResources": [
+                "https://refactoring.guru/extract-method",
+                "Clean Code - Robert C. Martin"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440002",
+          "path": "src/Models/User.cs",
+          "language": "C#",
+          "addedLines": 30,
+          "removedLines": 10,
+          "content": "public class User { ... }",
+          "hasAnalysis": true,
+          "rating": {
+            "variableNaming": 9,
+            "functionSizes": 9,
+            "noNeedsComments": 8,
+            "methodCohesion": 9,
+            "deadCode": 8,
+            "note": 8.6,
+            "quality": "VeryGood",
+            "justifies": {
+              "variableNaming": "Propriedades bem nomeadas",
+              "functionSizes": "Métodos são concisos",
+              "noNeedsComments": "Código é autoexplicativo",
+              "methodCohesion": "Métodos têm responsabilidade única",
+              "deadCode": "Não há código morto"
+            }
+          },
+          "suggestions": []
+        }
+      ],
+      "suggestions": [
+        {
+          "title": "Extrair método para validação de email",
+          "description": "A validação de email está duplicada em múltiplos métodos. Considere extrair para um método privado.",
+          "priority": "Medium",
+          "type": "Refactoring",
+          "difficult": "Easy",
+          "fileReference": "src/Services/UserService.cs:45",
+          "lastUpdate": "2024-01-15T11:00:00Z",
+          "studyResources": [
+            "https://refactoring.guru/extract-method",
+            "Clean Code - Robert C. Martin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "commitId": "b2c3d4e5f6g7",
+      "author": "Maria Santos",
+      "email": "maria.santos@empresa.com",
+      "commitDate": "2024-01-14T14:20:00Z",
+      "analysisDate": "2024-01-14T15:00:00Z",
+      "language": "C#",
+      "addedLines": 200,
+      "removedLines": 80,
+      "overallNote": 6.8,
+      "rating": {
+        "variableNaming": 7,
+        "functionSizes": 6,
+        "noNeedsComments": 7,
+        "methodCohesion": 7,
+        "deadCode": 7,
+        "note": 6.8,
+        "quality": "Good",
+        "justifies": {
+          "variableNaming": "Alguns nomes de variáveis poderiam ser mais descritivos",
+          "functionSizes": "Algumas funções são muito longas",
+          "noNeedsComments": "Código é razoavelmente claro",
+          "methodCohesion": "Métodos têm responsabilidades bem definidas",
+          "deadCode": "Não foi encontrado código morto"
+        }
+      },
+      "files": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440004",
+          "path": "src/Controllers/OrderController.cs",
+          "language": "C#",
+          "addedLines": 120,
+          "removedLines": 50,
+          "content": "public class OrderController : ControllerBase { ... }",
+          "hasAnalysis": true,
+          "rating": {
+            "variableNaming": 7,
+            "functionSizes": 6,
+            "noNeedsComments": 7,
+            "methodCohesion": 7,
+            "deadCode": 7,
+            "note": 6.8,
+            "quality": "Good",
+            "justifies": {
+              "variableNaming": "Alguns nomes como 'data' poderiam ser mais específicos",
+              "functionSizes": "Método ProcessOrder tem 45 linhas, muito longo",
+              "noNeedsComments": "Código é compreensível",
+              "methodCohesion": "Métodos têm responsabilidades definidas",
+              "deadCode": "Não há código morto"
+            }
+          },
+          "suggestions": [
+            {
+              "title": "Refatorar método ProcessOrder",
+              "description": "O método ProcessOrder tem 45 linhas e faz muitas coisas. Considere dividir em métodos menores.",
+              "priority": "High",
+              "type": "Refactoring",
+              "difficult": "Medium",
+              "fileReference": "src/Controllers/OrderController.cs:25",
+              "lastUpdate": "2024-01-14T15:00:00Z",
+              "studyResources": [
+                "https://refactoring.guru/extract-method",
+                "Clean Code - Robert C. Martin - Chapter 3"
+              ]
+            },
+            {
+              "title": "Melhorar nomes de variáveis",
+              "description": "Variáveis como 'data' e 'result' são muito genéricas. Use nomes mais descritivos.",
+              "priority": "Medium",
+              "type": "Naming",
+              "difficult": "Easy",
+              "fileReference": "src/Controllers/OrderController.cs:30",
+              "lastUpdate": "2024-01-14T15:00:00Z",
+              "studyResources": [
+                "Clean Code - Robert C. Martin - Chapter 2",
+                "https://blog.cleancoder.com/uncle-bob/2011/01/17/clean-code.html"
+              ]
+            }
+          ]
+        }
+      ],
+      "suggestions": [
+        {
+          "title": "Refatorar método ProcessOrder",
+          "description": "O método ProcessOrder tem 45 linhas e faz muitas coisas. Considere dividir em métodos menores.",
+          "priority": "High",
+          "type": "Refactoring",
+          "difficult": "Medium",
+          "fileReference": "src/Controllers/OrderController.cs:25",
+          "lastUpdate": "2024-01-14T15:00:00Z",
+          "studyResources": [
+            "https://refactoring.guru/extract-method",
+            "Clean Code - Robert C. Martin - Chapter 3"
+          ]
+        },
+        {
+          "title": "Melhorar nomes de variáveis",
+          "description": "Variáveis como 'data' e 'result' são muito genéricas. Use nomes mais descritivos.",
+          "priority": "Medium",
+          "type": "Naming",
+          "difficult": "Easy",
+          "fileReference": "src/Controllers/OrderController.cs:30",
+          "lastUpdate": "2024-01-14T15:00:00Z",
+          "studyResources": [
+            "Clean Code - Robert C. Martin - Chapter 2",
+            "https://blog.cleancoder.com/uncle-bob/2011/01/17/clean-code.html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "commitId": "c3d4e5f6g7h8",
+      "author": "Pedro Costa",
+      "email": "pedro.costa@empresa.com",
+      "commitDate": "2024-01-13T09:15:00Z",
+      "analysisDate": "2024-01-13T10:00:00Z",
+      "language": "C#",
+      "addedLines": 50,
+      "removedLines": 15,
+      "overallNote": 9.4,
+      "rating": {
+        "variableNaming": 10,
+        "functionSizes": 9,
+        "noNeedsComments": 9,
+        "methodCohesion": 10,
+        "deadCode": 9,
+        "note": 9.4,
+        "quality": "Excellent",
+        "justifies": {
+          "variableNaming": "Nomes de variáveis são extremamente descritivos",
+          "functionSizes": "Todas as funções são concisas e bem estruturadas",
+          "noNeedsComments": "Código é completamente autoexplicativo",
+          "methodCohesion": "Métodos têm responsabilidade única e bem definida",
+          "deadCode": "Código limpo sem redundâncias"
+        }
+      },
+      "files": [
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440006",
+          "path": "src/Utils/EmailValidator.cs",
+          "language": "C#",
+          "addedLines": 50,
+          "removedLines": 15,
+          "content": "public static class EmailValidator { ... }",
+          "hasAnalysis": true,
+          "rating": {
+            "variableNaming": 10,
+            "functionSizes": 9,
+            "noNeedsComments": 9,
+            "methodCohesion": 10,
+            "deadCode": 9,
+            "note": 9.4,
+            "quality": "Excellent",
+            "justifies": {
+              "variableNaming": "Nomes como 'emailAddress' e 'validationResult' são perfeitos",
+              "functionSizes": "Métodos são concisos e bem estruturados",
+              "noNeedsComments": "Código é autoexplicativo",
+              "methodCohesion": "Cada método tem responsabilidade única",
+              "deadCode": "Código limpo sem redundâncias"
+            }
+          },
+          "suggestions": []
+        }
+      ],
+      "suggestions": []
+    }
+  ],
+  "statistics": {
+    "totalCommits": 3,
+    "averageScore": 8.13,
+    "qualityDistribution": {
+      "Excellent": 1,
+      "VeryGood": 1,
+      "Good": 1,
+      "Acceptable": 0,
+      "NeedsImprovement": 0,
+      "Problematic": 0
+    },
+    "topAuthors": [
+      {
+        "author": "João Silva",
+        "averageScore": 8.2,
+        "commitsCount": 1
+      },
+      {
+        "author": "Maria Santos",
+        "averageScore": 6.8,
+        "commitsCount": 1
+      },
+      {
+        "author": "Pedro Costa",
+        "averageScore": 9.4,
+        "commitsCount": 1
+      }
+    ],
+    "mostCommonSuggestions": [
+      {
+        "type": "Refactoring",
+        "count": 2
+      },
+      {
+        "type": "Naming",
+        "count": 1
+      }
+    ]
+  }
+}
