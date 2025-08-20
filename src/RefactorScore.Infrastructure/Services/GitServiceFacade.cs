@@ -136,18 +136,18 @@ public class GitServiceFacade : IGitServiceFacade
             throw;
         }
     }
-
-    public Task<bool> ValidateRepositoryAsync(string repositoryPath)
+    
+    public Task<bool> ValidateRepositoryAsync()
     {
         try
         {
-            bool isValid = Repository.IsValid(repositoryPath);
-            _logger.LogInformation("Repository validation for {RepositoryPath}: {IsValid}", repositoryPath, isValid);
+            bool isValid = Repository.IsValid(_repositoryPath);
+            _logger.LogInformation("Repository validation for {RepositoryPath}: {IsValid}", _repositoryPath, isValid);
             return Task.FromResult(isValid);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error validating repository: {RepositoryPath}", repositoryPath);
+            _logger.LogError(ex, "Error validating repository: {RepositoryPath}", _repositoryPath);
             return Task.FromResult(false);
         }
     }

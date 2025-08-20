@@ -77,7 +77,9 @@ public class CommitAnalysisService : ICommitAnalysisService
                 llmResult.Justifications
             );
             
-            var suggestions = llmResult.Suggestions
+            var llmSuggestions = await _illmService.GenerateSuggestionsAsync(file.Content, rating);
+            
+            var suggestions = llmSuggestions
                 .Select(s => new Suggestion(
                     s.Title,
                     s.Description,

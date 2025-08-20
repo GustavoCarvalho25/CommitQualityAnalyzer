@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using RefactorScore.CrossCutting.IoC.DependenceInjection;
 using RefactorScore.WorkerService;
 using Serilog;
@@ -27,6 +28,40 @@ try
     builder.Services.AddHostedService<Worker>();
 
     var host = builder.Build();
+
+    using (var scope = host.Services.CreateScope())
+    {
+        var healthCheckService = scope.ServiceProvider.GetRequiredService<HealthCheckService>();
+        var healthReport = await healthCheckService.CheckHealthAsync();
+        
+        if (healthReport.Status != HealthStatus.Healthy)
+        {
+            Log.Fatal("Health check failed, shutting down.");
+            
+            foreach (var (key, value) in healthReport.Entries)
+            {
+                if (value.Status != HealthStatus.Healthy)
+                {
+                    Log.Fatal("  • {Service}: {Status} - {Description}", 
+                        key, value.Status, value.Description);
+
+                    if (value.Exception != null)
+                    {
+                        Log.Fatal("    Exception: {Exception}", value.Exception.Message);
+                    }
+                }
+            }
+            
+            return 1;
+        }
+        
+        Log.Information("All health checks passed successfully");
+        
+        foreach (var (key, value) in healthReport.Entries)
+        {
+            Log.Information("  • {Service}: {Status}", key, value.Status);
+        }
+    }
     
     Log.Information("Services configured successfully, starting execution");
     await host.RunAsync();

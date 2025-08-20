@@ -8,7 +8,8 @@ public static class CrossCuttingExtensions
     public static IServiceCollection AddRefactorScoreServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddApplicationServices();
-        services.AddInfraestructureServices(configuration);
+        services.AddInfrastructureServices(configuration);
+        services.AddHealthChecks(configuration);
         
         return services;
     }

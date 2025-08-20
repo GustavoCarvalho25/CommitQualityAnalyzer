@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using RefactorScore.Domain.Services;
 
 namespace RefactorScore.WorkerService;
@@ -7,12 +8,17 @@ public class Worker : BackgroundService
     private readonly ILogger<Worker> _logger;
     private readonly ICommitAnalysisService _commitAnalysisService;
     private readonly IGitServiceFacade _gitService;
+    private readonly HealthCheckService _healthCheckService;
 
-    public Worker(ILogger<Worker> logger, ICommitAnalysisService commitAnalysisService, IGitServiceFacade gitService)
+    public Worker(ILogger<Worker> logger,
+        ICommitAnalysisService commitAnalysisService,
+        IGitServiceFacade gitService,
+        HealthCheckService healthCheckService)
     {
         _logger = logger;
         _commitAnalysisService = commitAnalysisService;
         _gitService = gitService;
+        _healthCheckService = healthCheckService;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -21,31 +27,25 @@ public class Worker : BackgroundService
         {
             try
             {
-                _logger.LogInformation("Checking if repository is valid...");
-                var isValid = await _gitService.ValidateRepositoryAsync();
-                if (!isValid)
+                var healthReport = await _healthCheckService.CheckHealthAsync(stoppingToken);
+                
+                if (healthReport.Status != HealthStatus.Healthy)
                 {
-                    _logger.LogError("Repository is not valid. Exiting worker service.");
-                    return;
+                    _logger.LogWarning("Some services are unhealthy:");
+                    foreach (var (key, value) in healthReport.Entries.Where(e => e.Value.Status != HealthStatus.Healthy))
+                    {
+                        _logger.LogWarning("  • {Service}: {Status} - {Description}", key, value.Status, value.Description);
+                    }
+                    
+                    if (healthReport.Entries.Any(e => e.Key == "mongodb" && e.Value.Status == HealthStatus.Unhealthy))
+                    {
+                        _logger.LogError("MongoDB is down, skipping this cycle");
+                        await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
+                        continue;
+                    }
                 }
                 
-                _logger.LogInformation("Checking MongoDB connection...");
-                var isMongoConnected = await _commitAnalysisService.CheckMongoConnectionAsync();
-                if (!isMongoConnected)
-                {
-                    _logger.LogError("MongoDB connection failed. Exiting worker service.");
-                    return;
-                }
-                
-                _logger.LogInformation("Checking LLM service connection...");
-                var isLLMConnected = await _commitAnalysisService.CheckLLMConnectionAsync();
-                if (!isLLMConnected)
-                {
-                    _logger.LogError("LLM service connection failed. Exiting worker service.");
-                    return;
-                }
-                
-                _logger.LogInformation("🚀 Starting commit analysis cycle at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Starting commit analysis cycle at: {time}", DateTimeOffset.Now);
 
                 var recentCommits = await _gitService.GetCommitsByPeriodAsync(
                     DateTime.Now.AddDays(-7), 

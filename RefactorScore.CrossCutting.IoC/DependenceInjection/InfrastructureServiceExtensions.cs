@@ -12,10 +12,12 @@ using RefactorScore.Infrastructure.Services;
 
 namespace RefactorScore.CrossCutting.IoC.DependenceInjection;
 
-public static class InfraestructureServiceExtensions
+public static class InfrastructureServiceExtensions
 {
-    public static IServiceCollection AddInfraestructureServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
+        MongoDbMapper.RegisterMappings();
+        
         var mongoSettings = configuration.GetSection("MongoDB").Get<MongoDbSettings>(); 
         services.Configure<MongoDbSettings>(configuration.GetSection("MongoDB"));
         
@@ -45,7 +47,7 @@ public static class InfraestructureServiceExtensions
             var httpClient = sp.GetRequiredService<HttpClient>();
             var logger = sp.GetRequiredService<ILogger<OllamaIllmService>>();
             var ollamaSettings = configuration.GetSection("Ollama").Get<OllamaSettings>();
-            return new OllamaIllmService(logger, httpClient, ollamaSettings.BaseUrl);
+            return new OllamaIllmService(logger, httpClient, ollamaSettings.BaseUrl, configuration);
         });
 
         return services;

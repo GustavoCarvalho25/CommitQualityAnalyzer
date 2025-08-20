@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using RefactorScore.Domain.Models;
 using RefactorScore.Domain.Services;
@@ -12,12 +13,14 @@ public class OllamaIllmService : ILLMService
     private readonly HttpClient _httpClient;
     private readonly ILogger<OllamaIllmService> _logger;
     private readonly string _ollamaUrl;
+    private readonly IConfiguration _configuration;
 
-    public OllamaIllmService(ILogger<OllamaIllmService> logger, HttpClient httpClient, string ollamaUrl)
+    public OllamaIllmService(ILogger<OllamaIllmService> logger, HttpClient httpClient, string ollamaUrl, IConfiguration configuration)
     {
         _logger = logger;
         _httpClient = httpClient;
         _ollamaUrl = ollamaUrl;
+        _configuration = configuration;
     }
 
     public async Task<LLMAnalysisResult> AnalyzeFileAsync(string fileContent)
@@ -109,10 +112,11 @@ public class OllamaIllmService : ILLMService
 
     private async Task<string> CallOllamaAsync(string prompt)
     {
+        var model = _configuration["Ollama:Model"];
         var request = new
         {
-            model = "codellama:7b",
-            prompt = prompt,
+            model,
+            prompt,
             stream = false
         };
 
@@ -123,9 +127,25 @@ public class OllamaIllmService : ILLMService
         response.EnsureSuccessStatusCode();
 
         var responseContent = await response.Content.ReadAsStringAsync();
-        var result = JsonSerializer.Deserialize<OllamaResponse>(responseContent);
+        
+        using var doc = JsonDocument.Parse(responseContent);
+        var root = doc.RootElement;
 
-        return result.Response;
+        if (!root.TryGetProperty("response", out var responseProperty))
+        {
+            _logger.LogWarning("No 'response' property found in LLM response, using default values");
+            throw new InvalidOperationException("No 'response' property found in LLM response");
+        }
+        
+        var llmResponse = responseProperty.GetString();
+        
+        if (string.IsNullOrEmpty(llmResponse))
+        {
+            _logger.LogWarning("Empty LLM response, using default values");
+            throw new InvalidOperationException("Empty LLM response");;
+        }
+        
+        return llmResponse;
     }
 
     private LLMAnalysisResult ParseAnalysisResponse(string response)

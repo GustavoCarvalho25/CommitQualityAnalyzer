@@ -14,7 +14,7 @@ public partial class GitMapper
         _logger = logger;
     }
     
-    public CommitData MapCommitToCommitData(LibGit2Sharp.Commit libGitCommit)
+    public CommitData MapCommitToCommitData(Commit libGitCommit)
     {
         return new CommitData
         {
@@ -24,10 +24,11 @@ public partial class GitMapper
             Date = libGitCommit.Author.When.DateTime,
             Message = libGitCommit.Message,
             MessageShort = libGitCommit.MessageShort
+            
         };
     }
 
-    public List<FileChange> MapCommitChangesToFileChanges(LibGit2Sharp.Commit libGitCommit, Repository repo)
+    public List<FileChange> MapCommitChangesToFileChanges(Commit libGitCommit, Repository repo)
     {
         var changes = new List<FileChange>();
 
