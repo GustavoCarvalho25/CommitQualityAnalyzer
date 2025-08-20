@@ -29,7 +29,7 @@ public class OllamaIllmService : ILLMService
         {
             var prompt = BuildAnalysisPrompt(fileContent);
             var response = await CallOllamaAsync(prompt);
-            return ParseAnalysisResponse(response);
+            return await ParseAnalysisResponse(response);
         }
         catch (Exception ex)
         {
@@ -44,7 +44,7 @@ public class OllamaIllmService : ILLMService
         {
             var prompt = BuildSuggestionsPrompt(fileContent, rating);
             var response = await CallOllamaAsync(prompt);
-            return ParseSuggestionsResponse(response);
+            return await ParseSuggestionsResponse(response);
         }
         catch (Exception ex)
         {
@@ -96,7 +96,7 @@ public class OllamaIllmService : ILLMService
             Código:
             {fileContent}
 
-            Responda em JSON no formato:
+            Responda em JSON no formato (não altere o formato, precisa ser um json com exatamente estas chaves):
             {{
               ""variableScore"": 8,
               ""functionScore"": 7,
@@ -148,10 +148,12 @@ public class OllamaIllmService : ILLMService
         return llmResponse;
     }
 
-    private LLMAnalysisResult ParseAnalysisResponse(string response)
+    private async Task<LLMAnalysisResult> ParseAnalysisResponse(string response)
     {
         try
         {
+            _logger.LogDebug("Parsing analysis response: {Response}", response);
+            
             var jsonStart = response.IndexOf('{');
             var jsonEnd = response.LastIndexOf('}');
 
@@ -162,32 +164,28 @@ public class OllamaIllmService : ILLMService
             }
 
             var jsonContent = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
+            _logger.LogDebug("Extracted JSON: {Json}", jsonContent);
 
-            var jsonDoc = JsonDocument.Parse(jsonContent);
-            var root = jsonDoc.RootElement;
-
-            var result = new LLMAnalysisResult
+            if (TryParseAnalysisJson(jsonContent, out var result))
             {
-                VariableScore = root.GetProperty("variableScore").GetInt32(),
-                FunctionScore = root.GetProperty("functionScore").GetInt32(),
-                CommentScore = root.GetProperty("commentScore").GetInt32(),
-                CohesionScore = root.GetProperty("cohesionScore").GetInt32(),
-                DeadCodeScore = root.GetProperty("deadCodeScore").GetInt32()
-            };
-
-            if (root.TryGetProperty("justifications", out var justifications))
-            {
-                foreach (var prop in justifications.EnumerateObject())
-                {
-                    result.Justifications[prop.Name] = prop.Value.GetString() ?? "";
-                }
+                return result;
             }
 
-            return result;
+            _logger.LogWarning("Initial JSON parse failed, attempting LLM auto-correction");
+            var correctedJson = await FixJsonWithLLMAsync(jsonContent);
+            
+            if (correctedJson != null && TryParseAnalysisJson(correctedJson, out var correctedResult))
+            {
+                _logger.LogInformation("Successfully parsed analysis after LLM correction");
+                return correctedResult;
+            }
+
+            _logger.LogError("Failed to parse JSON even after LLM correction, using default values");
+            return GetDefaultAnalysisResult();
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error parsing LLM response: {Response}", response);
+            _logger.LogError(ex, "Error parsing analysis response: {Response}", response);
             return GetDefaultAnalysisResult();
         }
     }
@@ -212,101 +210,341 @@ public class OllamaIllmService : ILLMService
         };
     }
     
-    private List<LLMSuggestion> ParseSuggestionsResponse(string response)
-{
-    try
+    private async Task<List<LLMSuggestion>> ParseSuggestionsResponse(string response)
     {
-        _logger.LogInformation("Parsing suggestions response from LLM");
-        
-        var jsonStart = response.IndexOf('[');
-        var jsonEnd = response.LastIndexOf(']');
-        
-        if (jsonStart == -1 || jsonEnd == -1)
+        try
         {
-            _logger.LogWarning("No JSON array found in suggestions response, trying to find single object");
+            _logger.LogInformation("Parsing suggestions response from LLM");
             
-            jsonStart = response.IndexOf('{');
-            jsonEnd = response.LastIndexOf('}');
+            var jsonStart = response.IndexOf('[');
+            var jsonEnd = response.LastIndexOf(']');
             
             if (jsonStart == -1 || jsonEnd == -1)
             {
-                _logger.LogWarning("No JSON found in suggestions response");
+                _logger.LogWarning("No JSON array found in suggestions response, trying to find single object");
+                
+                jsonStart = response.IndexOf('{');
+                jsonEnd = response.LastIndexOf('}');
+                
+                if (jsonStart == -1 || jsonEnd == -1)
+                {
+                    _logger.LogWarning("No JSON found in suggestions response");
+                    return GetDefaultSuggestions();
+                }
+                
+                var singleObjectJson = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
+                if (TryParseSingleSuggestion(singleObjectJson, out var singleSuggestion))
+                {
+                    return new List<LLMSuggestion> { singleSuggestion };
+                }
                 return GetDefaultSuggestions();
             }
             
-            var singleObjectJson = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
-            var singleSuggestion = JsonSerializer.Deserialize<LLMSuggestion>(singleObjectJson);
-            return singleSuggestion != null ? new List<LLMSuggestion> { singleSuggestion } : GetDefaultSuggestions();
-        }
-        
-        var jsonContent = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
-        _logger.LogDebug("Extracted JSON content: {JsonContent}", jsonContent);
-        
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true,
-            AllowTrailingCommas = true
-        };
-        
-        var suggestions = JsonSerializer.Deserialize<List<LLMSuggestion>>(jsonContent, options);
-        
-        if (suggestions == null || !suggestions.Any())
-        {
-            _logger.LogWarning("Deserialized suggestions list is null or empty");
+            var jsonContent = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
+            _logger.LogDebug("Extracted JSON content: {JsonContent}", jsonContent);
+            
+            if (TryParseSuggestionsJson(jsonContent, out var suggestions))
+            {
+                return suggestions;
+            }
+
+            _logger.LogWarning("Initial suggestions JSON parse failed, attempting LLM auto-correction");
+            var correctedJson = await FixSuggestionsJsonWithLlmAsync(jsonContent);
+            
+            if (correctedJson != null && TryParseSuggestionsJson(correctedJson, out var correctedSuggestions))
+            {
+                _logger.LogInformation("Successfully parsed suggestions after LLM correction");
+                return correctedSuggestions;
+            }
+
+            _logger.LogError("Failed to parse suggestions JSON even after LLM correction, using default values");
             return GetDefaultSuggestions();
         }
-        
-        var validSuggestions = suggestions
-            .Where(s => !string.IsNullOrWhiteSpace(s.Title) && !string.IsNullOrWhiteSpace(s.Description))
-            .Take(5)
-            .ToList();
-        
-        _logger.LogInformation("Successfully parsed {Count} suggestions", validSuggestions.Count);
-        return validSuggestions;
-    }
-    catch (JsonException jsonEx)
-    {
-        _logger.LogError(jsonEx, "JSON parsing error in suggestions response: {Response}", response);
-        return GetDefaultSuggestions();
-    }
-    catch (Exception ex)
-    {
-        _logger.LogError(ex, "Error parsing suggestions response: {Response}", response);
-        return GetDefaultSuggestions();
-    }
-}
-
-private List<LLMSuggestion> GetDefaultSuggestions()
-{
-    return new List<LLMSuggestion>
-    {
-        new LLMSuggestion
+        catch (Exception ex)
         {
-            Title = "Revisar nomenclatura de variáveis",
-            Description = "Verificar se os nomes das variáveis são descritivos e seguem convenções",
-            Priority = "Medium",
-            Type = "CodeStyle",
-            Difficulty = "Easy",
-            StudyResources = new List<string> { "Clean Code - Chapter 2: Meaningful Names" }
-        },
-        new LLMSuggestion
-        {
-            Title = "Analisar tamanho das funções",
-            Description = "Verificar se as funções estão pequenas e focadas em uma única responsabilidade",
-            Priority = "Medium",
-            Type = "Structure",
-            Difficulty = "Medium",
-            StudyResources = new List<string> { "Clean Code - Chapter 3: Functions" }
-        },
-        new LLMSuggestion
-        {
-            Title = "Verificar necessidade de comentários",
-            Description = "Avaliar se o código é auto-explicativo ou se precisa de comentários",
-            Priority = "Low",
-            Type = "Documentation",
-            Difficulty = "Easy",
-            StudyResources = new List<string> { "Clean Code - Chapter 4: Comments" }
+            _logger.LogError(ex, "Error parsing suggestions response: {Response}", response);
+            return GetDefaultSuggestions();
         }
-    };
-}
+    }
+
+    private bool TryParseSuggestionsJson(string jsonContent, out List<LLMSuggestion> suggestions)
+    {
+        suggestions = null;
+        try
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                AllowTrailingCommas = true
+            };
+            
+            suggestions = JsonSerializer.Deserialize<List<LLMSuggestion>>(jsonContent, options);
+            
+            if (suggestions == null || !suggestions.Any())
+            {
+                _logger.LogWarning("Deserialized suggestions list is null or empty");
+                return false;
+            }
+            
+            var validSuggestions = suggestions
+                .Where(s => !string.IsNullOrWhiteSpace(s.Title) && !string.IsNullOrWhiteSpace(s.Description))
+                .Take(5)
+                .ToList();
+            
+            suggestions = validSuggestions;
+            _logger.LogInformation("Successfully parsed {Count} suggestions", validSuggestions.Count);
+            return true;
+        }
+        catch (JsonException ex)
+        {
+            _logger.LogDebug(ex, "Suggestions JSON parsing failed: {Error}", ex.Message);
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Unexpected error during suggestions JSON parsing: {Error}", ex.Message);
+            return false;
+        }
+    }
+
+    private bool TryParseSingleSuggestion(string jsonContent, out LLMSuggestion suggestion)
+    {
+        suggestion = null;
+        try
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                AllowTrailingCommas = true
+            };
+            
+            suggestion = JsonSerializer.Deserialize<LLMSuggestion>(jsonContent, options);
+            return suggestion != null && !string.IsNullOrWhiteSpace(suggestion.Title);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(ex, "Single suggestion parsing failed: {Error}", ex.Message);
+            return false;
+        }
+    }
+
+    private async Task<string> FixSuggestionsJsonWithLlmAsync(string brokenJson, int maxRetries = 5)
+    {
+        for (int attempt = 1; attempt <= maxRetries; attempt++)
+        {
+            try
+            {
+                _logger.LogInformation("Attempting suggestions JSON correction with LLM (attempt {Attempt}/{MaxRetries})", attempt, maxRetries);
+
+                var fixPrompt = BuildSuggestionsJsonFixPrompt(brokenJson);
+                var correctedResponse = await CallOllamaAsync(fixPrompt);
+                
+                var jsonStart = correctedResponse.IndexOf('[');
+                var jsonEnd = correctedResponse.LastIndexOf(']');
+                
+                if (jsonStart == -1 || jsonEnd == -1)
+                {
+                    _logger.LogWarning("LLM suggestions correction attempt {Attempt} did not return valid JSON array structure", attempt);
+                    continue;
+                }
+                
+                var correctedJson = correctedResponse.Substring(jsonStart, jsonEnd - jsonStart + 1);
+                _logger.LogDebug("LLM corrected suggestions JSON (attempt {Attempt}): {Json}", attempt, correctedJson);
+                
+                try
+                {
+                    JsonDocument.Parse(correctedJson);
+                    _logger.LogInformation("LLM successfully corrected suggestions JSON on attempt {Attempt}", attempt);
+                    return correctedJson;
+                }
+                catch (JsonException)
+                {
+                    _logger.LogWarning("LLM suggestions correction attempt {Attempt} still produced invalid JSON", attempt);
+                    brokenJson = correctedJson;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during LLM suggestions JSON correction attempt {Attempt}", attempt);
+            }
+        }
+        
+        _logger.LogError("Failed to correct suggestions JSON after {MaxRetries} attempts with LLM", maxRetries);
+        return null;
+    }
+
+    private string BuildSuggestionsJsonFixPrompt(string brokenJson)
+    {
+        return $@"
+            O JSON array abaixo está malformado e precisa ser corrigido. Por favor, corrija-o mantendo exatamente os mesmos dados, apenas corrigindo problemas de sintaxe como vírgulas extras, estrutura incorreta, etc.
+
+            JSON com problemas:
+            {brokenJson}
+
+            Retorne APENAS o JSON array corrigido, sem explicações adicionais. O JSON deve ser um array válido com esta estrutura:
+            [
+              {{
+                ""title"": ""texto"",
+                ""description"": ""texto"",
+                ""priority"": ""Medium"",
+                ""type"": ""CodeStyle"",
+                ""difficulty"": ""Easy"",
+                ""studyResources"": [""recurso1"", ""recurso2""]
+              }}
+            ]";
+    }
+
+    private List<LLMSuggestion> GetDefaultSuggestions()
+    {
+        return new List<LLMSuggestion>
+        {
+            new LLMSuggestion
+            {
+                Title = "Revisar nomenclatura de variáveis",
+                Description = "Verificar se os nomes das variáveis são descritivos e seguem convenções",
+                Priority = "Medium",
+                Type = "CodeStyle",
+                Difficulty = "Easy",
+                StudyResources = new List<string> { "Clean Code - Chapter 2: Meaningful Names" }
+            },
+            new LLMSuggestion
+            {
+                Title = "Analisar tamanho das funções",
+                Description = "Verificar se as funções estão pequenas e focadas em uma única responsabilidade",
+                Priority = "Medium",
+                Type = "Structure",
+                Difficulty = "Medium",
+                StudyResources = new List<string> { "Clean Code - Chapter 3: Functions" }
+            },
+            new LLMSuggestion
+            {
+                Title = "Verificar necessidade de comentários",
+                Description = "Avaliar se o código é auto-explicativo ou se precisa de comentários",
+                Priority = "Low",
+                Type = "Documentation",
+                Difficulty = "Easy",
+                StudyResources = new List<string> { "Clean Code - Chapter 4: Comments" }
+            }
+        };
+    }
+    private bool TryParseAnalysisJson(string jsonContent, out LLMAnalysisResult result)
+    {
+        result = null;
+        try
+        {
+            var jsonDoc = JsonDocument.Parse(jsonContent);
+            var root = jsonDoc.RootElement;
+
+            JsonElement scoreElement;
+            if (root.TryGetProperty("score", out var scoreProperty))
+            {
+                scoreElement = scoreProperty;
+                _logger.LogDebug("Found nested 'score' object");
+            }
+            else
+            {
+                scoreElement = root;
+                _logger.LogDebug("Using root object directly");
+            }
+
+            result = new LLMAnalysisResult
+            {
+                VariableScore = scoreElement.GetProperty("variableScore").GetInt32(),
+                FunctionScore = scoreElement.GetProperty("functionScore").GetInt32(),
+                CommentScore = scoreElement.GetProperty("commentScore").GetInt32(),
+                CohesionScore = scoreElement.GetProperty("cohesionScore").GetInt32(),
+                DeadCodeScore = scoreElement.GetProperty("deadCodeScore").GetInt32()
+            };
+
+            if (scoreElement.TryGetProperty("justifications", out var justifications))
+            {
+                foreach (var prop in justifications.EnumerateObject())
+                {
+                    result.Justifications[prop.Name] = prop.Value.GetString() ?? "";
+                }
+            }
+
+            _logger.LogInformation("Successfully parsed analysis: Variable={Variable}, Function={Function}, Comment={Comment}", 
+                result.VariableScore, result.FunctionScore, result.CommentScore);
+
+            return true;
+        }
+        catch (JsonException ex)
+        {
+            _logger.LogDebug(ex, "JSON parsing failed: {Error}", ex.Message);
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Unexpected error during JSON parsing: {Error}", ex.Message);
+            return false;
+        }
+    }
+
+    private async Task<string> FixJsonWithLLMAsync(string brokenJson, int maxRetries = 5)
+    {
+        for (int attempt = 1; attempt <= maxRetries; attempt++)
+        {
+            try
+            {
+                _logger.LogInformation("Attempting JSON correction with LLM (attempt {Attempt}/{MaxRetries})", attempt, maxRetries);
+
+                var fixPrompt = BuildJsonFixPrompt(brokenJson);
+                var correctedResponse = await CallOllamaAsync(fixPrompt);
+                
+                var jsonStart = correctedResponse.IndexOf('{');
+                var jsonEnd = correctedResponse.LastIndexOf('}');
+                
+                if (jsonStart == -1 || jsonEnd == -1)
+                {
+                    _logger.LogWarning("LLM correction attempt {Attempt} did not return valid JSON structure", attempt);
+                    continue;
+                }
+                
+                var correctedJson = correctedResponse.Substring(jsonStart, jsonEnd - jsonStart + 1);
+                _logger.LogDebug("LLM corrected JSON (attempt {Attempt}): {Json}", attempt, correctedJson);
+                
+                try
+                {
+                    JsonDocument.Parse(correctedJson);
+                    _logger.LogInformation("LLM successfully corrected JSON on attempt {Attempt}", attempt);
+                    return correctedJson;
+                }
+                catch (JsonException)
+                {
+                    _logger.LogWarning("LLM correction attempt {Attempt} still produced invalid JSON", attempt);
+                    brokenJson = correctedJson;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during LLM JSON correction attempt {Attempt}", attempt);
+            }
+        }
+        
+        _logger.LogError("Failed to correct JSON after {MaxRetries} attempts with LLM", maxRetries);
+        return null;
+    }
+
+    private string BuildJsonFixPrompt(string brokenJson)
+    {
+        return $@"
+            O JSON abaixo está malformado e precisa ser corrigido. Por favor, corrija-o mantendo exatamente a mesma estrutura e dados, apenas corrigindo problemas de sintaxe como vírgulas extras, quebras de linha incorretas, etc.
+
+            JSON com problemas:
+            {brokenJson}
+
+            Retorne APENAS o JSON corrigido, sem explicações adicionais. O JSON deve ter exatamente esta estrutura:
+            {{
+              ""variableScore"": número,
+              ""functionScore"": número,
+              ""commentScore"": número,
+              ""cohesionScore"": número,
+              ""deadCodeScore"": número,
+              ""justifications"": {{
+                ""VariableNaming"": ""texto"",
+                ""FunctionSizes"": ""texto""
+              }}
+            }}";
+    }
 }
