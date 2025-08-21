@@ -150,43 +150,46 @@ public class OllamaIllmService : ILLMService
 
     private async Task<LLMAnalysisResult> ParseAnalysisResponse(string response)
     {
+        var jsonContent = ExtractJsonFromResponse(response);
+    
+        for (int attempt = 0; attempt < 5; attempt++)
+        {
+            if (TryParseAnalysisJson(jsonContent, out var result))
+            {
+                return result;
+            }
+        
+            jsonContent = await FixJsonWithLlmAsync(jsonContent);
+            if (jsonContent == null) break;
+        }
+    
+        return GetDefaultAnalysisResult();
+    }
+
+    private string ExtractJsonFromResponse(string response)
+    {
         try
         {
-            _logger.LogDebug("Parsing analysis response: {Response}", response);
+            _logger.LogDebug("Extracting JSON from LLM response: {Response}", response);
             
             var jsonStart = response.IndexOf('{');
             var jsonEnd = response.LastIndexOf('}');
 
             if (jsonStart == -1 || jsonEnd == -1)
             {
-                _logger.LogWarning("No JSON found in LLM response, using default values");
-                return GetDefaultAnalysisResult();
+                _logger.LogWarning("No JSON found in LLM response");
+                return "{}";
             }
 
             var jsonContent = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
             _logger.LogDebug("Extracted JSON: {Json}", jsonContent);
-
-            if (TryParseAnalysisJson(jsonContent, out var result))
-            {
-                return result;
-            }
-
-            _logger.LogWarning("Initial JSON parse failed, attempting LLM auto-correction");
-            var correctedJson = await FixJsonWithLLMAsync(jsonContent);
             
-            if (correctedJson != null && TryParseAnalysisJson(correctedJson, out var correctedResult))
-            {
-                _logger.LogInformation("Successfully parsed analysis after LLM correction");
-                return correctedResult;
-            }
-
-            _logger.LogError("Failed to parse JSON even after LLM correction, using default values");
-            return GetDefaultAnalysisResult();
+            return jsonContent;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error parsing analysis response: {Response}", response);
-            return GetDefaultAnalysisResult();
+            _logger.LogError(ex, "Error extracting JSON from response: {Response}", response);
+            return "{}";
         }
     }
 
@@ -212,58 +215,56 @@ public class OllamaIllmService : ILLMService
     
     private async Task<List<LLMSuggestion>> ParseSuggestionsResponse(string response)
     {
+        var jsonContent = ExtractSuggestionsJsonFromResponse(response);
+    
+        for (int attempt = 0; attempt < 5; attempt++)
+        {
+            if (TryParseSuggestionsJson(jsonContent, out var result))
+            {
+                return result;
+            }
+        
+            jsonContent = await FixSuggestionsJsonWithLlmAsync(jsonContent);
+            if (jsonContent == null) break;
+        }
+    
+        return GetDefaultSuggestions();
+    }
+    
+    private string ExtractSuggestionsJsonFromResponse(string response)
+    {
         try
         {
-            _logger.LogInformation("Parsing suggestions response from LLM");
+            _logger.LogDebug("Extracting suggestions JSON from LLM response: {Response}", response);
             
             var jsonStart = response.IndexOf('[');
             var jsonEnd = response.LastIndexOf(']');
             
-            if (jsonStart == -1 || jsonEnd == -1)
+            if (jsonStart != -1 && jsonEnd != -1)
             {
-                _logger.LogWarning("No JSON array found in suggestions response, trying to find single object");
-                
-                jsonStart = response.IndexOf('{');
-                jsonEnd = response.LastIndexOf('}');
-                
-                if (jsonStart == -1 || jsonEnd == -1)
-                {
-                    _logger.LogWarning("No JSON found in suggestions response");
-                    return GetDefaultSuggestions();
-                }
-                
-                var singleObjectJson = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
-                if (TryParseSingleSuggestion(singleObjectJson, out var singleSuggestion))
-                {
-                    return new List<LLMSuggestion> { singleSuggestion };
-                }
-                return GetDefaultSuggestions();
+                var jsonContent = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
+                _logger.LogDebug("Extracted suggestions JSON array: {Json}", jsonContent);
+                return jsonContent;
             }
             
-            var jsonContent = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
-            _logger.LogDebug("Extracted JSON content: {JsonContent}", jsonContent);
+            jsonStart = response.IndexOf('{');
+            jsonEnd = response.LastIndexOf('}');
             
-            if (TryParseSuggestionsJson(jsonContent, out var suggestions))
+            if (jsonStart != -1 && jsonEnd != -1)
             {
-                return suggestions;
+                var singleObject = response.Substring(jsonStart, jsonEnd - jsonStart + 1);
+                var wrappedJson = $"[{singleObject}]";
+                _logger.LogDebug("Extracted single suggestion object, wrapped in array: {Json}", wrappedJson);
+                return wrappedJson;
             }
-
-            _logger.LogWarning("Initial suggestions JSON parse failed, attempting LLM auto-correction");
-            var correctedJson = await FixSuggestionsJsonWithLlmAsync(jsonContent);
             
-            if (correctedJson != null && TryParseSuggestionsJson(correctedJson, out var correctedSuggestions))
-            {
-                _logger.LogInformation("Successfully parsed suggestions after LLM correction");
-                return correctedSuggestions;
-            }
-
-            _logger.LogError("Failed to parse suggestions JSON even after LLM correction, using default values");
-            return GetDefaultSuggestions();
+            _logger.LogWarning("No JSON found in suggestions response");
+            return "[]";
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error parsing suggestions response: {Response}", response);
-            return GetDefaultSuggestions();
+            _logger.LogError(ex, "Error extracting suggestions JSON from response: {Response}", response);
+            return "[]";
         }
     }
 
@@ -303,27 +304,6 @@ public class OllamaIllmService : ILLMService
         catch (Exception ex)
         {
             _logger.LogWarning(ex, "Unexpected error during suggestions JSON parsing: {Error}", ex.Message);
-            return false;
-        }
-    }
-
-    private bool TryParseSingleSuggestion(string jsonContent, out LLMSuggestion suggestion)
-    {
-        suggestion = null;
-        try
-        {
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true,
-                AllowTrailingCommas = true
-            };
-            
-            suggestion = JsonSerializer.Deserialize<LLMSuggestion>(jsonContent, options);
-            return suggestion != null && !string.IsNullOrWhiteSpace(suggestion.Title);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogDebug(ex, "Single suggestion parsing failed: {Error}", ex.Message);
             return false;
         }
     }
@@ -481,7 +461,7 @@ public class OllamaIllmService : ILLMService
         }
     }
 
-    private async Task<string> FixJsonWithLLMAsync(string brokenJson, int maxRetries = 5)
+    private async Task<string> FixJsonWithLlmAsync(string brokenJson, int maxRetries = 5)
     {
         for (int attempt = 1; attempt <= maxRetries; attempt++)
         {

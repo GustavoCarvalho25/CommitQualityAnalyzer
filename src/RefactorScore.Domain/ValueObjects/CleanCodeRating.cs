@@ -13,7 +13,7 @@ public class CleanCodeRating : ValueObject
 
     public double Note => CalculateNote();
     
-    public IReadOnlyDictionary<string, string> Justifies { get; private set; }
+    public Dictionary<string, string> Justifies { get; private set; }
     
     private double CalculateNote()
         => (VariableNaming + FunctionSizes + NoNeedsComments + MethodCohesion + DeadCode) / 5.0;
@@ -41,7 +41,12 @@ public class CleanCodeRating : ValueObject
         NoNeedsComments = noNeedsComments;
         MethodCohesion = methodCohesion;
         DeadCode = deadCode;
-        Justifies = (justifies ?? new Dictionary<string, string>()).AsReadOnly();
+        Justifies = (justifies ?? new Dictionary<string, string>());
+    }
+
+    private CleanCodeRating()
+    {
+        Justifies = new Dictionary<string, string>();
     }
     
     protected override IEnumerable<object> GetEqualityComponents()

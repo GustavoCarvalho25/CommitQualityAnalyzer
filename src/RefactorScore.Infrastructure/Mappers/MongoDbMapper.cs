@@ -13,19 +13,35 @@ public static class MongoDbMapper
             BsonClassMap.RegisterClassMap<CleanCodeRating>(cm =>
             {
                 cm.AutoMap();
-                cm.MapCreator(r => new CleanCodeRating(
-                    r.VariableNaming,
-                    r.FunctionSizes,
-                    r.NoNeedsComments,
-                    r.MethodCohesion,
-                    r.DeadCode,
-                    r.Justifies as Dictionary<string, string>
-                ));
                 
                 cm.UnmapProperty(r => r.Note);
                 cm.UnmapProperty(r => r.Quality);
             });
         }
+
+        if (!BsonClassMap.IsClassMapRegistered(typeof(CommitAnalysis)))
+        {
+            BsonClassMap.RegisterClassMap<CommitAnalysis>(cm =>
+            {
+                cm.AutoMap();
+
+                cm.MapField("_files").SetElementName("Files");
+                cm.MapField("_suggestions").SetElementName("Suggestions");
+
+                cm.UnmapProperty(a => a.OverallNote);
+            });
+        }
+        
+        if (!BsonClassMap.IsClassMapRegistered(typeof(CommitFile)))
+        {
+            BsonClassMap.RegisterClassMap<CommitFile>(cm =>
+            {
+                cm.AutoMap();
+                
+                cm.MapField("_suggestions").SetElementName("Suggestions");
+                
+                cm.UnmapProperty(f => f.HasAnalysis);
+            });
+        }
     }
-    
 }
