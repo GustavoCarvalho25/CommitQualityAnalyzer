@@ -21,16 +21,28 @@ public class CommitAnalysis : Entity, IAggregateRoot
     public IReadOnlyList<CommitFile> Files => _files.AsReadOnly();
     public IReadOnlyList<Suggestion> Suggestions => _suggestions.AsReadOnly();
     
-    public CleanCodeRating? Rating { get; private set; }
-    public double OverallNote => CalculateOverallNote();
+    public CleanCodeRating? Rating => CalculateOverallRating();
+    
+    public double OverallNote => Rating?.Note ?? 0.0;
 
-    private double CalculateOverallNote()
+    private CleanCodeRating CalculateOverallRating()
     {
-        if (!_files.Any(f => f.HasAnalysis)) return 0.0;
+        if (!_files.Any(f => f.HasAnalysis)) return null;
         
         var analyzedFiles = _files.Where(f => f.HasAnalysis).ToList();
         
-        return analyzedFiles.Average(f => f.Rating.Note);
+        return new CleanCodeRating(
+            (int)analyzedFiles.Average(f => f.Rating.VariableNaming),
+            (int)analyzedFiles.Average(f => f.Rating.FunctionSizes),
+            (int)analyzedFiles.Average(f => f.Rating.NoNeedsComments),
+            (int)analyzedFiles.Average(f => f.Rating.MethodCohesion),
+            (int)analyzedFiles.Average(f => f.Rating.DeadCode),
+            analyzedFiles
+                .Where(f => f.HasAnalysis)
+                .SelectMany(f => f.Rating.Justifies)
+                .GroupBy(kvp => kvp.Key)
+                .ToDictionary(g => g.Key, g => g.First().Value)
+        );
     }
     
     public CommitAnalysis(string commitId, string author, string email, DateTime commitDate, DateTime analysisDate, string language, int addedLines, int removedLines)
@@ -51,7 +63,6 @@ public class CommitAnalysis : Entity, IAggregateRoot
             throw new DomainException($"File {file.Path} already exists in this analysis");
             
         _files.Add(file);
-        RecalculateOverallRating();
     }
     
     public void AddSuggestion(Suggestion suggestion) => _suggestions.Add(suggestion);
@@ -64,26 +75,5 @@ public class CommitAnalysis : Entity, IAggregateRoot
             
         file.SetAnalysis(rating, suggestions);
         _suggestions.AddRange(suggestions);
-        RecalculateOverallRating();
-    }
-    
-    private void RecalculateOverallRating()
-    {
-        if (!_files.Any(f => f.HasAnalysis)) return;
-        
-        var analyzedFiles = _files.Where(f => f.HasAnalysis).ToList();
-        
-        Rating = new CleanCodeRating(
-            (int)analyzedFiles.Average(f => f.Rating.VariableNaming),
-            (int)analyzedFiles.Average(f => f.Rating.FunctionSizes),
-            (int)analyzedFiles.Average(f => f.Rating.NoNeedsComments),
-            (int)analyzedFiles.Average(f => f.Rating.MethodCohesion),
-            (int)analyzedFiles.Average(f => f.Rating.DeadCode),
-            analyzedFiles
-                .Where(f => f.HasAnalysis)
-                .SelectMany(f => f.Rating.Justifies)
-                .GroupBy(kvp => kvp.Key)
-                .ToDictionary(g => g.Key, g => g.First().Value)
-        );
     }
 }

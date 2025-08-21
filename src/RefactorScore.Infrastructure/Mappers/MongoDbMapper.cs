@@ -28,7 +28,6 @@ public static class MongoDbMapper
                 cm.MapField("_files").SetElementName("Files");
                 cm.MapField("_suggestions").SetElementName("Suggestions");
 
-                cm.UnmapProperty(a => a.OverallNote);
             });
         }
         
@@ -41,6 +40,27 @@ public static class MongoDbMapper
                 cm.MapField("_suggestions").SetElementName("Suggestions");
                 
                 cm.UnmapProperty(f => f.HasAnalysis);
+            });
+        }
+        
+        if (!BsonClassMap.IsClassMapRegistered(typeof(Suggestion)))
+        {
+            BsonClassMap.RegisterClassMap<Suggestion>(cm =>
+            {
+                cm.AutoMap();
+                
+                var constructor = typeof(Suggestion).GetConstructor(new[] { 
+                    typeof(string), typeof(string), typeof(string), typeof(string), 
+                    typeof(string), typeof(string), typeof(DateTime), typeof(List<string>) 
+                });
+                
+                if (constructor != null)
+                {
+                    cm.MapConstructor(constructor)
+                      .SetArguments(new[] { "Title", "Description", "Priority", "Type", "Difficult", "FileReference", "LastUpdate", "StudyResources" });
+                }
+                
+                cm.SetIgnoreExtraElements(true);
             });
         }
     }

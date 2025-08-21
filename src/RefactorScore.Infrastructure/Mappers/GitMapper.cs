@@ -60,11 +60,14 @@ public partial class GitMapper
                     var blob = (Blob)entry.Target;
                     var content = blob.GetContentText();
                     
+                    var lines = content?.Split('\n') ?? Array.Empty<string>();
+                    var addedLines = lines.Length;
+                    
                     var change = new FileChange
                     {
                         Path = entry.Path,
                         Language = DetermineLanguage(entry.Path),
-                        AddedLines = 0,
+                        AddedLines = addedLines,
                         RemovedLines = 0,
                         ChangeType = type,
                         IsSourceCode = IsSourceCode(entry.Path),

@@ -50,8 +50,8 @@ public class CommitAnalysisService : ICommitAnalysisService
             commitData.Date,
             DateTime.UtcNow,
             DetermineOverallLanguage(filesChanges),
-            commitData.TotalAddedLines,
-            commitData.TotalRemovedLines
+            filesChanges.Sum(f => f.AddedLines),
+            filesChanges.Sum(f => f.RemovedLines)
         );
 
         foreach (var file in filesChanges.Where(c => c.IsSourceCode))
